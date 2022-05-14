@@ -1,5 +1,5 @@
 package system.cadastrainformacoes.cadinfo;
 
-public class CadInfoStatus implements CadInformacoes {
+public abstract class CadInfoStatus implements CadInformacoes {
     
 }
