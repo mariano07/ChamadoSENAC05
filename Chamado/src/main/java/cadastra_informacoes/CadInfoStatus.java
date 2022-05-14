@@ -1,10 +1,10 @@
-package system.cadastrainformacoes.cadinfo;
+package cadastra_informacoes;
 
 import javax.swing.JOptionPane;
 
 public abstract class CadInfoStatus implements CadInformacoes {
     
-     @Override
+    @Override
     public void cadInfor2(){
         double orc;
         String aprov,stat;
