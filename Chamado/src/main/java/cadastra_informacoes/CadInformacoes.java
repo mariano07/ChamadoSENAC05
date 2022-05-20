@@ -4,7 +4,7 @@ public interface CadInformacoes {
     
     void cadInfor1();
     
-    default void tecnico(){
+    default void pcs(){
         
     }
     
