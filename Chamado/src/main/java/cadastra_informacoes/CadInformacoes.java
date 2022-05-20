@@ -2,15 +2,10 @@ package cadastra_informacoes;
 
 public interface CadInformacoes {
     
-    void cadInfor1();
+    String[] cadInfo1();
     
-    default void pcs(){
-        
-    }
-    
-    void cadInfor2();
-    
-    default void orcamento(){
-        
+    default String[] pcs(){
+        String[] tudo = new String[13];
+        return tudo;
     }
 }
