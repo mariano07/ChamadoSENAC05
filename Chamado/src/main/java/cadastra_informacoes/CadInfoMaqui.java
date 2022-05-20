@@ -1,4 +1,4 @@
-package system.cadastrainformacoes.cadinfo;
+package cadastra_informacoes;
 
 import javax.swing.JOptionPane;
 
