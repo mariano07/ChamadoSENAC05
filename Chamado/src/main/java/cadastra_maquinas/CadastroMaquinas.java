@@ -1,4 +1,5 @@
 package cadastra_maquinas;
+import Chamado.Main;
 
 import javax.swing.JOptionPane;
 

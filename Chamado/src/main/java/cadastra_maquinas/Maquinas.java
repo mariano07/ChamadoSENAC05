@@ -1,4 +1,5 @@
 package cadastra_maquinas;
+import Chamado.Main;
 
 public interface Maquinas {
     int MaquinasColetadas();

@@ -1,4 +1,5 @@
 package cadastra_informacoes;
+import Chamado.Main;
 
 public interface CadInformacoes {
     

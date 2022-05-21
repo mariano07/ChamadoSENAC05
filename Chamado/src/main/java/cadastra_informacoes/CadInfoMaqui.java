@@ -1,4 +1,5 @@
 package cadastra_informacoes;
+import Chamado.Main;
 
 import javax.swing.JOptionPane;
 
