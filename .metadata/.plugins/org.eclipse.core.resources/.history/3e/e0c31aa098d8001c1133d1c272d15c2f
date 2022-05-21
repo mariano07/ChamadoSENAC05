@@ -1,0 +1,19 @@
+package src.main.java.defeito;
+
+
+import javax.swing.JOptionPane;
+
+public class Defeito {
+
+	
+		public static void PrintDefeito() {
+			
+			String defeito;
+		 
+			defeito = JOptionPane.showInputDialog(null, "defeito:");
+			JOptionPane.showMessageDialog(defeito);
+		
+		
+}
+		
+}

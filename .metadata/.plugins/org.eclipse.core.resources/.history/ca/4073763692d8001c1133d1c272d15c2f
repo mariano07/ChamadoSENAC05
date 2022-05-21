@@ -1,0 +1,13 @@
+package chamado;
+
+public class Chamado {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Defeito imprime = new Defeito();
+		
+		imprime.Defeito();
+	}
+
+}

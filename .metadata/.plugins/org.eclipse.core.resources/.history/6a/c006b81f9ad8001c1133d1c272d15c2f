@@ -1,0 +1,11 @@
+package paco;
+
+public class Defeito {
+	
+	public void Main (){
+		
+		JOptionPane.showMessageDialog(null, "Menu - Defeitos");
+		
+	}
+
+}

@@ -1,0 +1,13 @@
+package paco;
+
+import javax.swing.JOptionPane;
+
+public class Defeito {
+	
+	public void Imprime() {
+		
+		JOptionPane.showMessageDialog(null,"teste01");
+		
+	}
+
+}
