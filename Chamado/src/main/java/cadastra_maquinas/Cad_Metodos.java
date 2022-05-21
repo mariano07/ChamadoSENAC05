@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package cadastra_maquinas;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author alunos
- */
 public abstract class Cad_Metodos implements Maquinas{
     public int MaquinasColetadas(){
        int patrimonio=0;
