@@ -105,6 +105,23 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
+                                          <Component id="check_processador" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="text_processador" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="check_pmae" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="text_pmae" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="check_fonte" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="text_fonte" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="ftext_fonte" min="-2" pref="45" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="check_hd" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="check_ssd" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -122,29 +139,19 @@
                                                   <Component id="text_hd" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="qtd_ssd" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="spinner_ssd" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="qtd_hd" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="spinner_hd" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="check_processador" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="text_processador" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="check_pmae" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="text_pmae" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="check_ram" min="-2" max="-2" attributes="0"/>
@@ -152,20 +159,13 @@
                                           <Component id="ftext_ram" min="-2" pref="42" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="box_ram" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="qtd_ram" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="spinner_ram" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="check_fonte" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="text_fonte" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="ftext_fonte" min="-2" pref="45" max="-2" attributes="0"/>
-                                      </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -177,80 +177,73 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="check_processador" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="text_processador" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="check_pmae" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="text_pmae" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="check_ram" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="qtd_ram" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="spinner_ram" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ftext_ram" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="box_ram" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="check_hd" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ftext_hd" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="text_hd" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="check_ssd" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ftext_ssd" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="text_ssd" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="check_processador" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="text_processador" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="check_pmae" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="text_pmae" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="check_ram" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="qtd_ram" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="spinner_ram" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ftext_ram" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="box_ram" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="check_hd" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ftext_hd" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="text_hd" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="qtd_hd" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="spinner_hd" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                          <Component id="check_ssd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ftext_ssd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="text_ssd" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="qtd_hd" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="spinner_hd" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="qtd_ssd" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="spinner_ssd" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                          <Component id="qtd_ssd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="spinner_ssd" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="check_coolercpu" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="text_coolercpu" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="check_cooler" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="text_cooler" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="qtd_cooler" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="spinner_cooler" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="check_gpu" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ftext_gpu" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="box_gpu" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="check_fonte" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ftext_fonte" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="text_fonte" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="check_gabinete" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="text_gabinete" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="24" max="32767" attributes="0"/>
                   <Component id="button_prox" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -264,23 +257,31 @@
           </Properties>
           <Events>
             <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_processadorStateChanged"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="check_processadorActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_pmae">
           <Properties>
             <Property name="text" type="java.lang.String" value="Placa-m&#xe3;e"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_pmaeStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_ram">
           <Properties>
             <Property name="text" type="java.lang.String" value="Mem&#xf3;ria"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_ramStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_hd">
           <Properties>
             <Property name="text" type="java.lang.String" value="HD"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_hdStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_coolercpu">
           <Properties>
@@ -289,24 +290,33 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_coolercpuStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_gabinete">
           <Properties>
             <Property name="text" type="java.lang.String" value="Gabinete"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_gabineteStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_gpu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Placa de v&#xed;deo"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="check_gpuActionPerformed"/>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_gpuStateChanged"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_fonte">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fonte"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_fonteStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="button_prox">
           <Properties>
@@ -317,17 +327,11 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="text_processadorActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="text_pmae">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="text_pmaeActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="qtd_ram">
           <Properties>
@@ -340,6 +344,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="SSD"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_ssdStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="ftext_ram">
           <Properties>
@@ -393,6 +400,9 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_coolerStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="text_coolercpu">
           <Properties>
@@ -468,9 +478,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="text_gabineteActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
