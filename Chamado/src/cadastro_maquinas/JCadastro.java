@@ -108,7 +108,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Cadastro de máquinas");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Componentes:"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Componentes presentes na máquina:"));
 
         check_processador.setText("Processador");
         check_processador.addChangeListener(new javax.swing.event.ChangeListener() {
