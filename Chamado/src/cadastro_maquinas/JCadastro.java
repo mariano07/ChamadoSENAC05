@@ -4,6 +4,8 @@
  */
 package cadastro_maquinas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alunos
@@ -52,10 +54,51 @@ public class JCadastro extends javax.swing.JInternalFrame {
         //Esconde campos gabinete
         text_gabinete.setVisible(false);
     }
-    private void verifica(){
-        if(!check_processador.isSelected() && !check_pmae.isSelected() && !check_ram.isSelected() && !check_hd.isSelected()){
-            
+    private boolean verifica(){
+        boolean verifica = false;
+        if(!check_processador.isSelected() && !check_pmae.isSelected() && !check_ram.isSelected() && !check_hd.isSelected() && !check_ssd.isSelected() && !check_coolercpu.isSelected() && !check_cooler.isSelected() && !check_gpu.isSelected() && !check_fonte.isSelected() && !check_gabinete.isSelected()){
+            JOptionPane.showMessageDialog(null, "Nenhum componente informado !!!");
         }
+        else if(check_processador.isSelected() && text_processador.getText().equals("") || check_processador.isSelected() && text_processador.getText().equals("Modelo")){
+            JOptionPane.showMessageDialog(null, "Processador: Dados inválidos !!!");
+        }
+        else if(check_pmae.isSelected() && text_pmae.getText().equals("") || check_pmae.isSelected() && text_pmae.getText().equals("Modelo")){
+            JOptionPane.showMessageDialog(null, "Placa mãe: Dados inválidos !!!");
+        }
+        else if(check_ram.isSelected() && ftext_ram.getText().equals("    GB")) {
+            JOptionPane.showMessageDialog(null, "Memória: Dados inválidos !!!");
+        }
+        else if(check_hd.isSelected() && ftext_hd.getText().equals("     GB")){
+            JOptionPane.showMessageDialog(null, "HD: Dados inválidos !!!");
+        }
+        else if(check_ssd.isSelected() && ftext_ssd.getText().equals("     GB")){
+            JOptionPane.showMessageDialog(null, "SSD: Dados inválidos !!!");
+        }
+        else if(check_coolercpu.isSelected() && text_coolercpu.getText().equals("") || check_coolercpu.isSelected() && text_coolercpu.getText().equals("Modelo")){
+            JOptionPane.showMessageDialog(null, "Cooler CPU: Dados inválidos !!!");
+        }
+        else if(check_cooler.isSelected() && text_cooler.getText().equals("") || check_cooler.isSelected() && text_cooler.getText().equals("Modelo")){
+            JOptionPane.showMessageDialog(null, "Cooler: Dados inválidos !!!");
+        }
+        else if(check_gpu.isSelected() && ftext_gpu.getText().equals("      MB")){
+            JOptionPane.showMessageDialog(null, "Placa de vídeo: Dados inválidos !!!");
+        }
+        else if(check_fonte.isSelected() && text_fonte.getText().equals("") || check_fonte.isSelected() && text_fonte.getText().equals("Modelo")){
+            JOptionPane.showMessageDialog(null, "Fonte: Dados inválidos !!!");
+        }
+        else if(check_fonte.isSelected() && ftext_fonte.getText().equals("     W")){
+            JOptionPane.showMessageDialog(null, "Fonte: Dados inválidos !!!");
+        }
+        else if(check_gabinete.isSelected() && text_gabinete.getText().equals("") || check_gabinete.isSelected() && text_gabinete.getText().equals("Modelo")){
+            JOptionPane.showMessageDialog(null, "Gabinete: Dados inválidos !!!");
+        }
+        else if(texta_defeito.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Nenhum defeito informado !!!");
+        }
+        else {
+             verifica = true;
+        }
+        return verifica;
     }
 
     /**
@@ -189,6 +232,9 @@ public class JCadastro extends javax.swing.JInternalFrame {
 
         qtd_ram.setText("Qtd.");
 
+        spinner_ram.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
+        spinner_ram.setToolTipText("");
+
         check_ssd.setText("SSD");
         check_ssd.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -216,7 +262,11 @@ public class JCadastro extends javax.swing.JInternalFrame {
 
         qtd_hd.setText("Qtd.");
 
+        spinner_hd.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
+
         qtd_ssd.setText("Qtd.");
+
+        spinner_ssd.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
 
         text_hd.setText("Modelo");
 
@@ -235,6 +285,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
         text_cooler.setText("Modelo");
 
         box_ram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIMM", "DIMM", "DDR", "DDR2", "DDR3", "DDR4", "DDR5" }));
+
+        spinner_cooler.setModel(new javax.swing.SpinnerNumberModel(1, 1, 20, 1));
 
         qtd_cooler.setText("Qtd.");
 
@@ -276,17 +328,16 @@ public class JCadastro extends javax.swing.JInternalFrame {
                         .addGap(172, 245, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(check_gabinete)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(text_gabinete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jScrollPane1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(button_prox))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(check_gabinete)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(text_gabinete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(check_gpu)
                                         .addGap(18, 18, 18)
@@ -594,7 +645,11 @@ public class JCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_check_gabineteStateChanged
 
     private void button_proxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_proxMouseClicked
-        // TODO add your handling code here:
+        boolean verifica;
+        verifica = verifica();
+        if(verifica == true){
+            JOptionPane.showMessageDialog(null, "Dados Salvos com sucesso !!!");
+        }
     }//GEN-LAST:event_button_proxMouseClicked
 
 
