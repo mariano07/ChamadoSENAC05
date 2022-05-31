@@ -4,6 +4,8 @@
  */
 package defeito;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alunos
@@ -26,27 +28,241 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        botao_ok = new javax.swing.JButton();
+        botao_cancela = new javax.swing.JButton();
+        campotexto_1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        campotexto_2 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        checkbox_1 = new javax.swing.JCheckBox();
+        jLabel5 = new javax.swing.JLabel();
+        checkbox_2 = new javax.swing.JCheckBox();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
         setTitle("Cadastro de Defeitos");
 
+        botao_ok.setText("Ok");
+        botao_ok.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botao_okMouseClicked(evt);
+            }
+        });
+        botao_ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao_okActionPerformed(evt);
+            }
+        });
+
+        botao_cancela.setText("Cancel");
+        botao_cancela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao_cancelaActionPerformed(evt);
+            }
+        });
+
+        campotexto_1.setEditable(false);
+        campotexto_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campotexto_1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Defeito informado:");
+
+        jLabel2.setText("Qual técnica para verificar o erro:");
+
+        campotexto_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campotexto_2ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Tem que substituir software?");
+
+        checkbox_1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                checkbox_1StateChanged(evt);
+            }
+        });
+        checkbox_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkbox_1ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Tem que substituir hardware?");
+
+        checkbox_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkbox_2ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("(marque as caixas para \"Sim\")");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(69, 69, 69)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(campotexto_2)
+                                    .addComponent(campotexto_1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel5))
+                                        .addGap(37, 37, 37)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(checkbox_1)
+                                            .addComponent(checkbox_2))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel6))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(73, 73, 73)
+                                .addComponent(jLabel2)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 306, Short.MAX_VALUE)
+                                .addComponent(botao_cancela)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botao_ok))
+                            .addComponent(jSeparator1))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campotexto_1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campotexto_2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(checkbox_1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(checkbox_2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel6)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botao_ok)
+                    .addComponent(botao_cancela))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botao_cancelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao_cancelaActionPerformed
+        // TODO add your handling code here:
+        
+        dispose();
+        
+    }//GEN-LAST:event_botao_cancelaActionPerformed
 
+    private void botao_okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao_okActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botao_okActionPerformed
+
+    private void checkbox_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbox_1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkbox_1ActionPerformed
+
+    private void checkbox_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbox_2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkbox_2ActionPerformed
+
+    private void campotexto_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campotexto_1ActionPerformed
+        // TODO add your handling code here:        
+    }//GEN-LAST:event_campotexto_1ActionPerformed
+
+    private void campotexto_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campotexto_2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campotexto_2ActionPerformed
+
+    private void botao_okMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao_okMouseClicked
+        // TODO add your handling code here:
+        
+         String def1;
+        
+        def1 = campotexto_1.getText();
+        JOptionPane.showMessageDialog(null, def1);
+        
+        String def2;
+        
+        def2 = campotexto_2.getText();
+        JOptionPane.showMessageDialog(null, def2);
+        
+        if (!checkbox_1.isSelected()){
+            
+            JOptionPane.showMessageDialog(null,"Não precisa trocar software");  
+        }
+        
+        if (!checkbox_2.isSelected()){
+            
+             JOptionPane.showMessageDialog(null,"Não precisa trocar hardware");   
+        }
+        
+        if (checkbox_1.isSelected()){
+            
+             JOptionPane.showMessageDialog(null,"Precisa trocar software");
+        }
+        
+        if (checkbox_2.isSelected()){
+            
+             JOptionPane.showMessageDialog(null,"Precisa trocar hardware");
+        }
+        
+    }//GEN-LAST:event_botao_okMouseClicked
+
+    private void checkbox_1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_checkbox_1StateChanged
+        // TODO add your handling code here:
+       
+         
+    }//GEN-LAST:event_checkbox_1StateChanged
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botao_cancela;
+    private javax.swing.JButton botao_ok;
+    private javax.swing.JTextField campotexto_1;
+    private javax.swing.JTextField campotexto_2;
+    private javax.swing.JCheckBox checkbox_1;
+    private javax.swing.JCheckBox checkbox_2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
