@@ -41,11 +41,11 @@ public class JMain extends javax.swing.JFrame {
         tela_principal.setLayout(tela_principalLayout);
         tela_principalLayout.setHorizontalGroup(
             tela_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 544, Short.MAX_VALUE)
+            .addGap(0, 488, Short.MAX_VALUE)
         );
         tela_principalLayout.setVerticalGroup(
             tela_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 326, Short.MAX_VALUE)
+            .addGap(0, 465, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBorder(null);
@@ -91,6 +91,7 @@ public class JMain extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
