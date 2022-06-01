@@ -4,6 +4,7 @@
  */
 package login_cadastro_chamado;
 
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +18,7 @@ public class JRegistro extends javax.swing.JFrame {
      */
     public JRegistro() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens_icones/user_add.png")));
     }
 
     /**
@@ -40,6 +42,8 @@ public class JRegistro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro");
+        setMaximumSize(new java.awt.Dimension(400, 300));
+        setMinimumSize(new java.awt.Dimension(400, 300));
 
         JPanel_registro.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -70,6 +74,7 @@ public class JRegistro extends javax.swing.JFrame {
         text_senha_registro.setBackground(new java.awt.Color(255, 255, 255));
         text_senha_registro.setForeground(new java.awt.Color(0, 0, 0));
 
+        button_registro.setForeground(new java.awt.Color(0, 0, 0));
         button_registro.setText("Cadastrar");
         button_registro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -6,6 +6,7 @@ package chamado;
 
 import cadastro_maquinas.JCadastro;
 import defeito.jCadastroDef;
+import java.awt.Toolkit;
 
 /**
  *
@@ -18,6 +19,8 @@ public class JMain extends javax.swing.JFrame {
      */
     public JMain() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens_icones/senac_icone.png")));
+        setExtendedState(JMain.MAXIMIZED_BOTH);
     }
 
     /**
@@ -34,21 +37,29 @@ public class JMain extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1920, 1080));
+        setMinimumSize(new java.awt.Dimension(1366, 768));
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
+
+        tela_principal.setBackground(new java.awt.Color(102, 102, 102));
 
         javax.swing.GroupLayout tela_principalLayout = new javax.swing.GroupLayout(tela_principal);
         tela_principal.setLayout(tela_principalLayout);
         tela_principalLayout.setHorizontalGroup(
             tela_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 488, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
         tela_principalLayout.setVerticalGroup(
             tela_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
+            .addGap(0, 478, Short.MAX_VALUE)
         );
 
+        jMenuBar1.setBackground(new java.awt.Color(102, 102, 102));
         jMenuBar1.setBorder(null);
+        jMenuBar1.setForeground(new java.awt.Color(0, 0, 0));
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jMenu1.setText("Menu");
@@ -71,23 +82,20 @@ public class JMain extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setText("jMenu2");
+        jMenuBar1.add(jMenu2);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tela_principal)
-                .addContainerGap())
+            .addComponent(tela_principal)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tela_principal)
-                .addContainerGap())
+            .addComponent(tela_principal)
         );
 
         pack();
@@ -153,6 +161,7 @@ public class JMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;

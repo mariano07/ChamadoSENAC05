@@ -5,6 +5,7 @@
 package login_cadastro_chamado;
 
 import chamado.JMain;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,7 @@ public class JLogin extends javax.swing.JFrame {
      */
     public JLogin() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens_icones/user_go.png")));
     }
 
     /**
@@ -42,9 +44,10 @@ public class JLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Login");
+        setMaximumSize(new java.awt.Dimension(451, 304));
+        setMinimumSize(new java.awt.Dimension(451, 304));
 
         JPanel_Login.setBackground(new java.awt.Color(102, 102, 102));
-        JPanel_Login.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         label_msg_login.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         label_msg_login.setForeground(new java.awt.Color(0, 0, 0));
@@ -62,6 +65,7 @@ public class JLogin extends javax.swing.JFrame {
         text_senha_login.setForeground(new java.awt.Color(0, 0, 0));
         text_senha_login.setText("Senha:");
 
+        Button_login.setForeground(new java.awt.Color(0, 0, 0));
         Button_login.setText("Login");
         Button_login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_login.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -78,6 +82,7 @@ public class JLogin extends javax.swing.JFrame {
         label_icone_login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_icone_login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/senac_logo.png"))); // NOI18N
 
+        button_registrar.setForeground(new java.awt.Color(0, 0, 0));
         button_registrar.setText("Registrar");
         button_registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_registrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -107,18 +112,16 @@ public class JLogin extends javax.swing.JFrame {
                                     .addComponent(text_usuario_login)
                                     .addComponent(password_senha, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
                             .addComponent(label_msg2_login, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                            .addComponent(Button_login))
-                        .addGap(0, 122, Short.MAX_VALUE))
+                            .addGroup(JPanel_LoginLayout.createSequentialGroup()
+                                .addComponent(Button_login)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(button_registrar)))
+                        .addGap(0, 128, Short.MAX_VALUE))
                     .addGroup(JPanel_LoginLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(label_icone_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
             .addComponent(label_msg_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(JPanel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel_LoginLayout.createSequentialGroup()
-                    .addContainerGap(251, Short.MAX_VALUE)
-                    .addComponent(button_registrar)
-                    .addGap(118, 118, 118)))
         );
         JPanel_LoginLayout.setVerticalGroup(
             JPanel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,14 +139,11 @@ public class JLogin extends javax.swing.JFrame {
                 .addGroup(JPanel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(text_senha_login)
                     .addComponent(password_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(Button_login)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(JPanel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Button_login)
+                    .addComponent(button_registrar))
                 .addContainerGap())
-            .addGroup(JPanel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel_LoginLayout.createSequentialGroup()
-                    .addContainerGap(270, Short.MAX_VALUE)
-                    .addComponent(button_registrar)
-                    .addContainerGap()))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
