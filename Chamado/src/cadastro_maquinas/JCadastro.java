@@ -289,12 +289,15 @@ public class JCadastro extends javax.swing.JInternalFrame {
         });
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         ftext_ram.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         ftext_hd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         ftext_ssd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 =======
+=======
+>>>>>>> Stashed changes
         ftext_ram.setBackground(new java.awt.Color(255, 255, 255));
         ftext_ram.setForeground(new java.awt.Color(0, 0, 0));
         try {
@@ -369,8 +372,11 @@ public class JCadastro extends javax.swing.JInternalFrame {
         qtd_cooler.setText("Qtd.");
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         ftext_gpu.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 =======
+=======
+>>>>>>> Stashed changes
         ftext_gpu.setBackground(new java.awt.Color(255, 255, 255));
         ftext_gpu.setForeground(new java.awt.Color(0, 0, 0));
         try {
@@ -385,8 +391,11 @@ public class JCadastro extends javax.swing.JInternalFrame {
         box_gpu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PCI Express x1", "AGP", "PCI", "PCI Express x16", " " }));
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         ftext_fonte.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 =======
+=======
+>>>>>>> Stashed changes
         ftext_fonte.setBackground(new java.awt.Color(255, 255, 255));
         ftext_fonte.setForeground(new java.awt.Color(0, 0, 0));
         try {
