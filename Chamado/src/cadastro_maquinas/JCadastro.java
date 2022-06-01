@@ -256,6 +256,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
 
         spinner_ram.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
         spinner_ram.setToolTipText("");
+        spinner_ram.setBorder(null);
 
         check_ssd.setText("SSD");
         check_ssd.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -273,10 +274,12 @@ public class JCadastro extends javax.swing.JInternalFrame {
         qtd_hd.setText("Qtd.");
 
         spinner_hd.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
+        spinner_hd.setBorder(null);
 
         qtd_ssd.setText("Qtd.");
 
         spinner_ssd.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
+        spinner_ssd.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         text_hd.setText("Modelo");
 
