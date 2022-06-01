@@ -177,8 +177,11 @@ public class JCadastro extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Cadastro de máquinas");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Componentes presentes na máquina:"));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Componentes presentes na máquina:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
+        check_processador.setBackground(new java.awt.Color(102, 102, 102));
+        check_processador.setForeground(new java.awt.Color(0, 0, 0));
         check_processador.setText("Processador");
         check_processador.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -186,6 +189,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        check_pmae.setBackground(new java.awt.Color(102, 102, 102));
+        check_pmae.setForeground(new java.awt.Color(0, 0, 0));
         check_pmae.setText("Placa-mãe");
         check_pmae.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -305,9 +310,13 @@ public class JCadastro extends javax.swing.JInternalFrame {
 
         text_gabinete.setText("Modelo");
 
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Defeito");
 
+        texta_defeito.setBackground(new java.awt.Color(255, 255, 255));
         texta_defeito.setColumns(20);
+        texta_defeito.setForeground(new java.awt.Color(0, 0, 0));
         texta_defeito.setRows(5);
         jScrollPane1.setViewportView(texta_defeito);
 
