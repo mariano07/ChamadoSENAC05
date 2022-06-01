@@ -290,12 +290,15 @@ public class JCadastro extends javax.swing.JInternalFrame {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         ftext_ram.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         ftext_hd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         ftext_ssd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         ftext_ram.setBackground(new java.awt.Color(255, 255, 255));
@@ -373,8 +376,11 @@ public class JCadastro extends javax.swing.JInternalFrame {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         ftext_gpu.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         ftext_gpu.setBackground(new java.awt.Color(255, 255, 255));
@@ -392,8 +398,11 @@ public class JCadastro extends javax.swing.JInternalFrame {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         ftext_fonte.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         ftext_fonte.setBackground(new java.awt.Color(255, 255, 255));
