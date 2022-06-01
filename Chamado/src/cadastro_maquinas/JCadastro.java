@@ -176,6 +176,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("Cadastro de máquinas");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_add.png"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Componentes presentes na máquina:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
@@ -261,8 +262,12 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        text_processador.setBackground(new java.awt.Color(255, 255, 255));
+        text_processador.setForeground(new java.awt.Color(0, 0, 0));
         text_processador.setText("Modelo");
 
+        text_pmae.setBackground(new java.awt.Color(255, 255, 255));
+        text_pmae.setForeground(new java.awt.Color(0, 0, 0));
         text_pmae.setText("Modelo");
 
         qtd_ram.setBackground(new java.awt.Color(102, 102, 102));
@@ -301,6 +306,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
         spinner_hd.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
         spinner_hd.setBorder(null);
 
+        qtd_ssd.setBackground(new java.awt.Color(102, 102, 102));
+        qtd_ssd.setForeground(new java.awt.Color(0, 0, 0));
         qtd_ssd.setText("Qtd.");
 
         spinner_ssd.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
