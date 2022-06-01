@@ -18,6 +18,13 @@ public class JCadastro extends javax.swing.JInternalFrame {
     public JCadastro() {
         initComponents();
         hidden();
+        check_processador.setSelected(true);
+        check_pmae.setSelected(true);
+        check_ram.setSelected(true);
+        check_hd.setSelected(true);
+        check_coolercpu.setSelected(true);
+        check_fonte.setSelected(true);
+        check_gabinete.setSelected(true);
     }
     
     private void hidden(){
