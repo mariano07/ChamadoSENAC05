@@ -179,6 +179,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Componentes presentes na máquina:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
         check_processador.setBackground(new java.awt.Color(102, 102, 102));
         check_processador.setForeground(new java.awt.Color(0, 0, 0));
@@ -198,6 +199,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        check_ram.setBackground(new java.awt.Color(102, 102, 102));
+        check_ram.setForeground(new java.awt.Color(0, 0, 0));
         check_ram.setText("Memória");
         check_ram.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -205,6 +208,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        check_hd.setBackground(new java.awt.Color(102, 102, 102));
+        check_hd.setForeground(new java.awt.Color(0, 0, 0));
         check_hd.setText("HD");
         check_hd.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -212,6 +217,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        check_coolercpu.setBackground(new java.awt.Color(102, 102, 102));
+        check_coolercpu.setForeground(new java.awt.Color(0, 0, 0));
         check_coolercpu.setText("Cooler CPU");
         check_coolercpu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         check_coolercpu.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -220,6 +227,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        check_gabinete.setBackground(new java.awt.Color(102, 102, 102));
+        check_gabinete.setForeground(new java.awt.Color(0, 0, 0));
         check_gabinete.setText("Gabinete");
         check_gabinete.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -227,6 +236,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        check_gpu.setBackground(new java.awt.Color(102, 102, 102));
+        check_gpu.setForeground(new java.awt.Color(0, 0, 0));
         check_gpu.setText("Placa de vídeo");
         check_gpu.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -234,6 +245,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        check_fonte.setBackground(new java.awt.Color(102, 102, 102));
+        check_fonte.setForeground(new java.awt.Color(0, 0, 0));
         check_fonte.setText("Fonte");
         check_fonte.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -252,12 +265,16 @@ public class JCadastro extends javax.swing.JInternalFrame {
 
         text_pmae.setText("Modelo");
 
+        qtd_ram.setBackground(new java.awt.Color(102, 102, 102));
+        qtd_ram.setForeground(new java.awt.Color(0, 0, 0));
         qtd_ram.setText("Qtd.");
 
         spinner_ram.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
         spinner_ram.setToolTipText("");
         spinner_ram.setBorder(null);
 
+        check_ssd.setBackground(new java.awt.Color(102, 102, 102));
+        check_ssd.setForeground(new java.awt.Color(0, 0, 0));
         check_ssd.setText("SSD");
         check_ssd.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -265,12 +282,20 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        ftext_ram.setBackground(new java.awt.Color(255, 255, 255));
+        ftext_ram.setForeground(new java.awt.Color(0, 0, 0));
         ftext_ram.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
+        ftext_hd.setBackground(new java.awt.Color(255, 255, 255));
+        ftext_hd.setForeground(new java.awt.Color(0, 0, 0));
         ftext_hd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
+        ftext_ssd.setBackground(new java.awt.Color(255, 255, 255));
+        ftext_ssd.setForeground(new java.awt.Color(0, 0, 0));
         ftext_ssd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
+        qtd_hd.setBackground(new java.awt.Color(102, 102, 102));
+        qtd_hd.setForeground(new java.awt.Color(0, 0, 0));
         qtd_hd.setText("Qtd.");
 
         spinner_hd.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
@@ -281,10 +306,16 @@ public class JCadastro extends javax.swing.JInternalFrame {
         spinner_ssd.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
         spinner_ssd.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
+        text_hd.setBackground(new java.awt.Color(255, 255, 255));
+        text_hd.setForeground(new java.awt.Color(0, 0, 0));
         text_hd.setText("Modelo");
 
+        text_ssd.setBackground(new java.awt.Color(255, 255, 255));
+        text_ssd.setForeground(new java.awt.Color(0, 0, 0));
         text_ssd.setText("Modelo");
 
+        check_cooler.setBackground(new java.awt.Color(102, 102, 102));
+        check_cooler.setForeground(new java.awt.Color(0, 0, 0));
         check_cooler.setText("Cooler ");
         check_cooler.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         check_cooler.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -293,24 +324,42 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        text_coolercpu.setBackground(new java.awt.Color(255, 255, 255));
+        text_coolercpu.setForeground(new java.awt.Color(0, 0, 0));
         text_coolercpu.setText("Modelo");
 
+        text_cooler.setBackground(new java.awt.Color(255, 255, 255));
+        text_cooler.setForeground(new java.awt.Color(0, 0, 0));
         text_cooler.setText("Modelo");
 
+        box_ram.setBackground(new java.awt.Color(255, 255, 255));
+        box_ram.setForeground(new java.awt.Color(0, 0, 0));
         box_ram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIMM", "DIMM", "DDR", "DDR2", "DDR3", "DDR4", "DDR5" }));
 
         spinner_cooler.setModel(new javax.swing.SpinnerNumberModel(1, 1, 20, 1));
 
+        qtd_cooler.setBackground(new java.awt.Color(102, 102, 102));
+        qtd_cooler.setForeground(new java.awt.Color(0, 0, 0));
         qtd_cooler.setText("Qtd.");
 
+        ftext_gpu.setBackground(new java.awt.Color(255, 255, 255));
+        ftext_gpu.setForeground(new java.awt.Color(0, 0, 0));
         ftext_gpu.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
+        box_gpu.setBackground(new java.awt.Color(255, 255, 255));
+        box_gpu.setForeground(new java.awt.Color(0, 0, 0));
         box_gpu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PCI Express x1", "AGP", "PCI", "PCI Express x16", " " }));
 
+        ftext_fonte.setBackground(new java.awt.Color(255, 255, 255));
+        ftext_fonte.setForeground(new java.awt.Color(0, 0, 0));
         ftext_fonte.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
+        text_fonte.setBackground(new java.awt.Color(255, 255, 255));
+        text_fonte.setForeground(new java.awt.Color(0, 0, 0));
         text_fonte.setText("Modelo");
 
+        text_gabinete.setBackground(new java.awt.Color(255, 255, 255));
+        text_gabinete.setForeground(new java.awt.Color(0, 0, 0));
         text_gabinete.setText("Modelo");
 
         jLabel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -323,14 +372,24 @@ public class JCadastro extends javax.swing.JInternalFrame {
         texta_defeito.setRows(5);
         jScrollPane1.setViewportView(texta_defeito);
 
+        box_capram.setBackground(new java.awt.Color(255, 255, 255));
+        box_capram.setForeground(new java.awt.Color(0, 0, 0));
         box_capram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MB", "GB", "TB" }));
 
+        box_caphd.setBackground(new java.awt.Color(255, 255, 255));
+        box_caphd.setForeground(new java.awt.Color(0, 0, 0));
         box_caphd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MB", "GB", "TB" }));
 
+        box_capssd.setBackground(new java.awt.Color(255, 255, 255));
+        box_capssd.setForeground(new java.awt.Color(0, 0, 0));
         box_capssd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MB", "GB", "TB" }));
 
+        box_capgpu.setBackground(new java.awt.Color(255, 255, 255));
+        box_capgpu.setForeground(new java.awt.Color(0, 0, 0));
         box_capgpu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MB", "GB", "TB" }));
 
+        label_fonte.setBackground(new java.awt.Color(102, 102, 102));
+        label_fonte.setForeground(new java.awt.Color(0, 0, 0));
         label_fonte.setText("W");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
