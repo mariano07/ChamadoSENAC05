@@ -4,6 +4,7 @@
  */
 package cadastro_maquinas;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -176,9 +177,13 @@ public class JCadastro extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("Cadastro de máquinas");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_add.png"))); // NOI18N
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Componentes presentes na máquina:"));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Componentes presentes na máquina:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
+        check_processador.setBackground(new java.awt.Color(102, 102, 102));
+        check_processador.setForeground(new java.awt.Color(0, 0, 0));
         check_processador.setText("Processador");
         check_processador.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -186,6 +191,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        check_pmae.setBackground(new java.awt.Color(102, 102, 102));
+        check_pmae.setForeground(new java.awt.Color(0, 0, 0));
         check_pmae.setText("Placa-mãe");
         check_pmae.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -193,6 +200,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        check_ram.setBackground(new java.awt.Color(102, 102, 102));
+        check_ram.setForeground(new java.awt.Color(0, 0, 0));
         check_ram.setText("Memória");
         check_ram.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -200,6 +209,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        check_hd.setBackground(new java.awt.Color(102, 102, 102));
+        check_hd.setForeground(new java.awt.Color(0, 0, 0));
         check_hd.setText("HD");
         check_hd.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -207,6 +218,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        check_coolercpu.setBackground(new java.awt.Color(102, 102, 102));
+        check_coolercpu.setForeground(new java.awt.Color(0, 0, 0));
         check_coolercpu.setText("Cooler CPU");
         check_coolercpu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         check_coolercpu.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -215,6 +228,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        check_gabinete.setBackground(new java.awt.Color(102, 102, 102));
+        check_gabinete.setForeground(new java.awt.Color(0, 0, 0));
         check_gabinete.setText("Gabinete");
         check_gabinete.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -222,6 +237,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        check_gpu.setBackground(new java.awt.Color(102, 102, 102));
+        check_gpu.setForeground(new java.awt.Color(0, 0, 0));
         check_gpu.setText("Placa de vídeo");
         check_gpu.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -229,6 +246,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        check_fonte.setBackground(new java.awt.Color(102, 102, 102));
+        check_fonte.setForeground(new java.awt.Color(0, 0, 0));
         check_fonte.setText("Fonte");
         check_fonte.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -236,6 +255,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        button_prox.setForeground(new java.awt.Color(0, 0, 0));
         button_prox.setText("Próximo");
         button_prox.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -243,16 +263,24 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        text_processador.setBackground(new java.awt.Color(255, 255, 255));
+        text_processador.setForeground(new java.awt.Color(0, 0, 0));
         text_processador.setText("Modelo");
 
+        text_pmae.setBackground(new java.awt.Color(255, 255, 255));
+        text_pmae.setForeground(new java.awt.Color(0, 0, 0));
         text_pmae.setText("Modelo");
 
+        qtd_ram.setBackground(new java.awt.Color(102, 102, 102));
+        qtd_ram.setForeground(new java.awt.Color(0, 0, 0));
         qtd_ram.setText("Qtd.");
 
-        spinner_ram.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
+        spinner_ram.setModel(new javax.swing.SpinnerNumberModel(1, 1, 4, 1));
         spinner_ram.setToolTipText("");
         spinner_ram.setBorder(null);
 
+        check_ssd.setBackground(new java.awt.Color(102, 102, 102));
+        check_ssd.setForeground(new java.awt.Color(0, 0, 0));
         check_ssd.setText("SSD");
         check_ssd.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -260,26 +288,68 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         ftext_ram.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         ftext_hd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         ftext_ssd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+=======
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+        ftext_ram.setBackground(new java.awt.Color(255, 255, 255));
+        ftext_ram.setForeground(new java.awt.Color(0, 0, 0));
+        try {
+            ftext_ram.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("### GB")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
+        ftext_hd.setBackground(new java.awt.Color(255, 255, 255));
+        ftext_hd.setForeground(new java.awt.Color(0, 0, 0));
+        try {
+            ftext_hd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#### GB")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        ftext_ssd.setBackground(new java.awt.Color(255, 255, 255));
+        ftext_ssd.setForeground(new java.awt.Color(0, 0, 0));
+        try {
+            ftext_ssd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#### GB")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+>>>>>>> Stashed changes
+
+        qtd_hd.setBackground(new java.awt.Color(102, 102, 102));
+        qtd_hd.setForeground(new java.awt.Color(0, 0, 0));
         qtd_hd.setText("Qtd.");
 
         spinner_hd.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
         spinner_hd.setBorder(null);
 
+        qtd_ssd.setBackground(new java.awt.Color(102, 102, 102));
+        qtd_ssd.setForeground(new java.awt.Color(0, 0, 0));
         qtd_ssd.setText("Qtd.");
 
         spinner_ssd.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
         spinner_ssd.setBorder(null);
 
+        text_hd.setBackground(new java.awt.Color(255, 255, 255));
+        text_hd.setForeground(new java.awt.Color(0, 0, 0));
         text_hd.setText("Modelo");
 
+        text_ssd.setBackground(new java.awt.Color(255, 255, 255));
+        text_ssd.setForeground(new java.awt.Color(0, 0, 0));
         text_ssd.setText("Modelo");
 
+        check_cooler.setBackground(new java.awt.Color(102, 102, 102));
+        check_cooler.setForeground(new java.awt.Color(0, 0, 0));
         check_cooler.setText("Cooler ");
         check_cooler.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         check_cooler.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -288,29 +358,79 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
+        text_coolercpu.setBackground(new java.awt.Color(255, 255, 255));
+        text_coolercpu.setForeground(new java.awt.Color(0, 0, 0));
         text_coolercpu.setText("Modelo");
 
+        text_cooler.setBackground(new java.awt.Color(255, 255, 255));
+        text_cooler.setForeground(new java.awt.Color(0, 0, 0));
         text_cooler.setText("Modelo");
 
+        box_ram.setBackground(new java.awt.Color(255, 255, 255));
+        box_ram.setForeground(new java.awt.Color(0, 0, 0));
         box_ram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIMM", "DIMM", "DDR", "DDR2", "DDR3", "DDR4", "DDR5" }));
 
         spinner_cooler.setModel(new javax.swing.SpinnerNumberModel(1, 1, 20, 1));
 
+        qtd_cooler.setBackground(new java.awt.Color(102, 102, 102));
+        qtd_cooler.setForeground(new java.awt.Color(0, 0, 0));
         qtd_cooler.setText("Qtd.");
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         ftext_gpu.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+=======
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+        ftext_gpu.setBackground(new java.awt.Color(255, 255, 255));
+        ftext_gpu.setForeground(new java.awt.Color(0, 0, 0));
+        try {
+            ftext_gpu.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##### MB")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+>>>>>>> Stashed changes
 
+        box_gpu.setBackground(new java.awt.Color(255, 255, 255));
+        box_gpu.setForeground(new java.awt.Color(0, 0, 0));
         box_gpu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PCI Express x1", "AGP", "PCI", "PCI Express x16", " " }));
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         ftext_fonte.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+=======
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+        ftext_fonte.setBackground(new java.awt.Color(255, 255, 255));
+        ftext_fonte.setForeground(new java.awt.Color(0, 0, 0));
+        try {
+            ftext_fonte.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#### W")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+>>>>>>> Stashed changes
 
+        text_fonte.setBackground(new java.awt.Color(255, 255, 255));
+        text_fonte.setForeground(new java.awt.Color(0, 0, 0));
         text_fonte.setText("Modelo");
 
+        text_gabinete.setBackground(new java.awt.Color(255, 255, 255));
+        text_gabinete.setForeground(new java.awt.Color(0, 0, 0));
         text_gabinete.setText("Modelo");
 
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Defeito");
 
+        texta_defeito.setBackground(new java.awt.Color(255, 255, 255));
         texta_defeito.setColumns(20);
+        texta_defeito.setForeground(new java.awt.Color(0, 0, 0));
         texta_defeito.setRows(5);
         jScrollPane1.setViewportView(texta_defeito);
 
