@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package login_cadastro_chamado;
+package login_cadastro;
 
 import chamado.JMain;
 import java.awt.Toolkit;
@@ -44,7 +44,6 @@ public class JLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Login");
-        setMaximumSize(new java.awt.Dimension(451, 304));
         setMinimumSize(new java.awt.Dimension(451, 304));
 
         JPanel_Login.setBackground(new java.awt.Color(102, 102, 102));
