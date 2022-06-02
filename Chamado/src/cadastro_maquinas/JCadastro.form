@@ -472,6 +472,9 @@
               <Format format="#0" subtype="-1" type="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ftext_ramKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="ftext_hd">
           <Properties>
@@ -485,6 +488,9 @@
               <Format format="#0" subtype="-1" type="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ftext_hdKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="ftext_ssd">
           <Properties>
@@ -498,6 +504,9 @@
               <Format format="#0" subtype="-1" type="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ftext_ssdKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="qtd_hd">
           <Properties>
@@ -658,6 +667,9 @@
               <Format format="#0" subtype="-1" type="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ftext_gpuKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="box_gpu">
           <Properties>
@@ -693,6 +705,9 @@
               <Format format="#0" subtype="-1" type="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ftext_fonteKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="text_fonte">
           <Properties>

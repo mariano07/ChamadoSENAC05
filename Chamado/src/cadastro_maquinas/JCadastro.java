@@ -290,14 +290,29 @@ public class JCadastro extends javax.swing.JInternalFrame {
         ftext_ram.setBackground(new java.awt.Color(255, 255, 255));
         ftext_ram.setForeground(new java.awt.Color(0, 0, 0));
         ftext_ram.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        ftext_ram.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ftext_ramKeyTyped(evt);
+            }
+        });
 
         ftext_hd.setBackground(new java.awt.Color(255, 255, 255));
         ftext_hd.setForeground(new java.awt.Color(0, 0, 0));
         ftext_hd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        ftext_hd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ftext_hdKeyTyped(evt);
+            }
+        });
 
         ftext_ssd.setBackground(new java.awt.Color(255, 255, 255));
         ftext_ssd.setForeground(new java.awt.Color(0, 0, 0));
         ftext_ssd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        ftext_ssd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ftext_ssdKeyTyped(evt);
+            }
+        });
 
         qtd_hd.setBackground(new java.awt.Color(102, 102, 102));
         qtd_hd.setForeground(new java.awt.Color(0, 0, 0));
@@ -352,6 +367,11 @@ public class JCadastro extends javax.swing.JInternalFrame {
         ftext_gpu.setBackground(new java.awt.Color(255, 255, 255));
         ftext_gpu.setForeground(new java.awt.Color(0, 0, 0));
         ftext_gpu.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        ftext_gpu.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ftext_gpuKeyTyped(evt);
+            }
+        });
 
         box_gpu.setBackground(new java.awt.Color(255, 255, 255));
         box_gpu.setForeground(new java.awt.Color(0, 0, 0));
@@ -360,6 +380,11 @@ public class JCadastro extends javax.swing.JInternalFrame {
         ftext_fonte.setBackground(new java.awt.Color(255, 255, 255));
         ftext_fonte.setForeground(new java.awt.Color(0, 0, 0));
         ftext_fonte.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        ftext_fonte.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ftext_fonteKeyTyped(evt);
+            }
+        });
 
         text_fonte.setBackground(new java.awt.Color(255, 255, 255));
         text_fonte.setForeground(new java.awt.Color(0, 0, 0));
@@ -762,6 +787,41 @@ public class JCadastro extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Dados Salvos com sucesso !!!");
         }
     }//GEN-LAST:event_button_proxMouseClicked
+
+    private void ftext_ramKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_ramKeyTyped
+        String negar ="0123456789";
+        if(!negar.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_ftext_ramKeyTyped
+
+    private void ftext_hdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_hdKeyTyped
+        String negar ="0123456789";
+        if(!negar.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_ftext_hdKeyTyped
+
+    private void ftext_ssdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_ssdKeyTyped
+        String negar ="0123456789";
+        if(!negar.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_ftext_ssdKeyTyped
+
+    private void ftext_gpuKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_gpuKeyTyped
+        String negar ="0123456789";
+        if(!negar.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_ftext_gpuKeyTyped
+
+    private void ftext_fonteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_fonteKeyTyped
+        String negar ="0123456789";
+        if(!negar.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_ftext_fonteKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
