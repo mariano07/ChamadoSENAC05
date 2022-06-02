@@ -122,8 +122,6 @@ public class JCadastro extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSpinner1 = new javax.swing.JSpinner();
-        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         check_processador = new javax.swing.JCheckBox();
         check_pmae = new javax.swing.JCheckBox();
@@ -168,8 +166,6 @@ public class JCadastro extends javax.swing.JInternalFrame {
         box_capssd = new javax.swing.JComboBox<>();
         box_capgpu = new javax.swing.JComboBox<>();
         label_fonte = new javax.swing.JLabel();
-
-        jLabel2.setText("jLabel2");
 
         setClosable(true);
         setIconifiable(true);
@@ -788,11 +784,9 @@ public class JCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField ftext_ram;
     private javax.swing.JFormattedTextField ftext_ssd;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel label_fonte;
     private javax.swing.JLabel qtd_cooler;
     private javax.swing.JLabel qtd_hd;
