@@ -63,7 +63,8 @@ public class JMain extends javax.swing.JFrame {
         jMenuBar1.setForeground(new java.awt.Color(0, 0, 0));
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jMenu1.setText("Menu");
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_add.png"))); // NOI18N
+        jMenu1.setText("Registro");
 
         jMenuItem1.setText("jMenuItem1");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
