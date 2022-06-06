@@ -12,9 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class JCadastro extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form JCadastro
-     */
+    private String negar ="0123456789";
     public JCadastro() {
         initComponents();
         hidden();
@@ -68,6 +66,11 @@ public class JCadastro extends javax.swing.JInternalFrame {
     }
     private boolean verifica(){
         boolean verifica = false;
+        int ram = Integer.parseInt(ftext_ram.getText());
+        int hd = Integer.parseInt(ftext_hd.getText());
+        int ssd = Integer.parseInt(ftext_ssd.getText());
+        int gpu = Integer.parseInt(ftext_gpu.getText());
+        int fonte = Integer.parseInt(ftext_fonte.getText());
         if(!check_processador.isSelected() && !check_pmae.isSelected() && !check_ram.isSelected() && !check_hd.isSelected() && !check_ssd.isSelected() && !check_coolercpu.isSelected() && !check_cooler.isSelected() && !check_gpu.isSelected() && !check_fonte.isSelected() && !check_gabinete.isSelected()){
             JOptionPane.showMessageDialog(null, "Nenhum componente informado !!!");
         }
@@ -77,13 +80,13 @@ public class JCadastro extends javax.swing.JInternalFrame {
         else if(check_pmae.isSelected() && text_pmae.getText().equals("") || check_pmae.isSelected() && text_pmae.getText().equals("Modelo")){
             JOptionPane.showMessageDialog(null, "Placa mãe: Dados inválidos !!!");
         }
-        else if(check_ram.isSelected() && ftext_ram.getText().equals("    GB")) {
+        else if(check_ram.isSelected() && ram <= 0) {
             JOptionPane.showMessageDialog(null, "Memória: Dados inválidos !!!");
         }
-        else if(check_hd.isSelected() && ftext_hd.getText().equals("     GB")){
+        else if(check_hd.isSelected() && hd <= 0){
             JOptionPane.showMessageDialog(null, "HD: Dados inválidos !!!");
         }
-        else if(check_ssd.isSelected() && ftext_ssd.getText().equals("     GB")){
+        else if(check_ssd.isSelected() && ssd <= 0){
             JOptionPane.showMessageDialog(null, "SSD: Dados inválidos !!!");
         }
         else if(check_coolercpu.isSelected() && text_coolercpu.getText().equals("") || check_coolercpu.isSelected() && text_coolercpu.getText().equals("Modelo")){
@@ -92,13 +95,13 @@ public class JCadastro extends javax.swing.JInternalFrame {
         else if(check_cooler.isSelected() && text_cooler.getText().equals("") || check_cooler.isSelected() && text_cooler.getText().equals("Modelo")){
             JOptionPane.showMessageDialog(null, "Cooler: Dados inválidos !!!");
         }
-        else if(check_gpu.isSelected() && ftext_gpu.getText().equals("      MB")){
+        else if(check_gpu.isSelected() && gpu <= 0){
             JOptionPane.showMessageDialog(null, "Placa de vídeo: Dados inválidos !!!");
         }
         else if(check_fonte.isSelected() && text_fonte.getText().equals("") || check_fonte.isSelected() && text_fonte.getText().equals("Modelo")){
             JOptionPane.showMessageDialog(null, "Fonte: Dados inválidos !!!");
         }
-        else if(check_fonte.isSelected() && ftext_fonte.getText().equals("     W")){
+        else if(check_fonte.isSelected() && fonte <= 0){
             JOptionPane.showMessageDialog(null, "Fonte: Dados inválidos !!!");
         }
         else if(check_gabinete.isSelected() && text_gabinete.getText().equals("") || check_gabinete.isSelected() && text_gabinete.getText().equals("Modelo")){
@@ -785,35 +788,30 @@ public class JCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_button_proxMouseClicked
 
     private void ftext_ramKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_ramKeyTyped
-        String negar ="0123456789";
-        if(!negar.contains(evt.getKeyChar()+"")){
+    if(!negar.contains(evt.getKeyChar()+"")){
             evt.consume();
         }
     }//GEN-LAST:event_ftext_ramKeyTyped
 
     private void ftext_hdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_hdKeyTyped
-        String negar ="0123456789";
         if(!negar.contains(evt.getKeyChar()+"")){
             evt.consume();
         }
     }//GEN-LAST:event_ftext_hdKeyTyped
 
     private void ftext_ssdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_ssdKeyTyped
-        String negar ="0123456789";
         if(!negar.contains(evt.getKeyChar()+"")){
             evt.consume();
         }
     }//GEN-LAST:event_ftext_ssdKeyTyped
 
     private void ftext_gpuKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_gpuKeyTyped
-        String negar ="0123456789";
         if(!negar.contains(evt.getKeyChar()+"")){
             evt.consume();
         }
     }//GEN-LAST:event_ftext_gpuKeyTyped
 
     private void ftext_fonteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_fonteKeyTyped
-        String negar ="0123456789";
         if(!negar.contains(evt.getKeyChar()+"")){
             evt.consume();
         }
