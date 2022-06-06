@@ -6,6 +6,7 @@ package login_cadastro;
 
 import chamado.JMain;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -55,6 +56,11 @@ public class JLogin extends javax.swing.JFrame {
 
         text_usuario_login.setBackground(new java.awt.Color(255, 255, 255));
         text_usuario_login.setForeground(new java.awt.Color(0, 0, 0));
+        text_usuario_login.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                text_usuario_loginKeyPressed(evt);
+            }
+        });
 
         label_usuario_login.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         label_usuario_login.setForeground(new java.awt.Color(0, 0, 0));
@@ -92,6 +98,11 @@ public class JLogin extends javax.swing.JFrame {
 
         password_senha.setBackground(new java.awt.Color(255, 255, 255));
         password_senha.setForeground(new java.awt.Color(0, 0, 0));
+        password_senha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                password_senhaKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanel_LoginLayout = new javax.swing.GroupLayout(JPanel_Login);
         JPanel_Login.setLayout(JPanel_LoginLayout);
@@ -175,6 +186,30 @@ public class JLogin extends javax.swing.JFrame {
         jr.setVisible(true);
         dispose();
     }//GEN-LAST:event_button_registrarMouseClicked
+
+    private void text_usuario_loginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_usuario_loginKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if(text_usuario_login.getText().equals("Admin")){
+            JMain jm = new JMain();
+            jm.setVisible(true);
+            dispose();
+            }else{
+            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!", "Login Inválido!",JOptionPane.ERROR_MESSAGE); 
+            }
+        }
+    }//GEN-LAST:event_text_usuario_loginKeyPressed
+
+    private void password_senhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_password_senhaKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if(text_usuario_login.getText().equals("Admin")){
+            JMain jm = new JMain();
+            jm.setVisible(true);
+            dispose();
+            }else{
+            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!", "Login Inválido!",JOptionPane.ERROR_MESSAGE); 
+            }
+        }
+    }//GEN-LAST:event_password_senhaKeyPressed
 
     /**
      * @param args the command line arguments
