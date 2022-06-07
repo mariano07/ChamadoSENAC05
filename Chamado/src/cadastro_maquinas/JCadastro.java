@@ -65,12 +65,14 @@ public class JCadastro extends javax.swing.JInternalFrame {
         text_gabinete.setVisible(false);
     }
     private boolean verifica(){
+        
         boolean verifica = false;
         int ram = Integer.parseInt(ftext_ram.getText());
         int hd = Integer.parseInt(ftext_hd.getText());
         int ssd = Integer.parseInt(ftext_ssd.getText());
         int gpu = Integer.parseInt(ftext_gpu.getText());
         int fonte = Integer.parseInt(ftext_fonte.getText());
+        
         if(!check_processador.isSelected() && !check_pmae.isSelected() && !check_ram.isSelected() && !check_hd.isSelected() && !check_ssd.isSelected() && !check_coolercpu.isSelected() && !check_cooler.isSelected() && !check_gpu.isSelected() && !check_fonte.isSelected() && !check_gabinete.isSelected()){
             JOptionPane.showMessageDialog(null, "Nenhum componente informado !!!");
         }
@@ -264,10 +266,26 @@ public class JCadastro extends javax.swing.JInternalFrame {
         text_processador.setBackground(new java.awt.Color(255, 255, 255));
         text_processador.setForeground(new java.awt.Color(0, 0, 0));
         text_processador.setText("Modelo");
+        text_processador.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_processadorFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_processadorFocusLost(evt);
+            }
+        });
 
         text_pmae.setBackground(new java.awt.Color(255, 255, 255));
         text_pmae.setForeground(new java.awt.Color(0, 0, 0));
         text_pmae.setText("Modelo");
+        text_pmae.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_pmaeFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_pmaeFocusLost(evt);
+            }
+        });
 
         qtd_ram.setBackground(new java.awt.Color(102, 102, 102));
         qtd_ram.setForeground(new java.awt.Color(0, 0, 0));
@@ -289,6 +307,15 @@ public class JCadastro extends javax.swing.JInternalFrame {
         ftext_ram.setBackground(new java.awt.Color(255, 255, 255));
         ftext_ram.setForeground(new java.awt.Color(0, 0, 0));
         ftext_ram.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        ftext_ram.setText("0");
+        ftext_ram.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ftext_ramFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ftext_ramFocusLost(evt);
+            }
+        });
         ftext_ram.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 ftext_ramKeyTyped(evt);
@@ -298,6 +325,15 @@ public class JCadastro extends javax.swing.JInternalFrame {
         ftext_hd.setBackground(new java.awt.Color(255, 255, 255));
         ftext_hd.setForeground(new java.awt.Color(0, 0, 0));
         ftext_hd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        ftext_hd.setText("0");
+        ftext_hd.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ftext_hdFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ftext_hdFocusLost(evt);
+            }
+        });
         ftext_hd.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 ftext_hdKeyTyped(evt);
@@ -307,6 +343,15 @@ public class JCadastro extends javax.swing.JInternalFrame {
         ftext_ssd.setBackground(new java.awt.Color(255, 255, 255));
         ftext_ssd.setForeground(new java.awt.Color(0, 0, 0));
         ftext_ssd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        ftext_ssd.setText("0");
+        ftext_ssd.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ftext_ssdFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ftext_ssdFocusLost(evt);
+            }
+        });
         ftext_ssd.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 ftext_ssdKeyTyped(evt);
@@ -330,10 +375,26 @@ public class JCadastro extends javax.swing.JInternalFrame {
         text_hd.setBackground(new java.awt.Color(255, 255, 255));
         text_hd.setForeground(new java.awt.Color(0, 0, 0));
         text_hd.setText("Modelo");
+        text_hd.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_hdFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_hdFocusLost(evt);
+            }
+        });
 
         text_ssd.setBackground(new java.awt.Color(255, 255, 255));
         text_ssd.setForeground(new java.awt.Color(0, 0, 0));
         text_ssd.setText("Modelo");
+        text_ssd.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_ssdFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_ssdFocusLost(evt);
+            }
+        });
 
         check_cooler.setBackground(new java.awt.Color(102, 102, 102));
         check_cooler.setForeground(new java.awt.Color(0, 0, 0));
@@ -348,10 +409,26 @@ public class JCadastro extends javax.swing.JInternalFrame {
         text_coolercpu.setBackground(new java.awt.Color(255, 255, 255));
         text_coolercpu.setForeground(new java.awt.Color(0, 0, 0));
         text_coolercpu.setText("Modelo");
+        text_coolercpu.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_coolercpuFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_coolercpuFocusLost(evt);
+            }
+        });
 
         text_cooler.setBackground(new java.awt.Color(255, 255, 255));
         text_cooler.setForeground(new java.awt.Color(0, 0, 0));
         text_cooler.setText("Modelo");
+        text_cooler.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_coolerFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_coolerFocusLost(evt);
+            }
+        });
 
         box_ram.setBackground(new java.awt.Color(255, 255, 255));
         box_ram.setForeground(new java.awt.Color(0, 0, 0));
@@ -366,6 +443,15 @@ public class JCadastro extends javax.swing.JInternalFrame {
         ftext_gpu.setBackground(new java.awt.Color(255, 255, 255));
         ftext_gpu.setForeground(new java.awt.Color(0, 0, 0));
         ftext_gpu.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        ftext_gpu.setText("0");
+        ftext_gpu.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ftext_gpuFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ftext_gpuFocusLost(evt);
+            }
+        });
         ftext_gpu.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 ftext_gpuKeyTyped(evt);
@@ -379,6 +465,15 @@ public class JCadastro extends javax.swing.JInternalFrame {
         ftext_fonte.setBackground(new java.awt.Color(255, 255, 255));
         ftext_fonte.setForeground(new java.awt.Color(0, 0, 0));
         ftext_fonte.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        ftext_fonte.setText("0");
+        ftext_fonte.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ftext_fonteFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ftext_fonteFocusLost(evt);
+            }
+        });
         ftext_fonte.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 ftext_fonteKeyTyped(evt);
@@ -388,10 +483,26 @@ public class JCadastro extends javax.swing.JInternalFrame {
         text_fonte.setBackground(new java.awt.Color(255, 255, 255));
         text_fonte.setForeground(new java.awt.Color(0, 0, 0));
         text_fonte.setText("Modelo");
+        text_fonte.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_fonteFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_fonteFocusLost(evt);
+            }
+        });
 
         text_gabinete.setBackground(new java.awt.Color(255, 255, 255));
         text_gabinete.setForeground(new java.awt.Color(0, 0, 0));
         text_gabinete.setText("Modelo");
+        text_gabinete.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_gabineteFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_gabineteFocusLost(evt);
+            }
+        });
 
         jLabel1.setBackground(new java.awt.Color(102, 102, 102));
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -816,6 +927,162 @@ public class JCadastro extends javax.swing.JInternalFrame {
             evt.consume();
         }
     }//GEN-LAST:event_ftext_fonteKeyTyped
+
+    private void text_processadorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_processadorFocusGained
+        if(text_processador.getText().equals("Modelo")){
+            text_processador.setText("");
+        }
+    }//GEN-LAST:event_text_processadorFocusGained
+
+    private void text_processadorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_processadorFocusLost
+        if(text_processador.getText().equals("")){
+            text_processador.setText("Modelo");
+        }
+    }//GEN-LAST:event_text_processadorFocusLost
+
+    private void text_pmaeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_pmaeFocusGained
+        if(text_pmae.getText().equals("Modelo")){
+            text_pmae.setText("");
+        }
+    }//GEN-LAST:event_text_pmaeFocusGained
+
+    private void text_pmaeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_pmaeFocusLost
+        if(text_pmae.getText().equals("")){
+            text_pmae.setText("Modelo");
+        }
+    }//GEN-LAST:event_text_pmaeFocusLost
+
+    private void ftext_ramFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_ramFocusGained
+        if(ftext_ram.getText().equals("0")){
+            ftext_ram.setText("");
+        }
+    }//GEN-LAST:event_ftext_ramFocusGained
+
+    private void ftext_ramFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_ramFocusLost
+        if(ftext_ram.getText().equals("")){
+            ftext_ram.setText("0");
+        }
+    }//GEN-LAST:event_ftext_ramFocusLost
+
+    private void ftext_hdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_hdFocusGained
+        if(ftext_hd.getText().equals("0")){
+            ftext_hd.setText("");
+        }
+    }//GEN-LAST:event_ftext_hdFocusGained
+
+    private void ftext_hdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_hdFocusLost
+        if(ftext_hd.getText().equals("")){
+            ftext_hd.setText("0");
+        }
+    }//GEN-LAST:event_ftext_hdFocusLost
+
+    private void text_hdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_hdFocusGained
+        if(text_hd.getText().equals("Modelo")){
+            text_hd.setText("");
+        }
+    }//GEN-LAST:event_text_hdFocusGained
+
+    private void text_hdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_hdFocusLost
+        if(text_hd.getText().equals("")){
+            text_hd.setText("Modelo");
+        }
+    }//GEN-LAST:event_text_hdFocusLost
+
+    private void ftext_ssdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_ssdFocusGained
+        if(ftext_ssd.getText().equals("0")){
+            ftext_ssd.setText("");
+        }
+    }//GEN-LAST:event_ftext_ssdFocusGained
+
+    private void ftext_ssdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_ssdFocusLost
+        if(ftext_ssd.getText().equals("")){
+            ftext_ssd.setText("0");
+        }
+    }//GEN-LAST:event_ftext_ssdFocusLost
+
+    private void text_ssdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_ssdFocusGained
+        if(text_ssd.getText().equals("Modelo")){
+            text_ssd.setText("");
+        }
+    }//GEN-LAST:event_text_ssdFocusGained
+
+    private void text_ssdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_ssdFocusLost
+        if(text_ssd.getText().equals("")){
+            text_ssd.setText("Modelo");
+        }
+    }//GEN-LAST:event_text_ssdFocusLost
+
+    private void text_coolercpuFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_coolercpuFocusGained
+        if(text_coolercpu.getText().equals("Modelo")){
+            text_coolercpu.setText("");
+        }
+    }//GEN-LAST:event_text_coolercpuFocusGained
+
+    private void text_coolercpuFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_coolercpuFocusLost
+        if(text_coolercpu.getText().equals("")){
+            text_coolercpu.setText("Modelo");
+        }
+    }//GEN-LAST:event_text_coolercpuFocusLost
+
+    private void text_coolerFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_coolerFocusGained
+        if(text_cooler.getText().equals("Modelo")){
+            text_cooler.setText("");
+        }
+    }//GEN-LAST:event_text_coolerFocusGained
+
+    private void text_coolerFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_coolerFocusLost
+        if(text_cooler.getText().equals("")){
+            text_cooler.setText("Modelo");
+        }
+    }//GEN-LAST:event_text_coolerFocusLost
+
+    private void ftext_gpuFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_gpuFocusGained
+        if(ftext_gpu.getText().equals("0")){
+            ftext_gpu.setText("");
+        }
+    }//GEN-LAST:event_ftext_gpuFocusGained
+
+    private void ftext_gpuFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_gpuFocusLost
+        if(ftext_gpu.getText().equals("")){
+            ftext_gpu.setText("0");
+        }
+    }//GEN-LAST:event_ftext_gpuFocusLost
+
+    private void text_fonteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_fonteFocusGained
+        if(text_fonte.getText().equals("Modelo")){
+            text_fonte.setText("");
+        }
+    }//GEN-LAST:event_text_fonteFocusGained
+
+    private void text_fonteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_fonteFocusLost
+        if(text_fonte.getText().equals("")){
+            text_fonte.setText("Modelo");
+        }
+    }//GEN-LAST:event_text_fonteFocusLost
+
+    private void ftext_fonteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_fonteFocusGained
+        if(ftext_fonte.getText().equals("0")){
+            ftext_fonte.setText("");
+        }
+    }//GEN-LAST:event_ftext_fonteFocusGained
+
+    private void ftext_fonteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_fonteFocusLost
+        if(ftext_fonte.getText().equals("")){
+            ftext_fonte.setText("0");
+        }
+    }//GEN-LAST:event_ftext_fonteFocusLost
+
+    private void text_gabineteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_gabineteFocusGained
+        if(text_gabinete.getText().equals("Modelo")){
+            text_gabinete.setText("");
+        }
+    }//GEN-LAST:event_text_gabineteFocusGained
+
+    private void text_gabineteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_gabineteFocusLost
+         if(text_gabinete.getText().equals("")){
+            text_gabinete.setText("Modelo");
+        }
+    }//GEN-LAST:event_text_gabineteFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

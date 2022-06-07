@@ -403,6 +403,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_processadorFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_processadorFocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="text_pmae">
           <Properties>
@@ -414,6 +418,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_pmaeFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_pmaeFocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="qtd_ram">
           <Properties>
@@ -462,8 +470,11 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format format="#0" subtype="-1" type="0"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
           <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_ramFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_ramFocusLost"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ftext_ramKeyTyped"/>
           </Events>
         </Component>
@@ -478,8 +489,11 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format format="#0" subtype="-1" type="0"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
           <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_hdFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_hdFocusLost"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ftext_hdKeyTyped"/>
           </Events>
         </Component>
@@ -494,8 +508,11 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format format="#0" subtype="-1" type="0"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
           <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_ssdFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_ssdFocusLost"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ftext_ssdKeyTyped"/>
           </Events>
         </Component>
@@ -553,6 +570,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_hdFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_hdFocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="text_ssd">
           <Properties>
@@ -564,6 +585,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_ssdFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_ssdFocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_cooler">
           <Properties>
@@ -592,6 +617,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_coolercpuFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_coolercpuFocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="text_cooler">
           <Properties>
@@ -603,6 +632,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_coolerFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_coolerFocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="box_ram">
           <Properties>
@@ -657,8 +690,11 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format format="#0" subtype="-1" type="0"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
           <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_gpuFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_gpuFocusLost"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ftext_gpuKeyTyped"/>
           </Events>
         </Component>
@@ -695,8 +731,11 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format format="#0" subtype="-1" type="0"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
           <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_fonteFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_fonteFocusLost"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ftext_fonteKeyTyped"/>
           </Events>
         </Component>
@@ -710,6 +749,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_fonteFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_fonteFocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="text_gabinete">
           <Properties>
@@ -721,6 +764,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_gabineteFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_gabineteFocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
