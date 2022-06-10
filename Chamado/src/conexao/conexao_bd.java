@@ -11,12 +11,19 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 public class conexao_bd{
-    private static String url ="jdbc:mysql://localhost:3306/escola";
+    
+    private static String url ="jdbc:mysql://localhost:3306/chamadosenac";
     private static String username ="root";
     private static String password ="root";
+    private static Connection conn = null;
+    private static Statement st = null;
+    private static ResultSet result = null;
     
-    public String Username(){
+    public String Username(String usuario){
+        String InstrucaoSQL = 
         try{
+            conn = DriverManager.getConnection(url,username,password);
+            st = conn.createStatement();
             
         }
         catch (Exception e){
