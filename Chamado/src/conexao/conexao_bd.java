@@ -4,10 +4,23 @@
  */
 package conexao;
 
-/**
- *
- * @author Aluno
- */
-public class conexao_bd {
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
+public class conexao_bd{
+    private static String url ="jdbc:mysql://localhost:3306/escola";
+    private static String username ="root";
+    private static String password ="root";
     
+    public String Username(){
+        try{
+            
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, "ERRO", "ERRO:C013", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }
