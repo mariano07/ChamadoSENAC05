@@ -28,6 +28,7 @@ public class conexao_bd{
         }
         catch (Exception e){
             JOptionPane.showMessageDialog(null, "ERRO", "ERRO:C013", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
         }
     }
 }
