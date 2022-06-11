@@ -4,7 +4,10 @@
  */
 package cadastro_maquinas;
 
+import chamado.JMain;
 import javax.swing.JOptionPane;
+import defeito.jCadastroDef;
+import javax.swing.JDesktopPane;
 
 /**
  *
@@ -13,6 +16,7 @@ import javax.swing.JOptionPane;
 public class JCadastro extends javax.swing.JInternalFrame {
 
     private String negar ="0123456789";
+    private static jCadastroDef jcd = new jCadastroDef();
     public JCadastro() {
         initComponents();
         hidden();
@@ -178,6 +182,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Cadastro de máquinas");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_add.png"))); // NOI18N
+        setMaximumSize(new java.awt.Dimension(1920, 1080));
+        setMinimumSize(new java.awt.Dimension(475, 707));
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Componentes presentes na máquina:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
@@ -721,7 +727,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setBounds(800, 200, 475, 707);
     }// </editor-fold>//GEN-END:initComponents
 
     private void check_processadorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_processadorStateChanged
@@ -889,14 +895,6 @@ public class JCadastro extends javax.swing.JInternalFrame {
             validate();
         }
     }//GEN-LAST:event_check_gabineteStateChanged
-
-    private void button_proxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_proxMouseClicked
-        boolean verifica;
-        verifica = verifica();
-        if(verifica == true){
-            JOptionPane.showMessageDialog(null, "Dados Salvos com sucesso !!!");
-        }
-    }//GEN-LAST:event_button_proxMouseClicked
 
     private void ftext_ramKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_ramKeyTyped
     if(!negar.contains(evt.getKeyChar()+"")){
@@ -1083,6 +1081,19 @@ public class JCadastro extends javax.swing.JInternalFrame {
             text_gabinete.setText("Modelo");
         }
     }//GEN-LAST:event_text_gabineteFocusLost
+
+    private void button_proxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_proxMouseClicked
+        boolean verifica;
+        verifica = verifica();
+        if(verifica == true){
+            JOptionPane.showMessageDialog(null, "Dados Salvos com sucesso !!!");
+            JDesktopPane desktop = getDesktopPane();
+            desktop.add(jcd);
+            jcd.setVisible(true);
+            this.dispose();
+        }
+        
+    }//GEN-LAST:event_button_proxMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

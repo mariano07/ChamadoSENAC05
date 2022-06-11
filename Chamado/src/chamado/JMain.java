@@ -14,14 +14,14 @@ import java.awt.Toolkit;
  */
 public class JMain extends javax.swing.JFrame {
 
-    /**
-     * Creates new form JMain
-     */
+    private static jCadastroDef jcd = new jCadastroDef();
+    private static JCadastro jc = new JCadastro();
     public JMain() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens_icones/senac_icone.png")));
         setExtendedState(JMain.MAXIMIZED_BOTH);
     }
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,19 +35,21 @@ public class JMain extends javax.swing.JFrame {
         tela_principal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mitem_addmaq = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        menu_procurar = new javax.swing.JMenu();
+        menu_tecnicos = new javax.swing.JMenu();
+        mitem_addtec = new javax.swing.JMenuItem();
+        mitem_deltec = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema de T.I");
         setMaximumSize(new java.awt.Dimension(1920, 1080));
         setMinimumSize(new java.awt.Dimension(1366, 768));
         setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         tela_principal.setBackground(new java.awt.Color(102, 102, 102));
+        tela_principal.setToolTipText("");
 
         javax.swing.GroupLayout tela_principalLayout = new javax.swing.GroupLayout(tela_principal);
         tela_principal.setLayout(tela_principalLayout);
@@ -65,43 +67,39 @@ public class JMain extends javax.swing.JFrame {
         jMenuBar1.setForeground(new java.awt.Color(0, 0, 0));
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_add.png"))); // NOI18N
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer.png"))); // NOI18N
         jMenu1.setText("Maquinas");
 
-        jMenuItem1.setText("jMenuItem1");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mitem_addmaq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_add.png"))); // NOI18N
+        mitem_addmaq.setText("Registrar Maquina");
+        mitem_addmaq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mitem_addmaqActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(mitem_addmaq);
 
         jMenuItem2.setText("jMenuItem2");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
-        jMenu3.setText("Procurar");
-        jMenuBar1.add(jMenu3);
+        menu_procurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
+        menu_procurar.setText("Procurar");
+        jMenuBar1.add(menu_procurar);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group.png"))); // NOI18N
-        jMenu2.setText("Técnicos");
+        menu_tecnicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group.png"))); // NOI18N
+        menu_tecnicos.setText("Técnicos");
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group_add.png"))); // NOI18N
-        jMenuItem3.setText("Adicionar Técnico");
-        jMenu2.add(jMenuItem3);
+        mitem_addtec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group_add.png"))); // NOI18N
+        mitem_addtec.setText("Adicionar Técnico");
+        menu_tecnicos.add(mitem_addtec);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group_delete.png"))); // NOI18N
-        jMenuItem4.setText("Deletar Técnico");
-        jMenu2.add(jMenuItem4);
+        mitem_deltec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group_delete.png"))); // NOI18N
+        mitem_deltec.setText("Deletar Técnico");
+        menu_tecnicos.add(mitem_deltec);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(menu_tecnicos);
 
         setJMenuBar(jMenuBar1);
 
@@ -120,26 +118,12 @@ public class JMain extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        JCadastro jc = new JCadastro();
+    private void mitem_addmaqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_addmaqActionPerformed
+        if(!jc.isVisible()){
         tela_principal.add(jc);
         jc.setVisible(true);
-        
-        
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        
-        jCadastroDef caddef = new jCadastroDef ();
-        
-        tela_principal.add(caddef);
-        caddef.setVisible(true);
-        
-        
-        
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+        }
+    }//GEN-LAST:event_mitem_addmaqActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,13 +163,13 @@ public class JMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenu menu_procurar;
+    private javax.swing.JMenu menu_tecnicos;
+    private javax.swing.JMenuItem mitem_addmaq;
+    private javax.swing.JMenuItem mitem_addtec;
+    private javax.swing.JMenuItem mitem_deltec;
     private javax.swing.JDesktopPane tela_principal;
     // End of variables declaration//GEN-END:variables
 }
