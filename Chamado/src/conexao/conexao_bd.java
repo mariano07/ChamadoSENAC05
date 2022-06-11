@@ -19,16 +19,44 @@ public class conexao_bd{
     private static Statement st = null;
     private static ResultSet result = null;
     
-    public String Username(String usuario){
-        String InstrucaoSQL = 
+    public String Login(String usuario,String senha){
+        
+        String InstrucaoSQL = "SELECT Cargo FROM usuario "
+                + "WHERE Usuario = '"+usuario+"' AND Senha = '"+senha+"'";
+        
         try{
             conn = DriverManager.getConnection(url,username,password);
             st = conn.createStatement();
-            
+            st.executeQuery(InstrucaoSQL);
+            String cargo = result.getString("Cargo");
+            st.close();
+            conn.close();
+            return cargo;
         }
         catch (Exception e){
-            JOptionPane.showMessageDialog(null, "ERRO", "ERRO:C013", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
+            return "C013";
+        }
+    }
+    public void SelectChamados(String cargo){
+        
+        String InstrucaoSQL;
+        
+        if(cargo.equals("ADM")){
+            try{
+                
+            }
+            catch (Exception e){
+                
+            }
+        }
+        else{
+            try{
+                
+            }
+            catch (Exception e){
+                
+            }
         }
     }
 }
