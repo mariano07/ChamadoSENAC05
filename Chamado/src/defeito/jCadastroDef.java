@@ -47,6 +47,9 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Cadastro de Defeitos");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_error.png"))); // NOI18N
+        setMaximumSize(new java.awt.Dimension(1920, 1080));
+        setMinimumSize(new java.awt.Dimension(345, 445));
+        setPreferredSize(new java.awt.Dimension(345, 445));
 
         panel_defeito.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -62,7 +65,7 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         label_info.setForeground(new java.awt.Color(0, 0, 0));
         label_info.setText("(marque as caixas para \"Sim\")");
 
-        button_defeito.setText("Continuar");
+        button_defeito.setText("Proximo");
 
         box_subsoft.setBackground(new java.awt.Color(102, 102, 102));
         box_subsoft.setForeground(new java.awt.Color(0, 0, 0));
@@ -92,32 +95,24 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_defeitoLayout.createSequentialGroup()
-                        .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(panel_defeitoLayout.createSequentialGroup()
-                                .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(box_subhard)
-                                    .addComponent(label_solucao)
-                                    .addComponent(label_defeito))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE))
-                            .addGroup(panel_defeitoLayout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(label_info)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(button_defeito)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)
+                        .addComponent(label_info)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(button_defeito)
+                        .addGap(16, 16, 16))
                     .addGroup(panel_defeitoLayout.createSequentialGroup()
                         .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_defeitoLayout.createSequentialGroup()
-                                .addComponent(box_subsoft)
-                                .addGap(0, 77, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1))
-                        .addContainerGap())))
+                            .addComponent(box_subsoft)
+                            .addComponent(box_subhard)
+                            .addComponent(label_solucao)
+                            .addComponent(label_defeito)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(33, Short.MAX_VALUE))))
             .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_defeitoLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane3)
-                    .addContainerGap()))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(33, Short.MAX_VALUE)))
         );
         panel_defeitoLayout.setVerticalGroup(
             panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,15 +128,15 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
                 .addGap(8, 8, 8)
                 .addComponent(box_subhard)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_defeito)
-                    .addComponent(label_info))
-                .addGap(4, 4, 4))
+                .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_info)
+                    .addComponent(button_defeito))
+                .addGap(7, 7, 7))
             .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_defeitoLayout.createSequentialGroup()
                     .addGap(38, 38, 38)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(245, Short.MAX_VALUE)))
+                    .addContainerGap(248, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,7 +150,7 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
             .addComponent(panel_defeito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setBounds(800, 400, 341, 443);
     }// </editor-fold>//GEN-END:initComponents
  
     // Variables declaration - do not modify//GEN-BEGIN:variables

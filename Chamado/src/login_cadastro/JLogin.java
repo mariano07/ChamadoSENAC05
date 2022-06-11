@@ -40,7 +40,6 @@ public class JLogin extends javax.swing.JFrame {
         Button_login = new javax.swing.JButton();
         label_msg2_login = new javax.swing.JLabel();
         label_icone_login = new javax.swing.JLabel();
-        button_registrar = new javax.swing.JButton();
         password_senha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,15 +86,6 @@ public class JLogin extends javax.swing.JFrame {
         label_icone_login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_icone_login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/senac_logo.png"))); // NOI18N
 
-        button_registrar.setForeground(new java.awt.Color(0, 0, 0));
-        button_registrar.setText("Registrar");
-        button_registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        button_registrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_registrarMouseClicked(evt);
-            }
-        });
-
         password_senha.setBackground(new java.awt.Color(255, 255, 255));
         password_senha.setForeground(new java.awt.Color(0, 0, 0));
         password_senha.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -122,10 +112,7 @@ public class JLogin extends javax.swing.JFrame {
                                     .addComponent(text_usuario_login)
                                     .addComponent(password_senha, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
                             .addComponent(label_msg2_login, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                            .addGroup(JPanel_LoginLayout.createSequentialGroup()
-                                .addComponent(Button_login)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(button_registrar)))
+                            .addComponent(Button_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 128, Short.MAX_VALUE))
                     .addGroup(JPanel_LoginLayout.createSequentialGroup()
                         .addContainerGap()
@@ -150,9 +137,7 @@ public class JLogin extends javax.swing.JFrame {
                     .addComponent(text_senha_login)
                     .addComponent(password_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(JPanel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Button_login)
-                    .addComponent(button_registrar))
+                .addComponent(Button_login)
                 .addContainerGap())
         );
 
@@ -180,12 +165,6 @@ public class JLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!", "Login Inválido!",JOptionPane.ERROR_MESSAGE); 
         }
     }//GEN-LAST:event_Button_loginMouseClicked
-
-    private void button_registrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_registrarMouseClicked
-        JRegistro jr = new JRegistro();
-        jr.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_button_registrarMouseClicked
 
     private void text_usuario_loginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_usuario_loginKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
@@ -249,7 +228,6 @@ public class JLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_login;
     private javax.swing.JPanel JPanel_Login;
-    private javax.swing.JButton button_registrar;
     private javax.swing.JLabel label_icone_login;
     private javax.swing.JLabel label_msg2_login;
     private javax.swing.JLabel label_msg_login;
