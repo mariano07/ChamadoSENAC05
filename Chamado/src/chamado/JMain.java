@@ -7,6 +7,8 @@ package chamado;
 import cadastro_maquinas.JCadastro;
 import defeito.jCadastroDef;
 import java.awt.Toolkit;
+import procura.JProcura;
+import procura.JResultado;
 
 /**
  *
@@ -16,6 +18,8 @@ public class JMain extends javax.swing.JFrame {
 
     private static jCadastroDef jcd = new jCadastroDef();
     private static JCadastro jc = new JCadastro();
+    private static JProcura jp = new JProcura();
+    private static JResultado jr = new JResultado();
     public JMain() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens_icones/senac_icone.png")));
@@ -86,6 +90,11 @@ public class JMain extends javax.swing.JFrame {
 
         menu_procurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
         menu_procurar.setText("Procurar");
+        menu_procurar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu_procurarMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menu_procurar);
 
         menu_tecnicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group.png"))); // NOI18N
@@ -124,6 +133,13 @@ public class JMain extends javax.swing.JFrame {
         jc.setVisible(true);
         }
     }//GEN-LAST:event_mitem_addmaqActionPerformed
+
+    private void menu_procurarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_procurarMouseClicked
+        if(!jr.isVisible()){
+            tela_principal.add(jr);
+            jr.setVisible(true);
+        }
+    }//GEN-LAST:event_menu_procurarMouseClicked
 
     /**
      * @param args the command line arguments
