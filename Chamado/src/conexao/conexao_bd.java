@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 public class conexao_bd{
     
-    private static String url ="jdbc:mysql://localhost:3306/chamadosenac";
+    private static String url ="jdbc:mysql://172.20.126.128:3306/chamadosenac";
     private static String username ="root";
     private static String password ="root";
     private static Connection conn = null;
