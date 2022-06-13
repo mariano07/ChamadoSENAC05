@@ -5,6 +5,7 @@
 package login_cadastro;
 
 import chamado.JMain;
+import conexao.conexao_bd;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
@@ -18,6 +19,7 @@ public class JLogin extends javax.swing.JFrame {
     /**
      * Creates new form JLogin
      */
+    private static conexao_bd cbd = new conexao_bd();
     public JLogin() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens_icones/user_go.png")));
@@ -157,12 +159,25 @@ public class JLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_loginMouseClicked
-        if(text_usuario_login.getText().equals("Admin")){
-        JMain jm = new JMain();
-        jm.setVisible(true);
-        dispose();
+        String verifica = cbd.Login(text_usuario_login.getText(), text_senha_login.getText());
+        String verifica2 = "";
+        
+        if(verifica.equals("ADM")){
+            verifica2 = cbd.Usuario(text_usuario_login.getText(), text_senha_login.getText());
+            JMain jm = new JMain();
+            jm.setNome_usuario(verifica2);
+            jm.setCargo_usuario(verifica2);
+            jm.setVisible(true);
+            dispose();
+        }else if (verifica.equals("TEC")){
+            verifica2 = cbd.Usuario(text_usuario_login.getText(), text_senha_login.getText());
+            JMain jm = new JMain();
+            jm.setNome_usuario(verifica2);
+            jm.setCargo_usuario(verifica2);
+            jm.setVisible(true);
+            dispose();
         }else{
-            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!", "Login Inválido!",JOptionPane.ERROR_MESSAGE); 
+            JOptionPane.showMessageDialog(null, "Usuário e senha não cadastrados!", "Login Inválido!",JOptionPane.ERROR_MESSAGE); 
         }
     }//GEN-LAST:event_Button_loginMouseClicked
 
