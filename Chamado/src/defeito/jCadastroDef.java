@@ -4,6 +4,7 @@
  */
 package defeito;
 
+import cadastro_maquinas.JCadastro;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,12 +12,16 @@ import javax.swing.JOptionPane;
  * @author Alunos
  */
 public class jCadastroDef extends javax.swing.JInternalFrame {
-
+    JCadastro jc = new JCadastro();
     /**
      * Creates new form jCadastroDef
      */
     public jCadastroDef() {
         initComponents();
+    }
+    
+    public void defeitoInfo(String defeito){
+        texta_defeito.setText(defeito);
     }
 
     /**
@@ -36,9 +41,9 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         box_subsoft = new javax.swing.JCheckBox();
         box_subhard = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        texta_defeito = new javax.swing.JTextArea();
-        jScrollPane3 = new javax.swing.JScrollPane();
         texta_solucao = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        texta_defeito = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(102, 102, 102));
         setClosable(true);
@@ -75,17 +80,17 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         box_subhard.setForeground(new java.awt.Color(0, 0, 0));
         box_subhard.setText("Foi necessário substituir algum Hardware?");
 
-        texta_defeito.setBackground(new java.awt.Color(255, 255, 255));
-        texta_defeito.setColumns(20);
-        texta_defeito.setForeground(new java.awt.Color(0, 0, 0));
-        texta_defeito.setRows(5);
-        jScrollPane1.setViewportView(texta_defeito);
-
         texta_solucao.setBackground(new java.awt.Color(255, 255, 255));
         texta_solucao.setColumns(20);
         texta_solucao.setForeground(new java.awt.Color(0, 0, 0));
         texta_solucao.setRows(5);
-        jScrollPane3.setViewportView(texta_solucao);
+        jScrollPane1.setViewportView(texta_solucao);
+
+        texta_defeito.setBackground(new java.awt.Color(255, 255, 255));
+        texta_defeito.setColumns(20);
+        texta_defeito.setForeground(new java.awt.Color(0, 0, 0));
+        texta_defeito.setRows(5);
+        jScrollPane3.setViewportView(texta_defeito);
 
         javax.swing.GroupLayout panel_defeitoLayout = new javax.swing.GroupLayout(panel_defeito);
         panel_defeito.setLayout(panel_defeitoLayout);
