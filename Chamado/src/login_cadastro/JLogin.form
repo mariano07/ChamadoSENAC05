@@ -125,9 +125,6 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="text_usuario_loginKeyTyped"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="label_usuario_login">
           <Properties>
@@ -194,9 +191,6 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="password_senhaKeyTyped"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
