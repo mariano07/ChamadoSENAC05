@@ -14,7 +14,6 @@ import javax.swing.JDesktopPane;
  * @author alunos
  */
 public class JCadastro extends javax.swing.JInternalFrame {
-
     private String negar ="0123456789";
     private static jCadastroDef jcd = new jCadastroDef();
     public JCadastro() {
@@ -1089,10 +1088,10 @@ public class JCadastro extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Dados Salvos com sucesso !!!");
             JDesktopPane desktop = getDesktopPane();
             desktop.add(jcd);
+            jcd.defeitoInfo(texta_defeito.getText());
             jcd.setVisible(true);
             this.dispose();
-        }
-        
+        }       
     }//GEN-LAST:event_button_proxMouseClicked
 
 
