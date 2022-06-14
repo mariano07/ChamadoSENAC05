@@ -8,6 +8,7 @@ import cadastro_maquinas.JCadastro;
 import defeito.jCadastroDef;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
+import login.JLogin;
 import procura.JProcura;
 import procura.JResultado;
 
@@ -16,46 +17,39 @@ import procura.JResultado;
  * @author alunos
  */
 public class JMain extends javax.swing.JFrame {
-
     private static jCadastroDef jcd = new jCadastroDef();
     private static JCadastro jc = new JCadastro();
     private static JProcura jp = new JProcura();
     private static JResultado jr = new JResultado();
-    private String nome_usuario="",cargo_usuario="";
+    
     public JMain() {
         initComponents();
-        checa_cargo(getCargo_usuario());
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens_icones/senac_icone.png")));
         setExtendedState(JMain.MAXIMIZED_BOTH);
     }
     
-    private void checa_cargo(String cargo){
+    public String checa_cargo(String cargo,String nome){
         if(cargo.equals("ADM")){
             JOptionPane.showMessageDialog(null, "Bem vindo professor :D");
+            return nome;
         }else if (cargo.equals("TEC")){
             JOptionPane.showMessageDialog(null, "Bem vindo Técnico :D");
             menu_tecnicos.setVisible(false);
             jMenuItem2.setVisible(false);
+            return nome;
         }else{
-            
+            return nome;
         }
     }
-
-    public String getNome_usuario() {
-        return nome_usuario;
-    }
-
-    public void setNome_usuario(String nome_usuario) {
-        this.nome_usuario = nome_usuario;
+    
+    public void setTexto(String nome){
+        menu_nomeU.setText(nome);
     }
     
-    public String getCargo_usuario() {
-        return cargo_usuario;
-    }
-
-    public void setCargo_usuario(String cargo_usuario) {
-        JOptionPane.showMessageDialog(null, cargo_usuario);
-        this.cargo_usuario = cargo_usuario;
+    private void logoff(){
+        JLogin jl = new JLogin();
+        jl.setVisible(true);
+        dispose();
     }
 
     /**
@@ -69,6 +63,8 @@ public class JMain extends javax.swing.JFrame {
 
         tela_principal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
+        menu_nomeU = new javax.swing.JMenu();
+        mitem_logoff = new javax.swing.JMenuItem();
         menu_maquinas = new javax.swing.JMenu();
         mitem_addmaq = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -101,6 +97,19 @@ public class JMain extends javax.swing.JFrame {
         jMenuBar1.setBorder(null);
         jMenuBar1.setForeground(new java.awt.Color(0, 0, 0));
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        menu_nomeU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/user_gray.png"))); // NOI18N
+
+        mitem_logoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/cancel.png"))); // NOI18N
+        mitem_logoff.setText("Deslogar");
+        mitem_logoff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                mitem_logoffMousePressed(evt);
+            }
+        });
+        menu_nomeU.add(mitem_logoff);
+
+        jMenuBar1.add(menu_nomeU);
 
         menu_maquinas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer.png"))); // NOI18N
         menu_maquinas.setText("Maquinas");
@@ -172,6 +181,12 @@ public class JMain extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_menu_procurarMouseClicked
 
+    private void mitem_logoffMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mitem_logoffMousePressed
+        JLogin jl = new JLogin();
+        jl.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_mitem_logoffMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -212,11 +227,13 @@ public class JMain extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menu_maquinas;
+    private javax.swing.JMenu menu_nomeU;
     private javax.swing.JMenu menu_procurar;
     private javax.swing.JMenu menu_tecnicos;
     private javax.swing.JMenuItem mitem_addmaq;
     private javax.swing.JMenuItem mitem_addtec;
     private javax.swing.JMenuItem mitem_deltec;
+    private javax.swing.JMenuItem mitem_logoff;
     private javax.swing.JDesktopPane tela_principal;
     // End of variables declaration//GEN-END:variables
 

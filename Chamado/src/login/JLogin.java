@@ -19,7 +19,6 @@ public class JLogin extends javax.swing.JFrame {
     /**
      * Creates new form JLogin
      */
-    JMain jm = new JMain();
     public JLogin() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens_icones/user_go.png")));
@@ -57,6 +56,11 @@ public class JLogin extends javax.swing.JFrame {
 
         text_usuario_login.setBackground(new java.awt.Color(255, 255, 255));
         text_usuario_login.setForeground(new java.awt.Color(0, 0, 0));
+        text_usuario_login.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                text_usuario_loginKeyPressed(evt);
+            }
+        });
 
         label_usuario_login.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         label_usuario_login.setForeground(new java.awt.Color(0, 0, 0));
@@ -85,6 +89,11 @@ public class JLogin extends javax.swing.JFrame {
 
         password_senha.setBackground(new java.awt.Color(255, 255, 255));
         password_senha.setForeground(new java.awt.Color(0, 0, 0));
+        password_senha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                password_senhaKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanel_LoginLayout = new javax.swing.GroupLayout(JPanel_Login);
         JPanel_Login.setLayout(JPanel_LoginLayout);
@@ -149,28 +158,83 @@ public class JLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_loginMouseClicked
-
         conexao_bd cbd = new conexao_bd();
-        String login = text_usuario_login.getText(),senha = password_senha.getText(),verificaC = "",verificaU = "";
         
+        String login = text_usuario_login.getText(),senha = password_senha.getText(),verificaC = "",verificaU = "";
         verificaC = cbd.Login(login, senha);
           
         if(verificaC.toString().equals("ADM")){
             verificaU = cbd.Usuario(login, senha);
-            jm.setCargo_usuario(verificaC);
-            jm.setNome_usuario(verificaU);
+            JMain jm = new JMain();
+            jm.checa_cargo(verificaC, verificaU);
+            jm.setTexto(verificaU);
             jm.setVisible(true);
             dispose();
         }else if (verificaC.equals("TEC")){
             verificaU = cbd.Usuario(login, senha);
+            JMain jm = new JMain();
+            jm.checa_cargo(verificaC, verificaU);
+            jm.setTexto(verificaU);
             jm.setVisible(true);
-            jm.setCargo_usuario(verificaC);
-            jm.setNome_usuario(verificaU);
             dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Usuário e senha incorretos\nou\nUsuário e senha não cadastrados!", "Login Inválido!",JOptionPane.ERROR_MESSAGE );  
         }
     }//GEN-LAST:event_Button_loginMouseClicked
+
+    private void text_usuario_loginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_usuario_loginKeyPressed
+        conexao_bd cbd = new conexao_bd();
+
+        String login = text_usuario_login.getText(),senha = password_senha.getText(),verificaC = "",verificaU = "";
+        
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            verificaC = cbd.Login(login, senha);
+            if(verificaC.toString().equals("ADM")){
+                verificaU = cbd.Usuario(login, senha);
+                JMain jm = new JMain();
+                jm.checa_cargo(verificaC, verificaU);
+                jm.setTexto(verificaU);
+                jm.setVisible(true);
+                dispose();
+            }else if (verificaC.equals("TEC")){
+                verificaU = cbd.Usuario(login, senha);
+                JMain jm = new JMain();
+                jm.checa_cargo(verificaC, verificaU);
+                jm.setTexto(verificaU);
+                jm.setVisible(true);
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuário e senha incorretos\nou\nUsuário e senha não cadastrados!", "Login Inválido!",JOptionPane.ERROR_MESSAGE );  
+            }
+        }
+    }//GEN-LAST:event_text_usuario_loginKeyPressed
+
+    private void password_senhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_password_senhaKeyPressed
+        conexao_bd cbd = new conexao_bd();
+
+        String login = text_usuario_login.getText(),senha = password_senha.getText(),verificaC = "",verificaU = "";
+        
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            verificaC = cbd.Login(login, senha);
+            if(verificaC.toString().equals("ADM")){
+                verificaU = cbd.Usuario(login, senha);
+                JMain jm = new JMain();
+                jm.checa_cargo(verificaC, verificaU);
+                jm.setTexto(verificaU);
+                jm.setVisible(true);
+                dispose();
+            }else if (verificaC.equals("TEC")){
+                verificaU = cbd.Usuario(login, senha);
+                JMain jm = new JMain();
+                jm.checa_cargo(verificaC, verificaU);
+                jm.setTexto(verificaU);
+                jm.setVisible(true);
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuário e senha incorretos\nou\nUsuário e senha não cadastrados!", "Login Inválido!",JOptionPane.ERROR_MESSAGE );  
+            }
+        }
+    }//GEN-LAST:event_password_senhaKeyPressed
 
     /**
      * @param args the command line arguments
