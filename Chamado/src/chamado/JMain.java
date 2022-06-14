@@ -7,6 +7,7 @@ package chamado;
 import cadastro_maquinas.JCadastro;
 import defeito.jCadastroDef;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 import procura.JProcura;
 import procura.JResultado;
 
@@ -20,12 +21,40 @@ public class JMain extends javax.swing.JFrame {
     private static JCadastro jc = new JCadastro();
     private static JProcura jp = new JProcura();
     private static JResultado jr = new JResultado();
+    private String nome_usuario,cargo_usuario;
     public JMain() {
         initComponents();
+        checa_cargo(getCargo_usuario());
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens_icones/senac_icone.png")));
         setExtendedState(JMain.MAXIMIZED_BOTH);
+        JOptionPane.showMessageDialog(null, getNome_usuario());
     }
-  
+    
+    private void checa_cargo(String cargo){
+        if(cargo.equals("ADM")){
+            JOptionPane.showMessageDialog(null, "Bem vindo professor :D");
+        }else{
+            JOptionPane.showMessageDialog(null, "Bem vindo Técnico :D");
+            menu_tecnicos.setVisible(false);
+            jMenuItem2.setVisible(false);
+        }
+    }
+
+    public String getNome_usuario() {
+        return nome_usuario;
+    }
+
+    public void setNome_usuario(String nome_usuario) {
+        this.nome_usuario = nome_usuario;
+    }
+    
+    public String getCargo_usuario() {
+        return cargo_usuario;
+    }
+
+    public void setCargo_usuario(String cargo_usuario) {
+        this.cargo_usuario = cargo_usuario;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,7 +67,7 @@ public class JMain extends javax.swing.JFrame {
 
         tela_principal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        menu_maquinas = new javax.swing.JMenu();
         mitem_addmaq = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         menu_procurar = new javax.swing.JMenu();
@@ -71,8 +100,8 @@ public class JMain extends javax.swing.JFrame {
         jMenuBar1.setForeground(new java.awt.Color(0, 0, 0));
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer.png"))); // NOI18N
-        jMenu1.setText("Maquinas");
+        menu_maquinas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer.png"))); // NOI18N
+        menu_maquinas.setText("Maquinas");
 
         mitem_addmaq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_add.png"))); // NOI18N
         mitem_addmaq.setText("Registrar Maquina");
@@ -81,12 +110,12 @@ public class JMain extends javax.swing.JFrame {
                 mitem_addmaqActionPerformed(evt);
             }
         });
-        jMenu1.add(mitem_addmaq);
+        menu_maquinas.add(mitem_addmaq);
 
         jMenuItem2.setText("jMenuItem2");
-        jMenu1.add(jMenuItem2);
+        menu_maquinas.add(jMenuItem2);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(menu_maquinas);
 
         menu_procurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
         menu_procurar.setText("Procurar");
@@ -178,9 +207,9 @@ public class JMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenu menu_maquinas;
     private javax.swing.JMenu menu_procurar;
     private javax.swing.JMenu menu_tecnicos;
     private javax.swing.JMenuItem mitem_addmaq;
@@ -188,4 +217,5 @@ public class JMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem mitem_deltec;
     private javax.swing.JDesktopPane tela_principal;
     // End of variables declaration//GEN-END:variables
+
 }
