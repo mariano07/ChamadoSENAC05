@@ -38,7 +38,7 @@ public class JLogin extends javax.swing.JFrame {
         label_msg_login = new javax.swing.JLabel();
         text_usuario_login = new javax.swing.JTextField();
         label_usuario_login = new javax.swing.JLabel();
-        text_senha_login = new javax.swing.JLabel();
+        label_senha_login = new javax.swing.JLabel();
         Button_login = new javax.swing.JButton();
         label_msg2_login = new javax.swing.JLabel();
         label_icone_login = new javax.swing.JLabel();
@@ -58,8 +58,8 @@ public class JLogin extends javax.swing.JFrame {
         text_usuario_login.setBackground(new java.awt.Color(255, 255, 255));
         text_usuario_login.setForeground(new java.awt.Color(0, 0, 0));
         text_usuario_login.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                text_usuario_loginKeyPressed(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                text_usuario_loginKeyTyped(evt);
             }
         });
 
@@ -67,9 +67,9 @@ public class JLogin extends javax.swing.JFrame {
         label_usuario_login.setForeground(new java.awt.Color(0, 0, 0));
         label_usuario_login.setText("Usuário:");
 
-        text_senha_login.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        text_senha_login.setForeground(new java.awt.Color(0, 0, 0));
-        text_senha_login.setText("Senha:");
+        label_senha_login.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        label_senha_login.setForeground(new java.awt.Color(0, 0, 0));
+        label_senha_login.setText("Senha:");
 
         Button_login.setForeground(new java.awt.Color(0, 0, 0));
         Button_login.setText("Login");
@@ -91,8 +91,8 @@ public class JLogin extends javax.swing.JFrame {
         password_senha.setBackground(new java.awt.Color(255, 255, 255));
         password_senha.setForeground(new java.awt.Color(0, 0, 0));
         password_senha.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                password_senhaKeyPressed(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                password_senhaKeyTyped(evt);
             }
         });
 
@@ -107,7 +107,7 @@ public class JLogin extends javax.swing.JFrame {
                         .addGroup(JPanel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(JPanel_LoginLayout.createSequentialGroup()
                                 .addGroup(JPanel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(text_senha_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(label_senha_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(label_usuario_login))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(JPanel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -136,7 +136,7 @@ public class JLogin extends javax.swing.JFrame {
                     .addComponent(label_usuario_login))
                 .addGap(18, 18, 18)
                 .addGroup(JPanel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_senha_login)
+                    .addComponent(label_senha_login)
                     .addComponent(password_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(Button_login)
@@ -159,51 +159,76 @@ public class JLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_loginMouseClicked
-        String verifica = cbd.Login(text_usuario_login.getText(), text_senha_login.getText());
+        String verifica = cbd.Login(text_usuario_login.getText(), password_senha.getText());
         String verifica2 = "";
         
         if(verifica.equals("ADM")){
-            verifica2 = cbd.Usuario(text_usuario_login.getText(), text_senha_login.getText());
+            verifica2 = cbd.Usuario(text_usuario_login.getText(), password_senha.getText());
             JMain jm = new JMain();
             jm.setNome_usuario(verifica2);
             jm.setCargo_usuario(verifica2);
             jm.setVisible(true);
             dispose();
         }else if (verifica.equals("TEC")){
-            verifica2 = cbd.Usuario(text_usuario_login.getText(), text_senha_login.getText());
+            verifica2 = cbd.Usuario(text_usuario_login.getText(), password_senha.getText());
             JMain jm = new JMain();
             jm.setNome_usuario(verifica2);
             jm.setCargo_usuario(verifica2);
             jm.setVisible(true);
             dispose();
         }else{
-            JOptionPane.showMessageDialog(null, "Usuário e senha não cadastrados!", "Login Inválido!",JOptionPane.ERROR_MESSAGE); 
+            JOptionPane.showMessageDialog(null, "Usuário e senha incorretos\nou\nUsuário e senha não cadastrados!", "Login Inválido!",JOptionPane.ERROR_MESSAGE); 
         }
     }//GEN-LAST:event_Button_loginMouseClicked
 
-    private void text_usuario_loginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_usuario_loginKeyPressed
+    private void password_senhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_password_senhaKeyTyped
+        String verifica = cbd.Login(text_usuario_login.getText(), password_senha.getText());
+        String verifica2 = "";
+        
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            if(text_usuario_login.getText().equals("Admin")){
-            JMain jm = new JMain();
-            jm.setVisible(true);
-            dispose();
+            if(verifica.equals("ADM")){
+                verifica2 = cbd.Usuario(text_usuario_login.getText(), password_senha.getText());
+                JMain jm = new JMain();
+                jm.setNome_usuario(verifica2);
+                jm.setCargo_usuario(verifica2);
+                jm.setVisible(true);
+                dispose();
+            }else if (verifica.equals("TEC")){
+                verifica2 = cbd.Usuario(text_usuario_login.getText(), password_senha.getText());
+                JMain jm = new JMain();
+                jm.setNome_usuario(verifica2);
+                jm.setCargo_usuario(verifica2);
+                jm.setVisible(true);
+                dispose();
             }else{
-            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!", "Login Inválido!",JOptionPane.ERROR_MESSAGE); 
+                JOptionPane.showMessageDialog(null, "Usuário e senha incorretos\nou\nUsuário e senha não cadastrados!", "Login Inválido!",JOptionPane.ERROR_MESSAGE); 
             }
         }
-    }//GEN-LAST:event_text_usuario_loginKeyPressed
+    }//GEN-LAST:event_password_senhaKeyTyped
 
-    private void password_senhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_password_senhaKeyPressed
+    private void text_usuario_loginKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_usuario_loginKeyTyped
+        String verifica = cbd.Login(text_usuario_login.getText(), password_senha.getText());
+        String verifica2 = "";
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            if(text_usuario_login.getText().equals("Admin")){
-            JMain jm = new JMain();
-            jm.setVisible(true);
-            dispose();
+            if(verifica.equals("ADM")){
+                verifica2 = cbd.Usuario(text_usuario_login.getText(), password_senha.getText());
+                JMain jm = new JMain();
+                jm.setNome_usuario(verifica2);
+                jm.setCargo_usuario(verifica2);
+                jm.setVisible(true);
+                dispose();
+            }else if (verifica.equals("TEC")){
+                verifica2 = cbd.Usuario(text_usuario_login.getText(), password_senha.getText());
+                JMain jm = new JMain();
+                jm.setNome_usuario(verifica2);
+                jm.setCargo_usuario(verifica2);
+                jm.setVisible(true);
+                dispose();
             }else{
-            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!", "Login Inválido!",JOptionPane.ERROR_MESSAGE); 
+                JOptionPane.showMessageDialog(null, "Usuário e senha incorretos\nou\nUsuário e senha não cadastrados!", "Login Inválido!",JOptionPane.ERROR_MESSAGE); 
             }
         }
-    }//GEN-LAST:event_password_senhaKeyPressed
+    }//GEN-LAST:event_text_usuario_loginKeyTyped
 
     /**
      * @param args the command line arguments
@@ -246,9 +271,9 @@ public class JLogin extends javax.swing.JFrame {
     private javax.swing.JLabel label_icone_login;
     private javax.swing.JLabel label_msg2_login;
     private javax.swing.JLabel label_msg_login;
+    private javax.swing.JLabel label_senha_login;
     private javax.swing.JLabel label_usuario_login;
     private javax.swing.JPasswordField password_senha;
-    private javax.swing.JLabel text_senha_login;
     private javax.swing.JTextField text_usuario_login;
     // End of variables declaration//GEN-END:variables
 }

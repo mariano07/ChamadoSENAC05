@@ -54,7 +54,7 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="text_senha_login" max="32767" attributes="0"/>
+                                      <Component id="label_senha_login" max="32767" attributes="0"/>
                                       <Component id="label_usuario_login" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -93,7 +93,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="text_senha_login" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="label_senha_login" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="password_senha" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="34" max="32767" attributes="0"/>
@@ -126,7 +126,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="text_usuario_loginKeyPressed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="text_usuario_loginKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="label_usuario_login">
@@ -140,7 +140,7 @@
             <Property name="text" type="java.lang.String" value="Usu&#xe1;rio:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="text_senha_login">
+        <Component class="javax.swing.JLabel" name="label_senha_login">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
@@ -195,7 +195,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="password_senhaKeyPressed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="password_senhaKeyTyped"/>
           </Events>
         </Component>
       </SubComponents>

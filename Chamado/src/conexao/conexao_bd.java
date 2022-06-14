@@ -12,22 +12,26 @@ import javax.swing.JOptionPane;
 
 public class conexao_bd{
     
-    private static String url ="jdbc:mysql://172.20.126.128:3306/chamadosenac";
-    private static String username ="root";
-    private static String password ="fecomerciors";
-    private static Connection conn = null;
-    private static Statement st = null;
-    private static ResultSet result = null;
+    static String url ="jdbc:mysql://172.20.126.128:3306/ChamadoSENAC";
+    static String username ="chamado";
+    static String password ="root";
+    static Connection conn = null;
+    static Statement st = null;
+    static ResultSet result = null;
     
     public String Login(String usuario,String senha){
         
         String InstrucaoSQL = "SELECT Cargo FROM Usuario "
                 + "WHERE Usuario = '"+usuario+"' AND Senha = '"+senha+"'";
         
+        JOptionPane.showMessageDialog(null, InstrucaoSQL);
+        
         try{
+            
+            JOptionPane.showMessageDialog(null, "ENTRO");
             conn = DriverManager.getConnection(url,username,password);
             st = conn.createStatement();
-            st.executeQuery(InstrucaoSQL);
+            result = st.executeQuery(InstrucaoSQL);
             String cargo = result.getString("Cargo");
             st.close();
             conn.close();
@@ -46,7 +50,7 @@ public class conexao_bd{
         try{
             conn = DriverManager.getConnection(url,username,password);
             st = conn.createStatement();
-            st.executeQuery(InstrucaoSQL);
+            result = st.executeQuery(InstrucaoSQL);
             String nome = result.getString("Nome");
             st.close();
             conn.close();
