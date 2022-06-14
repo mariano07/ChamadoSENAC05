@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package login_cadastro;
+package login;
 
 import chamado.JMain;
 import conexao.conexao_bd;
@@ -148,23 +148,23 @@ public class JLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_loginMouseClicked
+        JMain jm = new JMain();
         conexao_bd cbd = new conexao_bd();
         String login = text_usuario_login.getText(),senha = password_senha.getText(),verificaC = "",verificaU = "";
         
         verificaC = cbd.Login(login, senha);
-        if(verificaC.equals("ADM")){
+          
+        if(verificaC.toString().equals("ADM")){
             verificaU = cbd.Usuario(login, senha);
-            JMain jm = new JMain();
-            jm.setCargo_usuario(verificaC);
+            jm.setCargo_usuario("ADM");
             jm.setNome_usuario(verificaU);
             jm.setVisible(true);
             dispose();
         }else if (verificaC.equals("TEC")){
             verificaU = cbd.Usuario(login, senha);
-            JMain jm = new JMain();
+            jm.setVisible(true);
             jm.setCargo_usuario(verificaC);
             jm.setNome_usuario(verificaU);
-            jm.setVisible(true);
             dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Usuário e senha incorretos\nou\nUsuário e senha não cadastrados!" + verificaC, "Login Inválido!",JOptionPane.ERROR_MESSAGE );  

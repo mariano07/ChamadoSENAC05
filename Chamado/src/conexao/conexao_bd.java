@@ -15,52 +15,68 @@ public class conexao_bd{
     static String url ="jdbc:mysql://172.20.126.128:3306/ChamadoSENAC";
     static String username ="chamado";
     static String password ="root";
-    static Connection conn = null;
-    static Statement st = null;
-    static ResultSet result = null;
+    Connection conexao = null;
+    Connection con = conexao;
+    Statement st = null;
+    ResultSet result = null;
+    
+    private void conectar(){
+         try{
+            conexao = DriverManager.getConnection(url,username,password);
+        }catch(Exception e){
+             JOptionPane.showMessageDialog(null, "Erro C023","ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void desconectar(){
+        try {
+            st.close();
+            conexao.close();
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro C031","ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     
     public String Login(String usuario,String senha){
         
         String InstrucaoSQL = "SELECT Cargo FROM Usuario "
                 + "WHERE Usuario = '"+usuario+"' AND Senha = '"+senha+"'";
-        
-        
-        JOptionPane.showMessageDialog(null, InstrucaoSQL);
-        
+        String cargo = "";
+        conectar();
         try{
-            
-            JOptionPane.showMessageDialog(null, "ENTRO");
-            conn = DriverManager.getConnection(url,username,password);
-            st = conn.createStatement();
+            st = conexao.createStatement();
             result = st.executeQuery(InstrucaoSQL);
-            String cargo = result.getString(9);
-            st.close();
-            conn.close();
-            return cargo;
+            while(result.next()){
+              cargo = result.getString("Cargo");
+            }
         }
         catch (Exception e){
             e.printStackTrace();
-            return "C022";
+            cargo = "C040";
         }
+        desconectar();
+        return cargo;
+        
     }
     public String Usuario(String usuario,String senha){
         
-        String InstrucaoSQL = "SELECT Usuario.Nome FROM Usuario "
-                + "WHERE Usuario.Usuario = '"+usuario+"' AND Usuario.Senha = '"+senha+"'";
-        
+        String InstrucaoSQL = "SELECT Nome FROM Usuario "
+                + "WHERE Usuario = '"+usuario+"' AND Senha = '"+senha+"'";
+        String nome = "";
+        conectar();
         try{
-            conn = DriverManager.getConnection(url,username,password);
-            st = conn.createStatement();
+            st = conexao.createStatement();
             result = st.executeQuery(InstrucaoSQL);
-            String nome = result.getString(10);
-            st.close();
-            conn.close();
-            return nome;
+            while(result.next()){
+              nome = result.getString("Nome");  
+            }
         }
         catch (Exception e){
             e.printStackTrace();
-            return "C041";
+           nome = "C058";
         }
+        desconectar();
+        return nome;
     }
     private void CadastraMaquinas(String cpu,String pmae,String ram,String hd,String ssd,String ccpu,String cooler,String gpu,String fonte,String gabinete,String nome){
         String SintrucaoSQL1="";

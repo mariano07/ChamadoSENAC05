@@ -31,7 +31,8 @@ public class JMain extends javax.swing.JFrame {
     }
     
     private void checa_cargo(String cargo){
-        if(cargo.equals("ADM")){
+        JOptionPane.showMessageDialog(null, cargo);
+        if(getCargo_usuario().equals("ADM")){
             JOptionPane.showMessageDialog(null, "Bem vindo professor :D");
         }else{
             JOptionPane.showMessageDialog(null, "Bem vindo Técnico :D");
@@ -53,6 +54,7 @@ public class JMain extends javax.swing.JFrame {
     }
 
     public void setCargo_usuario(String cargo_usuario) {
+        JOptionPane.showMessageDialog(null, cargo_usuario);
         this.cargo_usuario = cargo_usuario;
     }
 
