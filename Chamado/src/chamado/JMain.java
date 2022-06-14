@@ -27,7 +27,6 @@ public class JMain extends javax.swing.JFrame {
         checa_cargo(getCargo_usuario());
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens_icones/senac_icone.png")));
         setExtendedState(JMain.MAXIMIZED_BOTH);
-        JOptionPane.showMessageDialog(null, getNome_usuario());
     }
     
     private void checa_cargo(String cargo){
