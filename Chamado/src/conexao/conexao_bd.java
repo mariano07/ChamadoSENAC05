@@ -24,6 +24,7 @@ public class conexao_bd{
         String InstrucaoSQL = "SELECT Cargo FROM Usuario "
                 + "WHERE Usuario = '"+usuario+"' AND Senha = '"+senha+"'";
         
+        
         JOptionPane.showMessageDialog(null, InstrucaoSQL);
         
         try{
@@ -44,8 +45,8 @@ public class conexao_bd{
     }
     public String Usuario(String usuario,String senha){
         
-        String InstrucaoSQL = "SELECT Nome FROM Usuario "
-                + "WHERE Usuario = '"+usuario+"' AND Senha = '"+senha+"'";
+        String InstrucaoSQL = "SELECT Usuario.Nome FROM Usuario "
+                + "WHERE Usuario.Usuario = '"+usuario+"' AND Usuario.Senha = '"+senha+"'";
         
         try{
             conn = DriverManager.getConnection(url,username,password);
