@@ -21,7 +21,7 @@ public class conexao_bd{
     
     public String Login(String usuario,String senha){
         
-        String InstrucaoSQL = "SELECT Cargo FROM usuario "
+        String InstrucaoSQL = "SELECT Cargo FROM Usuario "
                 + "WHERE Usuario = '"+usuario+"' AND Senha = '"+senha+"'";
         
         try{
@@ -40,7 +40,7 @@ public class conexao_bd{
     }
     public String Usuario(String usuario,String senha){
         
-        String InstrucaoSQL = "SELECT Nome FROM usuario "
+        String InstrucaoSQL = "SELECT Nome FROM Usuario "
                 + "WHERE Usuario = '"+usuario+"' AND Senha = '"+senha+"'";
         
         try{
