@@ -22,7 +22,6 @@ public class JLogin extends javax.swing.JFrame {
     JMain jm = new JMain();
     public JLogin() {
         initComponents();
-        
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens_icones/user_go.png")));
     }
 
@@ -158,7 +157,7 @@ public class JLogin extends javax.swing.JFrame {
           
         if(verificaC.toString().equals("ADM")){
             verificaU = cbd.Usuario(login, senha);
-            jm.setCargo_usuario("ADM");
+            jm.setCargo_usuario(verificaC);
             jm.setNome_usuario(verificaU);
             jm.setVisible(true);
             dispose();
@@ -169,7 +168,7 @@ public class JLogin extends javax.swing.JFrame {
             jm.setNome_usuario(verificaU);
             dispose();
         }else{
-            JOptionPane.showMessageDialog(null, "Usuário e senha incorretos\nou\nUsuário e senha não cadastrados!" + verificaC, "Login Inválido!",JOptionPane.ERROR_MESSAGE );  
+            JOptionPane.showMessageDialog(null, "Usuário e senha incorretos\nou\nUsuário e senha não cadastrados!", "Login Inválido!",JOptionPane.ERROR_MESSAGE );  
         }
     }//GEN-LAST:event_Button_loginMouseClicked
 
