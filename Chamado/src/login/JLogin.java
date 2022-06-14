@@ -19,8 +19,10 @@ public class JLogin extends javax.swing.JFrame {
     /**
      * Creates new form JLogin
      */
+    JMain jm = new JMain();
     public JLogin() {
         initComponents();
+        
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens_icones/user_go.png")));
     }
 
@@ -148,7 +150,7 @@ public class JLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_loginMouseClicked
-        JMain jm = new JMain();
+
         conexao_bd cbd = new conexao_bd();
         String login = text_usuario_login.getText(),senha = password_senha.getText(),verificaC = "",verificaU = "";
         

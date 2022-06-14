@@ -21,7 +21,7 @@ public class JMain extends javax.swing.JFrame {
     private static JCadastro jc = new JCadastro();
     private static JProcura jp = new JProcura();
     private static JResultado jr = new JResultado();
-    private String nome_usuario,cargo_usuario;
+    private String nome_usuario="",cargo_usuario="";
     public JMain() {
         initComponents();
         checa_cargo(getCargo_usuario());
@@ -31,13 +31,14 @@ public class JMain extends javax.swing.JFrame {
     }
     
     private void checa_cargo(String cargo){
-        JOptionPane.showMessageDialog(null, cargo);
-        if(getCargo_usuario().equals("ADM")){
+        if(cargo.equals("ADM")){
             JOptionPane.showMessageDialog(null, "Bem vindo professor :D");
-        }else{
+        }else if (cargo.equals("TEC")){
             JOptionPane.showMessageDialog(null, "Bem vindo Técnico :D");
             menu_tecnicos.setVisible(false);
             jMenuItem2.setVisible(false);
+        }else{
+            
         }
     }
 
