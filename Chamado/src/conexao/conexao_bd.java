@@ -33,7 +33,7 @@ public class conexao_bd{
             conn = DriverManager.getConnection(url,username,password);
             st = conn.createStatement();
             result = st.executeQuery(InstrucaoSQL);
-            String cargo = result.getString("Cargo");
+            String cargo = result.getString(9);
             st.close();
             conn.close();
             return cargo;
@@ -52,7 +52,7 @@ public class conexao_bd{
             conn = DriverManager.getConnection(url,username,password);
             st = conn.createStatement();
             result = st.executeQuery(InstrucaoSQL);
-            String nome = result.getString("Nome");
+            String nome = result.getString(10);
             st.close();
             conn.close();
             return nome;
