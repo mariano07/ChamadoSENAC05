@@ -34,17 +34,17 @@ public class JMain extends javax.swing.JFrame {
         setExtendedState(JMain.MAXIMIZED_BOTH);
     }
     
-    public String checa_cargo(String cargo,String nome){
+    public String checa_cargo(String cargo,String matricula,String nome){
         if(cargo.equals("ADM")){
-            JOptionPane.showMessageDialog(null, "Bem vindo professor :D");
-            return nome;
+            JOptionPane.showMessageDialog(null, "Bem vindo"+nome+" :D");
+            return matricula;
         }else if (cargo.equals("TEC")){
-            JOptionPane.showMessageDialog(null, "Bem vindo Técnico :D");
+            JOptionPane.showMessageDialog(null, "Bem vindo "+nome+" :D");
             menu_tecnicos.setVisible(false);
             jMenuItem2.setVisible(false);
-            return nome;
+            return matricula;
         }else{
-            return nome;
+            return matricula;
         }
     }
     
