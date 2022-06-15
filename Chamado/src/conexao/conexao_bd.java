@@ -26,7 +26,7 @@ public class conexao_bd{
          try{
             conexao = DriverManager.getConnection(url,username,password);
         }catch(Exception e){
-             JOptionPane.showMessageDialog(null, "Erro C023","ERRO", JOptionPane.ERROR_MESSAGE);
+             JOptionPane.showMessageDialog(null, "Erro C025","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -35,7 +35,7 @@ public class conexao_bd{
             st.close();
             conexao.close();
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro C031","ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro C033","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     private String getDate(){
@@ -97,7 +97,7 @@ public class conexao_bd{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "ERRO:C081", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C091", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -114,4 +114,5 @@ public class conexao_bd{
         }
         desconectar();
     }
+    
 }
