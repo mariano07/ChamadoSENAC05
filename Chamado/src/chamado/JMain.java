@@ -36,7 +36,7 @@ public class JMain extends javax.swing.JFrame {
     
     public String checa_cargo(String cargo,String matricula,String nome){
         if(cargo.equals("ADM")){
-            JOptionPane.showMessageDialog(null, "Bem vindo"+nome+" :D");
+            JOptionPane.showMessageDialog(null, "Bem vindo "+nome+" :D");
             return matricula;
         }else if (cargo.equals("TEC")){
             JOptionPane.showMessageDialog(null, "Bem vindo "+nome+" :D");
@@ -48,8 +48,9 @@ public class JMain extends javax.swing.JFrame {
         }
     }
     
-    public void setTexto(String nome){
+    public void setTexto(String nome,String matricula){
         menu_nomeU.setText(nome);
+        mitem_matricula.setText(matricula);
     }
     
     private void logoff(){
@@ -70,7 +71,7 @@ public class JMain extends javax.swing.JFrame {
         tela_principal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_nomeU = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        mitem_matricula = new javax.swing.JMenuItem();
         mitem_ajuda = new javax.swing.JMenuItem();
         mitem_logoff = new javax.swing.JMenuItem();
         menu_maquinas = new javax.swing.JMenu();
@@ -113,8 +114,9 @@ public class JMain extends javax.swing.JFrame {
         menu_nomeU.setFocusable(false);
         menu_nomeU.setRolloverEnabled(false);
 
-        jMenuItem4.setText("a");
-        menu_nomeU.add(jMenuItem4);
+        mitem_matricula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/vcard.png"))); // NOI18N
+        mitem_matricula.setText("a");
+        menu_nomeU.add(mitem_matricula);
 
         mitem_ajuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/help.png"))); // NOI18N
         mitem_ajuda.setText("Menu Ajuda");
@@ -162,6 +164,7 @@ public class JMain extends javax.swing.JFrame {
         });
         jMenuBar1.add(menu_procurar);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group_link.png"))); // NOI18N
         jMenu1.setText("Clientes");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,9 +172,11 @@ public class JMain extends javax.swing.JFrame {
             }
         });
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/user_suit.png"))); // NOI18N
         jMenuItem1.setText("Adicionar PF");
         jMenu1.add(jMenuItem1);
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/building.png"))); // NOI18N
         jMenuItem3.setText("Adicionar PJ");
         jMenu1.add(jMenuItem3);
 
@@ -293,7 +298,6 @@ public class JMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenu menu_maquinas;
     private javax.swing.JMenu menu_nomeU;
     private javax.swing.JMenu menu_procurar;
@@ -303,6 +307,7 @@ public class JMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem mitem_ajuda;
     private javax.swing.JMenuItem mitem_deltec;
     private javax.swing.JMenuItem mitem_logoff;
+    private javax.swing.JMenuItem mitem_matricula;
     private javax.swing.JDesktopPane tela_principal;
     // End of variables declaration//GEN-END:variables
 

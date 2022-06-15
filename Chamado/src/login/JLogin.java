@@ -168,7 +168,7 @@ public class JLogin extends javax.swing.JFrame {
             verificaN = cbd.getNome(login, senha);
             JMain jm = new JMain();
             jm.checa_cargo(verificaC, verificaM, verificaN);
-            jm.setTexto(verificaN);
+            jm.setTexto(verificaN,verificaM);
             jm.setVisible(true);
             dispose();
         }else if (verificaC.equals("TEC")){
@@ -176,7 +176,7 @@ public class JLogin extends javax.swing.JFrame {
             verificaN = cbd.getNome(login, senha);
             JMain jm = new JMain();
             jm.checa_cargo(verificaC, verificaM, verificaN);
-            jm.setTexto(verificaM);
+            jm.setTexto(verificaN,verificaM);
             jm.setVisible(true);
             dispose();
         }else{
@@ -196,7 +196,7 @@ public class JLogin extends javax.swing.JFrame {
                 verificaN = cbd.getNome(login, senha);
                 JMain jm = new JMain();
                 jm.checa_cargo(verificaC, verificaM, verificaN);
-                jm.setTexto(verificaN);
+                jm.setTexto(verificaN,verificaM);
                 jm.setVisible(true);
                 dispose();
             }else if (verificaC.equals("TEC")){
@@ -204,7 +204,7 @@ public class JLogin extends javax.swing.JFrame {
                 verificaN = cbd.getNome(login, senha);
                 JMain jm = new JMain();
                 jm.checa_cargo(verificaC, verificaM, verificaN);
-                jm.setTexto(verificaM);
+                jm.setTexto(verificaN,verificaM);
                 jm.setVisible(true);
                 dispose();
             }else{
@@ -225,7 +225,7 @@ public class JLogin extends javax.swing.JFrame {
                 verificaN = cbd.getNome(login, senha);
                 JMain jm = new JMain();
                 jm.checa_cargo(verificaC, verificaM, verificaN);
-                jm.setTexto(verificaN);
+                jm.setTexto(verificaN,verificaM);
                 jm.setVisible(true);
                 dispose();
             }else if (verificaC.equals("TEC")){
@@ -233,7 +233,7 @@ public class JLogin extends javax.swing.JFrame {
                 verificaN = cbd.getNome(login, senha);
                 JMain jm = new JMain();
                 jm.checa_cargo(verificaC, verificaM, verificaN);
-                jm.setTexto(verificaM);
+                jm.setTexto(verificaN,verificaM);
                 jm.setVisible(true);
                 dispose();
             }else{
