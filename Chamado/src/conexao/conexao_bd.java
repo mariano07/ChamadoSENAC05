@@ -68,7 +68,7 @@ public class conexao_bd{
         return cargo;
         
     }
-    public String Usuario(String usuario,String senha){
+    public String getUsuario(String usuario,String senha){
         
         String InstrucaoSQL = "SELECT Matricula FROM Usuario "
                 + "WHERE Usuario = '"+usuario+"' AND Senha = '"+senha+"'";
@@ -88,6 +88,26 @@ public class conexao_bd{
         desconectar();
         return matricula;
     }
+    public String getNome(String usuario,String senha){
+        
+        String InstrucaoSQL = "SELECT Nome FROM Usuario "
+                + "WHERE Usuario = '"+usuario+"' AND Senha = '"+senha+"'";
+        String matricula = "";
+        conectar();
+        try{
+            st = conexao.createStatement();
+            result = st.executeQuery(InstrucaoSQL);
+            while(result.next()){
+              matricula = result.getString("Nome");  
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+           matricula = "C091";
+        }
+        desconectar();
+        return matricula;
+    }
     public void Instituicao(String nome,String endereco,String telefone,String responsavel,String cnpj,String cpf){
         String InstrucaoSQL="INSERT INTO Instituições (NomeDaInstituicao,Localizacao,Telefone,Responsavel,CNPJ,CPF) "
                 + "VALUES ('"+nome+"','"+endereco+"','"+telefone+"','"+responsavel+"','"+cnpj+"','"+cpf+"')";
@@ -97,7 +117,7 @@ public class conexao_bd{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "ERRO:C091", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C111", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -110,7 +130,7 @@ public class conexao_bd{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "ERRO:C104", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C124", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
