@@ -6,6 +6,7 @@ package chamado;
 
 import ajuda.JMenu_Ajuda;
 import cadastro_maquinas.JCadastro;
+import cliente.JCliente;
 import defeito.jCadastroDef;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
@@ -19,6 +20,7 @@ import tecnico.JTecnico;
  * @author alunos
  */
 public class JMain extends javax.swing.JFrame {
+    private static JCliente jcl = new JCliente();
     private static JTecnico jt = new JTecnico();
     private static jCadastroDef jcd = new jCadastroDef();
     private static JCadastro jc = new JCadastro();
@@ -32,17 +34,17 @@ public class JMain extends javax.swing.JFrame {
         setExtendedState(JMain.MAXIMIZED_BOTH);
     }
     
-    public String checa_cargo(String cargo,String nome){
+    public String checa_cargo(String cargo,String matricula,String nome){
         if(cargo.equals("ADM")){
-            JOptionPane.showMessageDialog(null, "Bem vindo professor :D");
-            return nome;
+            JOptionPane.showMessageDialog(null, "Bem vindo"+nome+" :D");
+            return matricula;
         }else if (cargo.equals("TEC")){
-            JOptionPane.showMessageDialog(null, "Bem vindo Técnico :D");
+            JOptionPane.showMessageDialog(null, "Bem vindo "+nome+" :D");
             menu_tecnicos.setVisible(false);
             jMenuItem2.setVisible(false);
-            return nome;
+            return matricula;
         }else{
-            return nome;
+            return matricula;
         }
     }
     
@@ -68,12 +70,16 @@ public class JMain extends javax.swing.JFrame {
         tela_principal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_nomeU = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         mitem_ajuda = new javax.swing.JMenuItem();
         mitem_logoff = new javax.swing.JMenuItem();
         menu_maquinas = new javax.swing.JMenu();
         mitem_addmaq = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         menu_procurar = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         menu_tecnicos = new javax.swing.JMenu();
         mitem_addtec = new javax.swing.JMenuItem();
         mitem_deltec = new javax.swing.JMenuItem();
@@ -95,7 +101,7 @@ public class JMain extends javax.swing.JFrame {
         );
         tela_principalLayout.setVerticalGroup(
             tela_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
+            .addGap(0, 479, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(102, 102, 102));
@@ -104,6 +110,11 @@ public class JMain extends javax.swing.JFrame {
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         menu_nomeU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/user_gray.png"))); // NOI18N
+        menu_nomeU.setFocusable(false);
+        menu_nomeU.setRolloverEnabled(false);
+
+        jMenuItem4.setText("a");
+        menu_nomeU.add(jMenuItem4);
 
         mitem_ajuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/help.png"))); // NOI18N
         mitem_ajuda.setText("Menu Ajuda");
@@ -150,6 +161,21 @@ public class JMain extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(menu_procurar);
+
+        jMenu1.setText("Clientes");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem1.setText("Adicionar PF");
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem3.setText("Adicionar PJ");
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
 
         menu_tecnicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group.png"))); // NOI18N
         menu_tecnicos.setText("Técnicos");
@@ -220,6 +246,10 @@ public class JMain extends javax.swing.JFrame {
       }
     }//GEN-LAST:event_mitem_addtecActionPerformed
 
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -258,8 +288,12 @@ public class JMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenu menu_maquinas;
     private javax.swing.JMenu menu_nomeU;
     private javax.swing.JMenu menu_procurar;
