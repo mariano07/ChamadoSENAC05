@@ -15,6 +15,14 @@ public class JMenu_Ajuda extends javax.swing.JInternalFrame {
      */
     public JMenu_Ajuda() {
         initComponents();
+        setTextAjuda();
+    }
+    
+    public void setTextAjuda(){
+        
+        
+        
+        texta_ajuda.setText(title);
     }
 
     /**
@@ -28,6 +36,7 @@ public class JMenu_Ajuda extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
+        texta_ajuda = new javax.swing.JTextArea();
 
         setClosable(true);
         setIconifiable(true);
@@ -35,6 +44,10 @@ public class JMenu_Ajuda extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Menu de Ajuda");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/help.png"))); // NOI18N
+
+        texta_ajuda.setColumns(20);
+        texta_ajuda.setRows(5);
+        jScrollPane1.setViewportView(texta_ajuda);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -71,5 +84,6 @@ public class JMenu_Ajuda extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea texta_ajuda;
     // End of variables declaration//GEN-END:variables
 }
