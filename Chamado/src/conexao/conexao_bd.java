@@ -9,6 +9,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class conexao_bd{
     
@@ -36,6 +38,14 @@ public class conexao_bd{
             JOptionPane.showMessageDialog(null, "Erro C031","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
+    private String getDate(){
+        DateTimeFormatter data = DateTimeFormatter.ofPattern("yyyy/mm/dd");
+        return data.format(LocalDateTime.now());
+    }
+    private String getTime(){
+        DateTimeFormatter hora = DateTimeFormatter.ofPattern("hh:mm:ss");
+        return hora.format(LocalDateTime.now());
+    }
     
     public String Login(String usuario,String senha){
         
@@ -52,7 +62,7 @@ public class conexao_bd{
         }
         catch (Exception e){
             e.printStackTrace();
-            cargo = "C040";
+            cargo = "C050";
         }
         desconectar();
         return cargo;
@@ -73,7 +83,7 @@ public class conexao_bd{
         }
         catch (Exception e){
             e.printStackTrace();
-           matricula = "C061";
+           matricula = "C071";
         }
         desconectar();
         return matricula;
@@ -100,9 +110,8 @@ public class conexao_bd{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "ERRO:C094", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C104", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
-    
 }
