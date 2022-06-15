@@ -4,6 +4,7 @@
  */
 package chamado;
 
+import ajuda.JMenu_Ajuda;
 import cadastro_maquinas.JCadastro;
 import defeito.jCadastroDef;
 import java.awt.Toolkit;
@@ -21,6 +22,7 @@ public class JMain extends javax.swing.JFrame {
     private static JCadastro jc = new JCadastro();
     private static JProcura jp = new JProcura();
     private static JResultado jr = new JResultado();
+    private static JMenu_Ajuda ma = new JMenu_Ajuda();
     
     public JMain() {
         initComponents();
@@ -64,6 +66,7 @@ public class JMain extends javax.swing.JFrame {
         tela_principal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_nomeU = new javax.swing.JMenu();
+        mitem_ajuda = new javax.swing.JMenuItem();
         mitem_logoff = new javax.swing.JMenuItem();
         menu_maquinas = new javax.swing.JMenu();
         mitem_addmaq = new javax.swing.JMenuItem();
@@ -99,6 +102,15 @@ public class JMain extends javax.swing.JFrame {
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         menu_nomeU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/user_gray.png"))); // NOI18N
+
+        mitem_ajuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/help.png"))); // NOI18N
+        mitem_ajuda.setText("Menu Ajuda");
+        mitem_ajuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mitem_ajudaActionPerformed(evt);
+            }
+        });
+        menu_nomeU.add(mitem_ajuda);
 
         mitem_logoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/cancel.png"))); // NOI18N
         mitem_logoff.setText("Deslogar");
@@ -187,6 +199,13 @@ public class JMain extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_mitem_logoffMousePressed
 
+    private void mitem_ajudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_ajudaActionPerformed
+        if(!ma.isVisible()){
+            tela_principal.add(ma);
+            ma.setVisible(true);
+        }
+    }//GEN-LAST:event_mitem_ajudaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -232,6 +251,7 @@ public class JMain extends javax.swing.JFrame {
     private javax.swing.JMenu menu_tecnicos;
     private javax.swing.JMenuItem mitem_addmaq;
     private javax.swing.JMenuItem mitem_addtec;
+    private javax.swing.JMenuItem mitem_ajuda;
     private javax.swing.JMenuItem mitem_deltec;
     private javax.swing.JMenuItem mitem_logoff;
     private javax.swing.JDesktopPane tela_principal;
