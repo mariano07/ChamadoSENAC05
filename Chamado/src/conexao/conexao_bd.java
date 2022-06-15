@@ -60,26 +60,27 @@ public class conexao_bd{
     }
     public String Usuario(String usuario,String senha){
         
-        String InstrucaoSQL = "SELECT Nome FROM Usuario "
+        String InstrucaoSQL = "SELECT Matricula FROM Usuario "
                 + "WHERE Usuario = '"+usuario+"' AND Senha = '"+senha+"'";
-        String nome = "";
+        String matricula = "";
         conectar();
         try{
             st = conexao.createStatement();
             result = st.executeQuery(InstrucaoSQL);
             while(result.next()){
-              nome = result.getString("Nome");  
+              matricula = result.getString("Matricula");  
             }
         }
         catch (Exception e){
             e.printStackTrace();
-           nome = "C058";
+           matricula = "C058";
         }
         desconectar();
-        return nome;
+        return matricula;
     }
-    private void CadastraMaquinas(String cpu,String pmae,String ram,String hd,String ssd,String ccpu,String cooler,String gpu,String fonte,String gabinete,String nome){
-        String SintrucaoSQL1="";
+    private void CadastraMaquinas(String patrimonio,String local, String cpu,String pmae,String ram,String hd,String ssd,String ccpu,String cooler,String gpu,String fonte,String gabinete,String nome){
+        
+        String SintrucaoSQL1="INSERT INTO (Patrimonio,Localizacao,";
         String SintrucaoSQL2="";
         String SintrucaoSQL3="";
     }
