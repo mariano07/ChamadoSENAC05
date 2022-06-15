@@ -12,12 +12,14 @@ import javax.swing.JOptionPane;
 import login.JLogin;
 import procura.JProcura;
 import procura.JResultado;
+import tecnico.JTecnico;
 
 /**
  *
  * @author alunos
  */
 public class JMain extends javax.swing.JFrame {
+    private static JTecnico jt = new JTecnico();
     private static jCadastroDef jcd = new jCadastroDef();
     private static JCadastro jc = new JCadastro();
     private static JProcura jp = new JProcura();
@@ -154,6 +156,11 @@ public class JMain extends javax.swing.JFrame {
 
         mitem_addtec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group_add.png"))); // NOI18N
         mitem_addtec.setText("Adicionar Técnico");
+        mitem_addtec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mitem_addtecActionPerformed(evt);
+            }
+        });
         menu_tecnicos.add(mitem_addtec);
 
         mitem_deltec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group_delete.png"))); // NOI18N
@@ -205,6 +212,14 @@ public class JMain extends javax.swing.JFrame {
             ma.setVisible(true);
         }
     }//GEN-LAST:event_mitem_ajudaActionPerformed
+
+    private void mitem_addtecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_addtecActionPerformed
+      if(!jt.isVisible()){
+            tela_principal.add(jt);
+            jt.setVisible(true);
+      }
+    }//GEN-LAST:event_mitem_addtecActionPerformed
+
 
     /**
      * @param args the command line arguments

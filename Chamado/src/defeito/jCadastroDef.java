@@ -44,6 +44,10 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         texta_solucao = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         texta_defeito = new javax.swing.JTextArea();
+        label_orcprevisto = new javax.swing.JLabel();
+        text_orcamento = new javax.swing.JTextField();
+        box_status = new javax.swing.JComboBox<>();
+        label_orcstatus = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 102, 102));
         setClosable(true);
@@ -64,7 +68,7 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
 
         label_solucao.setBackground(new java.awt.Color(102, 102, 102));
         label_solucao.setForeground(new java.awt.Color(0, 0, 0));
-        label_solucao.setText("Qual técnica foi usada para verificar o erro:");
+        label_solucao.setText("Solução:");
 
         label_info.setBackground(new java.awt.Color(255, 255, 255));
         label_info.setForeground(new java.awt.Color(0, 0, 0));
@@ -92,56 +96,84 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         texta_defeito.setRows(5);
         jScrollPane3.setViewportView(texta_defeito);
 
+        label_orcprevisto.setBackground(new java.awt.Color(102, 102, 102));
+        label_orcprevisto.setForeground(new java.awt.Color(0, 0, 0));
+        label_orcprevisto.setText("Orçamento Previsto:");
+
+        text_orcamento.setBackground(new java.awt.Color(255, 255, 255));
+        text_orcamento.setForeground(new java.awt.Color(0, 0, 0));
+        text_orcamento.setText("0");
+
+        box_status.setBackground(new java.awt.Color(255, 255, 255));
+        box_status.setForeground(new java.awt.Color(0, 0, 0));
+        box_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim", "Não" }));
+
+        label_orcstatus.setBackground(new java.awt.Color(102, 102, 102));
+        label_orcstatus.setForeground(new java.awt.Color(0, 0, 0));
+        label_orcstatus.setText("Orçamento Aprovado:");
+
         javax.swing.GroupLayout panel_defeitoLayout = new javax.swing.GroupLayout(panel_defeito);
         panel_defeito.setLayout(panel_defeitoLayout);
         panel_defeitoLayout.setHorizontalGroup(
             panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_defeitoLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(label_info)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_defeitoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button_defeito)
+                .addContainerGap())
+            .addGroup(panel_defeitoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_defeitoLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(label_info)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(button_defeito)
-                        .addGap(16, 16, 16))
+                    .addComponent(box_subsoft)
+                    .addComponent(box_subhard)
+                    .addComponent(label_solucao)
+                    .addComponent(label_defeito)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel_defeitoLayout.createSequentialGroup()
                         .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(box_subsoft)
-                            .addComponent(box_subhard)
-                            .addComponent(label_solucao)
-                            .addComponent(label_defeito)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(33, Short.MAX_VALUE))))
-            .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_defeitoLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(33, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_defeitoLayout.createSequentialGroup()
+                                .addComponent(label_orcstatus)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(panel_defeitoLayout.createSequentialGroup()
+                                .addComponent(label_orcprevisto)
+                                .addGap(22, 22, 22)))
+                        .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(text_orcamento)
+                            .addComponent(box_status, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_defeitoLayout.setVerticalGroup(
             panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_defeitoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(label_defeito)
-                .addGap(148, 148, 148)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(label_solucao)
-                .addGap(5, 5, 5)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(box_subsoft)
-                .addGap(8, 8, 8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(box_subhard)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label_info)
+                .addGap(18, 18, 18)
                 .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_info)
-                    .addComponent(button_defeito))
-                .addGap(7, 7, 7))
-            .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_defeitoLayout.createSequentialGroup()
-                    .addGap(38, 38, 38)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(248, Short.MAX_VALUE)))
+                    .addComponent(label_orcprevisto)
+                    .addComponent(text_orcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(box_status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_orcstatus))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(button_defeito)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,10 +187,11 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
             .addComponent(panel_defeito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setBounds(800, 400, 341, 443);
+        setBounds(800, 400, 313, 481);
     }// </editor-fold>//GEN-END:initComponents
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> box_status;
     private javax.swing.JCheckBox box_subhard;
     private javax.swing.JCheckBox box_subsoft;
     private javax.swing.JButton button_defeito;
@@ -166,8 +199,11 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel label_defeito;
     private javax.swing.JLabel label_info;
+    private javax.swing.JLabel label_orcprevisto;
+    private javax.swing.JLabel label_orcstatus;
     private javax.swing.JLabel label_solucao;
     private javax.swing.JPanel panel_defeito;
+    private javax.swing.JTextField text_orcamento;
     private javax.swing.JTextArea texta_defeito;
     private javax.swing.JTextArea texta_solucao;
     // End of variables declaration//GEN-END:variables
