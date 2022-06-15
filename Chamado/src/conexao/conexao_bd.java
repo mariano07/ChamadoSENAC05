@@ -92,21 +92,21 @@ public class conexao_bd{
         
         String InstrucaoSQL = "SELECT Nome FROM Usuario "
                 + "WHERE Usuario = '"+usuario+"' AND Senha = '"+senha+"'";
-        String matricula = "";
+        String nome = "";
         conectar();
         try{
             st = conexao.createStatement();
             result = st.executeQuery(InstrucaoSQL);
             while(result.next()){
-              matricula = result.getString("Nome");  
+              nome = result.getString("Nome");  
             }
         }
         catch (Exception e){
             e.printStackTrace();
-           matricula = "C091";
+           nome = "C091";
         }
         desconectar();
-        return matricula;
+        return nome;
     }
     public void Instituicao(String nome,String endereco,String telefone,String responsavel,String cnpj,String cpf){
         String InstrucaoSQL="INSERT INTO Instituições (NomeDaInstituicao,Localizacao,Telefone,Responsavel,CNPJ,CPF) "
