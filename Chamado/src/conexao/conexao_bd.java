@@ -38,11 +38,11 @@ public class conexao_bd{
             JOptionPane.showMessageDialog(null, "Erro C033","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
-    private String getDate(){
+    public String getDate(){
         DateTimeFormatter data = DateTimeFormatter.ofPattern("YYYY/MM/DD");
         return data.format(LocalDateTime.now());
     }
-    private String getTime(){
+    public String getTime(){
         DateTimeFormatter hora = DateTimeFormatter.ofPattern("HH:MM:SS");
         return hora.format(LocalDateTime.now());
     }
@@ -134,10 +134,8 @@ public class conexao_bd{
         }
         desconectar();
     }
-    public void CadastroMaquinasEssencial(){
-        
+    public void CadastroMaquinasEssencial(String cpu,String pmae,String ram,String hd,String ssd,String ccpu,String cooler,String gpu,String fonte,String gabinete,String matricula,String patrimonio,String sala){
+        String InstrucaoSQL="";
     }
-    public void CadastroMaquinasOpcional(){
-        
-    }
+    
 }
