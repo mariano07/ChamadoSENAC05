@@ -39,11 +39,11 @@ public class conexao_bd{
         }
     }
     private String getDate(){
-        DateTimeFormatter data = DateTimeFormatter.ofPattern("yyyy/mm/dd");
+        DateTimeFormatter data = DateTimeFormatter.ofPattern("YYYY/MM/DD");
         return data.format(LocalDateTime.now());
     }
     private String getTime(){
-        DateTimeFormatter hora = DateTimeFormatter.ofPattern("hh:mm:ss");
+        DateTimeFormatter hora = DateTimeFormatter.ofPattern("HH:MM:SS");
         return hora.format(LocalDateTime.now());
     }
     
@@ -114,5 +114,10 @@ public class conexao_bd{
         }
         desconectar();
     }
-    
+    public void CadastroMaquinasEssencial(){
+        
+    }
+    public void CadastroMaquinasOpcional(){
+        
+    }
 }
