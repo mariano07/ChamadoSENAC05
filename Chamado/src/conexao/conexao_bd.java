@@ -73,16 +73,36 @@ public class conexao_bd{
         }
         catch (Exception e){
             e.printStackTrace();
-           matricula = "C058";
+           matricula = "C061";
         }
         desconectar();
         return matricula;
     }
-    private void CadastraMaquinas(String patrimonio,String local, String cpu,String pmae,String ram,String hd,String ssd,String ccpu,String cooler,String gpu,String fonte,String gabinete,String nome){
+    public void Instituicao(String nome,String endereco,String telefone,String responsavel,String cnpj,String cpf){
+        String InstrucaoSQL="INSERT INTO Instituições (NomeDaInstituicao,Localizacao,Telefone,Responsavel,CNPJ,CPF) "
+                + "VALUES ('"+nome+"','"+endereco+"','"+telefone+"','"+responsavel+"','"+cnpj+"','"+cpf+"')";
         
-        String SintrucaoSQL1="INSERT INTO (Patrimonio,Localizacao,";
-        String SintrucaoSQL2="";
-        String SintrucaoSQL3="";
+        conectar();
+        try{
+            st = conexao.createStatement();
+            st.executeUpdate(InstrucaoSQL);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "ERRO:C081", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
+    }
+    public void Cliente(String nome,String cpf,String telefone,String email,String endereco){
+        String InstrucaoSQL="INSERT INTO Clientes (Nome,CPF,Telefone,Email,Endereco)"
+                + " VALUES ('"+nome+"','"+cpf+"','"+telefone+"','"+email+"','"+endereco+"')";
+        
+        conectar();
+        try{
+            st = conexao.createStatement();
+            st.executeUpdate(InstrucaoSQL);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "ERRO:C094", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
     }
     
 }
