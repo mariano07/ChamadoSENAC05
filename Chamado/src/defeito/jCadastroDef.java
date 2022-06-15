@@ -90,6 +90,7 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         texta_solucao.setRows(5);
         jScrollPane1.setViewportView(texta_solucao);
 
+        texta_defeito.setEditable(false);
         texta_defeito.setBackground(new java.awt.Color(255, 255, 255));
         texta_defeito.setColumns(20);
         texta_defeito.setForeground(new java.awt.Color(0, 0, 0));
