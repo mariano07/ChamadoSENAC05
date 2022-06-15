@@ -38,12 +38,12 @@ public class conexao_bd{
             JOptionPane.showMessageDialog(null, "Erro C033","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
-    public String getDate(){
-        DateTimeFormatter data = DateTimeFormatter.ofPattern("YYYY/MM/DD");
+    private String getDate(){
+        DateTimeFormatter data = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         return data.format(LocalDateTime.now());
     }
-    public String getTime(){
-        DateTimeFormatter hora = DateTimeFormatter.ofPattern("HH:MM:SS");
+    private String getTime(){
+        DateTimeFormatter hora = DateTimeFormatter.ofPattern("HH:mm:ss");
         return hora.format(LocalDateTime.now());
     }
     
