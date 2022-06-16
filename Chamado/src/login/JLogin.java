@@ -70,6 +70,7 @@ public class JLogin extends javax.swing.JFrame {
         label_senha_login.setForeground(new java.awt.Color(0, 0, 0));
         label_senha_login.setText("Senha:");
 
+        Button_login.setBackground(new java.awt.Color(255, 255, 255));
         Button_login.setForeground(new java.awt.Color(0, 0, 0));
         Button_login.setText("Login");
         Button_login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
