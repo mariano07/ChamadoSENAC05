@@ -11,6 +11,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import javax.sound.midi.Instrument;
 
 public class conexao_bd{
     
@@ -134,8 +135,59 @@ public class conexao_bd{
         }
         desconectar();
     }
-    public void CadastroMaquinasEssencial(String cpu,String pmae,String ram,String hd,String ssd,String ccpu,String cooler,String gpu,String fonte,String gabinete,String matricula,String patrimonio,String sala){
-        String InstrucaoSQL="";
+    public void CadastroMaquina(String cpu,String pmae,String ram,String hd,String ssd,String ccpu,String cooler,String gpu,String fonte,String gabinete,String matricula,String patrimonio,String sala){
+        String InstrucaoSQL="INSERT INTO Maquinas (Patrimonio,Sala,Placa mae,Processador,Memorias Ram,Placa de video,Fonte,Ssd,Hd,Cooler,CoolerCpu,Gabinete,Matricula,Data,Hora) "
+                + "VALUES ('"+patrimonio+"','"+sala+"','"+pmae+"','"+cpu+"','"+ram+"','"+gpu+"','"+fonte+"','"+ssd+"','"+hd+"','"+cooler+"','"+ccpu+"','"+gabinete+"','"+matricula+"'"
+                + ",'"+getDate()+"','"+getTime()+"')";
+        
+        conectar();
+        try{
+            st = conexao.createStatement();
+            st.executeUpdate(InstrucaoSQL);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ERRO:C137", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
     }
-    
+    public void Defeito(String defeito){
+        String InstrucaoSQL="INSERT INTO Problema (Problema,StatusDoProblema) "
+                + "VALUES ('"+defeito+"','PENDENTE')";
+        
+        conectar();
+        try{
+            st = conexao.createStatement();
+            st.executeUpdate(InstrucaoSQL);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ERRO:C151", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
+    }
+    public void DefeitoSolucao(String defeito,String solucao){
+        String InstrucaoSQL="INSERT INTO Problema (Problema,StatusDoProblema,Solucao) "
+                + "VALUES ('"+defeito+"','CONCLUIDO','"+solucao+"')";
+        
+        conectar();
+        try{
+            st = conexao.createStatement();
+            st.executeUpdate(InstrucaoSQL);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ERRO:C151", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
+    }
+    public void Solucao(String solucao,String ticket){
+        String InstrucaoSQL="UPDATE Problema SET StatusDoProblema = 'CONCLUIDO' AND SET Solucao = '"+solucao+"' "
+                + "WHERE idTicket = '"+ticket+"'";
+        
+        conectar();
+        try{
+            st = conexao.createStatement();
+            st.executeUpdate(InstrucaoSQL);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "ERRO:C178", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
+        
+        //criar metodo de busca de tickets pendentes que retorne um vetor de String formatado para popular uma lista !!!
+    }
 }
