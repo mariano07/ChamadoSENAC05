@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package cliente;
+package clientes;
 
 /**
  *
@@ -41,6 +41,10 @@ public class JInstituicao extends javax.swing.JInternalFrame {
         text_telefone = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("Cliente");
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
