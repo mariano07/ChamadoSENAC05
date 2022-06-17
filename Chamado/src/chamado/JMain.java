@@ -254,8 +254,8 @@ public class JMain extends javax.swing.JFrame {
         sb.append("<a>");sb.append("Cada menu tem sua função especifica ou itens dentro dele com funções referentes ao nome do menu.");sb.append("<br>");sb.append("</a>");
         sb.append("<a>");sb.append("<b>");sb.append("• Menu do Usuário");sb.append("</b>");sb.append("<br>");sb.append("</a>");
         sb.append("<a>");sb.append("Nesse menu existem três opções sendo apenas interativas");sb.append(" <b>");sb.append("Sua matrícula,");sb.append("</b>");sb.append(" <b>");sb.append("Menu Ajuda");sb.append("</b>");sb.append(" e ");sb.append("<b>");sb.append("Deslogar");sb.append("</b>.");sb.append("<br>");
-        sb.append("O primeiro é a sua matrícula e ira exibir a mesma que está registrada aqui no Senac");sb.append("<br>");sb.append("</a>");
-        sb.append("O ");sb.append("<b>");sb.append("Menu Ajuda");sb.append("</b>");sb.append(" é onde você acessa esse menu que está vendo agora");sb.append("<br>");sb.append("</a>");
+        sb.append("O primeiro é a ");sb.append("<b>");sb.append("sua matrícula");sb.append("</b>");sb.append(" e ira exibir a mesma que está registrada aqui no Senac,");sb.append("<br>");sb.append("</a>");
+        sb.append("o ");sb.append("<b>");sb.append("Menu Ajuda");sb.append("</b>");sb.append(" é onde você acessa esse menu que está vendo agora");sb.append("<br>");sb.append("</a>");
         sb.append("<a>");sb.append("e o ");sb.append("<b>");sb.append("Deslogar");sb.append("</b>");sb.append(" é para fazer o Logoff do programa e entrar usando ou Usuário e Senha.");sb.append("<br>");sb.append("</a>");
         sb.append("<a>");sb.append("<b>");sb.append("• Chamados");sb.append("</b>");sb.append("<br>");sb.append("</a>");
         sb.append("<a>");sb.append("Nesse menu é onde o Usuário pode fazer o cadastro de uma máquina e cliente informando todos os dados necessários para um melhor controle de quem fez a manutenção, em qual máquina foi feita a manutenção, para quem e quando foi realizada.");sb.append("<br>");
@@ -265,7 +265,7 @@ public class JMain extends javax.swing.JFrame {
         sb.append("<a>");sb.append("Nesse menu é onde o Professor vai poder procurar as máquinas registradas, usuários e chamados, podendo escolher entre filtros para facilitar na sua pesquisa.");
         sb.append("<br>");sb.append("Já os Técnicos poderão apenas pesquisar sobre seus próprios registros para manter um melhor controle de datas e tarefas que devem ser realizadas.");sb.append("<br>");sb.append("</a>");
         sb.append("<a>");sb.append("<b>");sb.append("• Técnicos");sb.append("</b>");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("Nesse menu é onde o Professor poderá registrar os alunos como técnicos assim podendo ter controle sobre cada manutenção realizada, nele também é possivel excluir um cadastro ou editar para caso algum dado tenha sido inserido de forma errada");sb.append("<br>");
+        sb.append("<a>");sb.append("Nesse menu é onde o Professor poderá registrar os alunos como técnicos assim podendo ter controle sobre cada manutenção realizada, nele também é possivel excluir um cadastro ou editar para caso algum dado tenha sido inserido de forma errada.");sb.append("<br>");
         sb.append("</a>");sb.append("<h3>");sb.append("Códigos de ERRO");sb.append("</h3>");
         sb.append("<a>");sb.append("<b>");sb.append("• C023");sb.append("</b>");sb.append("<br>");sb.append("</a>");
         sb.append("<a>");sb.append("C023 significa que houve um erro de conexão ao Banco de Dados");sb.append("<br>");sb.append("</a>");
