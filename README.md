@@ -11,7 +11,7 @@ Sistema de chamado para o Senac versão Beta
 <a>Cada menu tem sua função especifica ou itens dentro dele com funções referentes ao nome do menu.<br></a>
 <a><b>• Menu do Usuário</b><br></a>
 <a>Nesse menu existem três opções sendo apenas interativas <b>Sua matrícula,</b> <b>Menu Ajuda</b> e <b>Deslogar</b>.<br></a>
-<a>O primeiro é a sua matrícula e ira exibir a mesma que está registrada aqui no Senac<br></a>
+<a>O primeiro é a <b>sua matrícula</b> e ira exibir a mesma que está registrada aqui no Senac,<br></a>
 <a>O <b>Menu Ajuda</b> é onde você acessa esse menu que está vendo agora<br></a>
 <a>e o <b>Deslogar</b> é para fazer o Logoff do programa e entrar usando ou Usuário e Senha.<br></a>
 <a><b>• Chamados</b><br></a>
