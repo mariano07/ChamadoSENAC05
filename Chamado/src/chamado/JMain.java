@@ -116,6 +116,7 @@ public class JMain extends javax.swing.JFrame {
 
         mitem_matricula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/vcard.png"))); // NOI18N
         mitem_matricula.setText("a");
+        mitem_matricula.setToolTipText("Sua matricula");
         menu_nomeU.add(mitem_matricula);
 
         mitem_ajuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/help.png"))); // NOI18N

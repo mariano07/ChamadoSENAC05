@@ -33,6 +33,7 @@
                   <Image iconType="3" name="/imagens_icones/vcard.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="a"/>
+                <Property name="toolTipText" type="java.lang.String" value="Sua matricula"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mitem_ajuda">
