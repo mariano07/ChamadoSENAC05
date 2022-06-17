@@ -33,6 +33,7 @@ public class JClientePerg extends javax.swing.JInternalFrame {
         check_pf = new javax.swing.JCheckBox();
         check_pj = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
+        jCheckBox1 = new javax.swing.JCheckBox();
 
         setClosable(true);
         setIconifiable(true);
@@ -61,6 +62,10 @@ public class JClientePerg extends javax.swing.JInternalFrame {
             }
         });
 
+        jCheckBox1.setBackground(new java.awt.Color(102, 102, 102));
+        jCheckBox1.setForeground(new java.awt.Color(0, 0, 0));
+        jCheckBox1.setText("Cliente Existente");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -72,17 +77,20 @@ public class JClientePerg extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(check_pj)
-                    .addComponent(check_pf))
-                .addContainerGap(222, Short.MAX_VALUE))
+                    .addComponent(check_pf)
+                    .addComponent(jCheckBox1))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(19, 19, 19)
                 .addComponent(check_pf)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(check_pj)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jCheckBox1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1))
         );
 
@@ -119,6 +127,7 @@ public class JClientePerg extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox check_pf;
     private javax.swing.JCheckBox check_pj;
     private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
