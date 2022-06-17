@@ -77,9 +77,6 @@ public class JMain extends javax.swing.JFrame {
         mitem_addchamado = new javax.swing.JMenuItem();
         mitem_editchamado = new javax.swing.JMenuItem();
         menu_procurar = new javax.swing.JMenu();
-        menu_cliente = new javax.swing.JMenu();
-        mitem_addpf = new javax.swing.JMenuItem();
-        mitem_addpj = new javax.swing.JMenuItem();
         menu_tecnicos = new javax.swing.JMenu();
         mitem_addtec = new javax.swing.JMenuItem();
         mitem_deltec = new javax.swing.JMenuItem();
@@ -162,29 +159,6 @@ public class JMain extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(menu_procurar);
-
-        menu_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group_link.png"))); // NOI18N
-        menu_cliente.setText("Clientes");
-
-        mitem_addpf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/user_suit.png"))); // NOI18N
-        mitem_addpf.setText("Adicionar PF");
-        mitem_addpf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitem_addpfActionPerformed(evt);
-            }
-        });
-        menu_cliente.add(mitem_addpf);
-
-        mitem_addpj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/building.png"))); // NOI18N
-        mitem_addpj.setText("Adicionar PJ");
-        mitem_addpj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitem_addpjActionPerformed(evt);
-            }
-        });
-        menu_cliente.add(mitem_addpj);
-
-        jMenuBar1.add(menu_cliente);
 
         menu_tecnicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group.png"))); // NOI18N
         menu_tecnicos.setText("Técnicos");
@@ -294,19 +268,6 @@ public class JMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu1ActionPerformed
 
-    private void mitem_addpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_addpfActionPerformed
-        if(!jcl.isVisible()){
-            tela_principal.add(jcl);
-            jcl.setVisible(true);
-      }
-    }//GEN-LAST:event_mitem_addpfActionPerformed
-
-    private void mitem_addpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_addpjActionPerformed
-        if(!ji.isVisible()){
-            tela_principal.add(ji);
-            ji.setVisible(true);
-      }    }//GEN-LAST:event_mitem_addpjActionPerformed
-
 
     /**
      * @param args the command line arguments
@@ -347,13 +308,10 @@ public class JMain extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu menu_chamados;
-    private javax.swing.JMenu menu_cliente;
     private javax.swing.JMenu menu_nomeU;
     private javax.swing.JMenu menu_procurar;
     private javax.swing.JMenu menu_tecnicos;
     private javax.swing.JMenuItem mitem_addchamado;
-    private javax.swing.JMenuItem mitem_addpf;
-    private javax.swing.JMenuItem mitem_addpj;
     private javax.swing.JMenuItem mitem_addtec;
     private javax.swing.JMenuItem mitem_ajuda;
     private javax.swing.JMenuItem mitem_deltec;
