@@ -8,12 +8,12 @@ package tecnico;
  *
  * @author Aluno
  */
-public class JTecnico extends javax.swing.JInternalFrame {
+public class JAddTecnico extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JTecnico
      */
-    public JTecnico() {
+    public JAddTecnico() {
         initComponents();
     }
 

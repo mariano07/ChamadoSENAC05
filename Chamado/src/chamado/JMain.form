@@ -60,28 +60,31 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="menu_maquinas">
+        <Menu class="javax.swing.JMenu" name="menu_chamados">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagens_icones/computer.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Maquinas"/>
+            <Property name="text" type="java.lang.String" value="Chamados"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mitem_addmaq">
+            <MenuItem class="javax.swing.JMenuItem" name="mitem_addchamado">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagens_icones/computer_add.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Registrar Maquina"/>
+                <Property name="text" type="java.lang.String" value="Registrar chamado"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mitem_addmaqActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mitem_addchamadoActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="mitem_editchamado">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem2"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens_icones/computer_edit.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Editar chamado"/>
               </Properties>
             </MenuItem>
           </SubComponents>

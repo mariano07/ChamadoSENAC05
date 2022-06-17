@@ -4,7 +4,6 @@
  */
 package chamado;
 
-import ajuda.JMenu_Ajuda;
 import cadastro_maquinas.JCadastro;
 import clientes.JCliente;
 import clientes.JInstituicao;
@@ -14,7 +13,7 @@ import javax.swing.JOptionPane;
 import login.JLogin;
 import procura.JProcura;
 import procura.JResultado;
-import tecnico.JTecnico;
+import tecnico.JAddTecnico;
 
 /**
  *
@@ -23,12 +22,11 @@ import tecnico.JTecnico;
 public class JMain extends javax.swing.JFrame {
     private static JInstituicao ji = new JInstituicao();
     private static JCliente jcl = new JCliente();
-    private static JTecnico jt = new JTecnico();
+    private static JAddTecnico jt = new JAddTecnico();
     private static jCadastroDef jcd = new jCadastroDef();
     private static JCadastro jc = new JCadastro();
     private static JProcura jp = new JProcura();
     private static JResultado jr = new JResultado();
-    private static JMenu_Ajuda ma = new JMenu_Ajuda();
     
     public JMain() {
         initComponents();
@@ -43,7 +41,6 @@ public class JMain extends javax.swing.JFrame {
         }else if (cargo.equals("TEC")){
             JOptionPane.showMessageDialog(null, "Bem vindo "+nome+" :D");
             menu_tecnicos.setVisible(false);
-            jMenuItem2.setVisible(false);
             return matricula;
         }else{
             return matricula;
@@ -76,9 +73,9 @@ public class JMain extends javax.swing.JFrame {
         mitem_matricula = new javax.swing.JMenuItem();
         mitem_ajuda = new javax.swing.JMenuItem();
         mitem_logoff = new javax.swing.JMenuItem();
-        menu_maquinas = new javax.swing.JMenu();
-        mitem_addmaq = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        menu_chamados = new javax.swing.JMenu();
+        mitem_addchamado = new javax.swing.JMenuItem();
+        mitem_editchamado = new javax.swing.JMenuItem();
         menu_procurar = new javax.swing.JMenu();
         menu_cliente = new javax.swing.JMenu();
         mitem_addpf = new javax.swing.JMenuItem();
@@ -139,22 +136,23 @@ public class JMain extends javax.swing.JFrame {
 
         jMenuBar1.add(menu_nomeU);
 
-        menu_maquinas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer.png"))); // NOI18N
-        menu_maquinas.setText("Maquinas");
+        menu_chamados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer.png"))); // NOI18N
+        menu_chamados.setText("Chamados");
 
-        mitem_addmaq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_add.png"))); // NOI18N
-        mitem_addmaq.setText("Registrar Maquina");
-        mitem_addmaq.addActionListener(new java.awt.event.ActionListener() {
+        mitem_addchamado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_add.png"))); // NOI18N
+        mitem_addchamado.setText("Registrar chamado");
+        mitem_addchamado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitem_addmaqActionPerformed(evt);
+                mitem_addchamadoActionPerformed(evt);
             }
         });
-        menu_maquinas.add(mitem_addmaq);
+        menu_chamados.add(mitem_addchamado);
 
-        jMenuItem2.setText("jMenuItem2");
-        menu_maquinas.add(jMenuItem2);
+        mitem_editchamado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_edit.png"))); // NOI18N
+        mitem_editchamado.setText("Editar chamado");
+        menu_chamados.add(mitem_editchamado);
 
-        jMenuBar1.add(menu_maquinas);
+        jMenuBar1.add(menu_chamados);
 
         menu_procurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
         menu_procurar.setText("Procurar");
@@ -223,12 +221,12 @@ public class JMain extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mitem_addmaqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_addmaqActionPerformed
+    private void mitem_addchamadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_addchamadoActionPerformed
         if(!jc.isVisible()){
         tela_principal.add(jc);
         jc.setVisible(true);
         }
-    }//GEN-LAST:event_mitem_addmaqActionPerformed
+    }//GEN-LAST:event_mitem_addchamadoActionPerformed
 
     private void menu_procurarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_procurarMouseClicked
         if(!jr.isVisible()){
@@ -346,18 +344,18 @@ public class JMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenu menu_chamados;
     private javax.swing.JMenu menu_cliente;
-    private javax.swing.JMenu menu_maquinas;
     private javax.swing.JMenu menu_nomeU;
     private javax.swing.JMenu menu_procurar;
     private javax.swing.JMenu menu_tecnicos;
-    private javax.swing.JMenuItem mitem_addmaq;
+    private javax.swing.JMenuItem mitem_addchamado;
     private javax.swing.JMenuItem mitem_addpf;
     private javax.swing.JMenuItem mitem_addpj;
     private javax.swing.JMenuItem mitem_addtec;
     private javax.swing.JMenuItem mitem_ajuda;
     private javax.swing.JMenuItem mitem_deltec;
+    private javax.swing.JMenuItem mitem_editchamado;
     private javax.swing.JMenuItem mitem_logoff;
     private javax.swing.JMenuItem mitem_matricula;
     private javax.swing.JDesktopPane tela_principal;
