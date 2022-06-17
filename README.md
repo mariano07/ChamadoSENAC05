@@ -12,7 +12,7 @@ Sistema de chamado para o Senac versão Beta
 <a><b>• Menu do Usuário</b><br></a>
 <a>Nesse menu existem três opções sendo apenas interativas <b>Sua matrícula,</b> <b>Menu Ajuda</b> e <b>Deslogar</b>.<br></a>
 <a>O primeiro é a <b>sua matrícula</b> e ira exibir a mesma que está registrada aqui no Senac,<br></a>
-<a>O <b>Menu Ajuda</b> é onde você acessa esse menu que está vendo agora<br></a>
+<a>o <b>Menu Ajuda</b> é onde você acessa esse menu que está vendo agora<br></a>
 <a>e o <b>Deslogar</b> é para fazer o Logoff do programa e entrar usando ou Usuário e Senha.<br></a>
 <a><b>• Chamados</b><br></a>
 <a>Nesse menu é onde o Usuário pode fazer o cadastro de uma máquina e cliente informando todos os dados necessários para um melhor controle de quem fez a</a> <a>manutenção, em qual máquina foi feita a manutenção, para quem e quando foi realizada.<br></a>
