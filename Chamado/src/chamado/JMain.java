@@ -80,9 +80,9 @@ public class JMain extends javax.swing.JFrame {
         mitem_addchamado = new javax.swing.JMenuItem();
         mitem_editchamado = new javax.swing.JMenuItem();
         menu_procurar = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        menu_estatisticas = new javax.swing.JMenu();
+        mitem_estequipe = new javax.swing.JMenuItem();
+        mitem_estind = new javax.swing.JMenuItem();
         menu_tecnicos = new javax.swing.JMenu();
         mitem_addtec = new javax.swing.JMenuItem();
         mitem_deltec = new javax.swing.JMenuItem();
@@ -168,21 +168,21 @@ public class JMain extends javax.swing.JFrame {
         });
         jMenuBar1.add(menu_procurar);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/chart_curve.png"))); // NOI18N
-        jMenu2.setText("Estatísticas");
+        menu_estatisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/chart_curve.png"))); // NOI18N
+        menu_estatisticas.setText("Estatísticas");
 
-        jMenuItem1.setText("Equipe");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mitem_estequipe.setText("Equipe");
+        mitem_estequipe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mitem_estequipeActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        menu_estatisticas.add(mitem_estequipe);
 
-        jMenuItem2.setText("Individuais");
-        jMenu2.add(jMenuItem2);
+        mitem_estind.setText("Individuais");
+        menu_estatisticas.add(mitem_estind);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(menu_estatisticas);
 
         menu_tecnicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group.png"))); // NOI18N
         menu_tecnicos.setText("Técnicos");
@@ -292,12 +292,12 @@ public class JMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu1ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mitem_estequipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_estequipeActionPerformed
          if(!je.isVisible()){
             tela_principal.add(je);
             je.setVisible(true);
       }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_mitem_estequipeActionPerformed
 
 
     /**
@@ -338,11 +338,9 @@ public class JMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menu_chamados;
+    private javax.swing.JMenu menu_estatisticas;
     private javax.swing.JMenu menu_nomeU;
     private javax.swing.JMenu menu_procurar;
     private javax.swing.JMenu menu_tecnicos;
@@ -351,6 +349,8 @@ public class JMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem mitem_ajuda;
     private javax.swing.JMenuItem mitem_deltec;
     private javax.swing.JMenuItem mitem_editchamado;
+    private javax.swing.JMenuItem mitem_estequipe;
+    private javax.swing.JMenuItem mitem_estind;
     private javax.swing.JMenuItem mitem_logoff;
     private javax.swing.JMenuItem mitem_matricula;
     private javax.swing.JDesktopPane tela_principal;
