@@ -4,7 +4,6 @@
  */
 package chamado;
 
-import ajuda.JMenu_Ajuda;
 import cadastro_maquinas.JCadastro;
 import clientes.JCliente;
 import clientes.JInstituicao;
@@ -14,7 +13,7 @@ import javax.swing.JOptionPane;
 import login.JLogin;
 import procura.JProcura;
 import procura.JResultado;
-import tecnico.JTecnico;
+import tecnico.JAddTecnico;
 
 /**
  *
@@ -23,12 +22,11 @@ import tecnico.JTecnico;
 public class JMain extends javax.swing.JFrame {
     private static JInstituicao ji = new JInstituicao();
     private static JCliente jcl = new JCliente();
-    private static JTecnico jt = new JTecnico();
+    private static JAddTecnico jt = new JAddTecnico();
     private static jCadastroDef jcd = new jCadastroDef();
     private static JCadastro jc = new JCadastro();
     private static JProcura jp = new JProcura();
     private static JResultado jr = new JResultado();
-    private static JMenu_Ajuda ma = new JMenu_Ajuda();
     
     public JMain() {
         initComponents();
@@ -43,7 +41,6 @@ public class JMain extends javax.swing.JFrame {
         }else if (cargo.equals("TEC")){
             JOptionPane.showMessageDialog(null, "Bem vindo "+nome+" :D");
             menu_tecnicos.setVisible(false);
-            jMenuItem2.setVisible(false);
             return matricula;
         }else{
             return matricula;
@@ -70,28 +67,29 @@ public class JMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu1 = new javax.swing.JMenu();
         tela_principal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_nomeU = new javax.swing.JMenu();
         mitem_matricula = new javax.swing.JMenuItem();
         mitem_ajuda = new javax.swing.JMenuItem();
         mitem_logoff = new javax.swing.JMenuItem();
-        menu_maquinas = new javax.swing.JMenu();
-        mitem_addmaq = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        menu_chamados = new javax.swing.JMenu();
+        mitem_addchamado = new javax.swing.JMenuItem();
+        mitem_editchamado = new javax.swing.JMenuItem();
         menu_procurar = new javax.swing.JMenu();
-        menu_cliente = new javax.swing.JMenu();
-        mitem_addpf = new javax.swing.JMenuItem();
-        mitem_addpj = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         menu_tecnicos = new javax.swing.JMenu();
         mitem_addtec = new javax.swing.JMenuItem();
         mitem_deltec = new javax.swing.JMenuItem();
 
+        jMenu1.setText("jMenu1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de T.I");
-        setMaximumSize(new java.awt.Dimension(1920, 1080));
         setMinimumSize(new java.awt.Dimension(1366, 768));
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         tela_principal.setBackground(new java.awt.Color(102, 102, 102));
         tela_principal.setToolTipText("");
@@ -118,6 +116,7 @@ public class JMain extends javax.swing.JFrame {
 
         mitem_matricula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/vcard.png"))); // NOI18N
         mitem_matricula.setText("a");
+        mitem_matricula.setToolTipText("Sua matricula");
         menu_nomeU.add(mitem_matricula);
 
         mitem_ajuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/help.png"))); // NOI18N
@@ -140,22 +139,23 @@ public class JMain extends javax.swing.JFrame {
 
         jMenuBar1.add(menu_nomeU);
 
-        menu_maquinas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer.png"))); // NOI18N
-        menu_maquinas.setText("Maquinas");
+        menu_chamados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer.png"))); // NOI18N
+        menu_chamados.setText("Chamados");
 
-        mitem_addmaq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_add.png"))); // NOI18N
-        mitem_addmaq.setText("Registrar Maquina");
-        mitem_addmaq.addActionListener(new java.awt.event.ActionListener() {
+        mitem_addchamado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_add.png"))); // NOI18N
+        mitem_addchamado.setText("Registrar chamado");
+        mitem_addchamado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitem_addmaqActionPerformed(evt);
+                mitem_addchamadoActionPerformed(evt);
             }
         });
-        menu_maquinas.add(mitem_addmaq);
+        menu_chamados.add(mitem_addchamado);
 
-        jMenuItem2.setText("jMenuItem2");
-        menu_maquinas.add(jMenuItem2);
+        mitem_editchamado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_edit.png"))); // NOI18N
+        mitem_editchamado.setText("Editar chamado");
+        menu_chamados.add(mitem_editchamado);
 
-        jMenuBar1.add(menu_maquinas);
+        jMenuBar1.add(menu_chamados);
 
         menu_procurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
         menu_procurar.setText("Procurar");
@@ -166,28 +166,16 @@ public class JMain extends javax.swing.JFrame {
         });
         jMenuBar1.add(menu_procurar);
 
-        menu_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group_link.png"))); // NOI18N
-        menu_cliente.setText("Clientes");
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/chart_curve.png"))); // NOI18N
+        jMenu2.setText("Estatísticas");
 
-        mitem_addpf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/user_suit.png"))); // NOI18N
-        mitem_addpf.setText("Adicionar PF");
-        mitem_addpf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitem_addpfActionPerformed(evt);
-            }
-        });
-        menu_cliente.add(mitem_addpf);
+        jMenuItem1.setText("Equipe");
+        jMenu2.add(jMenuItem1);
 
-        mitem_addpj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/building.png"))); // NOI18N
-        mitem_addpj.setText("Adicionar PJ");
-        mitem_addpj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitem_addpjActionPerformed(evt);
-            }
-        });
-        menu_cliente.add(mitem_addpj);
+        jMenuItem2.setText("Individuais");
+        jMenu2.add(jMenuItem2);
 
-        jMenuBar1.add(menu_cliente);
+        jMenuBar1.add(jMenu2);
 
         menu_tecnicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group.png"))); // NOI18N
         menu_tecnicos.setText("Técnicos");
@@ -224,12 +212,12 @@ public class JMain extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mitem_addmaqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_addmaqActionPerformed
+    private void mitem_addchamadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_addchamadoActionPerformed
         if(!jc.isVisible()){
         tela_principal.add(jc);
         jc.setVisible(true);
         }
-    }//GEN-LAST:event_mitem_addmaqActionPerformed
+    }//GEN-LAST:event_mitem_addchamadoActionPerformed
 
     private void menu_procurarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_procurarMouseClicked
         if(!jr.isVisible()){
@@ -245,10 +233,45 @@ public class JMain extends javax.swing.JFrame {
     }//GEN-LAST:event_mitem_logoffMousePressed
 
     private void mitem_ajudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_ajudaActionPerformed
-        if(!ma.isVisible()){
-            tela_principal.add(ma);
-            ma.setVisible(true);
-        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("<html>");
+        sb.append("<h1>");sb.append("Menu de Ajuda");sb.append("</h1>");
+        sb.append("<a>");sb.append("Bem vindo ao menu de ajuda do Chamado do Senac RS - Tramandaí.");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("Aqui você vai encontrar instruções de uso de todas as funções do programa e");sb.append("</a>");
+        sb.append("<a>");sb.append("os códigos de erros possíveis e seus significados.");sb.append("</a>");
+        sb.append("<h2>");sb.append("Funções  do Programa");sb.append("</h2>");
+        sb.append("<a>");sb.append("<b>");sb.append("1 - Menus");sb.append("</b>");sb.append("<br>");sb.append("</a>" );
+        sb.append("<a>");sb.append("Nos menus é onde ficam todas as funções principais do programa na ordem temos Usuário, Cadastro de Máquinas, Procurar e Ténicos.");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("Cada menu tem sua função especifica ou itens dentro dele com funções referentes ao nome do menu.");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("<b>");sb.append("• Menu do Usuário");sb.append("</b>");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("Nesse menu existem três opções sendo apenas interativas");sb.append(" <b>");sb.append("Sua matrícula,");sb.append("</b>");sb.append(" <b>");sb.append("Menu Ajuda");sb.append("</b>");sb.append(" e ");sb.append("<b>");sb.append("Deslogar");sb.append("</b>.");sb.append("<br>");
+        sb.append("O primeiro é a ");sb.append("<b>");sb.append("sua matrícula");sb.append("</b>");sb.append(" e ira exibir a mesma que está registrada aqui no Senac,");sb.append("<br>");sb.append("</a>");
+        sb.append("o ");sb.append("<b>");sb.append("Menu Ajuda");sb.append("</b>");sb.append(" é onde você acessa esse menu que está vendo agora");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("e o ");sb.append("<b>");sb.append("Deslogar");sb.append("</b>");sb.append(" é para fazer o Logoff do programa e entrar usando ou Usuário e Senha.");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("<b>");sb.append("• Chamados");sb.append("</b>");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("Nesse menu é onde o Usuário pode fazer o cadastro de uma máquina e cliente informando todos os dados necessários para um melhor controle de quem fez a manutenção, em qual máquina foi feita a manutenção, para quem e quando foi realizada.");sb.append("<br>");
+        sb.append("Esses são alguns exemplos de informações que serão inseridas juntas de diversas outras informações importantes.");sb.append("<br>");
+        sb.append("Também existe a opção de editar um chamado podendo ser feita apenas a adição da solução ou edição total do mesmo.");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("<b>");sb.append("• Procurar");sb.append("</b>");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("Nesse menu é onde o Professor vai poder procurar as máquinas registradas, usuários e chamados, podendo escolher entre filtros para facilitar na sua pesquisa.");
+        sb.append("<br>");sb.append("Já os Técnicos poderão apenas pesquisar sobre seus próprios registros para manter um melhor controle de datas e tarefas que devem ser realizadas.");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("<b>");sb.append("• Técnicos");sb.append("</b>");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("Nesse menu é onde o Professor poderá registrar os alunos como técnicos assim podendo ter controle sobre cada manutenção realizada, nele também é possivel excluir um cadastro ou editar para caso algum dado tenha sido inserido de forma errada.");sb.append("<br>");
+        sb.append("</a>");sb.append("<h3>");sb.append("Códigos de ERRO");sb.append("</h3>");
+        sb.append("<a>");sb.append("<b>");sb.append("• C023");sb.append("</b>");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("C023 significa que houve um erro de conexão ao Banco de Dados");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("<b>");sb.append("• C031");sb.append("</b>");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("C031 significa que houve um erro na hora de desconectar do Banco de Dados ");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("<b>• C050");sb.append("</b>");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("C050 significa que houve um erro no login, usuário ou senha errados ou inválidos ");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("<b>• C071");sb.append("</b>");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("C071 significa que houve um erro na aquisição da matrícula registrada no Banco de Dados ");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("<b>");sb.append("• C091");sb.append("</b>");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("C091 significa que houve um erro no registro dos dados da instituição");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("<b>");sb.append("• C104");sb.append("</b>");sb.append("<br>");sb.append("</a>");
+        sb.append("<a>");sb.append("C104 significa que houve um erro no registro dos dados do cliente");sb.append("<br>");sb.append("</a>");
+        sb.append("</html>");
+        JOptionPane.showMessageDialog(null, sb.toString());
     }//GEN-LAST:event_mitem_ajudaActionPerformed
 
     private void mitem_addtecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_addtecActionPerformed
@@ -261,19 +284,6 @@ public class JMain extends javax.swing.JFrame {
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu1ActionPerformed
-
-    private void mitem_addpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_addpfActionPerformed
-        if(!jcl.isVisible()){
-            tela_principal.add(jcl);
-            jcl.setVisible(true);
-      }
-    }//GEN-LAST:event_mitem_addpfActionPerformed
-
-    private void mitem_addpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_addpjActionPerformed
-        if(!ji.isVisible()){
-            tela_principal.add(ji);
-            ji.setVisible(true);
-      }    }//GEN-LAST:event_mitem_addpjActionPerformed
 
 
     /**
@@ -313,19 +323,20 @@ public class JMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenu menu_cliente;
-    private javax.swing.JMenu menu_maquinas;
+    private javax.swing.JMenu menu_chamados;
     private javax.swing.JMenu menu_nomeU;
     private javax.swing.JMenu menu_procurar;
     private javax.swing.JMenu menu_tecnicos;
-    private javax.swing.JMenuItem mitem_addmaq;
-    private javax.swing.JMenuItem mitem_addpf;
-    private javax.swing.JMenuItem mitem_addpj;
+    private javax.swing.JMenuItem mitem_addchamado;
     private javax.swing.JMenuItem mitem_addtec;
     private javax.swing.JMenuItem mitem_ajuda;
     private javax.swing.JMenuItem mitem_deltec;
+    private javax.swing.JMenuItem mitem_editchamado;
     private javax.swing.JMenuItem mitem_logoff;
     private javax.swing.JMenuItem mitem_matricula;
     private javax.swing.JDesktopPane tela_principal;

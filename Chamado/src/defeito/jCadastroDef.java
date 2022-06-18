@@ -5,6 +5,8 @@
 package defeito;
 
 import cadastro_maquinas.JCadastro;
+import clientes.JClientePerg;
+import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,6 +15,8 @@ import javax.swing.JOptionPane;
  */
 public class jCadastroDef extends javax.swing.JInternalFrame {
     JCadastro jc = new JCadastro();
+    JClientePerg jcp = new JClientePerg();
+   
     /**
      * Creates new form jCadastroDef
      */
@@ -74,7 +78,14 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         label_info.setForeground(new java.awt.Color(0, 0, 0));
         label_info.setText("(marque as caixas para \"Sim\")");
 
+        button_defeito.setBackground(new java.awt.Color(255, 255, 255));
+        button_defeito.setForeground(new java.awt.Color(0, 0, 0));
         button_defeito.setText("Proximo");
+        button_defeito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_defeitoMouseClicked(evt);
+            }
+        });
 
         box_subsoft.setBackground(new java.awt.Color(102, 102, 102));
         box_subsoft.setForeground(new java.awt.Color(0, 0, 0));
@@ -190,6 +201,14 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
 
         setBounds(800, 400, 313, 481);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void button_defeitoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_defeitoMouseClicked
+            JDesktopPane desktop = getDesktopPane();
+            desktop.add(jcp);
+            jcp.setVisible(true);
+            this.dispose();
+
+    }//GEN-LAST:event_button_defeitoMouseClicked
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> box_status;
