@@ -27,22 +27,18 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        label_taxabandono = new javax.swing.JLabel();
+        text_taxabandono = new javax.swing.JTextField();
+        label_nivsatisfacao = new javax.swing.JLabel();
+        text_nivsatisfacao = new javax.swing.JTextField();
+        label_tempoatendimeto = new javax.swing.JLabel();
+        text_tempatendimento = new javax.swing.JTextField();
+        label_tempoespera = new javax.swing.JLabel();
+        text_tempespera = new javax.swing.JTextField();
+        label_taxampli = new javax.swing.JLabel();
+        text_taxampli = new javax.swing.JTextField();
+        label_nivservico = new javax.swing.JLabel();
+        text_nivservico = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -55,71 +51,59 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Equipe", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Taxa de Abandono:");
+        label_taxabandono.setBackground(new java.awt.Color(102, 102, 102));
+        label_taxabandono.setForeground(new java.awt.Color(0, 0, 0));
+        label_taxabandono.setText("Taxa de Abandono:");
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setText("jTextField1");
+        text_taxabandono.setEditable(false);
+        text_taxabandono.setBackground(new java.awt.Color(255, 255, 255));
+        text_taxabandono.setForeground(new java.awt.Color(0, 0, 0));
+        text_taxabandono.setText("0");
 
-        jLabel2.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("%");
+        label_nivsatisfacao.setBackground(new java.awt.Color(102, 102, 102));
+        label_nivsatisfacao.setForeground(new java.awt.Color(0, 0, 0));
+        label_nivsatisfacao.setText("Nível de Satisfação:");
 
-        jLabel3.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Nível de Satisfação:");
+        text_nivsatisfacao.setEditable(false);
+        text_nivsatisfacao.setBackground(new java.awt.Color(255, 255, 255));
+        text_nivsatisfacao.setForeground(new java.awt.Color(0, 0, 0));
+        text_nivsatisfacao.setText("0");
 
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField2.setText("jTextField2");
+        label_tempoatendimeto.setBackground(new java.awt.Color(102, 102, 102));
+        label_tempoatendimeto.setForeground(new java.awt.Color(0, 0, 0));
+        label_tempoatendimeto.setText("Tempo de Atendimento:");
 
-        jLabel4.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("%");
+        text_tempatendimento.setEditable(false);
+        text_tempatendimento.setBackground(new java.awt.Color(255, 255, 255));
+        text_tempatendimento.setForeground(new java.awt.Color(0, 0, 0));
+        text_tempatendimento.setText("0");
 
-        jLabel5.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Tempo de Atendimento:");
+        label_tempoespera.setBackground(new java.awt.Color(102, 102, 102));
+        label_tempoespera.setForeground(new java.awt.Color(0, 0, 0));
+        label_tempoespera.setText("Tempo de Espera:");
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField3.setText("jTextField3");
+        text_tempespera.setEditable(false);
+        text_tempespera.setBackground(new java.awt.Color(255, 255, 255));
+        text_tempespera.setForeground(new java.awt.Color(0, 0, 0));
+        text_tempespera.setText("0");
 
-        jLabel6.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("h");
+        label_taxampli.setBackground(new java.awt.Color(102, 102, 102));
+        label_taxampli.setForeground(new java.awt.Color(0, 0, 0));
+        label_taxampli.setText("Taxa de Amplificação:");
 
-        jLabel7.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Tempo de Espera:");
+        text_taxampli.setEditable(false);
+        text_taxampli.setBackground(new java.awt.Color(255, 255, 255));
+        text_taxampli.setForeground(new java.awt.Color(0, 0, 0));
+        text_taxampli.setText("0");
 
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField4.setText("jTextField4");
+        label_nivservico.setBackground(new java.awt.Color(102, 102, 102));
+        label_nivservico.setForeground(new java.awt.Color(0, 0, 0));
+        label_nivservico.setText("Nível de Serviço:");
 
-        jLabel8.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("h");
-
-        jLabel9.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Taxa de Amplificação:");
-
-        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField5.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField5.setText("jTextField5");
-
-        jLabel10.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Nível de Serviço:");
-
-        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField6.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField6.setText("jTextField6");
+        text_nivservico.setEditable(false);
+        text_nivservico.setBackground(new java.awt.Color(255, 255, 255));
+        text_nivservico.setForeground(new java.awt.Color(0, 0, 0));
+        text_nivservico.setText("0");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,73 +111,60 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel9)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(80, 80, 80)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel5))
-                                .addGap(44, 44, 44)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jTextField3)
-                                    .addComponent(jTextField2)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(71, 71, 71)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel8))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_tempoespera)
+                            .addComponent(label_taxampli)
+                            .addComponent(label_nivservico))
+                        .addGap(57, 57, 57)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(text_nivservico, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(text_taxampli, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                                .addComponent(text_tempespera))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(label_taxabandono)
+                        .addGap(71, 71, 71)
+                        .addComponent(text_taxabandono))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_nivsatisfacao)
+                            .addComponent(label_tempoatendimeto))
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(text_nivsatisfacao)
+                            .addComponent(text_tempatendimento))))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(label_taxabandono)
+                    .addComponent(text_taxabandono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(label_nivsatisfacao)
+                    .addComponent(text_nivsatisfacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(label_tempoatendimeto)
+                    .addComponent(text_tempatendimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                    .addComponent(label_tempoespera)
+                    .addComponent(text_tempespera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(label_taxampli)
+                    .addComponent(text_taxampli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(65, Short.MAX_VALUE))
+                    .addComponent(label_nivservico)
+                    .addComponent(text_nivservico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         setJMenuBar(jMenuBar1);
@@ -214,23 +185,19 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel label_nivsatisfacao;
+    private javax.swing.JLabel label_nivservico;
+    private javax.swing.JLabel label_taxabandono;
+    private javax.swing.JLabel label_taxampli;
+    private javax.swing.JLabel label_tempoatendimeto;
+    private javax.swing.JLabel label_tempoespera;
+    private javax.swing.JTextField text_nivsatisfacao;
+    private javax.swing.JTextField text_nivservico;
+    private javax.swing.JTextField text_taxabandono;
+    private javax.swing.JTextField text_taxampli;
+    private javax.swing.JTextField text_tempatendimento;
+    private javax.swing.JTextField text_tempespera;
     // End of variables declaration//GEN-END:variables
 }

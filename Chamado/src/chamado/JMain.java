@@ -8,6 +8,7 @@ import cadastro_maquinas.JCadastro;
 import clientes.JCliente;
 import clientes.JInstituicao;
 import defeito.jCadastroDef;
+import estatisticas.JEstatisticas;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import login.JLogin;
@@ -20,6 +21,7 @@ import tecnico.JAddTecnico;
  * @author alunos
  */
 public class JMain extends javax.swing.JFrame {
+    private static JEstatisticas je = new JEstatisticas();
     private static JInstituicao ji = new JInstituicao();
     private static JCliente jcl = new JCliente();
     private static JAddTecnico jt = new JAddTecnico();
@@ -170,6 +172,11 @@ public class JMain extends javax.swing.JFrame {
         jMenu2.setText("Estatísticas");
 
         jMenuItem1.setText("Equipe");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem1);
 
         jMenuItem2.setText("Individuais");
@@ -284,6 +291,13 @@ public class JMain extends javax.swing.JFrame {
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+         if(!je.isVisible()){
+            tela_principal.add(je);
+            je.setVisible(true);
+      }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
 
     /**
