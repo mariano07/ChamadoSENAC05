@@ -11,7 +11,6 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import javax.sound.midi.Instrument;
 
 public class conexao_bd{
     
@@ -136,7 +135,7 @@ public class conexao_bd{
         desconectar();
     }
     public void CadastroMaquina(String cpu,String pmae,String ram,String hd,String ssd,String ccpu,String cooler,String gpu,String fonte,String gabinete,String matricula,String patrimonio,String sala){
-        String InstrucaoSQL="INSERT INTO Maquinas (Patrimonio,Sala,Placa mae,Processador,Memorias Ram,Placa de video,Fonte,Ssd,Hd,Cooler,CoolerCpu,Gabinete,Matricula,Data,Hora) "
+        String InstrucaoSQL="INSERT INTO Chamado (Patrimonio,Sala,Placa mae,Processador,Memorias Ram,Placa de video,Fonte,Ssd,Hd,Cooler,CoolerCpu,Gabinete,Matricula,Data,Hora) "
                 + "VALUES ('"+patrimonio+"','"+sala+"','"+pmae+"','"+cpu+"','"+ram+"','"+gpu+"','"+fonte+"','"+ssd+"','"+hd+"','"+cooler+"','"+ccpu+"','"+gabinete+"','"+matricula+"'"
                 + ",'"+getDate()+"','"+getTime()+"')";
         
@@ -171,7 +170,7 @@ public class conexao_bd{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "ERRO:C151", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C164", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -184,10 +183,34 @@ public class conexao_bd{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "ERRO:C178", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C177", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
+    }
+    public String[] Tickets(){
+        String InstrucãoSQL="SELECT Chamado.Ticket,Chamado.Patrimonio,Chamado.Matricula,Problema.Problema,Problema.StatusDoProblema,Chamado.Data,Chamado.Hora "
+                + "FROM Chamado JOIN Problema ON Chamado.Ticket = Problema.idTicket";
+        int i=0,z=0;
+        String retornoBD[]={""};
         
-        //criar metodo de busca de tickets pendentes que retorne um vetor de String formatado para popular uma lista !!!
+        conectar();
+        try{
+            st = conexao.createStatement();
+            result = st.executeQuery(InstrucãoSQL);
+            while(result.next()){
+                retornoBD[i]="Ticket: "+result.getInt("Ticket")+"\n"
+                        + "Patrimônio: "+result.getString("Patrimonio")+"\n"
+                        + "Responsável: "+result.getString("Matricula")+"\n"
+                        + "Defeito: "+result.getString("Problema")+"\n"
+                        + "Status: "+result.getString("StatusDoProblema")+"\n"
+                        + "Data: "+result.getDate("Data")+" às "+result.getTime("Hora")+"\n"
+                        + "------------------------------------------------------------------\n";
+                i++;
+            }  
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ERRO:C190", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
+        return retornoBD;
     }
 }
