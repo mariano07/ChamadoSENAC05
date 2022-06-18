@@ -67,6 +67,7 @@ public class JMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu1 = new javax.swing.JMenu();
         tela_principal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_nomeU = new javax.swing.JMenu();
@@ -77,9 +78,14 @@ public class JMain extends javax.swing.JFrame {
         mitem_addchamado = new javax.swing.JMenuItem();
         mitem_editchamado = new javax.swing.JMenuItem();
         menu_procurar = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         menu_tecnicos = new javax.swing.JMenu();
         mitem_addtec = new javax.swing.JMenuItem();
         mitem_deltec = new javax.swing.JMenuItem();
+
+        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de T.I");
@@ -159,6 +165,17 @@ public class JMain extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(menu_procurar);
+
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/chart_curve.png"))); // NOI18N
+        jMenu2.setText("Estatísticas");
+
+        jMenuItem1.setText("Equipe");
+        jMenu2.add(jMenuItem1);
+
+        jMenuItem2.setText("Individuais");
+        jMenu2.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu2);
 
         menu_tecnicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group.png"))); // NOI18N
         menu_tecnicos.setText("Técnicos");
@@ -306,7 +323,11 @@ public class JMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menu_chamados;
     private javax.swing.JMenu menu_nomeU;
     private javax.swing.JMenu menu_procurar;
