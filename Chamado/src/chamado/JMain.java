@@ -9,6 +9,7 @@ import clientes.JCliente;
 import clientes.JInstituicao;
 import defeito.jCadastroDef;
 import estatisticas.JEstatisticas;
+import estatisticas.JIndividual;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import login.JLogin;
@@ -21,6 +22,7 @@ import tecnico.JAddTecnico;
  * @author alunos
  */
 public class JMain extends javax.swing.JFrame {
+    private static JIndividual jsi =  new JIndividual();
     private static JEstatisticas je = new JEstatisticas();
     private static JInstituicao ji = new JInstituicao();
     private static JCliente jcl = new JCliente();
@@ -79,6 +81,7 @@ public class JMain extends javax.swing.JFrame {
         menu_chamados = new javax.swing.JMenu();
         mitem_addchamado = new javax.swing.JMenuItem();
         mitem_editchamado = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menu_procurar = new javax.swing.JMenu();
         menu_estatisticas = new javax.swing.JMenu();
         mitem_estequipe = new javax.swing.JMenuItem();
@@ -157,6 +160,9 @@ public class JMain extends javax.swing.JFrame {
         mitem_editchamado.setText("Editar chamado");
         menu_chamados.add(mitem_editchamado);
 
+        jMenuItem1.setText("Informações");
+        menu_chamados.add(jMenuItem1);
+
         jMenuBar1.add(menu_chamados);
 
         menu_procurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
@@ -180,6 +186,11 @@ public class JMain extends javax.swing.JFrame {
         menu_estatisticas.add(mitem_estequipe);
 
         mitem_estind.setText("Individuais");
+        mitem_estind.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mitem_estindActionPerformed(evt);
+            }
+        });
         menu_estatisticas.add(mitem_estind);
 
         jMenuBar1.add(menu_estatisticas);
@@ -299,6 +310,13 @@ public class JMain extends javax.swing.JFrame {
       }
     }//GEN-LAST:event_mitem_estequipeActionPerformed
 
+    private void mitem_estindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_estindActionPerformed
+        if(!jsi.isVisible()){
+            tela_principal.add(jsi);
+            jsi.setVisible(true);
+      }
+    }//GEN-LAST:event_mitem_estindActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -339,6 +357,7 @@ public class JMain extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menu_chamados;
     private javax.swing.JMenu menu_estatisticas;
     private javax.swing.JMenu menu_nomeU;

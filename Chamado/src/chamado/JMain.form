@@ -96,6 +96,11 @@
                 <Property name="text" type="java.lang.String" value="Editar chamado"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xf5;es"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menu_procurar">
@@ -129,6 +134,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Individuais"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mitem_estindActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
