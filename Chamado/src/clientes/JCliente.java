@@ -102,7 +102,6 @@ public class JCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        text_email.setEditable(false);
         text_email.setBackground(new java.awt.Color(255, 255, 255));
         text_email.setForeground(new java.awt.Color(0, 0, 0));
         text_email.setText("E-mail");
