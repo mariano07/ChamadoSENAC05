@@ -47,7 +47,7 @@ public class JLogin extends javax.swing.JFrame {
         setTitle("Tela de Login");
         setMinimumSize(new java.awt.Dimension(451, 304));
 
-        JPanel_Login.setBackground(new java.awt.Color(102, 102, 102));
+        JPanel_Login.setBackground(new java.awt.Color(153, 153, 153));
 
         label_msg_login.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         label_msg_login.setForeground(new java.awt.Color(0, 0, 0));
@@ -85,6 +85,7 @@ public class JLogin extends javax.swing.JFrame {
         label_msg2_login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_msg2_login.setText("Informe seu usuário e senha");
 
+        label_icone_login.setBackground(new java.awt.Color(51, 51, 51));
         label_icone_login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_icone_login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/senac_logo.png"))); // NOI18N
 

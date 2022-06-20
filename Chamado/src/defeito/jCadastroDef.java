@@ -64,18 +64,18 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         setMinimumSize(new java.awt.Dimension(345, 445));
         setPreferredSize(new java.awt.Dimension(345, 445));
 
-        panel_defeito.setBackground(new java.awt.Color(102, 102, 102));
+        panel_defeito.setBackground(new java.awt.Color(51, 51, 51));
 
-        label_defeito.setBackground(new java.awt.Color(102, 102, 102));
-        label_defeito.setForeground(new java.awt.Color(0, 0, 0));
+        label_defeito.setBackground(new java.awt.Color(51, 51, 51));
+        label_defeito.setForeground(new java.awt.Color(255, 255, 255));
         label_defeito.setText("Defeito informado:");
 
-        label_solucao.setBackground(new java.awt.Color(102, 102, 102));
-        label_solucao.setForeground(new java.awt.Color(0, 0, 0));
+        label_solucao.setBackground(new java.awt.Color(51, 51, 51));
+        label_solucao.setForeground(new java.awt.Color(255, 255, 255));
         label_solucao.setText("Solução:");
 
-        label_info.setBackground(new java.awt.Color(255, 255, 255));
-        label_info.setForeground(new java.awt.Color(0, 0, 0));
+        label_info.setBackground(new java.awt.Color(51, 51, 51));
+        label_info.setForeground(new java.awt.Color(255, 255, 255));
         label_info.setText("(marque as caixas para \"Sim\")");
 
         button_defeito.setBackground(new java.awt.Color(255, 255, 255));
@@ -87,19 +87,25 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
             }
         });
 
-        box_subsoft.setBackground(new java.awt.Color(102, 102, 102));
-        box_subsoft.setForeground(new java.awt.Color(0, 0, 0));
+        box_subsoft.setBackground(new java.awt.Color(51, 51, 51));
+        box_subsoft.setForeground(new java.awt.Color(255, 255, 255));
         box_subsoft.setText("Foi necessário substituir algum Software?");
 
-        box_subhard.setBackground(new java.awt.Color(102, 102, 102));
-        box_subhard.setForeground(new java.awt.Color(0, 0, 0));
+        box_subhard.setBackground(new java.awt.Color(51, 51, 51));
+        box_subhard.setForeground(new java.awt.Color(255, 255, 255));
         box_subhard.setText("Foi necessário substituir algum Hardware?");
+
+        jScrollPane1.setBackground(new java.awt.Color(51, 51, 51));
+        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
         texta_solucao.setBackground(new java.awt.Color(255, 255, 255));
         texta_solucao.setColumns(20);
         texta_solucao.setForeground(new java.awt.Color(0, 0, 0));
         texta_solucao.setRows(5);
         jScrollPane1.setViewportView(texta_solucao);
+
+        jScrollPane3.setBackground(new java.awt.Color(51, 51, 51));
+        jScrollPane3.setForeground(new java.awt.Color(255, 255, 255));
 
         texta_defeito.setEditable(false);
         texta_defeito.setBackground(new java.awt.Color(255, 255, 255));
@@ -108,8 +114,8 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         texta_defeito.setRows(5);
         jScrollPane3.setViewportView(texta_defeito);
 
-        label_orcprevisto.setBackground(new java.awt.Color(102, 102, 102));
-        label_orcprevisto.setForeground(new java.awt.Color(0, 0, 0));
+        label_orcprevisto.setBackground(new java.awt.Color(51, 51, 51));
+        label_orcprevisto.setForeground(new java.awt.Color(255, 255, 255));
         label_orcprevisto.setText("Orçamento Previsto:");
 
         text_orcamento.setBackground(new java.awt.Color(255, 255, 255));
@@ -120,8 +126,8 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         box_status.setForeground(new java.awt.Color(0, 0, 0));
         box_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim", "Não" }));
 
-        label_orcstatus.setBackground(new java.awt.Color(102, 102, 102));
-        label_orcstatus.setForeground(new java.awt.Color(0, 0, 0));
+        label_orcstatus.setBackground(new java.awt.Color(51, 51, 51));
+        label_orcstatus.setForeground(new java.awt.Color(255, 255, 255));
         label_orcstatus.setText("Orçamento Aprovado:");
 
         javax.swing.GroupLayout panel_defeitoLayout = new javax.swing.GroupLayout(panel_defeito);

@@ -81,7 +81,6 @@ public class JMain extends javax.swing.JFrame {
         menu_chamados = new javax.swing.JMenu();
         mitem_addchamado = new javax.swing.JMenuItem();
         mitem_editchamado = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
         menu_procurar = new javax.swing.JMenu();
         menu_estatisticas = new javax.swing.JMenu();
         mitem_estequipe = new javax.swing.JMenuItem();
@@ -96,7 +95,7 @@ public class JMain extends javax.swing.JFrame {
         setTitle("Sistema de T.I");
         setMinimumSize(new java.awt.Dimension(1366, 768));
 
-        tela_principal.setBackground(new java.awt.Color(102, 102, 102));
+        tela_principal.setBackground(new java.awt.Color(51, 51, 51));
         tela_principal.setToolTipText("");
 
         javax.swing.GroupLayout tela_principalLayout = new javax.swing.GroupLayout(tela_principal);
@@ -159,9 +158,6 @@ public class JMain extends javax.swing.JFrame {
         mitem_editchamado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_edit.png"))); // NOI18N
         mitem_editchamado.setText("Editar chamado");
         menu_chamados.add(mitem_editchamado);
-
-        jMenuItem1.setText("Informações");
-        menu_chamados.add(jMenuItem1);
 
         jMenuBar1.add(menu_chamados);
 
@@ -357,7 +353,6 @@ public class JMain extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menu_chamados;
     private javax.swing.JMenu menu_estatisticas;
     private javax.swing.JMenu menu_nomeU;

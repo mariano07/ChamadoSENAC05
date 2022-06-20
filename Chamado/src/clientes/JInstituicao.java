@@ -48,11 +48,12 @@ public class JInstituicao extends javax.swing.JInternalFrame {
         setTitle("Cliente");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/building.png"))); // NOI18N
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastrar Pessoa Jurídica", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastrar Pessoa Jurídica", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        label_nome.setBackground(new java.awt.Color(102, 102, 102));
-        label_nome.setForeground(new java.awt.Color(0, 0, 0));
+        label_nome.setBackground(new java.awt.Color(51, 51, 51));
+        label_nome.setForeground(new java.awt.Color(255, 255, 255));
         label_nome.setText("Nome:");
 
         text_nome.setBackground(new java.awt.Color(255, 255, 255));
@@ -67,8 +68,8 @@ public class JInstituicao extends javax.swing.JInternalFrame {
             }
         });
 
-        label_endereco.setBackground(new java.awt.Color(102, 102, 102));
-        label_endereco.setForeground(new java.awt.Color(0, 0, 0));
+        label_endereco.setBackground(new java.awt.Color(51, 51, 51));
+        label_endereco.setForeground(new java.awt.Color(255, 255, 255));
         label_endereco.setText("Endereço:");
 
         text_endereco.setBackground(new java.awt.Color(255, 255, 255));
@@ -83,8 +84,8 @@ public class JInstituicao extends javax.swing.JInternalFrame {
             }
         });
 
-        label_cnpj.setBackground(new java.awt.Color(102, 102, 102));
-        label_cnpj.setForeground(new java.awt.Color(0, 0, 0));
+        label_cnpj.setBackground(new java.awt.Color(51, 51, 51));
+        label_cnpj.setForeground(new java.awt.Color(255, 255, 255));
         label_cnpj.setText("CNPJ:");
 
         text_cnpj.setBackground(new java.awt.Color(255, 255, 255));
@@ -99,8 +100,8 @@ public class JInstituicao extends javax.swing.JInternalFrame {
             }
         });
 
-        label_resp.setBackground(new java.awt.Color(102, 102, 102));
-        label_resp.setForeground(new java.awt.Color(0, 0, 0));
+        label_resp.setBackground(new java.awt.Color(51, 51, 51));
+        label_resp.setForeground(new java.awt.Color(255, 255, 255));
         label_resp.setText("Responsável:");
 
         text_resp.setBackground(new java.awt.Color(255, 255, 255));
@@ -115,8 +116,8 @@ public class JInstituicao extends javax.swing.JInternalFrame {
             }
         });
 
-        label_cpf.setBackground(new java.awt.Color(102, 102, 102));
-        label_cpf.setForeground(new java.awt.Color(0, 0, 0));
+        label_cpf.setBackground(new java.awt.Color(51, 51, 51));
+        label_cpf.setForeground(new java.awt.Color(255, 255, 255));
         label_cpf.setText("CPF:");
 
         text_cpf.setBackground(new java.awt.Color(255, 255, 255));
@@ -131,8 +132,8 @@ public class JInstituicao extends javax.swing.JInternalFrame {
             }
         });
 
-        label_telefone.setBackground(new java.awt.Color(102, 102, 102));
-        label_telefone.setForeground(new java.awt.Color(0, 0, 0));
+        label_telefone.setBackground(new java.awt.Color(51, 51, 51));
+        label_telefone.setForeground(new java.awt.Color(255, 255, 255));
         label_telefone.setText("Telefone:");
 
         text_telefone.setBackground(new java.awt.Color(255, 255, 255));

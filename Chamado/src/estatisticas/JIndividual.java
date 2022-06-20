@@ -54,27 +54,27 @@ public class JIndividual extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Individuais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setForeground(new java.awt.Color(102, 102, 102));
 
-        label_taxabandono.setBackground(new java.awt.Color(0, 0, 0));
+        label_taxabandono.setBackground(new java.awt.Color(51, 51, 51));
         label_taxabandono.setForeground(new java.awt.Color(255, 255, 255));
         label_taxabandono.setText("Taxa de Abadono:");
 
-        label_nivsatisacao.setBackground(new java.awt.Color(0, 0, 0));
+        label_nivsatisacao.setBackground(new java.awt.Color(51, 51, 51));
         label_nivsatisacao.setForeground(new java.awt.Color(255, 255, 255));
         label_nivsatisacao.setText("Nível de Satisfaçao:");
 
-        label_tempoatend.setBackground(new java.awt.Color(0, 0, 0));
+        label_tempoatend.setBackground(new java.awt.Color(51, 51, 51));
         label_tempoatend.setForeground(new java.awt.Color(255, 255, 255));
         label_tempoatend.setText("Tempo Médio de Atendimento:");
 
-        label_tempoespera.setBackground(new java.awt.Color(0, 0, 0));
+        label_tempoespera.setBackground(new java.awt.Color(51, 51, 51));
         label_tempoespera.setForeground(new java.awt.Color(255, 255, 255));
         label_tempoespera.setText("Tempo Médio de Espera:");
 
-        label_taxamplificacao.setBackground(new java.awt.Color(0, 0, 0));
+        label_taxamplificacao.setBackground(new java.awt.Color(51, 51, 51));
         label_taxamplificacao.setForeground(new java.awt.Color(255, 255, 255));
         label_taxamplificacao.setText("Taxa de Amplificação:");
 
-        label_nivservico.setBackground(new java.awt.Color(0, 0, 0));
+        label_nivservico.setBackground(new java.awt.Color(51, 51, 51));
         label_nivservico.setForeground(new java.awt.Color(255, 255, 255));
         label_nivservico.setText("Nível de Serviço:");
 
@@ -89,32 +89,32 @@ public class JIndividual extends javax.swing.JInternalFrame {
 
         text_taxabandono.setEditable(false);
         text_taxabandono.setBackground(new java.awt.Color(255, 255, 255));
-        text_taxabandono.setForeground(new java.awt.Color(0, 0, 0));
+        text_taxabandono.setForeground(new java.awt.Color(51, 51, 51));
         text_taxabandono.setText("0");
 
         text_nivsatisfacao.setEditable(false);
         text_nivsatisfacao.setBackground(new java.awt.Color(255, 255, 255));
-        text_nivsatisfacao.setForeground(new java.awt.Color(0, 0, 0));
+        text_nivsatisfacao.setForeground(new java.awt.Color(51, 51, 51));
         text_nivsatisfacao.setText("0");
 
         text_tempoatend.setEditable(false);
         text_tempoatend.setBackground(new java.awt.Color(255, 255, 255));
-        text_tempoatend.setForeground(new java.awt.Color(0, 0, 0));
+        text_tempoatend.setForeground(new java.awt.Color(51, 51, 51));
         text_tempoatend.setText("0");
 
         text_tempoespera.setEditable(false);
         text_tempoespera.setBackground(new java.awt.Color(255, 255, 255));
-        text_tempoespera.setForeground(new java.awt.Color(0, 0, 0));
+        text_tempoespera.setForeground(new java.awt.Color(51, 51, 51));
         text_tempoespera.setText("0");
 
         text_taxampli.setEditable(false);
         text_taxampli.setBackground(new java.awt.Color(255, 255, 255));
-        text_taxampli.setForeground(new java.awt.Color(0, 0, 0));
+        text_taxampli.setForeground(new java.awt.Color(51, 51, 51));
         text_taxampli.setText("0");
 
         text_nivservico.setEditable(false);
         text_nivservico.setBackground(new java.awt.Color(255, 255, 255));
-        text_nivservico.setForeground(new java.awt.Color(0, 0, 0));
+        text_nivservico.setForeground(new java.awt.Color(51, 51, 51));
         text_nivservico.setText("0");
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
@@ -122,7 +122,7 @@ public class JIndividual extends javax.swing.JInternalFrame {
         jLabel1.setText("Pendentes");
 
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField1.setForeground(new java.awt.Color(51, 51, 51));
         jTextField1.setText("0");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

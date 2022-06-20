@@ -42,15 +42,15 @@ public class JClientePerg extends javax.swing.JInternalFrame {
         setTitle("Cliente");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group_link.png"))); // NOI18N
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        check_pf.setBackground(new java.awt.Color(102, 102, 102));
-        check_pf.setForeground(new java.awt.Color(0, 0, 0));
+        check_pf.setBackground(new java.awt.Color(51, 51, 51));
+        check_pf.setForeground(new java.awt.Color(255, 255, 255));
         check_pf.setText("Pessoa Física");
 
-        check_pj.setBackground(new java.awt.Color(102, 102, 102));
-        check_pj.setForeground(new java.awt.Color(0, 0, 0));
+        check_pj.setBackground(new java.awt.Color(51, 51, 51));
+        check_pj.setForeground(new java.awt.Color(255, 255, 255));
         check_pj.setText("Pessoa Jurídica");
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
@@ -62,8 +62,8 @@ public class JClientePerg extends javax.swing.JInternalFrame {
             }
         });
 
-        jCheckBox1.setBackground(new java.awt.Color(102, 102, 102));
-        jCheckBox1.setForeground(new java.awt.Color(0, 0, 0));
+        jCheckBox1.setBackground(new java.awt.Color(51, 51, 51));
+        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setText("Cliente Existente");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -76,7 +76,7 @@ public class JClientePerg extends javax.swing.JInternalFrame {
                     .addComponent(check_pj)
                     .addComponent(check_pf)
                     .addComponent(jCheckBox1))
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)

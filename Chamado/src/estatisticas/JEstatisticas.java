@@ -50,12 +50,12 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setTitle("Estatísticas da Equipe");
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Equipe", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Equipe", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setForeground(new java.awt.Color(51, 51, 51));
 
-        label_taxabandono.setBackground(new java.awt.Color(102, 102, 102));
-        label_taxabandono.setForeground(new java.awt.Color(0, 0, 0));
+        label_taxabandono.setBackground(new java.awt.Color(51, 51, 51));
+        label_taxabandono.setForeground(new java.awt.Color(255, 255, 255));
         label_taxabandono.setText("Taxa de Abandono:");
 
         text_taxabandono.setEditable(false);
@@ -63,8 +63,8 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
         text_taxabandono.setForeground(new java.awt.Color(0, 0, 0));
         text_taxabandono.setText("0");
 
-        label_nivsatisfacao.setBackground(new java.awt.Color(102, 102, 102));
-        label_nivsatisfacao.setForeground(new java.awt.Color(0, 0, 0));
+        label_nivsatisfacao.setBackground(new java.awt.Color(51, 51, 51));
+        label_nivsatisfacao.setForeground(new java.awt.Color(255, 255, 255));
         label_nivsatisfacao.setText("Nível de Satisfação:");
 
         text_nivsatisfacao.setEditable(false);
@@ -72,8 +72,8 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
         text_nivsatisfacao.setForeground(new java.awt.Color(0, 0, 0));
         text_nivsatisfacao.setText("0");
 
-        label_tempoatendimeto.setBackground(new java.awt.Color(102, 102, 102));
-        label_tempoatendimeto.setForeground(new java.awt.Color(0, 0, 0));
+        label_tempoatendimeto.setBackground(new java.awt.Color(51, 51, 51));
+        label_tempoatendimeto.setForeground(new java.awt.Color(255, 255, 255));
         label_tempoatendimeto.setText("Tempo Médio de Atendimento:");
 
         text_tempatendimento.setEditable(false);
@@ -81,8 +81,8 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
         text_tempatendimento.setForeground(new java.awt.Color(0, 0, 0));
         text_tempatendimento.setText("0");
 
-        label_tempoespera.setBackground(new java.awt.Color(102, 102, 102));
-        label_tempoespera.setForeground(new java.awt.Color(0, 0, 0));
+        label_tempoespera.setBackground(new java.awt.Color(51, 51, 51));
+        label_tempoespera.setForeground(new java.awt.Color(255, 255, 255));
         label_tempoespera.setText("Tempo Medio de Espera:");
 
         text_tempespera.setEditable(false);
@@ -90,8 +90,8 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
         text_tempespera.setForeground(new java.awt.Color(0, 0, 0));
         text_tempespera.setText("0");
 
-        label_taxampli.setBackground(new java.awt.Color(102, 102, 102));
-        label_taxampli.setForeground(new java.awt.Color(0, 0, 0));
+        label_taxampli.setBackground(new java.awt.Color(51, 51, 51));
+        label_taxampli.setForeground(new java.awt.Color(255, 255, 255));
         label_taxampli.setText("Taxa de Amplificação:");
 
         text_taxampli.setEditable(false);
@@ -99,8 +99,8 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
         text_taxampli.setForeground(new java.awt.Color(0, 0, 0));
         text_taxampli.setText("0");
 
-        label_nivservico.setBackground(new java.awt.Color(102, 102, 102));
-        label_nivservico.setForeground(new java.awt.Color(0, 0, 0));
+        label_nivservico.setBackground(new java.awt.Color(51, 51, 51));
+        label_nivservico.setForeground(new java.awt.Color(255, 255, 255));
         label_nivservico.setText("Nível de Serviço:");
 
         text_nivservico.setEditable(false);
@@ -117,6 +117,7 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Pendentes");
 
