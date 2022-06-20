@@ -174,10 +174,10 @@ public class JCadastro extends javax.swing.JInternalFrame {
         box_capssd = new javax.swing.JComboBox<>();
         box_capgpu = new javax.swing.JComboBox<>();
         label_fonte = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -316,8 +316,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
-        ftext_ram.setBackground(new java.awt.Color(51, 51, 51));
-        ftext_ram.setForeground(new java.awt.Color(255, 255, 255));
+        ftext_ram.setBackground(new java.awt.Color(255, 255, 255));
+        ftext_ram.setForeground(new java.awt.Color(51, 51, 51));
         ftext_ram.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         ftext_ram.setText("0");
         ftext_ram.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -334,8 +334,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
-        ftext_hd.setBackground(new java.awt.Color(51, 51, 51));
-        ftext_hd.setForeground(new java.awt.Color(255, 255, 255));
+        ftext_hd.setBackground(new java.awt.Color(255, 255, 255));
+        ftext_hd.setForeground(new java.awt.Color(51, 51, 51));
         ftext_hd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         ftext_hd.setText("0");
         ftext_hd.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -352,8 +352,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
-        ftext_ssd.setBackground(new java.awt.Color(51, 51, 51));
-        ftext_ssd.setForeground(new java.awt.Color(255, 255, 255));
+        ftext_ssd.setBackground(new java.awt.Color(255, 255, 255));
+        ftext_ssd.setForeground(new java.awt.Color(51, 51, 51));
         ftext_ssd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         ftext_ssd.setText("0");
         ftext_ssd.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -430,8 +430,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
-        text_cooler.setBackground(new java.awt.Color(51, 51, 51));
-        text_cooler.setForeground(new java.awt.Color(255, 255, 255));
+        text_cooler.setBackground(new java.awt.Color(255, 255, 255));
+        text_cooler.setForeground(new java.awt.Color(51, 51, 51));
         text_cooler.setText("Modelo");
         text_cooler.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -492,8 +492,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
-        text_fonte.setBackground(new java.awt.Color(51, 51, 51));
-        text_fonte.setForeground(new java.awt.Color(255, 255, 255));
+        text_fonte.setBackground(new java.awt.Color(255, 255, 255));
+        text_fonte.setForeground(new java.awt.Color(51, 51, 51));
         text_fonte.setText("Modelo");
         text_fonte.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -504,8 +504,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
-        text_gabinete.setBackground(new java.awt.Color(51, 51, 51));
-        text_gabinete.setForeground(new java.awt.Color(255, 255, 255));
+        text_gabinete.setBackground(new java.awt.Color(255, 255, 255));
+        text_gabinete.setForeground(new java.awt.Color(51, 51, 51));
         text_gabinete.setText("Modelo");
         text_gabinete.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -546,14 +546,6 @@ public class JCadastro extends javax.swing.JInternalFrame {
         label_fonte.setForeground(new java.awt.Color(255, 255, 255));
         label_fonte.setText("W");
 
-        jCheckBox1.setBackground(new java.awt.Color(51, 51, 51));
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Patrimônio");
-
-        jCheckBox2.setBackground(new java.awt.Color(51, 51, 51));
-        jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setText("Sala");
-
         jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setForeground(new java.awt.Color(0, 0, 0));
@@ -561,7 +553,15 @@ public class JCadastro extends javax.swing.JInternalFrame {
 
         jTextField2.setBackground(new java.awt.Color(255, 255, 255));
         jTextField2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField2.setText("0");
+        jTextField2.setText("Sala");
+
+        jLabel2.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Patrimônio");
+
+        jLabel3.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Sala");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -578,9 +578,9 @@ public class JCadastro extends javax.swing.JInternalFrame {
                                 .addComponent(text_coolercpu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox1)
-                                    .addComponent(jCheckBox2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(51, 51, 51)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -735,12 +735,12 @@ public class JCadastro extends javax.swing.JInternalFrame {
                     .addComponent(text_gabinete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(12, 12, 12)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1155,9 +1155,9 @@ public class JCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField ftext_hd;
     private javax.swing.JFormattedTextField ftext_ram;
     private javax.swing.JFormattedTextField ftext_ssd;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
