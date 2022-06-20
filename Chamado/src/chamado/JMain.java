@@ -96,7 +96,7 @@ public class JMain extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1366, 768));
 
         tela_principal.setBackground(new java.awt.Color(51, 51, 51));
-        tela_principal.setToolTipText("");
+        tela_principal.setToolTipText(null);
 
         javax.swing.GroupLayout tela_principalLayout = new javax.swing.GroupLayout(tela_principal);
         tela_principal.setLayout(tela_principalLayout);
@@ -173,6 +173,7 @@ public class JMain extends javax.swing.JFrame {
         menu_estatisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/chart_curve.png"))); // NOI18N
         menu_estatisticas.setText("Estatísticas");
 
+        mitem_estequipe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group_link.png"))); // NOI18N
         mitem_estequipe.setText("Equipe");
         mitem_estequipe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +182,7 @@ public class JMain extends javax.swing.JFrame {
         });
         menu_estatisticas.add(mitem_estequipe);
 
+        mitem_estind.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/user.png"))); // NOI18N
         mitem_estind.setText("Individuais");
         mitem_estind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -285,7 +287,8 @@ public class JMain extends javax.swing.JFrame {
         sb.append("<a>");sb.append("<b>");sb.append("• C104");sb.append("</b>");sb.append("<br>");sb.append("</a>");
         sb.append("<a>");sb.append("C104 significa que houve um erro no registro dos dados do cliente");sb.append("<br>");sb.append("</a>");
         sb.append("</html>");
-        JOptionPane.showMessageDialog(null, sb.toString());
+        JOptionPane.showMessageDialog(null, "https://github.com/mariano07/ChamadoSENAC05");
+        //JOptionPane.showMessageDialog(null, sb.toString());
     }//GEN-LAST:event_mitem_ajudaActionPerformed
 
     private void mitem_addtecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_addtecActionPerformed

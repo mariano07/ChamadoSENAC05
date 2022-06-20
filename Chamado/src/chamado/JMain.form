@@ -119,6 +119,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mitem_estequipe">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens_icones/group_link.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Equipe"/>
               </Properties>
               <Events>
@@ -127,6 +130,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mitem_estind">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens_icones/user.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Individuais"/>
               </Properties>
               <Events>
@@ -209,7 +215,9 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="33" type="rgb"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="null" type="code"/>
+        </Property>
       </Properties>
 
       <Layout>

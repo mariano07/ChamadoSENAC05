@@ -187,30 +187,30 @@ public class conexao_bd{
         }
         desconectar();
     }
-    public String[] Tickets(){
-        String InstrucãoSQL="SELECT Chamado.Ticket,Chamado.Patrimonio,Chamado.Matricula,Problema.Problema,Problema.StatusDoProblema,Chamado.Data,Chamado.Hora "
-                + "FROM Chamado JOIN Problema ON Chamado.Ticket = Problema.idTicket";
-        int i=0,z=0;
-        String retornoBD[]={""};
+    public void AddTec(String nome, String matricula, String usuario, String senha){
+        String InstrucaoSQL="INSERT INTO Usuario (Nome,Matricula,Usuario,Senha,Cargo) "
+                + "VALUES ('"+nome+"','"+matricula+"','"+usuario+"','"+senha+"','TEC')";
         
         conectar();
         try{
             st = conexao.createStatement();
-            result = st.executeQuery(InstrucãoSQL);
-            while(result.next()){
-                retornoBD[i]="Ticket: "+result.getInt("Ticket")+"\n"
-                        + "Patrimônio: "+result.getString("Patrimonio")+"\n"
-                        + "Responsável: "+result.getString("Matricula")+"\n"
-                        + "Defeito: "+result.getString("Problema")+"\n"
-                        + "Status: "+result.getString("StatusDoProblema")+"\n"
-                        + "Data: "+result.getDate("Data")+" às "+result.getTime("Hora")+"\n"
-                        + "------------------------------------------------------------------\n";
-                i++;
-            }  
+            st.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "ERRO:C190", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
-        return retornoBD;
+    }
+    public void AddAdm(String nome, String matricula, String usuario, String senha){
+        String InstrucaoSQL="INSERT INTO Usuario (Nome,Matricula,Usuario,Senha,Cargo) "
+                + "VALUES ('"+nome+"','"+matricula+"','"+usuario+"','"+senha+"','ADM')";
+        
+        conectar();
+        try{
+            st = conexao.createStatement();
+            st.executeUpdate(InstrucaoSQL);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ERRO:C203", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
     }
 }
