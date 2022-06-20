@@ -122,6 +122,7 @@ public class JIndividual extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Pendentes");
 
+        jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setForeground(new java.awt.Color(51, 51, 51));
         jTextField1.setText("0");
