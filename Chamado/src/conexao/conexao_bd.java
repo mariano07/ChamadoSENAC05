@@ -135,9 +135,8 @@ public class conexao_bd{
         desconectar();
     }
     public void CadastroMaquina(String cpu,String pmae,String ram,String hd,String ssd,String ccpu,String cooler,String gpu,String fonte,String gabinete,String matricula,String patrimonio,String sala){
-        String InstrucaoSQL="INSERT INTO Chamado (Patrimonio,Sala,Placa mae,Processador,Memorias Ram,Placa de video,Fonte,Ssd,Hd,Cooler,CoolerCpu,Gabinete,Matricula,Data,Hora) "
-                + "VALUES ('"+patrimonio+"','"+sala+"','"+pmae+"','"+cpu+"','"+ram+"','"+gpu+"','"+fonte+"','"+ssd+"','"+hd+"','"+cooler+"','"+ccpu+"','"+gabinete+"','"+matricula+"'"
-                + ",'"+getDate()+"','"+getTime()+"')";
+        String InstrucaoSQL="INSERT INTO `Chamado` (`Ticket`, `Patrimonio`, `Sala`, `Placa mae`, `Processador`, `Memorias Ram`, `Placa de video`, `Fonte`, `Ssd`, `Hd`, `Cooler`, `CoolerCpu`, `Gabinete`, `Matricula`, `Data`, `Hora`) "
+                + "VALUES (NULL, '"+patrimonio+"', '"+sala+"', '"+pmae+"', '"+cpu+"', '"+ram+"', '"+gpu+"', '"+fonte+"', '"+ssd+"', '"+hd+"', '"+cooler+"', '"+ccpu+"', '"+gabinete+"', '"+matricula+"', '"+getDate()+"', '"+getTime()+"');";
         
         conectar();
         try{
