@@ -173,6 +173,7 @@ public class JMain extends javax.swing.JFrame {
         menu_estatisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/chart_curve.png"))); // NOI18N
         menu_estatisticas.setText("Estatísticas");
 
+        mitem_estequipe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group_link.png"))); // NOI18N
         mitem_estequipe.setText("Equipe");
         mitem_estequipe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +182,7 @@ public class JMain extends javax.swing.JFrame {
         });
         menu_estatisticas.add(mitem_estequipe);
 
+        mitem_estind.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/user.png"))); // NOI18N
         mitem_estind.setText("Individuais");
         mitem_estind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
