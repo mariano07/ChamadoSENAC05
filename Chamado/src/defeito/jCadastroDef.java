@@ -26,6 +26,12 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         initComponents();
     }
     
+    public void reseta(){
+        texta_defeito.setText("");
+        texta_solucao.setText("");
+        text_orcamento.setText("0");
+    }
+    
     public void defeitoInfo(String defeito){
         texta_defeito.setText(defeito);
     }
@@ -42,10 +48,7 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         panel_defeito = new javax.swing.JPanel();
         label_defeito = new javax.swing.JLabel();
         label_solucao = new javax.swing.JLabel();
-        label_info = new javax.swing.JLabel();
         button_defeito = new javax.swing.JButton();
-        box_subsoft = new javax.swing.JCheckBox();
-        box_subhard = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         texta_solucao = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -76,10 +79,6 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         label_solucao.setForeground(new java.awt.Color(255, 255, 255));
         label_solucao.setText("Solução:");
 
-        label_info.setBackground(new java.awt.Color(51, 51, 51));
-        label_info.setForeground(new java.awt.Color(255, 255, 255));
-        label_info.setText("(marque as caixas para \"Sim\")");
-
         button_defeito.setBackground(new java.awt.Color(255, 255, 255));
         button_defeito.setForeground(new java.awt.Color(0, 0, 0));
         button_defeito.setText("Proximo");
@@ -88,14 +87,6 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
                 button_defeitoMouseClicked(evt);
             }
         });
-
-        box_subsoft.setBackground(new java.awt.Color(51, 51, 51));
-        box_subsoft.setForeground(new java.awt.Color(255, 255, 255));
-        box_subsoft.setText("Foi necessário substituir algum Software?");
-
-        box_subhard.setBackground(new java.awt.Color(51, 51, 51));
-        box_subhard.setForeground(new java.awt.Color(255, 255, 255));
-        box_subhard.setText("Foi necessário substituir algum Hardware?");
 
         jScrollPane1.setBackground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
@@ -137,34 +128,27 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         panel_defeitoLayout.setHorizontalGroup(
             panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_defeitoLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(label_info)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_defeitoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(button_defeito)
-                .addContainerGap())
-            .addGroup(panel_defeitoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(box_subsoft)
-                    .addComponent(box_subhard)
-                    .addComponent(label_solucao)
-                    .addComponent(label_defeito)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_defeitoLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(button_defeito))
                     .addGroup(panel_defeitoLayout.createSequentialGroup()
                         .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_defeitoLayout.createSequentialGroup()
-                                .addComponent(label_orcstatus)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addComponent(label_solucao)
+                            .addComponent(label_defeito)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel_defeitoLayout.createSequentialGroup()
                                 .addComponent(label_orcprevisto)
-                                .addGap(22, 22, 22)))
-                        .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(text_orcamento)
-                            .addComponent(box_status, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(text_orcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel_defeitoLayout.createSequentialGroup()
+                                .addComponent(label_orcstatus)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(box_status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         panel_defeitoLayout.setVerticalGroup(
             panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,23 +161,17 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
                 .addComponent(label_solucao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(box_subsoft)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(box_subhard)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label_info)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_orcprevisto)
                     .addComponent(text_orcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(box_status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_orcstatus))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_orcstatus)
+                    .addComponent(box_status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(button_defeito)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -207,7 +185,7 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
             .addComponent(panel_defeito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setBounds(800, 400, 313, 481);
+        setBounds(800, 400, 313, 409);
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_defeitoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_defeitoMouseClicked
@@ -220,18 +198,16 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         desktop.add(jcp);
         jcp.setVisible(true);
         this.dispose();
+        reseta();
 
     }//GEN-LAST:event_button_defeitoMouseClicked
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> box_status;
-    private javax.swing.JCheckBox box_subhard;
-    private javax.swing.JCheckBox box_subsoft;
     private javax.swing.JButton button_defeito;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel label_defeito;
-    private javax.swing.JLabel label_info;
     private javax.swing.JLabel label_orcprevisto;
     private javax.swing.JLabel label_orcstatus;
     private javax.swing.JLabel label_solucao;

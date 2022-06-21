@@ -36,6 +36,26 @@ public class JCadastro extends javax.swing.JInternalFrame {
         this.matricula = matricula;
         this.nome = nome;
     } 
+    
+    public void reseta(){
+        text_processador.setText("Modelo");
+        text_pmae.setText("Modelo");
+        text_ram.setText("0");
+        ftext_hd.setText("0");
+        text_hd.setText("Modelo");
+        ftext_ssd.setText("0");
+        text_ssd.setText("Modelo");
+        text_coolercpu.setText("Modelo");
+        text_cooler.setText("Modelo");
+        ftext_gpu.setText("0");
+        text_fonte.setText("Modelo");
+        ftext_fonte.setText("0");
+        text_gabinete.setText("");
+        text_patrimonio.setText("0");
+        text_sala.setText("Sala");
+        texta_defeito.setText("");
+        
+    }
     private void hidden(){
         //Esconde campos processador
         text_processador.setVisible(false);
@@ -595,19 +615,13 @@ public class JCadastro extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(check_coolercpu)
-                                .addGap(18, 18, 18)
-                                .addComponent(text_coolercpu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(51, 51, 51)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(text_sala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(text_patrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(text_patrimonio)
+                            .addComponent(text_sala))
+                        .addGap(219, 219, 219))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -682,7 +696,11 @@ public class JCadastro extends javax.swing.JInternalFrame {
                                 .addComponent(qtd_ram)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(spinner_ram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1))
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(check_coolercpu)
+                                .addGap(18, 18, 18)
+                                .addComponent(text_coolercpu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jSeparator2)))
             .addComponent(jScrollPane1)
@@ -1169,6 +1187,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
             jcd.defeitoInfo(texta_defeito.getText());
             jcd.setVisible(true);
             this.dispose();
+            reseta();
         }       
     }//GEN-LAST:event_button_proxMouseClicked
 
