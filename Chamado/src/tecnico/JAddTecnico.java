@@ -20,6 +20,14 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
     public JAddTecnico() {
         initComponents();
     }
+    
+    public void reseta(){
+        text_nome.setText("Nome");
+        text_user.setText("Nome de usuário");
+        text_matricula.setText("Matrícula");
+        password_senha.setText("");
+        password_confirma.setText("");
+    }
  
 
     /**
@@ -37,12 +45,12 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         text_user = new javax.swing.JTextField();
-        text_senha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        text_confirma = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         text_matricula = new javax.swing.JTextField();
         button_add = new javax.swing.JButton();
+        password_senha = new javax.swing.JPasswordField();
+        password_confirma = new javax.swing.JPasswordField();
 
         setClosable(true);
         setIconifiable(true);
@@ -91,33 +99,9 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
             }
         });
 
-        text_senha.setBackground(new java.awt.Color(255, 255, 255));
-        text_senha.setForeground(new java.awt.Color(0, 0, 0));
-        text_senha.setText("Senha");
-        text_senha.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                text_senhaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                text_senhaFocusLost(evt);
-            }
-        });
-
         jLabel4.setBackground(new java.awt.Color(51, 51, 51));
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Confirmar senha:");
-
-        text_confirma.setBackground(new java.awt.Color(255, 255, 255));
-        text_confirma.setForeground(new java.awt.Color(0, 0, 0));
-        text_confirma.setText("Confirmação");
-        text_confirma.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                text_confirmaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                text_confirmaFocusLost(evt);
-            }
-        });
 
         jLabel5.setBackground(new java.awt.Color(51, 51, 51));
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -144,6 +128,12 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
             }
         });
 
+        password_senha.setBackground(new java.awt.Color(255, 255, 255));
+        password_senha.setForeground(new java.awt.Color(51, 51, 51));
+
+        password_confirma.setBackground(new java.awt.Color(255, 255, 255));
+        password_confirma.setForeground(new java.awt.Color(51, 51, 51));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -162,9 +152,10 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(text_nome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(text_user, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(text_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(text_confirma, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(text_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(text_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(password_confirma, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                .addComponent(password_senha, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(button_add)))
@@ -183,12 +174,12 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
                     .addComponent(text_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(password_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_confirma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(password_confirma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(text_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,13 +207,14 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
         String nome, usuario, senha, matricula, confirma;
         nome = text_nome.getText();
         usuario = text_user.getText();
-        senha = text_senha.getText();
+        senha = password_senha.getText();
         matricula = text_matricula.getText();
-        confirma = text_confirma.getText();
+        confirma = password_confirma.getText();
         
         if(senha.equals(confirma)){
             cbd.AddTec(nome,matricula, usuario, senha );
             this.dispose();
+            reseta();
         }else{
             JOptionPane.showMessageDialog(null, "Senhas Incompatíveis");
         }
@@ -252,30 +244,6 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_text_userFocusLost
 
-    private void text_senhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_senhaFocusGained
-         if(text_senha.getText().equals("Senha")){
-            text_senha.setText("");
-        }
-    }//GEN-LAST:event_text_senhaFocusGained
-
-    private void text_senhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_senhaFocusLost
-         if(text_senha.getText().equals("")){
-            text_senha.setText("Senha");
-        }
-    }//GEN-LAST:event_text_senhaFocusLost
-
-    private void text_confirmaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_confirmaFocusGained
-         if(text_confirma.getText().equals("Confirmação")){
-            text_confirma.setText("");
-        }
-    }//GEN-LAST:event_text_confirmaFocusGained
-
-    private void text_confirmaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_confirmaFocusLost
-         if(text_confirma.getText().equals("")){
-            text_confirma.setText("Confirmação");
-        }
-    }//GEN-LAST:event_text_confirmaFocusLost
-
     private void text_matriculaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_matriculaFocusGained
          if(text_matricula.getText().equals("Matrícula")){
             text_matricula.setText("");
@@ -297,10 +265,10 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField text_confirma;
+    private javax.swing.JPasswordField password_confirma;
+    private javax.swing.JPasswordField password_senha;
     private javax.swing.JTextField text_matricula;
     private javax.swing.JTextField text_nome;
-    private javax.swing.JTextField text_senha;
     private javax.swing.JTextField text_user;
     // End of variables declaration//GEN-END:variables
 }
