@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/alunos/Documents/GitHub/ChamadoSENAC05/Chamado/src/login/JLogin.java</file>
-            <file>file:/C:/Users/alunos/Documents/GitHub/ChamadoSENAC05/Chamado/src/cadastro_maquinas/JCadastro.java</file>
-            <file>file:/C:/Users/alunos/Documents/GitHub/ChamadoSENAC05/Chamado/src/conexao/conexao_bd.java</file>
+            <file>file:/C:/Users/Alunos/Documents/GitHub/ChamadoSENAC05/Chamado/src/login/JLogin.java</file>
+            <file>file:/C:/Users/Alunos/Documents/GitHub/ChamadoSENAC05/Chamado/src/conexao/conexao_bd.java</file>
+            <file>file:/C:/Users/Alunos/Documents/GitHub/ChamadoSENAC05/Chamado/src/chamado/JMain.java</file>
+            <file>file:/C:/Users/Alunos/Documents/GitHub/ChamadoSENAC05/Chamado/src/cadastro_maquinas/JCadastro.java</file>
+            <file>file:/C:/Users/Alunos/Documents/GitHub/ChamadoSENAC05/Chamado/src/conexao/ConsultaPendentes.java</file>
         </group>
     </open-files>
 </project-private>

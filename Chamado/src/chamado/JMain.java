@@ -86,6 +86,7 @@ public class JMain extends javax.swing.JFrame {
         mitem_addchamado = new javax.swing.JMenuItem();
         mitem_editchamado = new javax.swing.JMenuItem();
         menu_procurar = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menu_estatisticas = new javax.swing.JMenu();
         mitem_estequipe = new javax.swing.JMenuItem();
         mitem_estind = new javax.swing.JMenuItem();
@@ -166,11 +167,15 @@ public class JMain extends javax.swing.JFrame {
 
         menu_procurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
         menu_procurar.setText("Procurar");
-        menu_procurar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menu_procurarMouseClicked(evt);
+        menu_procurar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_procurarActionPerformed(evt);
             }
         });
+
+        jMenuItem1.setText("Consulta Pend");
+        menu_procurar.add(jMenuItem1);
+
         jMenuBar1.add(menu_procurar);
 
         menu_estatisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/chart_curve.png"))); // NOI18N
@@ -243,13 +248,6 @@ public class JMain extends javax.swing.JFrame {
         jc.setVisible(true);
         }
     }//GEN-LAST:event_mitem_addchamadoActionPerformed
-
-    private void menu_procurarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_procurarMouseClicked
-        if(!jr.isVisible()){
-            tela_principal.add(jr);
-            jr.setVisible(true);
-        }
-    }//GEN-LAST:event_menu_procurarMouseClicked
 
     private void mitem_logoffMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mitem_logoffMousePressed
         JLogin jl = new JLogin();
@@ -331,6 +329,13 @@ public class JMain extends javax.swing.JFrame {
       }
     }//GEN-LAST:event_mitem_deltecActionPerformed
 
+    private void menu_procurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_procurarActionPerformed
+        if(!jcp.isVisible()){
+            tela_principal.add(jcp);
+            jcp.setVisible(true);
+      }
+    }//GEN-LAST:event_menu_procurarActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -371,6 +376,7 @@ public class JMain extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menu_chamados;
     private javax.swing.JMenu menu_estatisticas;
     private javax.swing.JMenu menu_nomeU;
