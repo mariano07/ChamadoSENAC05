@@ -156,7 +156,7 @@ public class conexao_bd{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "ERRO:C151", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C150", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
