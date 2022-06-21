@@ -50,7 +50,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
         ftext_gpu.setText("0");
         text_fonte.setText("Modelo");
         ftext_fonte.setText("0");
-        text_gabinete.setText("");
+        text_gabinete.setText("Modelo");
         text_patrimonio.setText("0");
         text_sala.setText("Sala");
         texta_defeito.setText("");
