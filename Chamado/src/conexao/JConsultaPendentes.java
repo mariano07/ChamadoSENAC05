@@ -17,6 +17,7 @@ public class JConsultaPendentes extends javax.swing.JInternalFrame {
      */
     public JConsultaPendentes() {
         initComponents();
+        box1.setSelected(true);
     }
 
     /**
