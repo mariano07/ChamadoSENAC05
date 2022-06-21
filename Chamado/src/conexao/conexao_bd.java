@@ -287,13 +287,27 @@ public class conexao_bd{
         try{
             st = conexao.createStatement();
             result = st.executeQuery(InstrucaoSQL);
-            aluno[0]=result.getString("Nome");
-            aluno[1]=result.getString("Usuario");
+            while(result.next()){
+                aluno[0]=result.getString("Nome");
+                aluno[1]=result.getString("Usuario");
+            }
         }catch(Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C283", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
         return aluno;
+    }
+    public void DeletaAluno(String matricula){
+        String InstrucaoSQL="DROP * FROM Usuario WHERE Matricula = "+matricula;
+        conectar();
+        try{
+            st = conexao.createStatement();
+            st.executeUpdate(InstrucaoSQL);
+        }catch(Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "ERRO:C301", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
     }
 }
