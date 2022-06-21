@@ -557,10 +557,26 @@ public class JCadastro extends javax.swing.JInternalFrame {
         text_patrimonio.setBackground(new java.awt.Color(255, 255, 255));
         text_patrimonio.setForeground(new java.awt.Color(0, 0, 0));
         text_patrimonio.setText("0");
+        text_patrimonio.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_patrimonioFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_patrimonioFocusLost(evt);
+            }
+        });
 
         text_sala.setBackground(new java.awt.Color(255, 255, 255));
         text_sala.setForeground(new java.awt.Color(0, 0, 0));
         text_sala.setText("Sala");
+        text_sala.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_salaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_salaFocusLost(evt);
+            }
+        });
 
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1155,6 +1171,30 @@ public class JCadastro extends javax.swing.JInternalFrame {
             this.dispose();
         }       
     }//GEN-LAST:event_button_proxMouseClicked
+
+    private void text_patrimonioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_patrimonioFocusGained
+        if(text_patrimonio.getText().equals("0")){
+            text_patrimonio.setText("");
+        }
+    }//GEN-LAST:event_text_patrimonioFocusGained
+
+    private void text_patrimonioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_patrimonioFocusLost
+        if(text_patrimonio.getText().equals("")){
+            text_patrimonio.setText("0");
+        }
+    }//GEN-LAST:event_text_patrimonioFocusLost
+
+    private void text_salaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_salaFocusGained
+        if(text_sala.getText().equals("Sala")){
+            text_sala.setText("");
+        }
+    }//GEN-LAST:event_text_salaFocusGained
+
+    private void text_salaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_salaFocusLost
+        if(text_sala.getText().equals("")){
+            text_sala.setText("Sala");
+        }
+    }//GEN-LAST:event_text_salaFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
