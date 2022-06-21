@@ -5,6 +5,7 @@
 package clientes;
 
 import conexao.conexao_bd;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -281,15 +282,22 @@ public class JCliente extends javax.swing.JInternalFrame {
 
     private void button_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_addMouseClicked
         String nome, endereco, cpf, tel, email;
+        boolean retorno = false;
+        
         nome = text_nome.getText();
         endereco = text_endereco.getText();
         cpf = text_cpf.getText();
         tel = text_telefone.getText();
         email = text_email.getText();
-                
-        cbd.Cliente(nome,cpf, tel,email, endereco);
-        this.dispose();
-        reseta();
+        retorno = cbd.ClienteCPF(cpf);
+        
+         if(retorno==false ){
+              cbd.Cliente(nome,cpf, tel,email, endereco);
+              this.dispose();
+              reseta();
+        }else {
+            JOptionPane.showMessageDialog(null, "CPF Já Cadastrado");
+        }
     }//GEN-LAST:event_button_addMouseClicked
 
 

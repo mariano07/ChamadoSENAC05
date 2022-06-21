@@ -5,6 +5,7 @@
 package clientes;
 
 import conexao.conexao_bd;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -324,16 +325,29 @@ public class JInstituicao extends javax.swing.JInternalFrame {
 
     private void button_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_addMouseClicked
         String nome, endereco, cnpj, resp, cpf, tel;
+        boolean retorno = false;
+        boolean retorno2 = false;
+        
         nome = text_nome.getText();
         endereco = text_endereco.getText();
         cnpj = text_cnpj.getText();
         resp = text_resp.getText();
         cpf = text_cpf.getText();
         tel = text_telefone.getText();
-                
-        cbd.Instituicao(nome, endereco, tel, resp, cnpj, cpf);
-        this.dispose();
-        reseta();
+        retorno = cbd.InstituicaoCNPJ(cnpj);
+        
+        if(retorno==false ){
+              cbd.Instituicao(nome, endereco, tel, resp, cnpj, cpf);
+              this.dispose();
+              reseta();
+        }else if (retorno2== false) {
+             cbd.Instituicao(nome, endereco, tel, resp, cnpj, cpf);
+              this.dispose();
+              reseta();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "CNPJ ou CPF Já Cadastrado");
+        }
     }//GEN-LAST:event_button_addMouseClicked
 
 
