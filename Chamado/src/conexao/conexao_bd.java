@@ -287,8 +287,10 @@ public class conexao_bd{
         try{
             st = conexao.createStatement();
             result = st.executeQuery(InstrucaoSQL);
-            aluno[0]=result.getString("Nome");
-            aluno[1]=result.getString("Usuario");
+            while(result.next()){
+                aluno[0]=result.getString("Nome");
+                aluno[1]=result.getString("Usuario");
+            }
         }catch(Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C283", "ERRO", JOptionPane.ERROR_MESSAGE);
