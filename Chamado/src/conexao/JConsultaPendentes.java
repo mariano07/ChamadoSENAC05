@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
  *
  * @author alunos
  */
-public class ConsultaPendentes extends javax.swing.JInternalFrame {
+public class JConsultaPendentes extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ConsultaPendentes
      */
-    public ConsultaPendentes() {
+    public JConsultaPendentes() {
         initComponents();
     }
 
