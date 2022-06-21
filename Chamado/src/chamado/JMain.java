@@ -7,6 +7,7 @@ package chamado;
 import cadastro_maquinas.JCadastro;
 import clientes.JCliente;
 import clientes.JInstituicao;
+import conexao.ConsultaPendentes;
 import defeito.jCadastroDef;
 import estatisticas.JEstatisticas;
 import estatisticas.JIndividual;
@@ -31,6 +32,7 @@ public class JMain extends javax.swing.JFrame {
     private static JCadastro jc = new JCadastro();
     private static JProcura jp = new JProcura();
     private static JResultado jr = new JResultado();
+    private static ConsultaPendentes teste = new ConsultaPendentes();
     
     public JMain() {
         initComponents();
@@ -231,6 +233,7 @@ public class JMain extends javax.swing.JFrame {
     private void mitem_addchamadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_addchamadoActionPerformed
         if(!jc.isVisible()){
         tela_principal.add(jc);
+        jc.matricula(mitem_matricula.getText(), menu_nomeU.getText());
         jc.setVisible(true);
         }
     }//GEN-LAST:event_mitem_addchamadoActionPerformed
@@ -287,7 +290,9 @@ public class JMain extends javax.swing.JFrame {
         sb.append("<a>");sb.append("<b>");sb.append("• C104");sb.append("</b>");sb.append("<br>");sb.append("</a>");
         sb.append("<a>");sb.append("C104 significa que houve um erro no registro dos dados do cliente");sb.append("<br>");sb.append("</a>");
         sb.append("</html>");
-        JOptionPane.showMessageDialog(null, "https://github.com/mariano07/ChamadoSENAC05");
+        tela_principal.add(teste);
+        teste.setVisible(true);
+        //JOptionPane.showMessageDialog(null, "https://github.com/mariano07/ChamadoSENAC05");
         //JOptionPane.showMessageDialog(null, sb.toString());
     }//GEN-LAST:event_mitem_ajudaActionPerformed
 
