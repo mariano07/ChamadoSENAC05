@@ -103,6 +103,11 @@ public class JDeletaTecnico extends javax.swing.JInternalFrame {
         button_buscar.setBackground(new java.awt.Color(255, 255, 255));
         button_buscar.setForeground(new java.awt.Color(51, 51, 51));
         button_buscar.setText("Buscar");
+        button_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_buscarMouseClicked(evt);
+            }
+        });
 
         button_deletar.setBackground(new java.awt.Color(255, 255, 255));
         button_deletar.setForeground(new java.awt.Color(51, 51, 51));
@@ -189,15 +194,6 @@ public class JDeletaTecnico extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_text_nomeFocusLost
 
-    private void button_deletarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_deletarMouseClicked
-        String[] op = {"Sim","Não"};
-        int op1;
-        op1 = JOptionPane.showOptionDialog(null, "Deseja realmente deletar esse usuário?","Deletar?",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,op,op[1]);
-        if(op1 == 1){
-            //cbd.
-        }
-    }//GEN-LAST:event_button_deletarMouseClicked
-
     private void text_userFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_userFocusGained
         if(text_user.getText().equals("Usuário")){
             text_user.setText("");
@@ -221,6 +217,26 @@ public class JDeletaTecnico extends javax.swing.JInternalFrame {
             text_matricula.setText("Matrícula");
         }
     }//GEN-LAST:event_text_matriculaFocusLost
+
+    private void button_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_buscarMouseClicked
+        String[] nomeUsu = new String[2];
+        String matricula = text_matricula.getText();
+        nomeUsu = cbd.getAluno(matricula);
+        text_nome.setText(nomeUsu[0]);
+        text_user.setText(nomeUsu[1]);
+        
+    }//GEN-LAST:event_button_buscarMouseClicked
+
+    private void button_deletarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_deletarMouseClicked
+        String[] op = {"Sim","Não"};
+        String matricula = text_matricula.getText();
+        int op1;
+        op1 = JOptionPane.showOptionDialog(null, "Deseja realmente deletar esse usuário?","Deletar?",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,op,op[1]);
+        if(op1 == 0){
+            cbd.DeletaAluno(matricula);
+            JOptionPane.showMessageDialog(null, "Usuário deletado.");
+        }
+    }//GEN-LAST:event_button_deletarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
