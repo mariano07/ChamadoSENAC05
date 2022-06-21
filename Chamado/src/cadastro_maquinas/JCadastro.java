@@ -32,7 +32,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
         check_gabinete.setSelected(true);
     }
     
-    public void matricula(String nome, String matricula ){
+    public void matricula(String matricula, String nome){
         this.matricula = matricula;
         this.nome = nome;
     } 
@@ -1143,12 +1143,11 @@ public class JCadastro extends javax.swing.JInternalFrame {
         patrimonio = text_patrimonio.getText();
         sala = text_sala.getText();
         
-        defeito = texta_defeito.getText();
       
         if(verifica == true){
             JOptionPane.showMessageDialog(null, "Dados Salvos com sucesso !!!");
             cbd.CadastroMaquina(processador, pmae, ram, hd, ssd, ccpu, cool, pvideo, fonte, gabinete, matricula, patrimonio, sala);
-         //   cbd.Defeito(defeito);
+            
             JDesktopPane desktop = getDesktopPane();
             desktop.add(jcd);
             jcd.defeitoInfo(texta_defeito.getText());

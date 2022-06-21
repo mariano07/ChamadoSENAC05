@@ -4,12 +4,14 @@
  */
 package clientes;
 
+import conexao.conexao_bd;
+
 /**
  *
  * @author Aluno
  */
 public class JCliente extends javax.swing.JInternalFrame {
-
+    private static conexao_bd cbd = new conexao_bd();
     /**
      * Creates new form JCliente
      */
@@ -37,7 +39,7 @@ public class JCliente extends javax.swing.JInternalFrame {
         text_email = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         text_endereco = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        button_add = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -130,9 +132,14 @@ public class JCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Adicionar");
+        button_add.setBackground(new java.awt.Color(255, 255, 255));
+        button_add.setForeground(new java.awt.Color(0, 0, 0));
+        button_add.setText("Adicionar");
+        button_add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_addMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -153,7 +160,7 @@ public class JCliente extends javax.swing.JInternalFrame {
                             .addComponent(text_nome)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(button_add))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -193,7 +200,7 @@ public class JCliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(text_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(button_add)
                 .addContainerGap())
         );
 
@@ -265,9 +272,21 @@ public class JCliente extends javax.swing.JInternalFrame {
             text_endereco.setText("Endereço");
         }    }//GEN-LAST:event_text_enderecoFocusLost
 
+    private void button_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_addMouseClicked
+        String nome, endereco, cpf, tel, email;
+        nome = text_nome.getText();
+        endereco = text_endereco.getText();
+        cpf = text_cpf.getText();
+        tel = text_telefone.getText();
+        email = text_email.getText();
+                
+        cbd.Cliente(nome,cpf, tel,email, endereco);
+        this.dispose();
+    }//GEN-LAST:event_button_addMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton button_add;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

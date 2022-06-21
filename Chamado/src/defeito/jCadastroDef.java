@@ -211,7 +211,11 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_defeitoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_defeitoMouseClicked
-   //     cbd.Defeito();
+        if(texta_solucao.getText().equals("")){
+            cbd.Defeito(texta_defeito.getText());
+        }else{
+            cbd.DefeitoSolucao(texta_defeito.getText(), texta_solucao.getText());
+        }
         JDesktopPane desktop = getDesktopPane();
         desktop.add(jcp);
         jcp.setVisible(true);

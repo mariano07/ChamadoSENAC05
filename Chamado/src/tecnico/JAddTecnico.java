@@ -4,11 +4,15 @@
  */
 package tecnico;
 
+import conexao.conexao_bd;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Aluno
  */
 public class JAddTecnico extends javax.swing.JInternalFrame {
+    private static conexao_bd cbd = new conexao_bd();
 
     /**
      * Creates new form JTecnico
@@ -16,6 +20,7 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
     public JAddTecnico() {
         initComponents();
     }
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,16 +33,16 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        text_nome = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        text_user = new javax.swing.JTextField();
+        text_senha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        text_confirma = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        text_matricula = new javax.swing.JTextField();
+        button_add = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -54,9 +59,17 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nome:");
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setText("Nome");
+        text_nome.setBackground(new java.awt.Color(255, 255, 255));
+        text_nome.setForeground(new java.awt.Color(0, 0, 0));
+        text_nome.setText("Nome");
+        text_nome.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_nomeFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_nomeFocusLost(evt);
+            }
+        });
 
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -66,33 +79,70 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Senha");
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField2.setText("Nome de usuário");
+        text_user.setBackground(new java.awt.Color(255, 255, 255));
+        text_user.setForeground(new java.awt.Color(0, 0, 0));
+        text_user.setText("Nome de usuário");
+        text_user.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_userFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_userFocusLost(evt);
+            }
+        });
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField3.setText("Senha");
+        text_senha.setBackground(new java.awt.Color(255, 255, 255));
+        text_senha.setForeground(new java.awt.Color(0, 0, 0));
+        text_senha.setText("Senha");
+        text_senha.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_senhaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_senhaFocusLost(evt);
+            }
+        });
 
         jLabel4.setBackground(new java.awt.Color(51, 51, 51));
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Confirmar senha:");
 
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField4.setText("Confirmação");
+        text_confirma.setBackground(new java.awt.Color(255, 255, 255));
+        text_confirma.setForeground(new java.awt.Color(0, 0, 0));
+        text_confirma.setText("Confirmação");
+        text_confirma.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_confirmaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_confirmaFocusLost(evt);
+            }
+        });
 
         jLabel5.setBackground(new java.awt.Color(51, 51, 51));
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Matrícula:");
 
-        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField5.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField5.setText("Matrícula");
+        text_matricula.setBackground(new java.awt.Color(255, 255, 255));
+        text_matricula.setForeground(new java.awt.Color(0, 0, 0));
+        text_matricula.setText("Matrícula");
+        text_matricula.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_matriculaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_matriculaFocusLost(evt);
+            }
+        });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setForeground(new java.awt.Color(51, 51, 51));
-        jButton1.setText("Confirmar");
+        button_add.setBackground(new java.awt.Color(255, 255, 255));
+        button_add.setForeground(new java.awt.Color(51, 51, 51));
+        button_add.setText("Adicionar");
+        button_add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_addMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -110,14 +160,14 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(text_nome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(text_user, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(text_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(text_confirma, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(text_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(button_add)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -126,25 +176,25 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(text_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(text_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(text_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(text_confirma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(text_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(19, 19, 19)
-                .addComponent(jButton1)
+                .addComponent(button_add)
                 .addContainerGap())
         );
 
@@ -162,19 +212,95 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void button_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_addMouseClicked
+        String nome, usuario, senha, matricula, confirma;
+        nome = text_nome.getText();
+        usuario = text_user.getText();
+        senha = text_senha.getText();
+        matricula = text_matricula.getText();
+        confirma = text_confirma.getText();
+        
+        if(senha.equals(confirma)){
+            cbd.AddTec(nome,matricula, usuario, senha );
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Senhas Incompatíveis");
+        }
+    }//GEN-LAST:event_button_addMouseClicked
+
+    private void text_nomeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_nomeFocusGained
+        if(text_nome.getText().equals("Nome")){
+            text_nome.setText("");
+        }
+    }//GEN-LAST:event_text_nomeFocusGained
+
+    private void text_nomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_nomeFocusLost
+        if(text_nome.getText().equals("")){
+            text_nome.setText("Nome");
+        }
+    }//GEN-LAST:event_text_nomeFocusLost
+
+    private void text_userFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_userFocusGained
+        if(text_user.getText().equals("Nome de usuário")){
+            text_user.setText("");
+        }
+    }//GEN-LAST:event_text_userFocusGained
+
+    private void text_userFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_userFocusLost
+          if(text_user.getText().equals("")){
+            text_user.setText("Nome de usuário");
+        }
+    }//GEN-LAST:event_text_userFocusLost
+
+    private void text_senhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_senhaFocusGained
+         if(text_senha.getText().equals("Senha")){
+            text_senha.setText("");
+        }
+    }//GEN-LAST:event_text_senhaFocusGained
+
+    private void text_senhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_senhaFocusLost
+         if(text_senha.getText().equals("")){
+            text_senha.setText("Senha");
+        }
+    }//GEN-LAST:event_text_senhaFocusLost
+
+    private void text_confirmaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_confirmaFocusGained
+         if(text_confirma.getText().equals("Confirmação")){
+            text_confirma.setText("");
+        }
+    }//GEN-LAST:event_text_confirmaFocusGained
+
+    private void text_confirmaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_confirmaFocusLost
+         if(text_confirma.getText().equals("")){
+            text_confirma.setText("Confirmação");
+        }
+    }//GEN-LAST:event_text_confirmaFocusLost
+
+    private void text_matriculaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_matriculaFocusGained
+         if(text_matricula.getText().equals("Matrícula")){
+            text_matricula.setText("");
+        }
+    }//GEN-LAST:event_text_matriculaFocusGained
+
+    private void text_matriculaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_matriculaFocusLost
+        if(text_matricula.getText().equals("")){
+            text_matricula.setText("Matrícula");
+        }
+    }//GEN-LAST:event_text_matriculaFocusLost
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton button_add;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField text_confirma;
+    private javax.swing.JTextField text_matricula;
+    private javax.swing.JTextField text_nome;
+    private javax.swing.JTextField text_senha;
+    private javax.swing.JTextField text_user;
     // End of variables declaration//GEN-END:variables
 }

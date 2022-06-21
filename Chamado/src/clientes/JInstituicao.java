@@ -4,11 +4,14 @@
  */
 package clientes;
 
+import conexao.conexao_bd;
+
 /**
  *
  * @author Aluno
  */
 public class JInstituicao extends javax.swing.JInternalFrame {
+    private static conexao_bd cbd = new conexao_bd();
 
     /**
      * Creates new form JInstituicao
@@ -16,6 +19,7 @@ public class JInstituicao extends javax.swing.JInternalFrame {
     public JInstituicao() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,7 +43,7 @@ public class JInstituicao extends javax.swing.JInternalFrame {
         text_cpf = new javax.swing.JTextField();
         label_telefone = new javax.swing.JLabel();
         text_telefone = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        button_add = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -148,9 +152,14 @@ public class JInstituicao extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Adicionar");
+        button_add.setBackground(new java.awt.Color(255, 255, 255));
+        button_add.setForeground(new java.awt.Color(0, 0, 0));
+        button_add.setText("Adicionar");
+        button_add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_addMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -186,7 +195,7 @@ public class JInstituicao extends javax.swing.JInternalFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(button_add)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -217,7 +226,7 @@ public class JInstituicao extends javax.swing.JInternalFrame {
                     .addComponent(label_telefone)
                     .addComponent(text_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(button_add)
                 .addContainerGap())
         );
 
@@ -304,9 +313,21 @@ public class JInstituicao extends javax.swing.JInternalFrame {
             text_telefone.setText("Telefone");
         }    }//GEN-LAST:event_text_telefoneFocusLost
 
+    private void button_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_addMouseClicked
+        String nome, endereco, cnpj, resp, cpf, tel;
+        nome = text_nome.getText();
+        endereco = text_endereco.getText();
+        cnpj = text_cnpj.getText();
+        resp = text_resp.getText();
+        cpf = text_cpf.getText();
+        tel = text_telefone.getText();
+                
+        cbd.Instituicao(nome, endereco, tel, resp, cnpj, cpf);
+    }//GEN-LAST:event_button_addMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton button_add;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label_cnpj;
     private javax.swing.JLabel label_cpf;
