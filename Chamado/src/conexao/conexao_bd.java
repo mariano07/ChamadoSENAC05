@@ -26,7 +26,8 @@ public class conexao_bd{
          try{
             conexao = DriverManager.getConnection(url,username,password);
         }catch(Exception e){
-             JOptionPane.showMessageDialog(null, "Erro C025","ERRO", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Erro C025","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -34,7 +35,8 @@ public class conexao_bd{
         try {
             st.close();
             conexao.close();
-        }catch(Exception e) {
+        }catch(Exception e){
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Erro C033","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -117,6 +119,7 @@ public class conexao_bd{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
         }catch (Exception e){
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C111", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
@@ -130,6 +133,7 @@ public class conexao_bd{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
         }catch (Exception e){
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C124", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
@@ -143,6 +147,7 @@ public class conexao_bd{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C137", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
@@ -156,6 +161,7 @@ public class conexao_bd{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C151", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
@@ -169,6 +175,7 @@ public class conexao_bd{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C164", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
@@ -182,6 +189,7 @@ public class conexao_bd{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
         }catch (Exception e){
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C177", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
@@ -195,6 +203,7 @@ public class conexao_bd{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C190", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
@@ -208,8 +217,70 @@ public class conexao_bd{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C203", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
+    public boolean InstituicaoCPF(String cpf){
+        String InstrucaoSQL="SELECT CPF FROM Instituições";
+        boolean verifica = false;
+        conectar();
+        try{
+            st = conexao.createStatement();
+            result = st.executeQuery(InstrucaoSQL);
+            while(result.next()){
+                String CPF = result.getString("CPF");
+                if(CPF.equals(cpf)){
+                    verifica=true;
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "ERRO:C225", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
+        return verifica;
+    }
+    public boolean InstituicaoCNPJ(String cnpj){
+        String InstrucaoSQL="SELECT CNPJ FROM Instituições";
+        boolean verifica = false;
+        conectar();
+        try{
+            st = conexao.createStatement();
+            result = st.executeQuery(InstrucaoSQL);
+            while(result.next()){
+                String CNPJ = result.getString("CNPJ");
+                if(CNPJ.equals(cnpj)){
+                    verifica=true;
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "ERRO:C245", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
+        return verifica;
+    }
+    public boolean ClienteCPF(String cpf){
+        String InstrucaoSQL="SELECT CPF FROM Clientes";
+        boolean verifica = false;
+        conectar();
+        try{
+            st = conexao.createStatement();
+            result = st.executeQuery(InstrucaoSQL);
+            while(result.next()){
+                String CPF = result.getString("CPF");
+                if(CPF.equals(cpf)){
+                    verifica=true;
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "ERRO:C265", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
+        return verifica;
+    }
+    
 }
