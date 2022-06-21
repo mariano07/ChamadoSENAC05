@@ -6,6 +6,7 @@ package defeito;
 
 import cadastro_maquinas.JCadastro;
 import clientes.JClientePerg;
+import conexao.conexao_bd;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 
@@ -16,6 +17,7 @@ import javax.swing.JOptionPane;
 public class jCadastroDef extends javax.swing.JInternalFrame {
     JCadastro jc = new JCadastro();
     JClientePerg jcp = new JClientePerg();
+    conexao_bd cbd = new conexao_bd();
    
     /**
      * Creates new form jCadastroDef
@@ -186,7 +188,7 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
                     .addComponent(label_orcprevisto)
                     .addComponent(text_orcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panel_defeitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(box_status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_orcstatus))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
@@ -209,10 +211,11 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_defeitoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_defeitoMouseClicked
-            JDesktopPane desktop = getDesktopPane();
-            desktop.add(jcp);
-            jcp.setVisible(true);
-            this.dispose();
+   //     cbd.Defeito();
+        JDesktopPane desktop = getDesktopPane();
+        desktop.add(jcp);
+        jcp.setVisible(true);
+        this.dispose();
 
     }//GEN-LAST:event_button_defeitoMouseClicked
  

@@ -5,6 +5,7 @@
 package cadastro_maquinas;
 
 import chamado.JMain;
+import conexao.conexao_bd;
 import javax.swing.JOptionPane;
 import defeito.jCadastroDef;
 import javax.swing.JDesktopPane;
@@ -16,6 +17,9 @@ import javax.swing.JDesktopPane;
 public class JCadastro extends javax.swing.JInternalFrame {
     private String negar ="0123456789";
     private static jCadastroDef jcd = new jCadastroDef();
+    private static conexao_bd cbd = new conexao_bd();
+    private static JMain jm = new JMain();
+    private String matricula, nome;
     public JCadastro() {
         initComponents();
         hidden();
@@ -28,13 +32,17 @@ public class JCadastro extends javax.swing.JInternalFrame {
         check_gabinete.setSelected(true);
     }
     
+    public void matricula(String nome, String matricula ){
+        this.matricula = matricula;
+        this.nome = nome;
+    } 
     private void hidden(){
         //Esconde campos processador
         text_processador.setVisible(false);
         //Esconde texto placa mãe
         text_pmae.setVisible(false);
         //Esconde campos ram 
-        ftext_ram.setVisible(false);
+        text_ram.setVisible(false);
         box_ram.setVisible(false);
         box_capram.setVisible(false);
         qtd_ram.setVisible(false);
@@ -70,7 +78,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
     private boolean verifica(){
         
         boolean verifica = false;
-        int ram = Integer.parseInt(ftext_ram.getText());
+        int ram = Integer.parseInt(text_ram.getText());
         int hd = Integer.parseInt(ftext_hd.getText());
         int ssd = Integer.parseInt(ftext_ssd.getText());
         int gpu = Integer.parseInt(ftext_gpu.getText());
@@ -145,7 +153,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
         qtd_ram = new javax.swing.JLabel();
         spinner_ram = new javax.swing.JSpinner();
         check_ssd = new javax.swing.JCheckBox();
-        ftext_ram = new javax.swing.JFormattedTextField();
+        text_ram = new javax.swing.JFormattedTextField();
         ftext_hd = new javax.swing.JFormattedTextField();
         ftext_ssd = new javax.swing.JFormattedTextField();
         qtd_hd = new javax.swing.JLabel();
@@ -174,8 +182,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
         box_capssd = new javax.swing.JComboBox<>();
         box_capgpu = new javax.swing.JComboBox<>();
         label_fonte = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        text_patrimonio = new javax.swing.JTextField();
+        text_sala = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -316,21 +324,21 @@ public class JCadastro extends javax.swing.JInternalFrame {
             }
         });
 
-        ftext_ram.setBackground(new java.awt.Color(255, 255, 255));
-        ftext_ram.setForeground(new java.awt.Color(51, 51, 51));
-        ftext_ram.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        ftext_ram.setText("0");
-        ftext_ram.addFocusListener(new java.awt.event.FocusAdapter() {
+        text_ram.setBackground(new java.awt.Color(255, 255, 255));
+        text_ram.setForeground(new java.awt.Color(51, 51, 51));
+        text_ram.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        text_ram.setText("0");
+        text_ram.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                ftext_ramFocusGained(evt);
+                text_ramFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                ftext_ramFocusLost(evt);
+                text_ramFocusLost(evt);
             }
         });
-        ftext_ram.addKeyListener(new java.awt.event.KeyAdapter() {
+        text_ram.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                ftext_ramKeyTyped(evt);
+                text_ramKeyTyped(evt);
             }
         });
 
@@ -546,13 +554,13 @@ public class JCadastro extends javax.swing.JInternalFrame {
         label_fonte.setForeground(new java.awt.Color(255, 255, 255));
         label_fonte.setText("W");
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setText("0");
+        text_patrimonio.setBackground(new java.awt.Color(255, 255, 255));
+        text_patrimonio.setForeground(new java.awt.Color(0, 0, 0));
+        text_patrimonio.setText("0");
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField2.setText("Sala");
+        text_sala.setBackground(new java.awt.Color(255, 255, 255));
+        text_sala.setForeground(new java.awt.Color(0, 0, 0));
+        text_sala.setText("Sala");
 
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -581,8 +589,8 @@ public class JCadastro extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel3))
                                 .addGap(51, 51, 51)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(text_sala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(text_patrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -649,7 +657,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(check_ram)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ftext_ram, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(text_ram, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(box_capram, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -680,7 +688,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(check_ram)
-                        .addComponent(ftext_ram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(text_ram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(box_capram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(box_ram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -734,11 +742,11 @@ public class JCadastro extends javax.swing.JInternalFrame {
                     .addComponent(text_gabinete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(text_patrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(text_sala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(12, 12, 12)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -794,7 +802,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
     private void check_ramStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_ramStateChanged
         // TODO add your handling code here:
         if(check_ram.isSelected()){
-            ftext_ram.setVisible(true);
+            text_ram.setVisible(true);
             box_ram.setVisible(true);
             box_capram.setVisible(true);
             qtd_ram.setVisible(true);
@@ -802,7 +810,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
             invalidate();
             validate();
         }else{
-            ftext_ram.setVisible(false);
+            text_ram.setVisible(false);
             box_ram.setVisible(false);
             box_capram.setVisible(false);
             qtd_ram.setVisible(false);
@@ -931,11 +939,11 @@ public class JCadastro extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_check_gabineteStateChanged
 
-    private void ftext_ramKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_ramKeyTyped
+    private void text_ramKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_ramKeyTyped
     if(!negar.contains(evt.getKeyChar()+"")){
             evt.consume();
         }
-    }//GEN-LAST:event_ftext_ramKeyTyped
+    }//GEN-LAST:event_text_ramKeyTyped
 
     private void ftext_hdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_hdKeyTyped
         if(!negar.contains(evt.getKeyChar()+"")){
@@ -985,17 +993,17 @@ public class JCadastro extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_text_pmaeFocusLost
 
-    private void ftext_ramFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_ramFocusGained
-        if(ftext_ram.getText().equals("0")){
-            ftext_ram.setText("");
+    private void text_ramFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_ramFocusGained
+        if(text_ram.getText().equals("0")){
+            text_ram.setText("");
         }
-    }//GEN-LAST:event_ftext_ramFocusGained
+    }//GEN-LAST:event_text_ramFocusGained
 
-    private void ftext_ramFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_ramFocusLost
-        if(ftext_ram.getText().equals("")){
-            ftext_ram.setText("0");
+    private void text_ramFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_ramFocusLost
+        if(text_ram.getText().equals("")){
+            text_ram.setText("0");
         }
-    }//GEN-LAST:event_ftext_ramFocusLost
+    }//GEN-LAST:event_text_ramFocusLost
 
     private void ftext_hdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_hdFocusGained
         if(ftext_hd.getText().equals("0")){
@@ -1120,8 +1128,27 @@ public class JCadastro extends javax.swing.JInternalFrame {
     private void button_proxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_proxMouseClicked
         boolean verifica;
         verifica = verifica();
+        String processador, pmae, ram, hd, ssd, ccpu, cool, pvideo, fonte, gabinete, patrimonio, sala, matricula, defeito;
+        processador = text_processador.getText();
+        pmae = text_pmae.getText();
+        ram = text_ram.getText() + box_capram.getSelectedItem() +" "+ box_ram.getSelectedItem() +" Qtd "+spinner_ram.getValue()+"x";
+        hd = ftext_hd.getText() + box_caphd.getSelectedItem() +" "+ text_hd.getText() +" Qtd "+spinner_hd.getValue()+"x";
+        ssd = ftext_ssd.getText() + box_capssd.getSelectedItem() +" "+ text_ssd.getText() +" Qtd "+spinner_ssd.getValue()+"x";
+        ccpu = text_coolercpu.getText();
+        cool = text_cooler.getText() +" Qtd "+ spinner_cooler.getValue();
+        pvideo = ftext_gpu.getText() + box_capgpu.getSelectedItem() +" "+ box_gpu.getSelectedItem();
+        fonte = text_fonte.getText() +" "+ftext_fonte.getText() + "W";
+        gabinete = text_gabinete.getText();
+        matricula = this.matricula;
+        patrimonio = text_patrimonio.getText();
+        sala = text_sala.getText();
+        
+        defeito = texta_defeito.getText();
+      
         if(verifica == true){
             JOptionPane.showMessageDialog(null, "Dados Salvos com sucesso !!!");
+            cbd.CadastroMaquina(processador, pmae, ram, hd, ssd, ccpu, cool, pvideo, fonte, gabinete, matricula, patrimonio, sala);
+         //   cbd.Defeito(defeito);
             JDesktopPane desktop = getDesktopPane();
             desktop.add(jcd);
             jcd.defeitoInfo(texta_defeito.getText());
@@ -1152,7 +1179,6 @@ public class JCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField ftext_fonte;
     private javax.swing.JFormattedTextField ftext_gpu;
     private javax.swing.JFormattedTextField ftext_hd;
-    private javax.swing.JFormattedTextField ftext_ram;
     private javax.swing.JFormattedTextField ftext_ssd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -1160,8 +1186,6 @@ public class JCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel label_fonte;
     private javax.swing.JLabel qtd_cooler;
     private javax.swing.JLabel qtd_hd;
@@ -1176,8 +1200,11 @@ public class JCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JTextField text_fonte;
     private javax.swing.JTextField text_gabinete;
     private javax.swing.JTextField text_hd;
+    private javax.swing.JTextField text_patrimonio;
     private javax.swing.JTextField text_pmae;
     private javax.swing.JTextField text_processador;
+    private javax.swing.JFormattedTextField text_ram;
+    private javax.swing.JTextField text_sala;
     private javax.swing.JTextField text_ssd;
     private javax.swing.JTextArea texta_defeito;
     // End of variables declaration//GEN-END:variables

@@ -233,6 +233,7 @@ public class JMain extends javax.swing.JFrame {
     private void mitem_addchamadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_addchamadoActionPerformed
         if(!jc.isVisible()){
         tela_principal.add(jc);
+        jc.matricula(mitem_matricula.getText(), menu_nomeU.getText());
         jc.setVisible(true);
         }
     }//GEN-LAST:event_mitem_addchamadoActionPerformed
