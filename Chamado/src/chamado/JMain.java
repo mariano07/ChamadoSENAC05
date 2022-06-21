@@ -7,7 +7,7 @@ package chamado;
 import cadastro_maquinas.JCadastro;
 import clientes.JCliente;
 import clientes.JInstituicao;
-import conexao.ConsultaPendentes;
+import conexao.JConsultaPendentes;
 import defeito.jCadastroDef;
 import estatisticas.JEstatisticas;
 import estatisticas.JIndividual;
@@ -17,6 +17,7 @@ import login.JLogin;
 import procura.JProcura;
 import procura.JResultado;
 import tecnico.JAddTecnico;
+import tecnico.JDeletaTecnico;
 
 /**
  *
@@ -32,7 +33,8 @@ public class JMain extends javax.swing.JFrame {
     private static JCadastro jc = new JCadastro();
     private static JProcura jp = new JProcura();
     private static JResultado jr = new JResultado();
-    private static ConsultaPendentes teste = new ConsultaPendentes();
+    private static JConsultaPendentes jcp = new JConsultaPendentes();
+    private static JDeletaTecnico jdt = new JDeletaTecnico();
     
     public JMain() {
         initComponents();
@@ -113,7 +115,6 @@ public class JMain extends javax.swing.JFrame {
 
         jMenuBar1.setBackground(new java.awt.Color(102, 102, 102));
         jMenuBar1.setBorder(null);
-        jMenuBar1.setForeground(new java.awt.Color(0, 0, 0));
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         menu_nomeU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/user_gray.png"))); // NOI18N
@@ -209,6 +210,11 @@ public class JMain extends javax.swing.JFrame {
 
         mitem_deltec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group_delete.png"))); // NOI18N
         mitem_deltec.setText("Deletar Técnico");
+        mitem_deltec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mitem_deltecActionPerformed(evt);
+            }
+        });
         menu_tecnicos.add(mitem_deltec);
 
         jMenuBar1.add(menu_tecnicos);
@@ -317,6 +323,13 @@ public class JMain extends javax.swing.JFrame {
             jsi.setVisible(true);
       }
     }//GEN-LAST:event_mitem_estindActionPerformed
+
+    private void mitem_deltecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_deltecActionPerformed
+        if(!jdt.isVisible()){
+            tela_principal.add(jdt);
+            jdt.setVisible(true);
+      }
+    }//GEN-LAST:event_mitem_deltecActionPerformed
 
 
     /**

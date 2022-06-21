@@ -4,6 +4,9 @@
  */
 package tecnico;
 
+import conexao.conexao_bd;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alunos
@@ -13,8 +16,12 @@ public class JDeletaTecnico extends javax.swing.JInternalFrame {
     /**
      * Creates new form JDeletaTecnico
      */
+    private conexao_bd cbd = new conexao_bd();
     public JDeletaTecnico() {
         initComponents();
+        text_matricula.setText("Matrícula");
+        text_nome.setText("Nome");
+        text_user.setText("Usuário");
     }
 
     /**
@@ -27,6 +34,14 @@ public class JDeletaTecnico extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        text_user = new javax.swing.JTextField();
+        label_matricula = new javax.swing.JLabel();
+        text_matricula = new javax.swing.JTextField();
+        label_nome = new javax.swing.JLabel();
+        text_nome = new javax.swing.JTextField();
+        label_usuario = new javax.swing.JLabel();
+        button_buscar = new javax.swing.JButton();
+        button_deletar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -35,24 +50,124 @@ public class JDeletaTecnico extends javax.swing.JInternalFrame {
         setTitle("Deletar Ténico");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/group_delete.png"))); // NOI18N
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+
+        text_user.setBackground(new java.awt.Color(255, 255, 255));
+        text_user.setForeground(new java.awt.Color(0, 0, 0));
+        text_user.setText("Usuário");
+        text_user.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_userFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_userFocusLost(evt);
+            }
+        });
+
+        label_matricula.setBackground(new java.awt.Color(51, 51, 51));
+        label_matricula.setForeground(new java.awt.Color(255, 255, 255));
+        label_matricula.setText("Matrícula:");
+
+        text_matricula.setBackground(new java.awt.Color(255, 255, 255));
+        text_matricula.setForeground(new java.awt.Color(0, 0, 0));
+        text_matricula.setText("Matrícula");
+        text_matricula.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_matriculaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_matriculaFocusLost(evt);
+            }
+        });
+
+        label_nome.setBackground(new java.awt.Color(51, 51, 51));
+        label_nome.setForeground(new java.awt.Color(255, 255, 255));
+        label_nome.setText("Nome:");
+
+        text_nome.setBackground(new java.awt.Color(255, 255, 255));
+        text_nome.setForeground(new java.awt.Color(0, 0, 0));
+        text_nome.setText("Nome");
+        text_nome.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_nomeFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_nomeFocusLost(evt);
+            }
+        });
+
+        label_usuario.setBackground(new java.awt.Color(51, 51, 51));
+        label_usuario.setForeground(new java.awt.Color(255, 255, 255));
+        label_usuario.setText("Usuário");
+
+        button_buscar.setBackground(new java.awt.Color(255, 255, 255));
+        button_buscar.setForeground(new java.awt.Color(51, 51, 51));
+        button_buscar.setText("Buscar");
+
+        button_deletar.setBackground(new java.awt.Color(255, 255, 255));
+        button_deletar.setForeground(new java.awt.Color(51, 51, 51));
+        button_deletar.setText("Deletar");
+        button_deletar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_deletarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(button_deletar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(label_usuario)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(label_matricula)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(text_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(button_buscar))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(label_nome)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(text_user, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                                    .addComponent(text_nome))))
+                        .addGap(0, 36, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_matricula)
+                    .addComponent(text_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(button_buscar)
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(label_nome)
+                    .addComponent(text_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_usuario)
+                    .addComponent(text_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button_deletar)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -62,8 +177,61 @@ public class JDeletaTecnico extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void text_nomeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_nomeFocusGained
+        if(text_nome.getText().equals("Nome")){
+            text_nome.setText("");
+        }
+    }//GEN-LAST:event_text_nomeFocusGained
+
+    private void text_nomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_nomeFocusLost
+        if(text_nome.getText().equals("")){
+            text_nome.setText("Nome");
+        }
+    }//GEN-LAST:event_text_nomeFocusLost
+
+    private void button_deletarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_deletarMouseClicked
+        String[] op = {"Sim","Não"};
+        int op1;
+        op1 = JOptionPane.showOptionDialog(null, "Deseja realmente deletar esse usuário?","Deletar?",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,op,op[1]);
+        if(op1 == 1){
+            //cbd.
+        }
+    }//GEN-LAST:event_button_deletarMouseClicked
+
+    private void text_userFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_userFocusGained
+        if(text_user.getText().equals("Usuário")){
+            text_user.setText("");
+        }
+    }//GEN-LAST:event_text_userFocusGained
+
+    private void text_userFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_userFocusLost
+        if(text_nome.getText().equals("")){
+            text_nome.setText("Usuário");
+        }
+    }//GEN-LAST:event_text_userFocusLost
+
+    private void text_matriculaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_matriculaFocusGained
+       if(text_matricula.getText().equals("Matrícula")){
+            text_matricula.setText("");
+        }
+    }//GEN-LAST:event_text_matriculaFocusGained
+
+    private void text_matriculaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_matriculaFocusLost
+        if(text_matricula.getText().equals("")){
+            text_matricula.setText("Matrícula");
+        }
+    }//GEN-LAST:event_text_matriculaFocusLost
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_buscar;
+    private javax.swing.JButton button_deletar;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel label_matricula;
+    private javax.swing.JLabel label_nome;
+    private javax.swing.JLabel label_usuario;
+    private javax.swing.JTextField text_matricula;
+    private javax.swing.JTextField text_nome;
+    private javax.swing.JTextField text_user;
     // End of variables declaration//GEN-END:variables
 }
