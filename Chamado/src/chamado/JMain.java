@@ -111,7 +111,7 @@ public class JMain extends javax.swing.JFrame {
         );
         tela_principalLayout.setVerticalGroup(
             tela_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 479, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(102, 102, 102));
@@ -167,13 +167,13 @@ public class JMain extends javax.swing.JFrame {
 
         menu_procurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
         menu_procurar.setText("Procurar");
-        menu_procurar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_procurarActionPerformed(evt);
-            }
-        });
 
         jMenuItem1.setText("Consulta Pend");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         menu_procurar.add(jMenuItem1);
 
         jMenuBar1.add(menu_procurar);
@@ -329,12 +329,12 @@ public class JMain extends javax.swing.JFrame {
       }
     }//GEN-LAST:event_mitem_deltecActionPerformed
 
-    private void menu_procurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_procurarActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         if(!jcp.isVisible()){
             tela_principal.add(jcp);
             jcp.setVisible(true);
       }
-    }//GEN-LAST:event_menu_procurarActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
 
     /**
