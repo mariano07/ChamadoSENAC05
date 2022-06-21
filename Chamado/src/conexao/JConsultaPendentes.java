@@ -91,7 +91,7 @@ public class JConsultaPendentes extends javax.swing.JInternalFrame {
             }
         });
 
-        box1.setText("jCheckBox2");
+        box1.setText("Consultar");
         box1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 box1MouseClicked(evt);
