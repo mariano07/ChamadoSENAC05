@@ -33,7 +33,7 @@ public class JClientePerg extends javax.swing.JInternalFrame {
         check_pf = new javax.swing.JCheckBox();
         check_pj = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        check_clienteExis = new javax.swing.JCheckBox();
 
         setClosable(true);
         setIconifiable(true);
@@ -48,10 +48,20 @@ public class JClientePerg extends javax.swing.JInternalFrame {
         check_pf.setBackground(new java.awt.Color(51, 51, 51));
         check_pf.setForeground(new java.awt.Color(255, 255, 255));
         check_pf.setText("Pessoa Física");
+        check_pf.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                check_pfStateChanged(evt);
+            }
+        });
 
         check_pj.setBackground(new java.awt.Color(51, 51, 51));
         check_pj.setForeground(new java.awt.Color(255, 255, 255));
         check_pj.setText("Pessoa Jurídica");
+        check_pj.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                check_pjStateChanged(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
@@ -62,9 +72,14 @@ public class JClientePerg extends javax.swing.JInternalFrame {
             }
         });
 
-        jCheckBox1.setBackground(new java.awt.Color(51, 51, 51));
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Cliente Existente");
+        check_clienteExis.setBackground(new java.awt.Color(51, 51, 51));
+        check_clienteExis.setForeground(new java.awt.Color(255, 255, 255));
+        check_clienteExis.setText("Cliente Existente");
+        check_clienteExis.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                check_clienteExisStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -75,7 +90,7 @@ public class JClientePerg extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(check_pj)
                     .addComponent(check_pf)
-                    .addComponent(jCheckBox1))
+                    .addComponent(check_clienteExis))
                 .addContainerGap(208, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -90,7 +105,7 @@ public class JClientePerg extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(check_pj)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox1)
+                .addComponent(check_clienteExis)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
@@ -124,12 +139,33 @@ public class JClientePerg extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void check_pfStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_pfStateChanged
+        if(check_pf.isSelected()){
+            check_pj.setSelected(false);
+            check_clienteExis.setSelected(false);
+        }
+    }//GEN-LAST:event_check_pfStateChanged
+
+    private void check_pjStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_pjStateChanged
+        if(check_pj.isSelected()){
+            check_pf.setSelected(false);
+            check_clienteExis.setSelected(false);
+        }
+    }//GEN-LAST:event_check_pjStateChanged
+
+    private void check_clienteExisStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_clienteExisStateChanged
+        if(check_clienteExis.isSelected()){
+            check_pf.setSelected(false);
+            check_pj.setSelected(false);
+        }
+    }//GEN-LAST:event_check_clienteExisStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox check_clienteExis;
     private javax.swing.JCheckBox check_pf;
     private javax.swing.JCheckBox check_pj;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

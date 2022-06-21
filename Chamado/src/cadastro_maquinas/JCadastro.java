@@ -804,7 +804,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setBounds(800, 200, 442, 749);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void check_processadorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_processadorStateChanged
