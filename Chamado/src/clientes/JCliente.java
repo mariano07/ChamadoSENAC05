@@ -19,6 +19,13 @@ public class JCliente extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public void reseta(){
+        text_nome.setText("Nome");
+        text_email.setText("E-mail");
+        text_cpf.setText("CPF");
+        text_endereco.setText("Endereço");
+        text_telefone.setText("Telefone");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -282,6 +289,7 @@ public class JCliente extends javax.swing.JInternalFrame {
                 
         cbd.Cliente(nome,cpf, tel,email, endereco);
         this.dispose();
+        reseta();
     }//GEN-LAST:event_button_addMouseClicked
 
 

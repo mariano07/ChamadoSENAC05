@@ -20,6 +20,15 @@ public class JInstituicao extends javax.swing.JInternalFrame {
         initComponents();
     }
     
+    public void reseta(){
+        text_nome.setText("Nome");
+        text_resp.setText("Responsável");
+        text_cnpj.setText("CNPJ");
+        text_cpf.setText("CPF");
+        text_endereco.setText("Endereço");
+        text_telefone.setText("Telefone");
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -323,6 +332,8 @@ public class JInstituicao extends javax.swing.JInternalFrame {
         tel = text_telefone.getText();
                 
         cbd.Instituicao(nome, endereco, tel, resp, cnpj, cpf);
+        this.dispose();
+        reseta();
     }//GEN-LAST:event_button_addMouseClicked
 
 
