@@ -109,8 +109,8 @@ public class conexao_bd{
         return nome;
     }
     public void Instituicao(String nome,String endereco,String telefone,String responsavel,String cnpj,String cpf){
-        String InstrucaoSQL="INSERT INTO Instituições (NomeDaInstituicao,Localizacao,Telefone,Responsavel,CNPJ,CPF) "
-                + "VALUES ('"+nome+"','"+endereco+"','"+telefone+"','"+responsavel+"','"+cnpj+"','"+cpf+"')";
+        String InstrucaoSQL="INSERT INTO `Instituições` (`idInstituições`, `NomeDaInstituicao`, `Localizacao`, `Telefone`, `Responsavel`, `CNPJ`, `CPF`) "
+                + "VALUES (NULL, '"+nome+"', '"+endereco+"', '"+telefone+"', '"+responsavel+"', '"+cnpj+"', '"+cpf+"');";
         
         conectar();
         try{
@@ -122,8 +122,8 @@ public class conexao_bd{
         desconectar();
     }
     public void Cliente(String nome,String cpf,String telefone,String email,String endereco){
-        String InstrucaoSQL="INSERT INTO Clientes (Nome,CPF,Telefone,Email,Endereco)"
-                + " VALUES ('"+nome+"','"+cpf+"','"+telefone+"','"+email+"','"+endereco+"')";
+        String InstrucaoSQL="INSERT INTO `Clientes` (`idClientes`, `Nome`, `CPF`, `Telefone`, `Email`, `Endereco`) "
+                + "VALUES (NULL, '"+nome+"', '"+cpf+"', '"+telefone+"', '"+email+"', '"+endereco+"');";
         
         conectar();
         try{
