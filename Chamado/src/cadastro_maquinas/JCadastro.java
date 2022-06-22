@@ -105,43 +105,43 @@ public class JCadastro extends javax.swing.JInternalFrame {
         int fonte = Integer.parseInt(ftext_fonte.getText());
         
         if(!check_processador.isSelected() && !check_pmae.isSelected() && !check_ram.isSelected() && !check_hd.isSelected() && !check_ssd.isSelected() && !check_coolercpu.isSelected() && !check_cooler.isSelected() && !check_gpu.isSelected() && !check_fonte.isSelected() && !check_gabinete.isSelected()){
-            JOptionPane.showMessageDialog(null, "Nenhum componente informado !!!");
+            JOptionPane.showMessageDialog(null, "Nenhum componente informado!");
         }
         else if(check_processador.isSelected() && text_processador.getText().equals("") || check_processador.isSelected() && text_processador.getText().equals("Modelo")){
-            JOptionPane.showMessageDialog(null, "Processador: Dados inválidos !!!");
+            JOptionPane.showMessageDialog(null, "Processador: Dados inválidos!");
         }
         else if(check_pmae.isSelected() && text_pmae.getText().equals("") || check_pmae.isSelected() && text_pmae.getText().equals("Modelo")){
-            JOptionPane.showMessageDialog(null, "Placa mãe: Dados inválidos !!!");
+            JOptionPane.showMessageDialog(null, "Placa mãe: Dados inválidos!");
         }
         else if(check_ram.isSelected() && ram <= 0) {
-            JOptionPane.showMessageDialog(null, "Memória: Dados inválidos !!!");
+            JOptionPane.showMessageDialog(null, "Memória: Dados inválidos!");
         }
         else if(check_hd.isSelected() && hd <= 0){
-            JOptionPane.showMessageDialog(null, "HD: Dados inválidos !!!");
+            JOptionPane.showMessageDialog(null, "HD: Dados inválidos!");
         }
         else if(check_ssd.isSelected() && ssd <= 0){
-            JOptionPane.showMessageDialog(null, "SSD: Dados inválidos !!!");
+            JOptionPane.showMessageDialog(null, "SSD: Dados inválidos!");
         }
         else if(check_coolercpu.isSelected() && text_coolercpu.getText().equals("") || check_coolercpu.isSelected() && text_coolercpu.getText().equals("Modelo")){
-            JOptionPane.showMessageDialog(null, "Cooler CPU: Dados inválidos !!!");
+            JOptionPane.showMessageDialog(null, "Cooler CPU: Dados inválidos!");
         }
         else if(check_cooler.isSelected() && text_cooler.getText().equals("") || check_cooler.isSelected() && text_cooler.getText().equals("Modelo")){
-            JOptionPane.showMessageDialog(null, "Cooler: Dados inválidos !!!");
+            JOptionPane.showMessageDialog(null, "Cooler: Dados inválidos!");
         }
         else if(check_gpu.isSelected() && gpu <= 0){
-            JOptionPane.showMessageDialog(null, "Placa de vídeo: Dados inválidos !!!");
+            JOptionPane.showMessageDialog(null, "Placa de vídeo: Dados inválidos!");
         }
         else if(check_fonte.isSelected() && text_fonte.getText().equals("") || check_fonte.isSelected() && text_fonte.getText().equals("Modelo")){
-            JOptionPane.showMessageDialog(null, "Fonte: Dados inválidos !!!");
+            JOptionPane.showMessageDialog(null, "Fonte: Dados inválidos!");
         }
         else if(check_fonte.isSelected() && fonte <= 0){
-            JOptionPane.showMessageDialog(null, "Fonte: Dados inválidos !!!");
+            JOptionPane.showMessageDialog(null, "Fonte: Dados inválidos!");
         }
         else if(check_gabinete.isSelected() && text_gabinete.getText().equals("") || check_gabinete.isSelected() && text_gabinete.getText().equals("Modelo")){
-            JOptionPane.showMessageDialog(null, "Gabinete: Dados inválidos !!!");
+            JOptionPane.showMessageDialog(null, "Gabinete: Dados inválidos!");
         }
         else if(texta_defeito.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Nenhum defeito informado !!!");
+            JOptionPane.showMessageDialog(null, "Nenhum defeito informado!");
         }
         else {
              verifica = true;
@@ -1179,7 +1179,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
         
       
         if(verifica == true){
-            JOptionPane.showMessageDialog(null, "Dados Salvos com sucesso !!!");
+            JOptionPane.showMessageDialog(null, "Dados Salvos com sucesso!");
             cbd.CadastroMaquina(processador, pmae, ram, hd, ssd, ccpu, cool, pvideo, fonte, gabinete, matricula, patrimonio, sala);
             
             JDesktopPane desktop = getDesktopPane();

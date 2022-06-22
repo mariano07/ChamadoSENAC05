@@ -213,7 +213,7 @@ public class JAddTecnico extends javax.swing.JInternalFrame {
         
         if(senha.equals(confirma)){
             cbd.AddTec(nome,matricula, usuario, senha );
-            JOptionPane.showMessageDialog(null,"Usuário Adicionado com sucesso");
+             JOptionPane.showMessageDialog(null, "Técnico Adicionado Com Sucesso!");
             this.dispose();
             reseta();
         }else{

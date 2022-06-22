@@ -340,13 +340,8 @@ public class JInstituicao extends javax.swing.JInternalFrame {
               cbd.Instituicao(nome, endereco, tel, resp, cnpj, cpf);
               this.dispose();
               reseta();
-        }else if (retorno2== false) {
-             cbd.Instituicao(nome, endereco, tel, resp, cnpj, cpf);
-              this.dispose();
-              reseta();
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "CNPJ ou CPF Já Cadastrado");
+        }else{
+            JOptionPane.showMessageDialog(null, "CNPJ Já Cadastrado");
         }
     }//GEN-LAST:event_button_addMouseClicked
 

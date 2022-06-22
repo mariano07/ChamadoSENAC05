@@ -293,7 +293,8 @@ public class JCliente extends javax.swing.JInternalFrame {
         
          if(retorno==false ){
               cbd.Cliente(nome,cpf, tel,email, endereco);
-              this.dispose();
+              JOptionPane.showMessageDialog(null, "Cliente Adicionado Com Sucesso!");
+              dispose();
               reseta();
         }else {
             JOptionPane.showMessageDialog(null, "CPF Já Cadastrado");
