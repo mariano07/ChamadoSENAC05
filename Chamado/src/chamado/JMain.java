@@ -49,7 +49,6 @@ public class JMain extends javax.swing.JFrame {
         }else if (cargo.equals("TEC")){
             JOptionPane.showMessageDialog(null, "Bem vindo "+nome+" :D");
             menu_tecnicos.setVisible(false);
-            mitem_estequipe.setVisible(false);
             return matricula;
         }else{
             return matricula;
