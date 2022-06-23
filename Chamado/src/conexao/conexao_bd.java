@@ -338,6 +338,7 @@ public class conexao_bd{
         try{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
+            JOptionPane.showMessageDialog(null, "Bug reportado com sucesso!\nObrigado pela contribuição :D");
         }catch(Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C334", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -351,6 +352,7 @@ public class conexao_bd{
         try{
             st = conexao.createStatement();
             st.executeUpdate(InstrucaoSQL);
+            JOptionPane.showMessageDialog(null, "Obrigado pelo feedback!");
         }catch(Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C347", "ERRO", JOptionPane.ERROR_MESSAGE);

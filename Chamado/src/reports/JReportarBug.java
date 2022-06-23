@@ -25,6 +25,11 @@ public class JReportarBug extends javax.swing.JInternalFrame {
         this.usuario = usuario;
         this.matricula = matricula;
     }
+    
+    private void reseta(){
+        texta_processo.setText("");
+        texta_bug.setText("");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -154,7 +159,7 @@ public class JReportarBug extends javax.swing.JInternalFrame {
         String processoBug = texta_processo.getText(),bug = texta_bug.getText();
         if(!texta_bug.getText().equals("")){
             cbd.ReportaBug(usuario,matricula,processoBug,bug);
-            JOptionPane.showMessageDialog(null, "Bug reportado com sucesso!\nObrigado pela contribuição :D");
+            reseta();
         }
     }//GEN-LAST:event_button_enviarMouseClicked
 

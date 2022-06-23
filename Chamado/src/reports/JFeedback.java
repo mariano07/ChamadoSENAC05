@@ -25,6 +25,10 @@ public class JFeedback extends javax.swing.JInternalFrame {
         this.usuario = usuario;
         this.matricula = matricula;
     }
+    
+    private void reseta(){
+        texta_feedback.setText("");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -127,7 +131,7 @@ public class JFeedback extends javax.swing.JInternalFrame {
         String feedback = texta_feedback.getText();
         if(texta_feedback.getText().equals("")){
             cbd.Feedback(usuario,matricula,feedback);
-            JOptionPane.showMessageDialog(null, "Bug reportado com sucesso!\nObrigado pela contribuição :D");
+            reseta();
         }
     }//GEN-LAST:event_button_enviarMouseClicked
 
