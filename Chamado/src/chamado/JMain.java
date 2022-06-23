@@ -4,7 +4,7 @@
  */
 package chamado;
 
-import cadastro_maquinas.JCadastro;
+import maquinas.JCadastro;
 import clientes.JCliente;
 import clientes.JInstituicao;
 import conexao.JConsultaPendentes;
@@ -18,6 +18,7 @@ import procura.JProcura;
 import procura.JResultado;
 import tecnico.JAddTecnico;
 import tecnico.JDeletaTecnico;
+import tecnico.JEditarTecnico;
 
 /**
  *
@@ -35,6 +36,7 @@ public class JMain extends javax.swing.JFrame {
     private static JResultado jr = new JResultado();
     private static JConsultaPendentes jcp = new JConsultaPendentes();
     private static JDeletaTecnico jdt = new JDeletaTecnico();
+    private static JEditarTecnico jet = new JEditarTecnico();
     
     public JMain() {
         initComponents();
@@ -49,6 +51,7 @@ public class JMain extends javax.swing.JFrame {
         }else if (cargo.equals("TEC")){
             JOptionPane.showMessageDialog(null, "Bem vindo "+nome+" :D");
             menu_tecnicos.setVisible(false);
+            mitem_estequipe.setVisible(false);
             return matricula;
         }else{
             return matricula;
@@ -80,6 +83,7 @@ public class JMain extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_nomeU = new javax.swing.JMenu();
         mitem_matricula = new javax.swing.JMenuItem();
+        mitem_editarUsu = new javax.swing.JMenuItem();
         mitem_ajuda = new javax.swing.JMenuItem();
         mitem_logoff = new javax.swing.JMenuItem();
         menu_chamados = new javax.swing.JMenu();
@@ -126,6 +130,15 @@ public class JMain extends javax.swing.JFrame {
         mitem_matricula.setText("a");
         mitem_matricula.setToolTipText("Sua matricula");
         menu_nomeU.add(mitem_matricula);
+
+        mitem_editarUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/vcard_edit.png"))); // NOI18N
+        mitem_editarUsu.setText("Editar Usuário");
+        mitem_editarUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mitem_editarUsuActionPerformed(evt);
+            }
+        });
+        menu_nomeU.add(mitem_editarUsu);
 
         mitem_ajuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/help.png"))); // NOI18N
         mitem_ajuda.setText("Menu Ajuda");
@@ -336,6 +349,15 @@ public class JMain extends javax.swing.JFrame {
       }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void mitem_editarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_editarUsuActionPerformed
+        String matricula = mitem_matricula.getText();
+        if(!jet.isVisible()){
+            jet.getmatricula(matricula);
+            tela_principal.add(jet);
+            jet.setVisible(true);
+      }
+    }//GEN-LAST:event_mitem_editarUsuActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -386,6 +408,7 @@ public class JMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem mitem_addtec;
     private javax.swing.JMenuItem mitem_ajuda;
     private javax.swing.JMenuItem mitem_deltec;
+    private javax.swing.JMenuItem mitem_editarUsu;
     private javax.swing.JMenuItem mitem_editchamado;
     private javax.swing.JMenuItem mitem_estequipe;
     private javax.swing.JMenuItem mitem_estind;

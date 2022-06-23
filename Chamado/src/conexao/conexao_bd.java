@@ -11,6 +11,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class conexao_bd{
     
@@ -90,7 +91,7 @@ public class conexao_bd{
     }
     public String getNome(String usuario,String senha){
         
-        String InstrucaoSQL = "SELECT Nome FROM Usuario "
+        String InstrucaoSQL = "SELECT Usuario FROM Usuario "
                 + "WHERE Usuario = '"+usuario+"' AND Senha = '"+senha+"'";
         String nome = "";
         conectar();
@@ -98,7 +99,7 @@ public class conexao_bd{
             st = conexao.createStatement();
             result = st.executeQuery(InstrucaoSQL);
             while(result.next()){
-              nome = result.getString("Nome");  
+              nome = result.getString("Usuario");  
             }
         }
         catch (Exception e){
@@ -309,5 +310,26 @@ public class conexao_bd{
             JOptionPane.showMessageDialog(null, "ERRO:C301", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
+    }
+    public ArrayList<String> Busca(String Nome){
+        ArrayList<String> dados = new ArrayList<>();
+        
+        return dados;
+    }
+    
+    public boolean EditaUsuario(String matricula,String Usuario,String Senha){
+        boolean tf=false;
+        String InstrucaoSQL="UPDATE `Usuario` SET `Usuario` = '"+Usuario+"', `Senha` = '"+Senha+"' WHERE `Matricula` = '"+matricula+"'";
+        conectar();
+        try{
+            st = conexao.createStatement();
+            st.executeUpdate(InstrucaoSQL);
+        }catch(Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "ERRO:C314", "ERRO", JOptionPane.ERROR_MESSAGE);
+            tf=true;
+        }
+        desconectar();
+        return tf;
     }
 }

@@ -4,7 +4,7 @@
  */
 package defeito;
 
-import cadastro_maquinas.JCadastro;
+import maquinas.JCadastro;
 import clientes.JClientePerg;
 import conexao.conexao_bd;
 import javax.swing.JDesktopPane;
