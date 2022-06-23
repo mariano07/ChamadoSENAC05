@@ -4,16 +4,22 @@
  */
 package conexao;
 
+import clientes.JClienteExistente;
+import java.awt.List;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 public class conexao_bd{
     
+    private static JClienteExistente jce = new JClienteExistente();
     static String url ="jdbc:mysql://172.20.126.128:3306/ChamadoSENAC";
     static String username ="chamado";
     static String password ="root";
@@ -310,4 +316,27 @@ public class conexao_bd{
         }
         desconectar();
     }
+   public ArrayList<String> Busca (String nome) {
+       ArrayList <String> dados = new ArrayList<String>(); 
+       String InstrucaoSQL="SELECT Nome.Clientes, Nome.Instituição, CPF.Clientes, CNPJ.Intiuição FROM Clientes, Instituição WHERE Nome.Cliente, Nome.Intituição LIKE %"+nome+"%";
+       conectar();
+
+        try {
+           st = conexao.createStatement();
+           result =st.executeQuery(InstrucaoSQL);
+           
+            while (result.next()) {
+                dados.add(result.getString("Nome.Clientes"));
+                dados.add(result.getString("Nome.Instituição"));
+                dados.add(result.getString("CPF.Clientes"));
+                dados.add(result.getString("CNPJ.Instituição"));
+            }
+        } catch (Exception e) {
+           e.printStackTrace();
+           JOptionPane.showMessageDialog(null, "ERRO:C319", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
+        return dados;
+        
+   }
 }

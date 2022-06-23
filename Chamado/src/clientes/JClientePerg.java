@@ -13,6 +13,7 @@ import javax.swing.JDesktopPane;
 public class JClientePerg extends javax.swing.JInternalFrame {
     private static JCliente jc = new JCliente();
     private static JInstituicao ji = new JInstituicao();
+    private static JClienteExistente jce = new JClienteExistente();
     /**
      * Creates new form JClientePerg
      */
@@ -135,6 +136,11 @@ public class JClientePerg extends javax.swing.JInternalFrame {
             JDesktopPane desktop = getDesktopPane();
             desktop.add(ji);
             ji.setVisible(true);
+            this.dispose();
+        }else if(check_clienteExis.isSelected()){
+            JDesktopPane desktop = getDesktopPane();
+            desktop.add(jce);
+            jce.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_jButton1MouseClicked
