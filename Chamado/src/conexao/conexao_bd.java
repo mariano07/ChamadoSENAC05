@@ -33,7 +33,7 @@ public class conexao_bd{
             conexao = DriverManager.getConnection(url,username,password);
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Erro C025","ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro C031","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     private void desconectar(){
@@ -42,7 +42,7 @@ public class conexao_bd{
             conexao.close();
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Erro C033","ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro C039","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     private String getDate(){
@@ -68,7 +68,7 @@ public class conexao_bd{
         }
         catch (Exception e){
             e.printStackTrace();
-            cargo = "C050";
+            cargo = "C056";
         }
         desconectar();
         return cargo;
@@ -89,7 +89,7 @@ public class conexao_bd{
         }
         catch (Exception e){
             e.printStackTrace();
-           matricula = "C071";
+           matricula = "C077";
         }
         desconectar();
         return matricula;
@@ -109,7 +109,7 @@ public class conexao_bd{
         }
         catch (Exception e){
             e.printStackTrace();
-           nome = "C091";
+           nome = "C097";
         }
         desconectar();
         return nome;
@@ -124,7 +124,7 @@ public class conexao_bd{
             st.executeUpdate(InstrucaoSQL);
         }catch (Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C111", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C117", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -138,7 +138,7 @@ public class conexao_bd{
             st.executeUpdate(InstrucaoSQL);
         }catch (Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C125", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C131", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -152,7 +152,7 @@ public class conexao_bd{
             st.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C139", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C145", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -166,7 +166,7 @@ public class conexao_bd{
             st.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C153", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C159", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -180,7 +180,7 @@ public class conexao_bd{
             st.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C167", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C173", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -194,7 +194,7 @@ public class conexao_bd{
             st.executeUpdate(InstrucaoSQL);
         }catch (Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C181", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C187", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -208,7 +208,7 @@ public class conexao_bd{
             st.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C195", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C201", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -222,7 +222,7 @@ public class conexao_bd{
             st.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C209", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C215", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -241,7 +241,7 @@ public class conexao_bd{
             }
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C223", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C229", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
         return verifica;
@@ -261,7 +261,7 @@ public class conexao_bd{
             }
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C243", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C249", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
         return verifica;
@@ -281,7 +281,7 @@ public class conexao_bd{
             }
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C263", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C269", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
         return verifica;
@@ -299,7 +299,7 @@ public class conexao_bd{
             }
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C283", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C289", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
         return aluno;
@@ -312,13 +312,10 @@ public class conexao_bd{
             st.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C301", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C307", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
-   public void  Busca (String nome) {
-     
-   }
    public boolean EditaUsuario(String matricula,String Usuario,String Senha){
         boolean tf=false;
         String InstrucaoSQL="UPDATE `Usuario` SET `Usuario` = '"+Usuario+"', `Senha` = '"+Senha+"' WHERE `Matricula` = '"+matricula+"'";
@@ -328,10 +325,36 @@ public class conexao_bd{
             st.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C314", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C319", "ERRO", JOptionPane.ERROR_MESSAGE);
             tf=true;
         }
         desconectar();
         return tf;
     }
+   public void ReportaBug(String usuario,String matricula,String processoBug,String bug){
+       String InstrucaoSQL="INSERT INTO `report_bugs` (`Usuario`, `Matricula`, `Processo`, `Bug`) "
+               + "VALUES ('"+usuario+"',"+matricula+",'"+processoBug+"','"+bug+"')";
+        conectar();
+        try{
+            st = conexao.createStatement();
+            st.executeUpdate(InstrucaoSQL);
+        }catch(Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "ERRO:C334", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
+   }
+   public void Feedback(String usuario,String matricula,String feedback){
+       String InstrucaoSQL="INSERT INTO `feedback` (`Usuario`, `Matricula`, `Feedback`) "
+               + "VALUES ('"+usuario+"',"+matricula+",'"+feedback+"')";
+        conectar();
+        try{
+            st = conexao.createStatement();
+            st.executeUpdate(InstrucaoSQL);
+        }catch(Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "ERRO:C347", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
+   }
 }

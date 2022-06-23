@@ -16,6 +16,8 @@ import javax.swing.JOptionPane;
 import login.JLogin;
 import procura.JProcura;
 import procura.JResultado;
+import reports.JFeedback;
+import reports.JReportarBug;
 import tecnico.JAddTecnico;
 import tecnico.JDeletaTecnico;
 import tecnico.JEditarTecnico;
@@ -37,6 +39,8 @@ public class JMain extends javax.swing.JFrame {
     private static JConsultaPendentes jcp = new JConsultaPendentes();
     private static JDeletaTecnico jdt = new JDeletaTecnico();
     private static JEditarTecnico jet = new JEditarTecnico();
+    private static JReportarBug jrb = new JReportarBug();
+    private static JFeedback jf = new JFeedback();
     
     public JMain() {
         initComponents();
@@ -86,6 +90,9 @@ public class JMain extends javax.swing.JFrame {
         mitem_editarUsu = new javax.swing.JMenuItem();
         mitem_ajuda = new javax.swing.JMenuItem();
         mitem_logoff = new javax.swing.JMenuItem();
+        menu_report = new javax.swing.JMenu();
+        mitem_bugReport = new javax.swing.JMenuItem();
+        mitem_feedback = new javax.swing.JMenuItem();
         menu_chamados = new javax.swing.JMenu();
         mitem_addchamado = new javax.swing.JMenuItem();
         mitem_editchamado = new javax.swing.JMenuItem();
@@ -159,6 +166,29 @@ public class JMain extends javax.swing.JFrame {
         menu_nomeU.add(mitem_logoff);
 
         jMenuBar1.add(menu_nomeU);
+
+        menu_report.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/bug.png"))); // NOI18N
+        menu_report.setText("Reportar");
+
+        mitem_bugReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/bug_add.png"))); // NOI18N
+        mitem_bugReport.setText("Reportar Bug");
+        mitem_bugReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mitem_bugReportActionPerformed(evt);
+            }
+        });
+        menu_report.add(mitem_bugReport);
+
+        mitem_feedback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/report_add.png"))); // NOI18N
+        mitem_feedback.setText("Feedback");
+        mitem_feedback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mitem_feedbackActionPerformed(evt);
+            }
+        });
+        menu_report.add(mitem_feedback);
+
+        jMenuBar1.add(menu_report);
 
         menu_chamados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer.png"))); // NOI18N
         menu_chamados.setText("Chamados");
@@ -271,28 +301,6 @@ public class JMain extends javax.swing.JFrame {
     private void mitem_ajudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_ajudaActionPerformed
         StringBuilder sb = new StringBuilder();
         sb.append("<html>");
-        sb.append("<h1>");sb.append("Menu de Ajuda");sb.append("</h1>");
-        sb.append("<a>");sb.append("Bem vindo ao menu de ajuda do Chamado do Senac RS - Tramandaí.");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("Aqui você vai encontrar instruções de uso de todas as funções do programa e");sb.append("</a>");
-        sb.append("<a>");sb.append("os códigos de erros possíveis e seus significados.");sb.append("</a>");
-        sb.append("<h2>");sb.append("Funções  do Programa");sb.append("</h2>");
-        sb.append("<a>");sb.append("<b>");sb.append("1 - Menus");sb.append("</b>");sb.append("<br>");sb.append("</a>" );
-        sb.append("<a>");sb.append("Nos menus é onde ficam todas as funções principais do programa na ordem temos Usuário, Cadastro de Máquinas, Procurar e Ténicos.");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("Cada menu tem sua função especifica ou itens dentro dele com funções referentes ao nome do menu.");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("<b>");sb.append("• Menu do Usuário");sb.append("</b>");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("Nesse menu existem três opções sendo apenas interativas");sb.append(" <b>");sb.append("Sua matrícula,");sb.append("</b>");sb.append(" <b>");sb.append("Menu Ajuda");sb.append("</b>");sb.append(" e ");sb.append("<b>");sb.append("Deslogar");sb.append("</b>.");sb.append("<br>");
-        sb.append("O primeiro é a ");sb.append("<b>");sb.append("sua matrícula");sb.append("</b>");sb.append(" e ira exibir a mesma que está registrada aqui no Senac,");sb.append("<br>");sb.append("</a>");
-        sb.append("o ");sb.append("<b>");sb.append("Menu Ajuda");sb.append("</b>");sb.append(" é onde você acessa esse menu que está vendo agora");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("e o ");sb.append("<b>");sb.append("Deslogar");sb.append("</b>");sb.append(" é para fazer o Logoff do programa e entrar usando ou Usuário e Senha.");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("<b>");sb.append("• Chamados");sb.append("</b>");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("Nesse menu é onde o Usuário pode fazer o cadastro de uma máquina e cliente informando todos os dados necessários para um melhor controle de quem fez a manutenção, em qual máquina foi feita a manutenção, para quem e quando foi realizada.");sb.append("<br>");
-        sb.append("Esses são alguns exemplos de informações que serão inseridas juntas de diversas outras informações importantes.");sb.append("<br>");
-        sb.append("Também existe a opção de editar um chamado podendo ser feita apenas a adição da solução ou edição total do mesmo.");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("<b>");sb.append("• Procurar");sb.append("</b>");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("Nesse menu é onde o Professor vai poder procurar as máquinas registradas, usuários e chamados, podendo escolher entre filtros para facilitar na sua pesquisa.");
-        sb.append("<br>");sb.append("Já os Técnicos poderão apenas pesquisar sobre seus próprios registros para manter um melhor controle de datas e tarefas que devem ser realizadas.");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("<b>");sb.append("• Técnicos");sb.append("</b>");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("Nesse menu é onde o Professor poderá registrar os alunos como técnicos assim podendo ter controle sobre cada manutenção realizada, nele também é possivel excluir um cadastro ou editar para caso algum dado tenha sido inserido de forma errada.");sb.append("<br>");
         sb.append("</a>");sb.append("<h3>");sb.append("Códigos de ERRO");sb.append("</h3>");
         sb.append("<a>");sb.append("<b>");sb.append("• C023");sb.append("</b>");sb.append("<br>");sb.append("</a>");
         sb.append("<a>");sb.append("C023 significa que houve um erro de conexão ao Banco de Dados");sb.append("<br>");sb.append("</a>");
@@ -358,6 +366,22 @@ public class JMain extends javax.swing.JFrame {
       }
     }//GEN-LAST:event_mitem_editarUsuActionPerformed
 
+    private void mitem_bugReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_bugReportActionPerformed
+        if(!jrb.isVisible()){
+            jrb.usuario_matricula(menu_nomeU.getText(),mitem_matricula.getText());
+            tela_principal.add(jrb);
+            jrb.setVisible(true);
+      }
+    }//GEN-LAST:event_mitem_bugReportActionPerformed
+
+    private void mitem_feedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_feedbackActionPerformed
+        if(!jf.isVisible()){
+            jf.usuario_matricula(menu_nomeU.getText(),mitem_matricula.getText());
+            tela_principal.add(jf);
+            jf.setVisible(true);
+      }
+    }//GEN-LAST:event_mitem_feedbackActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -403,15 +427,18 @@ public class JMain extends javax.swing.JFrame {
     private javax.swing.JMenu menu_estatisticas;
     private javax.swing.JMenu menu_nomeU;
     private javax.swing.JMenu menu_procurar;
+    private javax.swing.JMenu menu_report;
     private javax.swing.JMenu menu_tecnicos;
     private javax.swing.JMenuItem mitem_addchamado;
     private javax.swing.JMenuItem mitem_addtec;
     private javax.swing.JMenuItem mitem_ajuda;
+    private javax.swing.JMenuItem mitem_bugReport;
     private javax.swing.JMenuItem mitem_deltec;
     private javax.swing.JMenuItem mitem_editarUsu;
     private javax.swing.JMenuItem mitem_editchamado;
     private javax.swing.JMenuItem mitem_estequipe;
     private javax.swing.JMenuItem mitem_estind;
+    private javax.swing.JMenuItem mitem_feedback;
     private javax.swing.JMenuItem mitem_logoff;
     private javax.swing.JMenuItem mitem_matricula;
     private javax.swing.JDesktopPane tela_principal;
