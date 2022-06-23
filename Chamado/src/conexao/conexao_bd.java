@@ -316,27 +316,8 @@ public class conexao_bd{
         }
         desconectar();
     }
-   public ArrayList<String> Busca (String nome) {
-       ArrayList <String> dados = new ArrayList<String>(); 
-       String InstrucaoSQL="SELECT Nome.Clientes, Nome.Instituição, CPF.Clientes, CNPJ.Intiuição FROM Clientes, Instituição WHERE Nome.Cliente, Nome.Intituição LIKE %"+nome+"%";
-       conectar();
-
-        try {
-           st = conexao.createStatement();
-           result =st.executeQuery(InstrucaoSQL);
-           
-            while (result.next()) {
-                dados.add(result.getString("Nome.Clientes"));
-                dados.add(result.getString("Nome.Instituição"));
-                dados.add(result.getString("CPF.Clientes"));
-                dados.add(result.getString("CNPJ.Instituição"));
-            }
-        } catch (Exception e) {
-           e.printStackTrace();
-           JOptionPane.showMessageDialog(null, "ERRO:C319", "ERRO", JOptionPane.ERROR_MESSAGE);
-        }
-        desconectar();
-        return dados;
+   public void  Busca (String nome) {
+     
    }
    public boolean EditaUsuario(String matricula,String Usuario,String Senha){
         boolean tf=false;
