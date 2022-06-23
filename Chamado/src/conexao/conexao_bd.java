@@ -337,6 +337,20 @@ public class conexao_bd{
         }
         desconectar();
         return dados;
-        
    }
+   public boolean EditaUsuario(String matricula,String Usuario,String Senha){
+        boolean tf=false;
+        String InstrucaoSQL="UPDATE `Usuario` SET `Usuario` = '"+Usuario+"', `Senha` = '"+Senha+"' WHERE `Matricula` = '"+matricula+"'";
+        conectar();
+        try{
+            st = conexao.createStatement();
+            st.executeUpdate(InstrucaoSQL);
+        }catch(Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "ERRO:C314", "ERRO", JOptionPane.ERROR_MESSAGE);
+            tf=true;
+        }
+        desconectar();
+        return tf;
+    }
 }
