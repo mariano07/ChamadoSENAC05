@@ -25,18 +25,7 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
     }
     
     public void pesquisa(String nome) {
-        
-        JOptionPane.showMessageDialog(null, "SELECT Nome.Clientes, Nome.Instituição, CPF.Clientes, CNPJ.Intiuição FROM Clientes, Instituição WHERE Nome.Cliente, Nome.Intituição LIKE %"+nome+"%");
-        ArrayList<String> table = new ArrayList<>();
-        table = cbd.Busca(nome);
-        DefaultTableModel model = (DefaultTableModel)jtable_clientes.getModel();
-        model.setNumRows(0);  
        
-        model.addRow(new Object[]{
-            table.get(0),
-            table.get(1),
-            table.get(2),
-            });      
     }   
 
 
