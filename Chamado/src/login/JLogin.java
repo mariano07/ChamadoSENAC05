@@ -45,9 +45,12 @@ public class JLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Login");
+        setMaximumSize(new java.awt.Dimension(1920, 1080));
         setMinimumSize(new java.awt.Dimension(451, 304));
+        setResizable(false);
 
         JPanel_Login.setBackground(new java.awt.Color(153, 153, 153));
+        JPanel_Login.setMaximumSize(new java.awt.Dimension(1920, 1080));
 
         label_msg_login.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         label_msg_login.setForeground(new java.awt.Color(0, 0, 0));
