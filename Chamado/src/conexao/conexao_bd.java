@@ -56,7 +56,7 @@ public class conexao_bd{
     public String Login(String usuario,String senha){
         
         String InstrucaoSQL = "SELECT Cargo FROM Usuario "
-                + "WHERE  = '"+usuario+"' AND Senha = '"+senha+"'";
+                + "WHERE Usuario = '"+usuario+"' AND AES_DECRYPT(Senha,'"+chave+"')="+senha;
         String cargo = "";
         conectar();
         try{
