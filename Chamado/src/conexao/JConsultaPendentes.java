@@ -29,10 +29,10 @@ public class JConsultaPendentes extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
+        Botton_AlternaLista = new javax.swing.JButton();
         texto = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        List_Pendencias = new javax.swing.JList<>();
         box = new javax.swing.JCheckBox();
         box1 = new javax.swing.JCheckBox();
         cb = new javax.swing.JComboBox<>();
@@ -43,15 +43,15 @@ public class JConsultaPendentes extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
 
-        jButton2.setText("Alternar lista");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        Botton_AlternaLista.setText("Alternar lista");
+        Botton_AlternaLista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                Botton_AlternaListaMouseClicked(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Botton_AlternaLista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                Botton_AlternaListaActionPerformed(evt);
             }
         });
 
@@ -67,17 +67,17 @@ public class JConsultaPendentes extends javax.swing.JInternalFrame {
             }
         });
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        List_Pendencias.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+        List_Pendencias.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jList1MouseClicked(evt);
+                List_PendenciasMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(List_Pendencias);
 
         box.setText("Mudar");
         box.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -124,7 +124,7 @@ public class JConsultaPendentes extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2))
+                        .addComponent(Botton_AlternaLista))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -158,7 +158,7 @@ public class JConsultaPendentes extends javax.swing.JInternalFrame {
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(Botton_AlternaLista))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -169,20 +169,21 @@ public class JConsultaPendentes extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_textoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void Botton_AlternaListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botton_AlternaListaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_Botton_AlternaListaActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        
-    }//GEN-LAST:event_jButton2MouseClicked
+    private void Botton_AlternaListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton_AlternaListaMouseClicked
+       if(Botton_AlternaLista.isSelected()){
+         List_Pendencias.setVisible(true);
+         }else{
+         List_Pendencias.setVisible(false);
+       }
+    }//GEN-LAST:event_Botton_AlternaListaMouseClicked
 
     private void textoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoMouseClicked
        
     }//GEN-LAST:event_textoMouseClicked
-
-    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
-    }//GEN-LAST:event_jList1MouseClicked
 
     private void boxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boxMouseClicked
         // TODO add your handling code here:
@@ -226,15 +227,29 @@ public class JConsultaPendentes extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_box1ActionPerformed
 
+    private void List_PendenciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_List_PendenciasMouseClicked
+        String []av = new String [5];
+        av[0] = "a1";
+        av[0] = "a2";
+        av[0] = "a2";
+        av[0] = "a3";
+        av[0] = "a4";
+       for(int i =0 ; i<av.length ; i++){
+           System.out.println(av[i]);
+       }
+        
+            
+    }//GEN-LAST:event_List_PendenciasMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Botton_AlternaLista;
+    private javax.swing.JList<String> List_Pendencias;
     private javax.swing.JCheckBox box;
     private javax.swing.JCheckBox box1;
     private javax.swing.JComboBox<String> cb;
     private javax.swing.JComboBox<String> cb2;
     private javax.swing.JComboBox<String> cb3;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField texto;
     // End of variables declaration//GEN-END:variables
