@@ -115,7 +115,7 @@ public class conexao_bd{
         return nome;
     }
     public void Instituicao(String nome,String endereco,String telefone,String responsavel,String cnpj,String cpf){
-        String InstrucaoSQL="INSERT INTO `Instituições` (`idInstituições`, `NomeDaInstituicao`, `Localizacao`, `Telefone`, `Responsavel`, `CNPJ`, `CPF`) "
+        String InstrucaoSQL="INSERT INTO `instituicoes` (`idInstituições`, `NomeDaInstituicao`, `Localizacao`, `Telefone`, `Responsavel`, `CNPJ`, `CPF`) "
                 + "VALUES (NULL, '"+nome+"', '"+endereco+"', '"+telefone+"', '"+responsavel+"', '"+cnpj+"', '"+cpf+"');";
         
         conectar();
@@ -129,7 +129,7 @@ public class conexao_bd{
         desconectar();
     }
     public void Cliente(String nome,String cpf,String telefone,String email,String endereco){
-        String InstrucaoSQL="INSERT INTO `Clientes` (`idClientes`, `Nome`, `CPF`, `Telefone`, `Email`, `Endereco`) "
+        String InstrucaoSQL="INSERT INTO `clientes` (`idClientes`, `Nome`, `CPF`, `Telefone`, `Email`, `Endereco`) "
                 + "VALUES (NULL, '"+nome+"', '"+cpf+"', '"+telefone+"', '"+email+"', '"+endereco+"');";
         
         conectar();
@@ -143,7 +143,7 @@ public class conexao_bd{
         desconectar();
     }
     public void CadastroMaquina(String cpu,String pmae,String ram,String hd,String ssd,String ccpu,String cooler,String gpu,String fonte,String gabinete,String matricula,String patrimonio,String sala){
-        String InstrucaoSQL="INSERT INTO `Chamado` (`Ticket`, `Patrimonio`, `Sala`, `Placa mae`, `Processador`, `Memorias Ram`, `Placa de video`, `Fonte`, `Ssd`, `Hd`, `Cooler`, `CoolerCpu`, `Gabinete`, `Matricula`, `Data`, `Hora`) "
+        String InstrucaoSQL="INSERT INTO `chamado` (`Ticket`, `Patrimonio`, `Sala`, `Placa mae`, `Processador`, `Memorias Ram`, `Placa de video`, `Fonte`, `Ssd`, `Hd`, `Cooler`, `CoolerCpu`, `Gabinete`, `Matricula`, `Data`, `Hora`) "
                 + "VALUES (NULL, '"+patrimonio+"', '"+sala+"', '"+pmae+"', '"+cpu+"', '"+ram+"', '"+gpu+"', '"+fonte+"', '"+ssd+"', '"+hd+"', '"+cooler+"', '"+ccpu+"', '"+gabinete+"', '"+matricula+"', '"+getDate()+"', '"+getTime()+"');";
         
         conectar();
@@ -157,7 +157,7 @@ public class conexao_bd{
         desconectar();
     }
     public void Defeito(String defeito){
-        String InstrucaoSQL="INSERT INTO Problema (Problema,StatusDoProblema) "
+        String InstrucaoSQL="INSERT INTO problema (Problema,StatusDoProblema) "
                 + "VALUES ('"+defeito+"','PENDENTE')";
         
         conectar();
@@ -171,7 +171,7 @@ public class conexao_bd{
         desconectar();
     }
     public void DefeitoSolucao(String defeito,String solucao){
-        String InstrucaoSQL="INSERT INTO Problema (Problema,StatusDoProblema,Solucao) "
+        String InstrucaoSQL="INSERT INTO problema (Problema,StatusDoProblema,Solucao) "
                 + "VALUES ('"+defeito+"','CONCLUIDO','"+solucao+"')";
         
         conectar();
@@ -185,7 +185,7 @@ public class conexao_bd{
         desconectar();
     }
     public void Solucao(String solucao,String ticket){
-        String InstrucaoSQL="UPDATE Problema SET StatusDoProblema = 'CONCLUIDO' AND SET Solucao = '"+solucao+"' "
+        String InstrucaoSQL="UPDATE problema SET StatusDoProblema = 'CONCLUIDO' AND SET Solucao = '"+solucao+"' "
                 + "WHERE idTicket = '"+ticket+"'";
         
         conectar();
@@ -199,7 +199,7 @@ public class conexao_bd{
         desconectar();
     }
     public void AddTec(String nome, String matricula, String usuario, String senha){
-        String InstrucaoSQL="INSERT INTO Usuario (Nome,Matricula,Usuario,Senha,Cargo) "
+        String InstrucaoSQL="INSERT INTO usuario (Nome,Matricula,Usuario,Senha,Cargo) "
                 + "VALUES ('"+nome+"','"+matricula+"','"+usuario+"','"+senha+"','TEC')";
         
         conectar();
@@ -213,7 +213,7 @@ public class conexao_bd{
         desconectar();
     }
     public void AddAdm(String nome, String matricula, String usuario, String senha){
-        String InstrucaoSQL="INSERT INTO Usuario (Nome,Matricula,Usuario,Senha,Cargo) "
+        String InstrucaoSQL="INSERT INTO usuario (Nome,Matricula,Usuario,Senha,Cargo) "
                 + "VALUES ('"+nome+"','"+matricula+"','"+usuario+"','"+senha+"','ADM')";
         
         conectar();
@@ -227,7 +227,7 @@ public class conexao_bd{
         desconectar();
     }
     public boolean InstituicaoCPF(String cpf){
-        String InstrucaoSQL="SELECT CPF FROM Instituições";
+        String InstrucaoSQL="SELECT CPF FROM instituicoes";
         boolean verifica = false;
         conectar();
         try{
@@ -247,7 +247,7 @@ public class conexao_bd{
         return verifica;
     }
     public boolean InstituicaoCNPJ(String cnpj){
-        String InstrucaoSQL="SELECT CNPJ FROM Instituições";
+        String InstrucaoSQL="SELECT CNPJ FROM instituicoes";
         boolean verifica = false;
         conectar();
         try{
@@ -267,7 +267,7 @@ public class conexao_bd{
         return verifica;
     }
     public boolean ClienteCPF(String cpf){
-        String InstrucaoSQL="SELECT CPF FROM Clientes";
+        String InstrucaoSQL="SELECT CPF FROM clientes";
         boolean verifica = false;
         conectar();
         try{
@@ -288,7 +288,7 @@ public class conexao_bd{
     }
     public String[] getAluno(String matricula){
         String[] aluno = new String[2];
-        String InstrucaoSQL="SELECT Nome,Usuario FROM Usuario WHERE Matricula = "+matricula;
+        String InstrucaoSQL="SELECT Nome,Usuario FROM usuario WHERE Matricula = "+matricula;
         conectar();
         try{
             st = conexao.createStatement();
@@ -305,7 +305,7 @@ public class conexao_bd{
         return aluno;
     }
     public void DeletaAluno(String matricula){
-        String InstrucaoSQL="DELETE FROM `Usuario` WHERE `Matricula`= "+matricula;
+        String InstrucaoSQL="DELETE FROM `usuario` WHERE `Matricula`= "+matricula;
         conectar();
         try{
             st = conexao.createStatement();
@@ -318,7 +318,7 @@ public class conexao_bd{
     }
    public boolean EditaUsuario(String matricula,String Usuario,String Senha){
         boolean tf=false;
-        String InstrucaoSQL="UPDATE `Usuario` SET `Usuario` = '"+Usuario+"', `Senha` = '"+Senha+"' WHERE `Matricula` = '"+matricula+"'";
+        String InstrucaoSQL="UPDATE `Uuuario` SET `Usuario` = '"+Usuario+"', `Senha` = '"+Senha+"' WHERE `Matricula` = '"+matricula+"'";
         conectar();
         try{
             st = conexao.createStatement();
