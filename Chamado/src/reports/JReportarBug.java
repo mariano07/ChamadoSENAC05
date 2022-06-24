@@ -5,6 +5,8 @@
 package reports;
 
 import conexao.conexao_bd;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,6 +31,8 @@ public class JReportarBug extends javax.swing.JInternalFrame {
     private void reseta(){
         texta_processo.setText("");
         texta_bug.setText("");
+        label_contadorProcesso.setText("0/255");
+        label_contadorBug.setText("0/255");
     }
 
     /**
@@ -69,6 +73,11 @@ public class JReportarBug extends javax.swing.JInternalFrame {
         texta_processo.setColumns(20);
         texta_processo.setForeground(new java.awt.Color(0, 0, 0));
         texta_processo.setRows(5);
+        texta_processo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                texta_processoKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(texta_processo);
 
         label_contadorProcesso.setBackground(new java.awt.Color(51, 51, 51));
@@ -83,6 +92,11 @@ public class JReportarBug extends javax.swing.JInternalFrame {
         texta_bug.setColumns(20);
         texta_bug.setForeground(new java.awt.Color(0, 0, 0));
         texta_bug.setRows(5);
+        texta_bug.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                texta_bugKeyTyped(evt);
+            }
+        });
         jScrollPane2.setViewportView(texta_bug);
 
         label_contadorBug.setBackground(new java.awt.Color(51, 51, 51));
@@ -157,11 +171,40 @@ public class JReportarBug extends javax.swing.JInternalFrame {
     private void button_enviarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_enviarMouseClicked
         conexao_bd cbd = new conexao_bd();
         String processoBug = texta_processo.getText(),bug = texta_bug.getText();
-        if(!texta_bug.getText().equals("")){
+        int x = texta_processo.getText().length(),y = texta_bug.getText().length();
+        if(!texta_bug.getText().equals("") && x <= 255 && y <= 255){
             cbd.ReportaBug(usuario,matricula,processoBug,bug);
             reseta();
+        }else if(x >= 256 || y >= 256){
+            JOptionPane.showMessageDialog(null, "Limite de caracteres atingido em um dos campos!","Limite de caracteres",JOptionPane.ERROR_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Complete os campos corretamente","ERRO",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_button_enviarMouseClicked
+
+    private void texta_bugKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_texta_bugKeyTyped
+        int y = texta_bug.getText().length();
+        label_contadorBug.setText(y+"/255");
+        invalidate();
+        validate();
+        if(y >= 256){
+            label_contadorBug.setForeground(Color.RED);
+        }else{
+            label_contadorBug.setForeground(Color.WHITE);
+        }
+    }//GEN-LAST:event_texta_bugKeyTyped
+
+    private void texta_processoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_texta_processoKeyTyped
+        int x = texta_processo.getText().length();
+        label_contadorProcesso.setText(x+"/255");
+        invalidate();
+        validate();
+        if(x >= 256){
+            label_contadorProcesso.setForeground(Color.RED);
+        }else{
+            label_contadorProcesso.setForeground(Color.WHITE);
+        }
+    }//GEN-LAST:event_texta_processoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

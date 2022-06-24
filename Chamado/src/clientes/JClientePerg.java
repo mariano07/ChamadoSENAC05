@@ -4,6 +4,7 @@
  */
 package clientes;
 
+import conexao.JClienteExistente;
 import javax.swing.JDesktopPane;
 
 /**
