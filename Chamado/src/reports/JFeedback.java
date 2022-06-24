@@ -5,6 +5,8 @@
 package reports;
 
 import conexao.conexao_bd;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +19,8 @@ public class JFeedback extends javax.swing.JInternalFrame {
      * Creates new form JFeedback
      */
     private String usuario="",matricula="";
+    int i=255,y=0;
+    //private int i=0;
     public JFeedback() {
         initComponents();
     }
@@ -28,6 +32,7 @@ public class JFeedback extends javax.swing.JInternalFrame {
     
     private void reseta(){
         texta_feedback.setText("");
+        label_contadorFeedback.setText("/255");
     }
 
     /**
@@ -43,7 +48,7 @@ public class JFeedback extends javax.swing.JInternalFrame {
         label_info = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         texta_feedback = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
+        label_contadorFeedback = new javax.swing.JLabel();
         button_enviar = new javax.swing.JButton();
 
         setClosable(true);
@@ -64,11 +69,16 @@ public class JFeedback extends javax.swing.JInternalFrame {
         texta_feedback.setColumns(20);
         texta_feedback.setForeground(new java.awt.Color(0, 0, 0));
         texta_feedback.setRows(5);
+        texta_feedback.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                texta_feedbackKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(texta_feedback);
 
-        jLabel2.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("0/255");
+        label_contadorFeedback.setBackground(new java.awt.Color(51, 51, 51));
+        label_contadorFeedback.setForeground(new java.awt.Color(255, 255, 255));
+        label_contadorFeedback.setText("0/255");
 
         button_enviar.setBackground(new java.awt.Color(255, 255, 255));
         button_enviar.setForeground(new java.awt.Color(0, 0, 0));
@@ -94,7 +104,7 @@ public class JFeedback extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label_contadorFeedback, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(button_enviar, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
@@ -106,7 +116,7 @@ public class JFeedback extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(label_contadorFeedback)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(button_enviar)
                 .addContainerGap())
@@ -129,18 +139,35 @@ public class JFeedback extends javax.swing.JInternalFrame {
     private void button_enviarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_enviarMouseClicked
         conexao_bd cbd = new conexao_bd();
         String feedback = texta_feedback.getText();
-        if(texta_feedback.getText().equals("")){
+        int x = texta_feedback.getText().length();
+        if(!texta_feedback.getText().equals("") && x <= 255){
             cbd.Feedback(usuario,matricula,feedback);
             reseta();
+        }else if(x >= 256) {
+            JOptionPane.showMessageDialog(null, "Limite de caracteres atingido!","Limite de caracteres",JOptionPane.ERROR_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Complete o campo corretamente","ERRO",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_button_enviarMouseClicked
+
+    private void texta_feedbackKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_texta_feedbackKeyTyped
+        int x = texta_feedback.getText().length();
+        label_contadorFeedback.setText(x+"/255");
+        invalidate();
+        validate();
+        if(x >= 256){
+            label_contadorFeedback.setForeground(Color.RED);
+        }else{
+            label_contadorFeedback.setForeground(Color.WHITE);
+        }
+    }//GEN-LAST:event_texta_feedbackKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_enviar;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel label_contadorFeedback;
     private javax.swing.JLabel label_info;
     private javax.swing.JTextArea texta_feedback;
     // End of variables declaration//GEN-END:variables

@@ -332,8 +332,8 @@ public class conexao_bd{
         return tf;
     }
    public void ReportaBug(String usuario,String matricula,String processoBug,String bug){
-       String InstrucaoSQL="INSERT INTO `report_bugs` (`Usuario`, `Matricula`, `Processo`, `Bug`) "
-               + "VALUES ('"+usuario+"',"+matricula+",'"+processoBug+"','"+bug+"')";
+       String InstrucaoSQL="INSERT INTO `report_bugs` (`idBug`, `Usuario`, `Matricula`, `Processo`, `Bug`) "
+               + "VALUES (NULL,'"+usuario+"','"+matricula+"','"+processoBug+"','"+bug+"')";
         conectar();
         try{
             st = conexao.createStatement();
@@ -346,8 +346,8 @@ public class conexao_bd{
         desconectar();
    }
    public void Feedback(String usuario,String matricula,String feedback){
-       String InstrucaoSQL="INSERT INTO `feedback` (`Usuario`, `Matricula`, `Feedback`) "
-               + "VALUES ('"+usuario+"',"+matricula+",'"+feedback+"')";
+       String InstrucaoSQL="INSERT INTO `feedback` (`idFeedback`,`Usuario`, `Matricula`, `Feedback`) "
+               + "VALUES (NULL,'"+usuario+"','"+matricula+"','"+feedback+"')";
         conectar();
         try{
             st = conexao.createStatement();
