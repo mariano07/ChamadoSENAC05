@@ -4,7 +4,7 @@
  */
 package conexao;
 
-import clientes.JClienteExistente;
+
 import java.awt.List;
 import java.sql.Connection;
 import java.sql.DriverManager;
