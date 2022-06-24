@@ -4,18 +4,13 @@
  */
 package conexao;
 
-import clientes.JClienteExistente;
-import java.awt.List;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
 
 public class conexao_bd{
     
@@ -56,7 +51,7 @@ public class conexao_bd{
     public String Login(String usuario,String senha){
         
         String InstrucaoSQL = "SELECT Cargo FROM usuario "
-                + "WHERE Usuario = '"+usuario+"' AND AES_DECRYPT(Senha,'"+chave+"')="+senha;
+                + "WHERE Usuario = AES_ENCRYPT('"+usuario+"','"+chave+"') AND Senha = AES_ENCRYPT('"+senha+"','"+chave+"')";
         String cargo = "";
         conectar();
         try{
@@ -77,7 +72,7 @@ public class conexao_bd{
     public String getUsuario(String usuario,String senha){
         
         String InstrucaoSQL = "SELECT Matricula FROM usuario "
-                + "WHERE Usuario = '"+usuario+"' AND AES_DECRYPT(Senha,'"+chave+"')="+senha;
+                + "WHERE Usuario = AES_ENCRYPT('"+usuario+"','"+chave+"') AND Senha = AES_ENCRYPT('"+senha+"','"+chave+"')";
         String matricula = "";
         conectar();
         try{
@@ -97,7 +92,7 @@ public class conexao_bd{
     public String getNome(String usuario,String senha){
         
         String InstrucaoSQL = "SELECT Nome FROM usuario "
-                + "WHERE Usuario = '"+usuario+"' AND AES_DECRYPT(Senha,'"+chave+"')="+senha;
+                + "WHERE Usuario = AES_ENCRYPT('"+usuario+"','"+chave+"') AND Senha = AES_ENCRYPT('"+senha+"','"+chave+"')";
         String nome = "";
         conectar();
         try{
@@ -200,7 +195,7 @@ public class conexao_bd{
     }
     public void AddTec(String nome, String matricula, String usuario, String senha){
         String InstrucaoSQL="INSERT INTO Usuario (Nome,Matricula,Usuario,Senha,Cargo) "
-                + "VALUES ('"+nome+"','"+matricula+"','"+usuario+"','"+senha+"','TEC')";
+                + "VALUES ('"+nome+"','"+matricula+"',AES_ENCRYPT('"+usuario+"','"+chave+"'),AES_ENCRYPT('"+senha+"','"+chave+"'),'TEC')";
         
         conectar();
         try{
@@ -214,7 +209,7 @@ public class conexao_bd{
     }
     public void AddAdm(String nome, String matricula, String usuario, String senha){
         String InstrucaoSQL="INSERT INTO Usuario (Nome,Matricula,Usuario,Senha,Cargo) "
-                + "VALUES ('"+nome+"','"+matricula+"','"+usuario+"','"+senha+"','ADM')";
+                + "VALUES ('"+nome+"','"+matricula+"',AES_ENCRYPT('"+usuario+"','"+chave+"'),AES_ENCRYPT('"+senha+"','"+chave+"'),'ADM')";
         
         conectar();
         try{
@@ -288,7 +283,7 @@ public class conexao_bd{
     }
     public String[] getAluno(String matricula){
         String[] aluno = new String[2];
-        String InstrucaoSQL="SELECT Nome,Usuario FROM Usuario WHERE Matricula = "+matricula;
+        String InstrucaoSQL="SELECT Nome,AES_DECRYPT(Usuario,'"+chave+"') FROM Usuario WHERE Matricula = "+matricula;
         conectar();
         try{
             st = conexao.createStatement();
@@ -318,7 +313,8 @@ public class conexao_bd{
     }
    public boolean EditaUsuario(String matricula,String Usuario,String Senha){
         boolean tf=false;
-        String InstrucaoSQL="UPDATE `Usuario` SET `Usuario` = '"+Usuario+"', `Senha` = '"+Senha+"' WHERE `Matricula` = '"+matricula+"'";
+        String InstrucaoSQL="UPDATE `Usuario` SET `Usuario` = AES_ENCRYPT('"+Usuario+"','"+chave+"'), `Senha` = AES_ENCRYPT('"+Usuario+"','"+chave+"') "
+                + "WHERE `Matricula` = '"+matricula+"'";
         conectar();
         try{
             st = conexao.createStatement();
