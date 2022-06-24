@@ -55,7 +55,7 @@ public class conexao_bd{
     }
     public String Login(String usuario,String senha){
         
-        String InstrucaoSQL = "SELECT Cargo FROM Usuario "
+        String InstrucaoSQL = "SELECT Cargo FROM usuario "
                 + "WHERE Usuario = '"+usuario+"' AND AES_DECRYPT(Senha,'"+chave+"')="+senha;
         String cargo = "";
         conectar();
@@ -76,7 +76,7 @@ public class conexao_bd{
     }
     public String getUsuario(String usuario,String senha){
         
-        String InstrucaoSQL = "SELECT Matricula FROM Usuario "
+        String InstrucaoSQL = "SELECT Matricula FROM usuario "
                 + "WHERE Usuario = '"+usuario+"' AND AES_DECRYPT(Senha,'"+chave+"')="+senha;
         String matricula = "";
         conectar();
@@ -96,7 +96,7 @@ public class conexao_bd{
     }
     public String getNome(String usuario,String senha){
         
-        String InstrucaoSQL = "SELECT Nome FROM Usuario "
+        String InstrucaoSQL = "SELECT Nome FROM usuario "
                 + "WHERE Usuario = '"+usuario+"' AND AES_DECRYPT(Senha,'"+chave+"')="+senha;
         String nome = "";
         conectar();
