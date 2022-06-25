@@ -169,16 +169,16 @@ public class JLogin extends javax.swing.JFrame {
         verificaC = cbd.Login(login, senha);
           
         if(verificaC.toString().equals("ADM")){
-            verificaM = cbd.getUsuario(login, senha);
-            verificaN = cbd.getNome(login, senha);
+            verificaM = cbd.getMatricula(login, senha);
+            verificaN = cbd.getUsuario(login, senha);
             JMain jm = new JMain();
             jm.checa_cargo(verificaC, verificaM, verificaN);
             jm.setTexto(verificaN,verificaM);
             jm.setVisible(true);
             dispose();
         }else if (verificaC.equals("TEC")){
-            verificaM = cbd.getUsuario(login, senha);
-            verificaN = cbd.getNome(login, senha);
+            verificaM = cbd.getMatricula(login, senha);
+            verificaN = cbd.getUsuario(login, senha);
             JMain jm = new JMain();
             jm.checa_cargo(verificaC, verificaM, verificaN);
             jm.setTexto(verificaN,verificaM);
@@ -197,16 +197,16 @@ public class JLogin extends javax.swing.JFrame {
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             verificaC = cbd.Login(login, senha);
             if(verificaC.toString().equals("ADM")){
-                verificaM = cbd.getUsuario(login, senha);
-                verificaN = cbd.getNome(login, senha);
+                verificaM = cbd.getMatricula(login, senha);
+                verificaN = cbd.getUsuario(login, senha);
                 JMain jm = new JMain();
                 jm.checa_cargo(verificaC, verificaM, verificaN);
                 jm.setTexto(verificaN,verificaM);
                 jm.setVisible(true);
                 dispose();
             }else if (verificaC.equals("TEC")){
-                verificaM = cbd.getUsuario(login, senha);
-                verificaN = cbd.getNome(login, senha);
+                verificaM = cbd.getMatricula(login, senha);
+                verificaN = cbd.getUsuario(login, senha);
                 JMain jm = new JMain();
                 jm.checa_cargo(verificaC, verificaM, verificaN);
                 jm.setTexto(verificaN,verificaM);
@@ -226,16 +226,16 @@ public class JLogin extends javax.swing.JFrame {
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             verificaC = cbd.Login(login, senha);
             if(verificaC.toString().equals("ADM")){
-                verificaM = cbd.getUsuario(login, senha);
-                verificaN = cbd.getNome(login, senha);
+                verificaM = cbd.getMatricula(login, senha);
+                verificaN = cbd.getUsuario(login, senha);
                 JMain jm = new JMain();
                 jm.checa_cargo(verificaC, verificaM, verificaN);
                 jm.setTexto(verificaN,verificaM);
                 jm.setVisible(true);
                 dispose();
             }else if (verificaC.equals("TEC")){
-                verificaM = cbd.getUsuario(login, senha);
-                verificaN = cbd.getNome(login, senha);
+                verificaM = cbd.getMatricula(login, senha);
+                verificaN = cbd.getUsuario(login, senha);
                 JMain jm = new JMain();
                 jm.checa_cargo(verificaC, verificaM, verificaN);
                 jm.setTexto(verificaN,verificaM);

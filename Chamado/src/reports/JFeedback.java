@@ -6,7 +6,10 @@ package reports;
 
 import conexao.conexao_bd;
 import java.awt.Color;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -69,6 +72,11 @@ public class JFeedback extends javax.swing.JInternalFrame {
         texta_feedback.setColumns(20);
         texta_feedback.setForeground(new java.awt.Color(0, 0, 0));
         texta_feedback.setRows(5);
+        texta_feedback.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                texta_feedbackMouseClicked(evt);
+            }
+        });
         texta_feedback.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 texta_feedbackKeyTyped(evt);
@@ -161,6 +169,12 @@ public class JFeedback extends javax.swing.JInternalFrame {
             label_contadorFeedback.setForeground(Color.WHITE);
         }
     }//GEN-LAST:event_texta_feedbackKeyTyped
+
+    private void texta_feedbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_texta_feedbackMouseClicked
+       if(evt.getButton() == MouseEvent.BUTTON3){
+           
+       }
+    }//GEN-LAST:event_texta_feedbackMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

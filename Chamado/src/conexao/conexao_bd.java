@@ -70,7 +70,7 @@ public class conexao_bd{
         return cargo;
         
     }
-    public String getUsuario(String usuario,String senha){
+    public String getMatricula(String usuario,String senha){
         
         String InstrucaoSQL = "SELECT Matricula FROM usuario "
                 + "WHERE Usuario = AES_ENCRYPT('"+usuario+"','"+chave+"') AND Senha = AES_ENCRYPT('"+senha+"','"+chave+"')";
@@ -90,25 +90,25 @@ public class conexao_bd{
         desconectar();
         return matricula;
     }
-    public String getNome(String usuario,String senha){
+    public String getUsuario(String usuario,String senha){
         
-        String InstrucaoSQL = "SELECT Nome FROM usuario "
+        String InstrucaoSQL = "SELECT AES_DECRYPT(Usuario,'"+chave+"') FROM usuario "
                 + "WHERE Usuario = AES_ENCRYPT('"+usuario+"','"+chave+"') AND Senha = AES_ENCRYPT('"+senha+"','"+chave+"')";
-        String nome = "";
+        String Usuario = "";
         conectar();
         try{
             st = conexao.createStatement();
             result = st.executeQuery(InstrucaoSQL);
             while(result.next()){
-              nome = result.getString("Nome");  
+              Usuario = result.getString("AES_DECRYPT(Usuario,'"+chave+"')");  
             }
         }
         catch (Exception e){
             e.printStackTrace();
-           nome = "C097";
+           Usuario = "C097";
         }
         desconectar();
-        return nome;
+        return Usuario;
     }
     public void Instituicao(String nome,String endereco,String telefone,String responsavel,String cnpj,String cpf){
         String InstrucaoSQL="INSERT INTO `instituicoes` (`idInstituições`, `NomeDaInstituicao`, `Localizacao`, `Telefone`, `Responsavel`, `CNPJ`, `CPF`) "
