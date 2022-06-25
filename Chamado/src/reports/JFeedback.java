@@ -6,6 +6,9 @@ package reports;
 
 import conexao.conexao_bd;
 import java.awt.Color;
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.PointerInfo;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -47,12 +50,21 @@ public class JFeedback extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pop_acoes = new javax.swing.JPopupMenu();
+        mitem_copiar = new javax.swing.JMenuItem();
+        mitem_colar = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         label_info = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         texta_feedback = new javax.swing.JTextArea();
         label_contadorFeedback = new javax.swing.JLabel();
         button_enviar = new javax.swing.JButton();
+
+        mitem_copiar.setText("jMenuItem2");
+        pop_acoes.add(mitem_copiar);
+
+        mitem_colar.setText("jMenuItem1");
+        pop_acoes.add(mitem_colar);
 
         setClosable(true);
         setIconifiable(true);
@@ -73,8 +85,11 @@ public class JFeedback extends javax.swing.JInternalFrame {
         texta_feedback.setForeground(new java.awt.Color(0, 0, 0));
         texta_feedback.setRows(5);
         texta_feedback.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                texta_feedbackMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                texta_feedbackMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                texta_feedbackMouseReleased(evt);
             }
         });
         texta_feedback.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -170,11 +185,22 @@ public class JFeedback extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_texta_feedbackKeyTyped
 
-    private void texta_feedbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_texta_feedbackMouseClicked
-       if(evt.getButton() == MouseEvent.BUTTON3){
-           
+    private void texta_feedbackMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_texta_feedbackMousePressed
+        if(evt.getButton() == MouseEvent.BUTTON3 && !pop_acoes.isVisible()){
+           PointerInfo a = MouseInfo.getPointerInfo();
+           Point b = a.getLocation();
+           int x = (int) b.getX();
+           int y = (int) b.getX();
+           pop_acoes.setLocation(x, y);
+           pop_acoes.setVisible(true);
        }
-    }//GEN-LAST:event_texta_feedbackMouseClicked
+    }//GEN-LAST:event_texta_feedbackMousePressed
+
+    private void texta_feedbackMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_texta_feedbackMouseReleased
+        if(evt.getButton() == MouseEvent.BUTTON1){
+           pop_acoes.setVisible(false);
+       }
+    }//GEN-LAST:event_texta_feedbackMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -183,6 +209,9 @@ public class JFeedback extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label_contadorFeedback;
     private javax.swing.JLabel label_info;
+    private javax.swing.JMenuItem mitem_colar;
+    private javax.swing.JMenuItem mitem_copiar;
+    private javax.swing.JPopupMenu pop_acoes;
     private javax.swing.JTextArea texta_feedback;
     // End of variables declaration//GEN-END:variables
 }
