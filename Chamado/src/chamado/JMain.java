@@ -62,8 +62,8 @@ public class JMain extends javax.swing.JFrame {
         }
     }
     
-    public void setTexto(String nome,String matricula){
-        menu_nomeU.setText(nome);
+    public void setTexto(String usuario,String matricula){
+        menu_nomeU.setText(usuario);
         mitem_matricula.setText(matricula);
     }
     
