@@ -315,7 +315,7 @@ public class conexao_bd{
     }
    public boolean EditaUsuario(String matricula,String Usuario,String Senha){
         boolean tf=false;
-        String InstrucaoSQL="UPDATE `usuario` SET `Usuario` = AES_ENCRYPT('"+Usuario+"','"+chave+"'), `Senha` = AES_ENCRYPT('"+Usuario+"','"+chave+"') "
+        String InstrucaoSQL="UPDATE `usuario` SET `Usuario` = AES_ENCRYPT('"+Usuario+"','"+chave+"'), `Senha` = AES_ENCRYPT('"+Senha+"','"+chave+"') "
                 + "WHERE `Matricula` = '"+matricula+"'";
 
         conectar();
