@@ -12,12 +12,11 @@ import java.sql.Statement;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author Aluno
  */
-public class JClienteExistente extends javax.swing.JInternalFrame {
+public class JInstituicaoExistente extends javax.swing.JInternalFrame {
     
     static String url ="jdbc:mysql://172.20.126.128:3306/ChamadoSENAC";
     static String username ="chamado";
@@ -26,20 +25,19 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
     Connection con = conexao;
     Statement st = null;
     ResultSet result = null;
-    
 
-        DefaultListModel model;
-        int Enter = 0;
+            DefaultListModel model;
+            int Enter = 0;
 
-    public JClienteExistente() {
-        initComponents();
-        conectar();
-        MostraPesquisa();
-        list_pesquisa.setVisible(true);
-        model = new DefaultListModel();
-        list_pesquisa.setModel(model);
+    public JInstituicaoExistente() {
+            initComponents();
+            conectar();
+            MostraPesquisa();
+            list_pesquisa.setVisible(true);
+            model = new DefaultListModel();
+            list_pesquisa.setModel(model);
         
-    }      
+    }  
      private void conectar(){
          try{
             conexao = DriverManager.getConnection(url,username,password);
@@ -58,14 +56,10 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
         }
     }
     
-    private void Pesquisa() {
-        initComponents();
     
-
-    }   
     private void  Busca () {    
            try {
-            String InstrucaoSQL= "SELECT * FROM clientes where Nome like '" + text_nomepesquisa.getText() + "%'";
+            String InstrucaoSQL= "SELECT * FROM instituicoes where Nome like '" + text_nomepesquisa.getText() + "%'";
             executaSQL(InstrucaoSQL);
             model.removeAllElements();
             int i = 0;
@@ -82,7 +76,8 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao listar dados" + e);
         }
-   }    
+   }
+     
    private void executaSQL(String sql) {
         try {
             st = conexao.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -91,23 +86,26 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Nao foi possível executar o comando sql");
         }
-    } 
-   private void ResultadoPesquisa() {
+    }
+   
+    private void ResultadoPesquisa() {
           try {
             result.first();
             text_nomeresult.setText(result.getString("Nome"));
-            text_cpfresult.setText(result.getString("CPF"));       
+            text_cnpjresult.setText(result.getString("CNPJ"));          
         } catch (SQLException erro) {
           // JOptionPane.showMessageDialog(null, "ERRO:C32 JCE", "ERRO", JOptionPane.ERROR_MESSAGE);
-        } 
+        }
+   
     }
    private void MostraPesquisa() {
         int Linha = list_pesquisa.getSelectedIndex();
         if (Linha >= 0) {
-            String InstrucaoSQL="SELECT nome FROM clientes  where nome= "+Linha+" ";
+            String InstrucaoSQL="SELECT nome FROM instituicoes where nome= "+Linha+" ";
             executaSQL(InstrucaoSQL);
             ResultadoPesquisa();
         }
+
     }
 
     /**
@@ -119,65 +117,39 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        text_cnpjresult = new javax.swing.JTextField();
         label_nomeresult = new javax.swing.JLabel();
         text_nomeresult = new javax.swing.JTextField();
-        label_cpfresult = new javax.swing.JLabel();
-        text_cpfresult = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
+        label_cnpjresult = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        list_pesquisa = new javax.swing.JList<>();
         text_nomepesquisa = new javax.swing.JTextField();
+        list_pesquisa = new javax.swing.JList<>();
 
-        setBackground(new java.awt.Color(51, 51, 51));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Clientes Existentes");
-        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
-            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameOpened(evt);
-            }
-        });
+        setTitle("Insituição Existente");
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
+        text_cnpjresult.setBackground(new java.awt.Color(255, 255, 255));
+        text_cnpjresult.setForeground(new java.awt.Color(51, 51, 51));
+
+        label_nomeresult.setBackground(new java.awt.Color(51, 51, 51));
         label_nomeresult.setForeground(new java.awt.Color(255, 255, 255));
         label_nomeresult.setText("Nome:");
 
         text_nomeresult.setBackground(new java.awt.Color(255, 255, 255));
         text_nomeresult.setForeground(new java.awt.Color(0, 0, 0));
 
-        label_cpfresult.setForeground(new java.awt.Color(255, 255, 255));
-        label_cpfresult.setText("CPF:");
+        label_cnpjresult.setBackground(new java.awt.Color(51, 51, 51));
+        label_cnpjresult.setForeground(new java.awt.Color(255, 255, 255));
+        label_cnpjresult.setText("CNPJ");
 
-        text_cpfresult.setBackground(new java.awt.Color(255, 255, 255));
-        text_cpfresult.setForeground(new java.awt.Color(51, 51, 51));
-
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
-
-        list_pesquisa.setBackground(new java.awt.Color(255, 255, 255));
-        list_pesquisa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        list_pesquisa.setForeground(new java.awt.Color(0, 0, 0));
-        list_pesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                list_pesquisaMousePressed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
         text_nomepesquisa.setBackground(new java.awt.Color(255, 255, 255));
         text_nomepesquisa.setForeground(new java.awt.Color(51, 51, 51));
@@ -193,16 +165,25 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
             }
         });
 
-        jLayeredPane1.setLayer(list_pesquisa, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        list_pesquisa.setBackground(new java.awt.Color(255, 255, 255));
+        list_pesquisa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        list_pesquisa.setForeground(new java.awt.Color(0, 0, 0));
+        list_pesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                list_pesquisaMousePressed(evt);
+            }
+        });
+
         jLayeredPane1.setLayer(text_nomepesquisa, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(list_pesquisa, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(text_nomepesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(text_nomepesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
@@ -214,110 +195,106 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(text_nomepesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addComponent(text_nomepesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(90, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(20, 20, 20)
-                    .addComponent(list_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(20, Short.MAX_VALUE)))
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGap(22, 22, 22)
+                    .addComponent(list_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(23, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(label_cpfresult, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(label_cnpjresult, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(text_cpfresult, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(text_cnpjresult, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(label_nomeresult, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(text_nomeresult, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_cnpjresult)
+                    .addComponent(text_cnpjresult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_nomeresult)
                     .addComponent(text_nomeresult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_cpfresult)
-                    .addComponent(text_cpfresult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-      
-    }//GEN-LAST:event_formInternalFrameOpened
-
-    private void list_pesquisaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_list_pesquisaMousePressed
-       MostraPesquisa();
+    private void text_nomepesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_nomepesquisaActionPerformed
         list_pesquisa.setVisible(false);
-    }//GEN-LAST:event_list_pesquisaMousePressed
+        Enter = 1;
+    }//GEN-LAST:event_text_nomepesquisaActionPerformed
 
     private void text_nomepesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_nomepesquisaKeyReleased
-         if(Enter == 0){
-             Busca();
-         }else{
+        if(Enter == 0){
+            Busca();
+        }else{
             Enter = 0;
-         }
+        }
     }//GEN-LAST:event_text_nomepesquisaKeyReleased
 
-    private void text_nomepesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_nomepesquisaActionPerformed
-    list_pesquisa.setVisible(false);
-    Enter = 1;    }//GEN-LAST:event_text_nomepesquisaActionPerformed
+    private void list_pesquisaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_list_pesquisaMousePressed
+        MostraPesquisa();
+        list_pesquisa.setVisible(false);
+    }//GEN-LAST:event_list_pesquisaMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel label_cpfresult;
+    private javax.swing.JLabel label_cnpjresult;
     private javax.swing.JLabel label_nomeresult;
     private javax.swing.JList<String> list_pesquisa;
-    private javax.swing.JTextField text_cpfresult;
+    private javax.swing.JTextField text_cnpjresult;
     private javax.swing.JTextField text_nomepesquisa;
     private javax.swing.JTextField text_nomeresult;
     // End of variables declaration//GEN-END:variables
