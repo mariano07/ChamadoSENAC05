@@ -17,7 +17,7 @@ public class JConsultaPendentes extends javax.swing.JInternalFrame {
      */
     public JConsultaPendentes() {
         initComponents();
-        box1.setSelected(true);
+        check_Consultas.setSelected(true);
     }
 
     /**
@@ -30,18 +30,17 @@ public class JConsultaPendentes extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         Botton_AlternaLista = new javax.swing.JButton();
-        texto = new javax.swing.JTextField();
+        text_Consulta = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         List_Pendencias = new javax.swing.JList<>();
-        box = new javax.swing.JCheckBox();
-        box1 = new javax.swing.JCheckBox();
-        cb = new javax.swing.JComboBox<>();
-        cb2 = new javax.swing.JComboBox<>();
-        cb3 = new javax.swing.JComboBox<>();
+        check_FIltros = new javax.swing.JCheckBox();
+        check_Consultas = new javax.swing.JCheckBox();
+        box_Patrimonio = new javax.swing.JComboBox<>();
+        box_Matricula = new javax.swing.JComboBox<>();
+        box_Data = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
 
         Botton_AlternaLista.setText("Alternar lista");
         Botton_AlternaLista.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -55,11 +54,11 @@ public class JConsultaPendentes extends javax.swing.JInternalFrame {
             }
         });
 
-        texto.setText("Pesquisar...                       ");
-        texto.setPreferredSize(new java.awt.Dimension(236, 25));
-        texto.addMouseListener(new java.awt.event.MouseAdapter() {
+        text_Consulta.setText("Pesquisar...                       ");
+        text_Consulta.setPreferredSize(new java.awt.Dimension(236, 25));
+        text_Consulta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textoMouseClicked(evt);
+                text_ConsultaMouseClicked(evt);
             }
         });
 
@@ -70,30 +69,32 @@ public class JConsultaPendentes extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(List_Pendencias);
 
-        box.setText("Mudar");
-        box.addMouseListener(new java.awt.event.MouseAdapter() {
+        check_FIltros.setText("Filtros");
+        check_FIltros.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                boxMouseClicked(evt);
-            }
-        });
-        box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxActionPerformed(evt);
+                check_FIltrosMouseClicked(evt);
             }
         });
 
-        box1.setText("Consultar");
-        box1.addMouseListener(new java.awt.event.MouseAdapter() {
+        check_Consultas.setText("Consultar");
+        check_Consultas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                box1MouseClicked(evt);
+                check_ConsultasMouseClicked(evt);
             }
         });
 
-        cb.addMouseListener(new java.awt.event.MouseAdapter() {
+        box_Patrimonio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patrimonio" }));
+        box_Patrimonio.setToolTipText("");
+        box_Patrimonio.setName(""); // NOI18N
+        box_Patrimonio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cbMouseClicked(evt);
+                box_PatrimonioMouseClicked(evt);
             }
         });
+
+        box_Matricula.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matricula" }));
+
+        box_Data.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,45 +102,47 @@ public class JConsultaPendentes extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addComponent(Botton_AlternaLista)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Botton_AlternaLista))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(check_Consultas)
+                                .addGap(18, 18, 18)
+                                .addComponent(text_Consulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(check_FIltros)
+                                .addGap(18, 18, 18)
+                                .addComponent(box_Patrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(box_Matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(box_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(box1)
-                        .addGap(18, 18, 18)
-                        .addComponent(texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(box)
-                        .addGap(18, 18, 18)
-                        .addComponent(cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cb2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cb3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(box1)
-                    .addComponent(texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(check_Consultas)
+                    .addComponent(text_Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(box)
-                    .addComponent(cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Botton_AlternaLista)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(check_FIltros)
+                    .addComponent(box_Patrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(box_Matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(box_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Botton_AlternaLista, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -157,64 +160,36 @@ public class JConsultaPendentes extends javax.swing.JInternalFrame {
        }
     }//GEN-LAST:event_Botton_AlternaListaMouseClicked
 
-    private void textoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoMouseClicked
+    private void text_ConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_text_ConsultaMouseClicked
        
-    }//GEN-LAST:event_textoMouseClicked
+    }//GEN-LAST:event_text_ConsultaMouseClicked
 
-    private void boxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boxMouseClicked
+    private void check_FIltrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_check_FIltrosMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_boxMouseClicked
+    }//GEN-LAST:event_check_FIltrosMouseClicked
 
-    private void box1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_box1MouseClicked
+    private void check_ConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_check_ConsultasMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_box1MouseClicked
+    }//GEN-LAST:event_check_ConsultasMouseClicked
 
-    private void cbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbMouseClicked
+    private void box_PatrimonioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_box_PatrimonioMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbMouseClicked
-
-    private void boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxActionPerformed
-        if(box.isSelected()){
-            cb.setVisible(true);
-            cb2.setVisible(true);
-            cb3.setVisible(true);
-            invalidate();
-            validate();
-        }else{
-            cb.setVisible(false);
-            cb2.setVisible(false);
-            cb3.setVisible(false);
-            invalidate();
-            validate();
-            
-            
-        }
-    }//GEN-LAST:event_boxActionPerformed
+    }//GEN-LAST:event_box_PatrimonioMouseClicked
 
     private void List_PendenciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_List_PendenciasMouseClicked
-        String []av = new String [5];
-        av[0] = "a1";
-        av[0] = "a2";
-        av[0] = "a2";
-        av[0] = "a3";
-        av[0] = "a4";
-       for(int i =0 ; i<av.length ; i++){
-           System.out.println(av[i]);
-       }
-        
-            
+           
     }//GEN-LAST:event_List_PendenciasMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Botton_AlternaLista;
     private javax.swing.JList<String> List_Pendencias;
-    private javax.swing.JCheckBox box;
-    private javax.swing.JCheckBox box1;
-    private javax.swing.JComboBox<String> cb;
-    private javax.swing.JComboBox<String> cb2;
-    private javax.swing.JComboBox<String> cb3;
+    private javax.swing.JComboBox<String> box_Data;
+    private javax.swing.JComboBox<String> box_Matricula;
+    private javax.swing.JComboBox<String> box_Patrimonio;
+    private javax.swing.JCheckBox check_Consultas;
+    private javax.swing.JCheckBox check_FIltros;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField texto;
+    private javax.swing.JTextField text_Consulta;
     // End of variables declaration//GEN-END:variables
 }
