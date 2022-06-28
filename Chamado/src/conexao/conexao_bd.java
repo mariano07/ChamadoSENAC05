@@ -358,4 +358,31 @@ public class conexao_bd{
         }
         desconectar();
    }
+   public int[] Estatisticas (String matricula){
+       int[] dados = new int [8];
+       
+       String InstrucaoSql="SELECT `TaxaDeAbandono` ,`NivelDeSatisfacao` ,`TempoDeAtendimento` , `TempoDeEspera` ,`TaxaDeAmplificacao`"
+               + " ,`TempoResolucao` ,`NivelDeServiço` ,`Pendencias`"
+               + "FROM estatistica WHERE Matricula = '"+matricula+"'";
+       conectar();
+       try{
+           st = conexao.createStatement();
+           result = st.executeQuery(InstrucaoSql);
+           while(result.next()){
+              dados[0] = result.getInt(2);
+              dados[1] = result.getInt(3);
+              dados[2] = result.getInt(4);
+              dados[3] = result.getInt(5);
+              dados[4] = result.getInt(6);
+              dados[5] = result.getInt(7);
+              dados[6] = result.getInt(8);
+              dados[7] = result.getInt(9); 
+           }
+               
+       }catch(Exception e){
+          e.printStackTrace();
+          JOptionPane.showMessageDialog(null, "ERRO:C361", "ERRO", JOptionPane.ERROR_MESSAGE);
+       }
+          return dados;
+   }
 }
