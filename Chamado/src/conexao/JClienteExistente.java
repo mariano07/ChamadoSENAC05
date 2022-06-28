@@ -135,6 +135,7 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("Clientes Existentes");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/user_suit.png"))); // NOI18N
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }

@@ -84,7 +84,6 @@ public class JMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenu1 = new javax.swing.JMenu();
         tela_principal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_nomeU = new javax.swing.JMenu();
@@ -106,8 +105,6 @@ public class JMain extends javax.swing.JFrame {
         menu_tecnicos = new javax.swing.JMenu();
         mitem_addtec = new javax.swing.JMenuItem();
         mitem_deltec = new javax.swing.JMenuItem();
-
-        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de T.I");
@@ -206,6 +203,11 @@ public class JMain extends javax.swing.JFrame {
 
         mitem_editchamado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_edit.png"))); // NOI18N
         mitem_editchamado.setText("Editar chamado");
+        mitem_editchamado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mitem_editchamadoActionPerformed(evt);
+            }
+        });
         menu_chamados.add(mitem_editchamado);
 
         jMenuBar1.add(menu_chamados);
@@ -340,20 +342,13 @@ public class JMain extends javax.swing.JFrame {
       }
     }//GEN-LAST:event_mitem_deltecActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        if(!jcp.isVisible()){
-            tela_principal.add(jcp);
-            jcp.setVisible(true);
-      }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     private void mitem_editarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_editarUsuActionPerformed
         String matricula = mitem_matricula.getText();
         if(!jet.isVisible()){
             jet.getmatricula(matricula);
             tela_principal.add(jet);
             jet.setVisible(true);
-      }
+        }
     }//GEN-LAST:event_mitem_editarUsuActionPerformed
 
     private void mitem_bugReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_bugReportActionPerformed
@@ -361,7 +356,7 @@ public class JMain extends javax.swing.JFrame {
             jrb.usuario_matricula(menu_nomeU.getText(),mitem_matricula.getText());
             tela_principal.add(jrb);
             jrb.setVisible(true);
-      }
+        }
     }//GEN-LAST:event_mitem_bugReportActionPerformed
 
     private void mitem_feedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_feedbackActionPerformed
@@ -369,8 +364,22 @@ public class JMain extends javax.swing.JFrame {
             jf.usuario_matricula(menu_nomeU.getText(),mitem_matricula.getText());
             tela_principal.add(jf);
             jf.setVisible(true);
-      }
+        }
     }//GEN-LAST:event_mitem_feedbackActionPerformed
+
+    private void mitem_editchamadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_editchamadoActionPerformed
+        if(!jcp.isVisible()){
+            tela_principal.add(jcp);
+            jcp.setVisible(true);
+        }
+    }//GEN-LAST:event_mitem_editchamadoActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        if(!jcp.isVisible()){
+            tela_principal.add(jcp);
+            jcp.setVisible(true);
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
 
     /**
@@ -410,7 +419,6 @@ public class JMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menu_chamados;

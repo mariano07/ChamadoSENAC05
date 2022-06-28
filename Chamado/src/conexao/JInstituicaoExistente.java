@@ -132,6 +132,7 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("Insituição Existente");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/building.png"))); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 

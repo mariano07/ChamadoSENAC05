@@ -7,6 +7,10 @@
     <Property name="maximizable" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="true"/>
     <Property name="title" type="java.lang.String" value="Insitui&#xe7;&#xe3;o Existente"/>
+    <Property name="frameIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+      <Image iconType="3" name="/imagens_icones/building.png"/>
+    </Property>
+    <Property name="icon" type="boolean" value="true"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
