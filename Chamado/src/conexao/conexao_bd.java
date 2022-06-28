@@ -360,7 +360,6 @@ public class conexao_bd{
    }
    public int[] Estatisticas (String matricula){
        int[] dados = new int [8];
-       
        String InstrucaoSql="SELECT `TaxaDeAbandono` ,`NivelDeSatisfacao` ,`TempoDeAtendimento` , `TempoDeEspera` ,`TaxaDeAmplificacao`"
                + " ,`TempoResolucao` ,`NivelDeServiço` ,`Pendencias`"
                + "FROM estatistica WHERE Matricula = '"+matricula+"'";
@@ -369,20 +368,46 @@ public class conexao_bd{
            st = conexao.createStatement();
            result = st.executeQuery(InstrucaoSql);
            while(result.next()){
-              dados[0] = result.getInt(2);
-              dados[1] = result.getInt(3);
-              dados[2] = result.getInt(4);
-              dados[3] = result.getInt(5);
-              dados[4] = result.getInt(6);
-              dados[5] = result.getInt(7);
-              dados[6] = result.getInt(8);
-              dados[7] = result.getInt(9); 
+            dados[3] = result.getInt("TaxaDeAbandono");
+            dados[2] = result.getInt("TaxaDeAtendimento");
+            dados[1] = result.getInt("TempoDeEspera");
+            dados[1] = result.getInt("NivelDeSatisfacao");
+            dados[2] = result.getInt("TaxaDeAmplicafacao");
+            dados[3] = result.getInt("TempoDeResolucao");
+            dados[4] = result.getInt("NivelDeServiço");
+            dados[5] = result.getInt("Pendencias");
+            dados[6] = result.getInt("Matricula");
+            dados[7] = result.getInt("9");
            }
                
        }catch(Exception e){
           e.printStackTrace();
           JOptionPane.showMessageDialog(null, "ERRO:C361", "ERRO", JOptionPane.ERROR_MESSAGE);
-       }
+       }    
+          JOptionPane.showMessageDialog(null,dados[3]);
+          //JOptionPane.showMessageDialog(null,dados[2]);
+          //JOptionPane.showMessageDialog(null,dados[1]);
           return dados;
    }
+  /* public int [] EstatisticasGeral(String matricula){
+       int size = 0;
+       int [] dadosGerais = new int [size];
+       
+       String InstrucaoSql= "SELECT `TaxaDeAbandono` ,`NivelDeSatisfacao` ,`TempoDeAtendimento` , `TempoDeEspera` ,`TaxaDeAmplificacao`"
+               + " ,`TempoResolucao` ,`NivelDeServiço` ,`Pendencias`"
+               + "FROM estatistica WHERE Matricula = '"+matricula+"'";
+       conectar();
+       try{
+           st = conexao.createStatement();
+           result = st.executeQuery(InstrucaoSql);
+           while(result.next()){
+               
+               
+           }
+       }catch(Exception e){
+           e.printStackTrace();
+           JOptionPane.showInternalMessageDialog(null,"ERRO:C388", "ERRO", JOptionPane.ERROR_MESSAGE);
+       }
+       
+   }*/
 }

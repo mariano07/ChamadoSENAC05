@@ -320,6 +320,8 @@ public class JMain extends javax.swing.JFrame {
 
     private void mitem_estindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_estindActionPerformed
         if(!jsi.isVisible()){
+            String matricula = mitem_matricula.getText();
+            jsi.matricula(matricula);
             tela_principal.add(jsi);
             jsi.setVisible(true);
       }

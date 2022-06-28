@@ -4,6 +4,9 @@
  */
 package estatisticas;
 
+import conexao.conexao_bd;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Aluno
@@ -13,10 +16,31 @@ public class JIndividual extends javax.swing.JInternalFrame {
     /**
      * Creates new form JIndividual
      */
+    private String matricula;
+    private static conexao_bd cbd = new conexao_bd();
     public JIndividual() {
         initComponents();
+        popular();
     }
-
+     public void matricula(String matricula){
+         this.matricula = matricula;
+     }
+      private void popular(){
+          JOptionPane.showMessageDialog(null,"Populando");
+          
+        
+        int[] dados = new int [8];
+        dados = cbd.Estatisticas(matricula);
+        text_nivservico.setText(String.valueOf(dados[0]));
+        text_nivsatisfacao.setText(String.valueOf(dados[1]));
+        text_tempoatend.setText(String.valueOf(dados[2]));
+        text_tempoespera.setText(String.valueOf(dados[3]));
+        text_taxampli.setText(String.valueOf(dados[4]));
+        text_taxabandono.setText(String.valueOf(dados[5]));
+        text_pendentes.setText(String.valueOf(dados[6]));
+        invalidate();
+        validate();
+      }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,7 +65,7 @@ public class JIndividual extends javax.swing.JInternalFrame {
         text_taxampli = new javax.swing.JTextField();
         text_nivservico = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        text_pendentes = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(102, 102, 102));
         setBorder(null);
@@ -79,8 +103,6 @@ public class JIndividual extends javax.swing.JInternalFrame {
         label_nivservico.setForeground(new java.awt.Color(255, 255, 255));
         label_nivservico.setText("Nível de Serviço:");
 
-        button_fechar.setBackground(new java.awt.Color(255, 255, 255));
-        button_fechar.setForeground(new java.awt.Color(0, 0, 0));
         button_fechar.setText("Fechar");
         button_fechar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -122,10 +144,10 @@ public class JIndividual extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Pendentes");
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(51, 51, 51));
-        jTextField1.setText("0");
+        text_pendentes.setEditable(false);
+        text_pendentes.setBackground(new java.awt.Color(255, 255, 255));
+        text_pendentes.setForeground(new java.awt.Color(51, 51, 51));
+        text_pendentes.setText("0");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -158,7 +180,7 @@ public class JIndividual extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(text_taxabandono, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                            .addComponent(jTextField1))))
+                            .addComponent(text_pendentes))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -191,7 +213,7 @@ public class JIndividual extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(text_pendentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(button_fechar)
                 .addContainerGap())
@@ -220,7 +242,6 @@ public class JIndividual extends javax.swing.JInternalFrame {
     private javax.swing.JButton button_fechar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel label_nivsatisacao;
     private javax.swing.JLabel label_nivservico;
     private javax.swing.JLabel label_taxabandono;
@@ -229,6 +250,7 @@ public class JIndividual extends javax.swing.JInternalFrame {
     private javax.swing.JLabel label_tempoespera;
     private javax.swing.JTextField text_nivsatisfacao;
     private javax.swing.JTextField text_nivservico;
+    private javax.swing.JTextField text_pendentes;
     private javax.swing.JTextField text_taxabandono;
     private javax.swing.JTextField text_taxampli;
     private javax.swing.JTextField text_tempoatend;
