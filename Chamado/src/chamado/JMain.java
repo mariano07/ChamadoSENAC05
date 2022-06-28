@@ -96,7 +96,6 @@ public class JMain extends javax.swing.JFrame {
         mitem_feedback = new javax.swing.JMenuItem();
         menu_chamados = new javax.swing.JMenu();
         mitem_addchamado = new javax.swing.JMenuItem();
-        mitem_editchamado = new javax.swing.JMenuItem();
         menu_procurar = new javax.swing.JMenu();
         mitem_consultar = new javax.swing.JMenuItem();
         menu_estatisticas = new javax.swing.JMenu();
@@ -201,15 +200,6 @@ public class JMain extends javax.swing.JFrame {
         });
         menu_chamados.add(mitem_addchamado);
 
-        mitem_editchamado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_edit.png"))); // NOI18N
-        mitem_editchamado.setText("Editar chamado");
-        mitem_editchamado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitem_editchamadoActionPerformed(evt);
-            }
-        });
-        menu_chamados.add(mitem_editchamado);
-
         jMenuBar1.add(menu_chamados);
 
         menu_procurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
@@ -217,6 +207,11 @@ public class JMain extends javax.swing.JFrame {
 
         mitem_consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
         mitem_consultar.setText("Consultar Chamados");
+        mitem_consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mitem_consultarActionPerformed(evt);
+            }
+        });
         menu_procurar.add(mitem_consultar);
 
         jMenuBar1.add(menu_procurar);
@@ -362,12 +357,12 @@ public class JMain extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mitem_feedbackActionPerformed
 
-    private void mitem_editchamadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_editchamadoActionPerformed
+    private void mitem_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_consultarActionPerformed
         if(!jcp.isVisible()){
             tela_principal.add(jcp);
             jcp.setVisible(true);
         }
-    }//GEN-LAST:event_mitem_editchamadoActionPerformed
+    }//GEN-LAST:event_mitem_consultarActionPerformed
 
 
     /**
@@ -421,7 +416,6 @@ public class JMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem mitem_consultar;
     private javax.swing.JMenuItem mitem_deltec;
     private javax.swing.JMenuItem mitem_editarUsu;
-    private javax.swing.JMenuItem mitem_editchamado;
     private javax.swing.JMenuItem mitem_estequipe;
     private javax.swing.JMenuItem mitem_estind;
     private javax.swing.JMenuItem mitem_feedback;
