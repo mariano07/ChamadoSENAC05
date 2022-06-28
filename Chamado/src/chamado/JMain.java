@@ -133,7 +133,7 @@ public class JMain extends javax.swing.JFrame {
         menu_nomeU.setRolloverEnabled(false);
 
         mitem_matricula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/vcard.png"))); // NOI18N
-        mitem_matricula.setText("a");
+        mitem_matricula.setText("matricula");
         mitem_matricula.setToolTipText("Sua matricula");
         menu_nomeU.add(mitem_matricula);
 
