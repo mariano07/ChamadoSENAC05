@@ -303,9 +303,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Processador"/>
           </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_processadorStateChanged"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_pmae">
           <Properties>
@@ -317,9 +314,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Placa-m&#xe3;e"/>
           </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_pmaeStateChanged"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_ram">
           <Properties>
@@ -331,9 +325,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Mem&#xf3;ria"/>
           </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_ramStateChanged"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_hd">
           <Properties>
@@ -345,9 +336,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="HD"/>
           </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_hdStateChanged"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_coolercpu">
           <Properties>
@@ -362,9 +350,6 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_coolercpuStateChanged"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_gabinete">
           <Properties>
@@ -376,9 +361,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Gabinete"/>
           </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_gabineteStateChanged"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_gpu">
           <Properties>
@@ -390,9 +372,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Placa de v&#xed;deo"/>
           </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_gpuStateChanged"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_fonte">
           <Properties>
@@ -404,9 +383,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Fonte"/>
           </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_fonteStateChanged"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="button_editar">
           <Properties>
@@ -432,10 +408,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
-          <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_processadorFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_processadorFocusLost"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="text_pmae">
           <Properties>
@@ -447,10 +419,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
-          <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_pmaeFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_pmaeFocusLost"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="qtd_ram">
           <Properties>
@@ -484,9 +452,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="SSD"/>
           </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_ssdStateChanged"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="text_ram">
           <Properties>
@@ -502,8 +467,6 @@
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_ramFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_ramFocusLost"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="text_ramKeyTyped"/>
           </Events>
         </Component>
@@ -521,8 +484,6 @@
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_hdFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_hdFocusLost"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ftext_hdKeyTyped"/>
           </Events>
         </Component>
@@ -540,8 +501,6 @@
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_ssdFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_ssdFocusLost"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ftext_ssdKeyTyped"/>
           </Events>
         </Component>
@@ -599,10 +558,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
-          <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_hdFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_hdFocusLost"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="text_ssd">
           <Properties>
@@ -614,10 +569,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
-          <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_ssdFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_ssdFocusLost"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="check_cooler">
           <Properties>
@@ -632,9 +583,6 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="check_coolerStateChanged"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="text_coolercpu">
           <Properties>
@@ -646,10 +594,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
-          <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_coolercpuFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_coolercpuFocusLost"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="text_cooler">
           <Properties>
@@ -661,10 +605,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
-          <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_coolerFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_coolerFocusLost"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="box_ram">
           <Properties>
@@ -722,8 +662,6 @@
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_gpuFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_gpuFocusLost"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ftext_gpuKeyTyped"/>
           </Events>
         </Component>
@@ -763,8 +701,6 @@
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_fonteFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftext_fonteFocusLost"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ftext_fonteKeyTyped"/>
           </Events>
         </Component>
@@ -778,10 +714,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
-          <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_fonteFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_fonteFocusLost"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="text_gabinete">
           <Properties>
@@ -793,10 +725,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
-          <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_gabineteFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_gabineteFocusLost"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
@@ -933,10 +861,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
-          <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_patrimonioFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_patrimonioFocusLost"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="text_sala">
           <Properties>
@@ -948,10 +872,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Sala"/>
           </Properties>
-          <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_salaFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="text_salaFocusLost"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>

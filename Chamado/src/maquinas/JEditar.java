@@ -15,139 +15,18 @@ import javax.swing.JDesktopPane;
  * @author alunos
  */
 public class JEditar extends javax.swing.JInternalFrame {
+    
     private String negar ="0123456789";
-    private static jCadastroDef jcd = new jCadastroDef();
     private static conexao_bd cbd = new conexao_bd();
-    private static JMain jm = new JMain();
-    private String matricula, nome;
+    private String matricula;
+    
     public JEditar() {
-        initComponents();
-        hidden();
-        check_processador.setSelected(true);
-        check_pmae.setSelected(true);
-        check_ram.setSelected(true);
-        check_hd.setSelected(true);
-        check_coolercpu.setSelected(true);
-        check_fonte.setSelected(true);
-        check_gabinete.setSelected(true);
     }
     
-    public void matricula(String matricula, String nome){
+    public void matricula(String matricula){
         this.matricula = matricula;
-        this.nome = nome;
     } 
     
-    public void reseta(){
-        text_processador.setText("Modelo");
-        text_pmae.setText("Modelo");
-        text_ram.setText("0");
-        ftext_hd.setText("0");
-        text_hd.setText("Modelo");
-        ftext_ssd.setText("0");
-        text_ssd.setText("Modelo");
-        text_coolercpu.setText("Modelo");
-        text_cooler.setText("Modelo");
-        ftext_gpu.setText("0");
-        text_fonte.setText("Modelo");
-        ftext_fonte.setText("0");
-        text_gabinete.setText("Modelo");
-        text_patrimonio.setText("0");
-        text_sala.setText("Sala");
-        texta_defeito.setText("");
-        
-    }
-    private void hidden(){
-        //Esconde campos processador
-        text_processador.setVisible(false);
-        //Esconde texto placa mãe
-        text_pmae.setVisible(false);
-        //Esconde campos ram 
-        text_ram.setVisible(false);
-        box_ram.setVisible(false);
-        box_capram.setVisible(false);
-        qtd_ram.setVisible(false);
-        spinner_ram.setVisible(false);
-        //Esconde campos hd
-        ftext_hd.setVisible(false);
-        box_caphd.setVisible(false);
-        text_hd.setVisible(false);
-        qtd_hd.setVisible(false);
-        spinner_hd.setVisible(false);
-        //Esconde campos ssd
-        ftext_ssd.setVisible(false);
-        box_capssd.setVisible(false);
-        text_ssd.setVisible(false);
-        qtd_ssd.setVisible(false);
-        spinner_ssd.setVisible(false);
-        //Esconde campos coolers
-        text_coolercpu.setVisible(false);
-        text_cooler.setVisible(false);
-        qtd_cooler.setVisible(false);
-        spinner_cooler.setVisible(false);
-        //Esconde campos gpu
-        ftext_gpu.setVisible(false);
-        box_gpu.setVisible(false);
-        box_capgpu.setVisible(false);
-        //Esconde campos fonte
-        text_fonte.setVisible(false);
-        ftext_fonte.setVisible(false);
-        label_fonte.setVisible(false);
-        //Esconde campos gabinete
-        text_gabinete.setVisible(false);
-    }
-    private boolean verifica(){
-        
-        boolean verifica = false;
-        int ram = Integer.parseInt(text_ram.getText());
-        int hd = Integer.parseInt(ftext_hd.getText());
-        int ssd = Integer.parseInt(ftext_ssd.getText());
-        int gpu = Integer.parseInt(ftext_gpu.getText());
-        int fonte = Integer.parseInt(ftext_fonte.getText());
-        
-        if(!check_processador.isSelected() && !check_pmae.isSelected() && !check_ram.isSelected() && !check_hd.isSelected() && !check_ssd.isSelected() && !check_coolercpu.isSelected() && !check_cooler.isSelected() && !check_gpu.isSelected() && !check_fonte.isSelected() && !check_gabinete.isSelected()){
-            JOptionPane.showMessageDialog(null, "Nenhum componente informado!");
-        }
-        else if(check_processador.isSelected() && text_processador.getText().equals("") || check_processador.isSelected() && text_processador.getText().equals("Modelo")){
-            JOptionPane.showMessageDialog(null, "Processador: Dados inválidos!");
-        }
-        else if(check_pmae.isSelected() && text_pmae.getText().equals("") || check_pmae.isSelected() && text_pmae.getText().equals("Modelo")){
-            JOptionPane.showMessageDialog(null, "Placa mãe: Dados inválidos!");
-        }
-        else if(check_ram.isSelected() && ram <= 0) {
-            JOptionPane.showMessageDialog(null, "Memória: Dados inválidos!");
-        }
-        else if(check_hd.isSelected() && hd <= 0){
-            JOptionPane.showMessageDialog(null, "HD: Dados inválidos!");
-        }
-        else if(check_ssd.isSelected() && ssd <= 0){
-            JOptionPane.showMessageDialog(null, "SSD: Dados inválidos!");
-        }
-        else if(check_coolercpu.isSelected() && text_coolercpu.getText().equals("") || check_coolercpu.isSelected() && text_coolercpu.getText().equals("Modelo")){
-            JOptionPane.showMessageDialog(null, "Cooler CPU: Dados inválidos!");
-        }
-        else if(check_cooler.isSelected() && text_cooler.getText().equals("") || check_cooler.isSelected() && text_cooler.getText().equals("Modelo")){
-            JOptionPane.showMessageDialog(null, "Cooler: Dados inválidos!");
-        }
-        else if(check_gpu.isSelected() && gpu <= 0){
-            JOptionPane.showMessageDialog(null, "Placa de vídeo: Dados inválidos!");
-        }
-        else if(check_fonte.isSelected() && text_fonte.getText().equals("") || check_fonte.isSelected() && text_fonte.getText().equals("Modelo")){
-            JOptionPane.showMessageDialog(null, "Fonte: Dados inválidos!");
-        }
-        else if(check_fonte.isSelected() && fonte <= 0){
-            JOptionPane.showMessageDialog(null, "Fonte: Dados inválidos!");
-        }
-        else if(check_gabinete.isSelected() && text_gabinete.getText().equals("") || check_gabinete.isSelected() && text_gabinete.getText().equals("Modelo")){
-            JOptionPane.showMessageDialog(null, "Gabinete: Dados inválidos!");
-        }
-        else if(texta_defeito.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Nenhum defeito informado!");
-        }
-        else {
-             verifica = true;
-        }
-        return verifica;
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -227,75 +106,35 @@ public class JEditar extends javax.swing.JInternalFrame {
         check_processador.setBackground(new java.awt.Color(51, 51, 51));
         check_processador.setForeground(new java.awt.Color(255, 255, 255));
         check_processador.setText("Processador");
-        check_processador.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                check_processadorStateChanged(evt);
-            }
-        });
 
         check_pmae.setBackground(new java.awt.Color(51, 51, 51));
         check_pmae.setForeground(new java.awt.Color(255, 255, 255));
         check_pmae.setText("Placa-mãe");
-        check_pmae.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                check_pmaeStateChanged(evt);
-            }
-        });
 
         check_ram.setBackground(new java.awt.Color(51, 51, 51));
         check_ram.setForeground(new java.awt.Color(255, 255, 255));
         check_ram.setText("Memória");
-        check_ram.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                check_ramStateChanged(evt);
-            }
-        });
 
         check_hd.setBackground(new java.awt.Color(51, 51, 51));
         check_hd.setForeground(new java.awt.Color(255, 255, 255));
         check_hd.setText("HD");
-        check_hd.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                check_hdStateChanged(evt);
-            }
-        });
 
         check_coolercpu.setBackground(new java.awt.Color(51, 51, 51));
         check_coolercpu.setForeground(new java.awt.Color(255, 255, 255));
         check_coolercpu.setText("Cooler CPU");
         check_coolercpu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        check_coolercpu.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                check_coolercpuStateChanged(evt);
-            }
-        });
 
         check_gabinete.setBackground(new java.awt.Color(51, 51, 51));
         check_gabinete.setForeground(new java.awt.Color(255, 255, 255));
         check_gabinete.setText("Gabinete");
-        check_gabinete.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                check_gabineteStateChanged(evt);
-            }
-        });
 
         check_gpu.setBackground(new java.awt.Color(51, 51, 51));
         check_gpu.setForeground(new java.awt.Color(255, 255, 255));
         check_gpu.setText("Placa de vídeo");
-        check_gpu.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                check_gpuStateChanged(evt);
-            }
-        });
 
         check_fonte.setBackground(new java.awt.Color(51, 51, 51));
         check_fonte.setForeground(new java.awt.Color(255, 255, 255));
         check_fonte.setText("Fonte");
-        check_fonte.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                check_fonteStateChanged(evt);
-            }
-        });
 
         button_editar.setBackground(new java.awt.Color(255, 255, 255));
         button_editar.setForeground(new java.awt.Color(51, 51, 51));
@@ -309,26 +148,10 @@ public class JEditar extends javax.swing.JInternalFrame {
         text_processador.setBackground(new java.awt.Color(255, 255, 255));
         text_processador.setForeground(new java.awt.Color(0, 0, 0));
         text_processador.setText("Modelo");
-        text_processador.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                text_processadorFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                text_processadorFocusLost(evt);
-            }
-        });
 
         text_pmae.setBackground(new java.awt.Color(255, 255, 255));
         text_pmae.setForeground(new java.awt.Color(0, 0, 0));
         text_pmae.setText("Modelo");
-        text_pmae.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                text_pmaeFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                text_pmaeFocusLost(evt);
-            }
-        });
 
         qtd_ram.setBackground(new java.awt.Color(51, 51, 51));
         qtd_ram.setForeground(new java.awt.Color(255, 255, 255));
@@ -341,24 +164,11 @@ public class JEditar extends javax.swing.JInternalFrame {
         check_ssd.setBackground(new java.awt.Color(51, 51, 51));
         check_ssd.setForeground(new java.awt.Color(255, 255, 255));
         check_ssd.setText("SSD");
-        check_ssd.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                check_ssdStateChanged(evt);
-            }
-        });
 
         text_ram.setBackground(new java.awt.Color(255, 255, 255));
         text_ram.setForeground(new java.awt.Color(51, 51, 51));
         text_ram.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         text_ram.setText("0");
-        text_ram.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                text_ramFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                text_ramFocusLost(evt);
-            }
-        });
         text_ram.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 text_ramKeyTyped(evt);
@@ -369,14 +179,6 @@ public class JEditar extends javax.swing.JInternalFrame {
         ftext_hd.setForeground(new java.awt.Color(51, 51, 51));
         ftext_hd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         ftext_hd.setText("0");
-        ftext_hd.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                ftext_hdFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                ftext_hdFocusLost(evt);
-            }
-        });
         ftext_hd.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 ftext_hdKeyTyped(evt);
@@ -387,14 +189,6 @@ public class JEditar extends javax.swing.JInternalFrame {
         ftext_ssd.setForeground(new java.awt.Color(51, 51, 51));
         ftext_ssd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         ftext_ssd.setText("0");
-        ftext_ssd.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                ftext_ssdFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                ftext_ssdFocusLost(evt);
-            }
-        });
         ftext_ssd.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 ftext_ssdKeyTyped(evt);
@@ -418,60 +212,23 @@ public class JEditar extends javax.swing.JInternalFrame {
         text_hd.setBackground(new java.awt.Color(255, 255, 255));
         text_hd.setForeground(new java.awt.Color(0, 0, 0));
         text_hd.setText("Modelo");
-        text_hd.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                text_hdFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                text_hdFocusLost(evt);
-            }
-        });
 
         text_ssd.setBackground(new java.awt.Color(255, 255, 255));
         text_ssd.setForeground(new java.awt.Color(0, 0, 0));
         text_ssd.setText("Modelo");
-        text_ssd.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                text_ssdFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                text_ssdFocusLost(evt);
-            }
-        });
 
         check_cooler.setBackground(new java.awt.Color(51, 51, 51));
         check_cooler.setForeground(new java.awt.Color(255, 255, 255));
         check_cooler.setText("Cooler ");
         check_cooler.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        check_cooler.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                check_coolerStateChanged(evt);
-            }
-        });
 
         text_coolercpu.setBackground(new java.awt.Color(255, 255, 255));
         text_coolercpu.setForeground(new java.awt.Color(0, 0, 0));
         text_coolercpu.setText("Modelo");
-        text_coolercpu.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                text_coolercpuFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                text_coolercpuFocusLost(evt);
-            }
-        });
 
         text_cooler.setBackground(new java.awt.Color(255, 255, 255));
         text_cooler.setForeground(new java.awt.Color(51, 51, 51));
         text_cooler.setText("Modelo");
-        text_cooler.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                text_coolerFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                text_coolerFocusLost(evt);
-            }
-        });
 
         box_ram.setBackground(new java.awt.Color(255, 255, 255));
         box_ram.setForeground(new java.awt.Color(0, 0, 0));
@@ -487,14 +244,6 @@ public class JEditar extends javax.swing.JInternalFrame {
         ftext_gpu.setForeground(new java.awt.Color(0, 0, 0));
         ftext_gpu.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         ftext_gpu.setText("0");
-        ftext_gpu.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                ftext_gpuFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                ftext_gpuFocusLost(evt);
-            }
-        });
         ftext_gpu.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 ftext_gpuKeyTyped(evt);
@@ -509,14 +258,6 @@ public class JEditar extends javax.swing.JInternalFrame {
         ftext_fonte.setForeground(new java.awt.Color(0, 0, 0));
         ftext_fonte.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         ftext_fonte.setText("0");
-        ftext_fonte.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                ftext_fonteFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                ftext_fonteFocusLost(evt);
-            }
-        });
         ftext_fonte.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 ftext_fonteKeyTyped(evt);
@@ -526,26 +267,10 @@ public class JEditar extends javax.swing.JInternalFrame {
         text_fonte.setBackground(new java.awt.Color(255, 255, 255));
         text_fonte.setForeground(new java.awt.Color(51, 51, 51));
         text_fonte.setText("Modelo");
-        text_fonte.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                text_fonteFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                text_fonteFocusLost(evt);
-            }
-        });
 
         text_gabinete.setBackground(new java.awt.Color(255, 255, 255));
         text_gabinete.setForeground(new java.awt.Color(51, 51, 51));
         text_gabinete.setText("Modelo");
-        text_gabinete.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                text_gabineteFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                text_gabineteFocusLost(evt);
-            }
-        });
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -580,26 +305,10 @@ public class JEditar extends javax.swing.JInternalFrame {
         text_patrimonio.setBackground(new java.awt.Color(255, 255, 255));
         text_patrimonio.setForeground(new java.awt.Color(0, 0, 0));
         text_patrimonio.setText("0");
-        text_patrimonio.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                text_patrimonioFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                text_patrimonioFocusLost(evt);
-            }
-        });
 
         text_sala.setBackground(new java.awt.Color(255, 255, 255));
         text_sala.setForeground(new java.awt.Color(0, 0, 0));
         text_sala.setText("Sala");
-        text_sala.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                text_salaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                text_salaFocusLost(evt);
-            }
-        });
 
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -823,172 +532,6 @@ public class JEditar extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void check_processadorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_processadorStateChanged
-        // TODO add your handling code here:
-        if(check_processador.isSelected()){
-            text_processador.setVisible(true);
-            invalidate();
-            validate();
-        }else{
-            text_processador.setVisible(false);
-            invalidate();
-            validate();
-        }
-    }//GEN-LAST:event_check_processadorStateChanged
-
-    private void check_pmaeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_pmaeStateChanged
-        // TODO add your handling code here:
-        if(check_pmae.isSelected()){
-            text_pmae.setVisible(true);
-            invalidate();
-            validate();
-        }else{
-            text_pmae.setVisible(false);
-            invalidate();
-            validate();
-        }
-    }//GEN-LAST:event_check_pmaeStateChanged
-
-    private void check_ramStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_ramStateChanged
-        // TODO add your handling code here:
-        if(check_ram.isSelected()){
-            text_ram.setVisible(true);
-            box_ram.setVisible(true);
-            box_capram.setVisible(true);
-            qtd_ram.setVisible(true);
-            spinner_ram.setVisible(true);
-            invalidate();
-            validate();
-        }else{
-            text_ram.setVisible(false);
-            box_ram.setVisible(false);
-            box_capram.setVisible(false);
-            qtd_ram.setVisible(false);
-            spinner_ram.setVisible(false);
-            invalidate();
-            validate();
-        }
-    }//GEN-LAST:event_check_ramStateChanged
-
-    private void check_hdStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_hdStateChanged
-        // TODO add your handling code here:
-        if(check_hd.isSelected()){
-            ftext_hd.setVisible(true);
-            box_caphd.setVisible(true);
-            text_hd.setVisible(true);
-            qtd_hd.setVisible(true);
-            spinner_hd.setVisible(true);
-            invalidate();
-            validate();
-        }else{
-            ftext_hd.setVisible(false);
-            box_caphd.setVisible(false);
-            text_hd.setVisible(false);
-            qtd_hd.setVisible(false);
-            spinner_hd.setVisible(false);
-            invalidate();
-            validate();
-        }
-    }//GEN-LAST:event_check_hdStateChanged
-
-    private void check_ssdStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_ssdStateChanged
-        // TODO add your handling code here:
-        if(check_ssd.isSelected()){
-            ftext_ssd.setVisible(true);
-            box_capssd.setVisible(true);
-            text_ssd.setVisible(true);
-            qtd_ssd.setVisible(true);
-            spinner_ssd.setVisible(true);
-            invalidate();
-            validate();
-        }else{
-            ftext_ssd.setVisible(false);
-            box_capssd.setVisible(false);
-            text_ssd.setVisible(false);
-            qtd_ssd.setVisible(false);
-            spinner_ssd.setVisible(false);
-            invalidate();
-            validate();
-        }
-    }//GEN-LAST:event_check_ssdStateChanged
-
-    private void check_coolercpuStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_coolercpuStateChanged
-        // TODO add your handling code here:
-        if(check_coolercpu.isSelected()){
-            text_coolercpu.setVisible(true);
-            invalidate();
-            validate();
-        }else{
-            text_coolercpu.setVisible(false);
-            invalidate();
-            validate();
-        }
-    }//GEN-LAST:event_check_coolercpuStateChanged
-
-    private void check_coolerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_coolerStateChanged
-        // TODO add your handling code here:
-        if(check_cooler.isSelected()){
-            text_cooler.setVisible(true);
-            qtd_cooler.setVisible(true);
-            spinner_cooler.setVisible(true);
-            invalidate();
-            validate();
-        }else{
-            text_cooler.setVisible(false);
-            qtd_cooler.setVisible(false);
-            spinner_cooler.setVisible(false);
-            invalidate();
-            validate();
-        }
-    }//GEN-LAST:event_check_coolerStateChanged
-
-    private void check_gpuStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_gpuStateChanged
-        // TODO add your handling code here:
-        if(check_gpu.isSelected()){
-            ftext_gpu.setVisible(true);
-            box_capgpu.setVisible(true);
-            box_gpu.setVisible(true);
-            invalidate();
-            validate();
-        }else{
-            ftext_gpu.setVisible(false);
-            box_capgpu.setVisible(false);
-            box_gpu.setVisible(false);
-            invalidate();
-            validate();
-        }
-    }//GEN-LAST:event_check_gpuStateChanged
-
-    private void check_fonteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_fonteStateChanged
-        // TODO add your handling code here:
-        if(check_fonte.isSelected()){
-            text_fonte.setVisible(true);
-            ftext_fonte.setVisible(true);
-            label_fonte.setVisible(true);
-            invalidate();
-            validate();
-        }else{
-            text_fonte.setVisible(false);
-            ftext_fonte.setVisible(false);
-            label_fonte.setVisible(false);
-            invalidate();
-            validate();
-        }
-    }//GEN-LAST:event_check_fonteStateChanged
-
-    private void check_gabineteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_gabineteStateChanged
-        // TODO add your handling code here:
-        if(check_gabinete.isSelected()){
-            text_gabinete.setVisible(true);
-            invalidate();
-            validate();
-        }else{
-            text_gabinete.setVisible(false);
-            invalidate();
-            validate();
-        }
-    }//GEN-LAST:event_check_gabineteStateChanged
-
     private void text_ramKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_ramKeyTyped
     if(!negar.contains(evt.getKeyChar()+"")){
             evt.consume();
@@ -1019,165 +562,7 @@ public class JEditar extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_ftext_fonteKeyTyped
 
-    private void text_processadorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_processadorFocusGained
-        if(text_processador.getText().equals("Modelo")){
-            text_processador.setText("");
-        }
-    }//GEN-LAST:event_text_processadorFocusGained
-
-    private void text_processadorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_processadorFocusLost
-        if(text_processador.getText().equals("")){
-            text_processador.setText("Modelo");
-        }
-    }//GEN-LAST:event_text_processadorFocusLost
-
-    private void text_pmaeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_pmaeFocusGained
-        if(text_pmae.getText().equals("Modelo")){
-            text_pmae.setText("");
-        }
-    }//GEN-LAST:event_text_pmaeFocusGained
-
-    private void text_pmaeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_pmaeFocusLost
-        if(text_pmae.getText().equals("")){
-            text_pmae.setText("Modelo");
-        }
-    }//GEN-LAST:event_text_pmaeFocusLost
-
-    private void text_ramFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_ramFocusGained
-        if(text_ram.getText().equals("0")){
-            text_ram.setText("");
-        }
-    }//GEN-LAST:event_text_ramFocusGained
-
-    private void text_ramFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_ramFocusLost
-        if(text_ram.getText().equals("")){
-            text_ram.setText("0");
-        }
-    }//GEN-LAST:event_text_ramFocusLost
-
-    private void ftext_hdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_hdFocusGained
-        if(ftext_hd.getText().equals("0")){
-            ftext_hd.setText("");
-        }
-    }//GEN-LAST:event_ftext_hdFocusGained
-
-    private void ftext_hdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_hdFocusLost
-        if(ftext_hd.getText().equals("")){
-            ftext_hd.setText("0");
-        }
-    }//GEN-LAST:event_ftext_hdFocusLost
-
-    private void text_hdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_hdFocusGained
-        if(text_hd.getText().equals("Modelo")){
-            text_hd.setText("");
-        }
-    }//GEN-LAST:event_text_hdFocusGained
-
-    private void text_hdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_hdFocusLost
-        if(text_hd.getText().equals("")){
-            text_hd.setText("Modelo");
-        }
-    }//GEN-LAST:event_text_hdFocusLost
-
-    private void ftext_ssdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_ssdFocusGained
-        if(ftext_ssd.getText().equals("0")){
-            ftext_ssd.setText("");
-        }
-    }//GEN-LAST:event_ftext_ssdFocusGained
-
-    private void ftext_ssdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_ssdFocusLost
-        if(ftext_ssd.getText().equals("")){
-            ftext_ssd.setText("0");
-        }
-    }//GEN-LAST:event_ftext_ssdFocusLost
-
-    private void text_ssdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_ssdFocusGained
-        if(text_ssd.getText().equals("Modelo")){
-            text_ssd.setText("");
-        }
-    }//GEN-LAST:event_text_ssdFocusGained
-
-    private void text_ssdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_ssdFocusLost
-        if(text_ssd.getText().equals("")){
-            text_ssd.setText("Modelo");
-        }
-    }//GEN-LAST:event_text_ssdFocusLost
-
-    private void text_coolercpuFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_coolercpuFocusGained
-        if(text_coolercpu.getText().equals("Modelo")){
-            text_coolercpu.setText("");
-        }
-    }//GEN-LAST:event_text_coolercpuFocusGained
-
-    private void text_coolercpuFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_coolercpuFocusLost
-        if(text_coolercpu.getText().equals("")){
-            text_coolercpu.setText("Modelo");
-        }
-    }//GEN-LAST:event_text_coolercpuFocusLost
-
-    private void text_coolerFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_coolerFocusGained
-        if(text_cooler.getText().equals("Modelo")){
-            text_cooler.setText("");
-        }
-    }//GEN-LAST:event_text_coolerFocusGained
-
-    private void text_coolerFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_coolerFocusLost
-        if(text_cooler.getText().equals("")){
-            text_cooler.setText("Modelo");
-        }
-    }//GEN-LAST:event_text_coolerFocusLost
-
-    private void ftext_gpuFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_gpuFocusGained
-        if(ftext_gpu.getText().equals("0")){
-            ftext_gpu.setText("");
-        }
-    }//GEN-LAST:event_ftext_gpuFocusGained
-
-    private void ftext_gpuFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_gpuFocusLost
-        if(ftext_gpu.getText().equals("")){
-            ftext_gpu.setText("0");
-        }
-    }//GEN-LAST:event_ftext_gpuFocusLost
-
-    private void text_fonteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_fonteFocusGained
-        if(text_fonte.getText().equals("Modelo")){
-            text_fonte.setText("");
-        }
-    }//GEN-LAST:event_text_fonteFocusGained
-
-    private void text_fonteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_fonteFocusLost
-        if(text_fonte.getText().equals("")){
-            text_fonte.setText("Modelo");
-        }
-    }//GEN-LAST:event_text_fonteFocusLost
-
-    private void ftext_fonteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_fonteFocusGained
-        if(ftext_fonte.getText().equals("0")){
-            ftext_fonte.setText("");
-        }
-    }//GEN-LAST:event_ftext_fonteFocusGained
-
-    private void ftext_fonteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftext_fonteFocusLost
-        if(ftext_fonte.getText().equals("")){
-            ftext_fonte.setText("0");
-        }
-    }//GEN-LAST:event_ftext_fonteFocusLost
-
-    private void text_gabineteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_gabineteFocusGained
-        if(text_gabinete.getText().equals("Modelo")){
-            text_gabinete.setText("");
-        }
-    }//GEN-LAST:event_text_gabineteFocusGained
-
-    private void text_gabineteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_gabineteFocusLost
-         if(text_gabinete.getText().equals("")){
-            text_gabinete.setText("Modelo");
-        }
-    }//GEN-LAST:event_text_gabineteFocusLost
-
     private void button_editarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_editarMouseClicked
-        boolean verifica;
-        verifica = verifica();
         String processador, pmae, ram, hd, ssd, ccpu, cool, pvideo, fonte, gabinete, patrimonio, sala, matricula, defeito;
         processador = text_processador.getText();
         pmae = text_pmae.getText();
@@ -1193,43 +578,7 @@ public class JEditar extends javax.swing.JInternalFrame {
         patrimonio = text_patrimonio.getText();
         sala = text_sala.getText();
         
-      
-        if(verifica == true){
-            JOptionPane.showMessageDialog(null, "Dados Salvos com sucesso!");
-            cbd.CadastroMaquina(processador, pmae, ram, hd, ssd, ccpu, cool, pvideo, fonte, gabinete, matricula, patrimonio, sala);
-            
-            JDesktopPane desktop = getDesktopPane();
-            desktop.add(jcd);
-            jcd.defeitoInfo(texta_defeito.getText());
-            jcd.setVisible(true);
-            this.dispose();
-            reseta();
-        }       
     }//GEN-LAST:event_button_editarMouseClicked
-
-    private void text_patrimonioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_patrimonioFocusGained
-        if(text_patrimonio.getText().equals("0")){
-            text_patrimonio.setText("");
-        }
-    }//GEN-LAST:event_text_patrimonioFocusGained
-
-    private void text_patrimonioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_patrimonioFocusLost
-        if(text_patrimonio.getText().equals("")){
-            text_patrimonio.setText("0");
-        }
-    }//GEN-LAST:event_text_patrimonioFocusLost
-
-    private void text_salaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_salaFocusGained
-        if(text_sala.getText().equals("Sala")){
-            text_sala.setText("");
-        }
-    }//GEN-LAST:event_text_salaFocusGained
-
-    private void text_salaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_salaFocusLost
-        if(text_sala.getText().equals("")){
-            text_sala.setText("Sala");
-        }
-    }//GEN-LAST:event_text_salaFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
