@@ -4,6 +4,7 @@
  */
 package conexao;
 
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -16,6 +17,8 @@ import javax.swing.JOptionPane;
  */
 public class JConsultaChamado extends javax.swing.JInternalFrame {
 
+    private String cargo="";
+    private String matricula="";
     private final static String chave="@#ch4m@d0$3n4cr3$tr1t0#@";
     private final static String url ="jdbc:mysql://172.20.126.128:3306/ChamadoSENAC";
     private final static String username ="chamado";
@@ -37,6 +40,23 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         invalidate();
         validate();
     }
+    public void setCargoMatricula(String cargo, String matricula){
+        this.cargo = cargo;
+        this.matricula = matricula;
+    }
+    private String getCargo(){
+        return this.cargo;
+    }
+    private String getMatricula(){
+        return this.matricula;
+    }
+    private void AdmLista(String patrimonio,String matricula,String data,String Status){
+        
+    } 
+    private void TecLista(String patrimonio,String matricula,String data,String Status){
+        
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -51,6 +71,7 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         box_Matricula = new javax.swing.JComboBox<>();
         box_Data = new javax.swing.JComboBox<>();
         box_Status = new javax.swing.JComboBox<>();
+        Button_Procurar = new javax.swing.JButton();
 
         setBorder(null);
         setClosable(true);
@@ -75,6 +96,11 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
                 text_ConsultaFocusLost(evt);
             }
         });
+        text_Consulta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                text_ConsultaKeyPressed(evt);
+            }
+        });
 
         List_Pendencias.setBorder(javax.swing.BorderFactory.createTitledBorder("Selecione um chamado para editar"));
         jScrollPane1.setViewportView(List_Pendencias);
@@ -96,6 +122,13 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
 
         box_Status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Status", "Todos", "Concluido", "Pendente" }));
 
+        Button_Procurar.setText("Procurar");
+        Button_Procurar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button_ProcurarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPanelConsulaChamadoLayout = new javax.swing.GroupLayout(JPanelConsulaChamado);
         JPanelConsulaChamado.setLayout(JPanelConsulaChamadoLayout);
         JPanelConsulaChamadoLayout.setHorizontalGroup(
@@ -110,17 +143,19 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
                     .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
                         .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
-                                .addComponent(text_Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(check_FIltros))
-                            .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
                                 .addComponent(box_Patrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(box_Matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(box_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(box_Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(box_Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
+                                .addComponent(text_Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Button_Procurar)
+                                .addGap(18, 18, 18)
+                                .addComponent(check_FIltros)))
                         .addGap(0, 162, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -128,8 +163,9 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(text_Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button_Procurar)
                     .addComponent(check_FIltros))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -175,7 +211,7 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_check_FIltrosStateChanged
 
     private void Button_AlterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_AlterarMouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_Button_AlterarMouseClicked
 
     private void text_ConsultaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_ConsultaFocusGained
@@ -190,9 +226,22 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_text_ConsultaFocusLost
 
+    private void text_ConsultaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_ConsultaKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(text_Consulta.getText() != "Pesquisar..." && text_Consulta.getText() != ""){
+                
+            }
+        }
+    }//GEN-LAST:event_text_ConsultaKeyPressed
+
+    private void Button_ProcurarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ProcurarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_ProcurarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_Alterar;
+    private javax.swing.JButton Button_Procurar;
     private javax.swing.JPanel JPanelConsulaChamado;
     private javax.swing.JList<String> List_Pendencias;
     private javax.swing.JComboBox<String> box_Data;
