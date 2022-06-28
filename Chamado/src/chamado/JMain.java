@@ -217,11 +217,6 @@ public class JMain extends javax.swing.JFrame {
 
         mitem_consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
         mitem_consultar.setText("Consultar Chamados");
-        mitem_consultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitem_consultarActionPerformed(evt);
-            }
-        });
         menu_procurar.add(mitem_consultar);
 
         jMenuBar1.add(menu_procurar);
@@ -373,13 +368,6 @@ public class JMain extends javax.swing.JFrame {
             jcp.setVisible(true);
         }
     }//GEN-LAST:event_mitem_editchamadoActionPerformed
-
-    private void mitem_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_consultarActionPerformed
-        if(!jcp.isVisible()){
-            tela_principal.add(jcp);
-            jcp.setVisible(true);
-        }
-    }//GEN-LAST:event_mitem_consultarActionPerformed
 
 
     /**
