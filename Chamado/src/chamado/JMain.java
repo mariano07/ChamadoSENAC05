@@ -14,6 +14,7 @@ import estatisticas.JIndividual;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import login.JLogin;
+import menu_ajuda.JAjuda;
 import procura.JProcura;
 import procura.JResultado;
 import reports.JFeedback;
@@ -41,6 +42,7 @@ public class JMain extends javax.swing.JFrame {
     private static JEditarTecnico jet = new JEditarTecnico();
     private static JReportarBug jrb = new JReportarBug();
     private static JFeedback jf = new JFeedback();
+    private static JAjuda ja = new JAjuda();
     
     public JMain() {
         initComponents();
@@ -211,6 +213,7 @@ public class JMain extends javax.swing.JFrame {
         menu_procurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
         menu_procurar.setText("Procurar");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
         jMenuItem1.setText("Consulta Pend");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,23 +302,10 @@ public class JMain extends javax.swing.JFrame {
     }//GEN-LAST:event_mitem_logoffMousePressed
 
     private void mitem_ajudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_ajudaActionPerformed
-        StringBuilder sb = new StringBuilder();
-        sb.append("<html>");
-        sb.append("</a>");sb.append("<h3>");sb.append("Códigos de ERRO");sb.append("</h3>");
-        sb.append("<a>");sb.append("<b>");sb.append("• C023");sb.append("</b>");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("C023 significa que houve um erro de conexão ao Banco de Dados");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("<b>");sb.append("• C031");sb.append("</b>");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("C031 significa que houve um erro na hora de desconectar do Banco de Dados ");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("<b>• C050");sb.append("</b>");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("C050 significa que houve um erro no login, usuário ou senha errados ou inválidos ");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("<b>• C071");sb.append("</b>");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("C071 significa que houve um erro na aquisição da matrícula registrada no Banco de Dados ");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("<b>");sb.append("• C091");sb.append("</b>");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("C091 significa que houve um erro no registro dos dados da instituição");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("<b>");sb.append("• C104");sb.append("</b>");sb.append("<br>");sb.append("</a>");
-        sb.append("<a>");sb.append("C104 significa que houve um erro no registro dos dados do cliente");sb.append("<br>");sb.append("</a>");
-        sb.append("</html>");
-        JOptionPane.showMessageDialog(null, sb.toString());
+        if(!ja.isVisible()){
+            tela_principal.add(ja);
+            ja.setVisible(true);
+      }
     }//GEN-LAST:event_mitem_ajudaActionPerformed
 
     private void mitem_addtecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_addtecActionPerformed
