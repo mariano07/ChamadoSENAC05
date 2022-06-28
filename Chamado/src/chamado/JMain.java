@@ -98,7 +98,7 @@ public class JMain extends javax.swing.JFrame {
         mitem_addchamado = new javax.swing.JMenuItem();
         mitem_editchamado = new javax.swing.JMenuItem();
         menu_procurar = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mitem_consultar = new javax.swing.JMenuItem();
         menu_estatisticas = new javax.swing.JMenu();
         mitem_estequipe = new javax.swing.JMenuItem();
         mitem_estind = new javax.swing.JMenuItem();
@@ -215,14 +215,14 @@ public class JMain extends javax.swing.JFrame {
         menu_procurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
         menu_procurar.setText("Procurar");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
-        jMenuItem1.setText("Consulta Pend");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mitem_consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
+        mitem_consultar.setText("Consultar Chamados");
+        mitem_consultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mitem_consultarActionPerformed(evt);
             }
         });
-        menu_procurar.add(jMenuItem1);
+        menu_procurar.add(mitem_consultar);
 
         jMenuBar1.add(menu_procurar);
 
@@ -374,12 +374,12 @@ public class JMain extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mitem_editchamadoActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mitem_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_consultarActionPerformed
         if(!jcp.isVisible()){
             tela_principal.add(jcp);
             jcp.setVisible(true);
         }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_mitem_consultarActionPerformed
 
 
     /**
@@ -420,7 +420,6 @@ public class JMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menu_chamados;
     private javax.swing.JMenu menu_estatisticas;
     private javax.swing.JMenu menu_nomeU;
@@ -431,6 +430,7 @@ public class JMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem mitem_addtec;
     private javax.swing.JMenuItem mitem_ajuda;
     private javax.swing.JMenuItem mitem_bugReport;
+    private javax.swing.JMenuItem mitem_consultar;
     private javax.swing.JMenuItem mitem_deltec;
     private javax.swing.JMenuItem mitem_editarUsu;
     private javax.swing.JMenuItem mitem_editchamado;
