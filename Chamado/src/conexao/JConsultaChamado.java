@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
  *
  * @author alunos
  */
-public class ConsultaChamado extends javax.swing.JInternalFrame {
+public class JConsultaChamado extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ConsultaPendentes
      */
-    public ConsultaChamado() {
+    public JConsultaChamado() {
         initComponents();
         check_Consultas.setSelected(true);
     }

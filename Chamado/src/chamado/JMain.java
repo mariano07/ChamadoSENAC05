@@ -7,7 +7,7 @@ package chamado;
 import maquinas.JCadastro;
 import clientes.JCliente;
 import clientes.JInstituicao;
-import conexao.ConsultaChamado;
+import conexao.JConsultaChamado;
 import defeito.jCadastroDef;
 import estatisticas.JEstatisticas;
 import estatisticas.JIndividual;
@@ -37,7 +37,7 @@ public class JMain extends javax.swing.JFrame {
     private static JCadastro jc = new JCadastro();
     private static JProcura jp = new JProcura();
     private static JResultado jr = new JResultado();
-    private static ConsultaChamado jcp = new ConsultaChamado();
+    private static JConsultaChamado jcp = new JConsultaChamado();
     private static JDeletaTecnico jdt = new JDeletaTecnico();
     private static JEditarTecnico jet = new JEditarTecnico();
     private static JReportarBug jrb = new JReportarBug();
