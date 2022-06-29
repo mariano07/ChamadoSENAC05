@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
@@ -50,12 +51,21 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
     private String getMatricula(){
         return this.matricula;
     }
-    private void AdmLista(String patrimonio,String matricula,String data,String Status){
-        
-    } 
-    private void TecLista(String patrimonio,String matricula,String data,String Status){
-        
+    private void Lista(String patrimonio,String matricula,String data,String Status){
+        String InstrucaoSQL="SELECT";
+        try{
+            conexao = DriverManager.getConnection(url,username,password);
+            st = conexao.createStatement();
+            result = st.executeQuery(InstrucaoSQL);
+            while(result.next()){
+                //List_Pendencias.add("Patrimonio: ");
+            }
+        }catch(Exception e){
+          
+        }
     }
+      
+      
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -143,20 +153,20 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
                     .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
                         .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
-                                .addComponent(box_Patrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(box_Matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(box_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(box_Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
                                 .addComponent(text_Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Button_Procurar)
                                 .addGap(18, 18, 18)
-                                .addComponent(check_FIltros)))
-                        .addGap(0, 162, Short.MAX_VALUE)))
+                                .addComponent(check_FIltros))
+                            .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
+                                .addComponent(box_Patrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(box_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(box_Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(box_Matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 164, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         JPanelConsulaChamadoLayout.setVerticalGroup(
@@ -195,17 +205,22 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void check_FIltrosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_FIltrosStateChanged
-        if(check_FIltros.isSelected()){
+        if(check_FIltros.isSelected() && getCargo().equals("ADM")){
             box_Patrimonio.setVisible(true);
+            box_Data.setVisible(true);
+            box_Status.setVisible(true);
             box_Matricula.setVisible(true);
+            validate();
+        }else if(check_FIltros.isSelected() && getCargo().equals("TEC")){
+            box_Patrimonio.setVisible(true);
             box_Data.setVisible(true);
             box_Status.setVisible(true);
             validate();
         }else{
             box_Patrimonio.setVisible(false);
-            box_Matricula.setVisible(false);
             box_Data.setVisible(false);
             box_Status.setVisible(false);
+            box_Matricula.setVisible(false);
             validate();
         }
     }//GEN-LAST:event_check_FIltrosStateChanged
