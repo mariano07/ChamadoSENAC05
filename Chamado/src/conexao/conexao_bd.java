@@ -383,25 +383,31 @@ public class conexao_bd{
        }    
         return dados;
    }
- /*public int [] EstatisticasGeral(String matricula){
+    public int [][] EstatisticasGeral(){
        int size = 0;
-       int [] dadosGerais = new int [size];
-       
-       String InstrucaoSql= "SELECT `TaxaDeAbandono` ,`NivelDeSatisfacao` ,`TempoDeAtendimento` , `TempoDeEspera` ,`TaxaDeAmplificacao`"
-               + " ,`TempoResolucao` ,`NivelDeServiço` ,`Pendencias`"
-               + "FROM estatistica WHERE Matricula = '"+matricula+"'";
+       try{
+         String InstrucaoSql = "SELECT COUNT(idEstatistica) FROM estatistica";
+         st = conexao.createStatement();
+         result = st.executeQuery(InstrucaoSql);
+         while(result.next()){
+         size = result.getInt("COUNT(idEstatistica)");
+        }
+        }catch(Exception e){
+            e.printStackTrace();
+           JOptionPane.showInternalMessageDialog(null,"ERRO:C386", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+       int [][] dadosGerais = new int [size][7];
+       String InstrucaoSql= "SELECT SUM(TaxaDeAbandono/3) FROM estatistica"; 
        conectar();
        try{
            st = conexao.createStatement();
            result = st.executeQuery(InstrucaoSql);
-           while(result.next()){
-               
-               
+           while(result.next()){   
            }
        }catch(Exception e){
            e.printStackTrace();
            JOptionPane.showInternalMessageDialog(null,"ERRO:C388", "ERRO", JOptionPane.ERROR_MESSAGE);
        }
-       
-   }*/
+      return dadosGerais;
+   }
 }

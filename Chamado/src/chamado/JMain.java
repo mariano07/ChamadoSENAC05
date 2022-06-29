@@ -15,8 +15,6 @@ import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import login.JLogin;
 import menu_ajuda.JAjuda;
-import procura.JProcura;
-import procura.JResultado;
 import reports.JFeedback;
 import reports.JReportarBug;
 import tecnico.JAddTecnico;
