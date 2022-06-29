@@ -5,6 +5,7 @@
 package estatisticas;
 
 import conexao.conexao_bd;
+import java.lang.reflect.Array;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,27 +17,24 @@ public class JIndividual extends javax.swing.JInternalFrame {
     /**
      * Creates new form JIndividual
      */
-    private String matricula;
+    
     private static conexao_bd cbd = new conexao_bd();
     public JIndividual() {
         initComponents();
-        popular();
     }
-     public void matricula(String matricula){
-         this.matricula = matricula;
-     }
-      private void popular(){
-          JOptionPane.showMessageDialog(null,"Populando");
-          
-        
-        int[] dados = new int [8];
+    
+    public void popular(String matricula){
+        int[] dados = new int [7];
         dados = cbd.Estatisticas(matricula);
-        text_nivservico.setText(String.valueOf(dados[0]));
+        for(int i=0; i<dados.length;i++){
+            JOptionPane.showMessageDialog(null, dados[i]);
+        }
+        text_taxabandono.setText(String.valueOf(dados[0]));
         text_nivsatisfacao.setText(String.valueOf(dados[1]));
         text_tempoatend.setText(String.valueOf(dados[2]));
         text_tempoespera.setText(String.valueOf(dados[3]));
         text_taxampli.setText(String.valueOf(dados[4]));
-        text_taxabandono.setText(String.valueOf(dados[5]));
+        text_nivservico.setText(String.valueOf(dados[5]));
         text_pendentes.setText(String.valueOf(dados[6]));
         invalidate();
         validate();
@@ -57,14 +55,13 @@ public class JIndividual extends javax.swing.JInternalFrame {
         label_tempoespera = new javax.swing.JLabel();
         label_taxamplificacao = new javax.swing.JLabel();
         label_nivservico = new javax.swing.JLabel();
-        button_fechar = new javax.swing.JButton();
+        label_pendentes = new javax.swing.JLabel();
         text_taxabandono = new javax.swing.JTextField();
         text_nivsatisfacao = new javax.swing.JTextField();
         text_tempoatend = new javax.swing.JTextField();
         text_tempoespera = new javax.swing.JTextField();
         text_taxampli = new javax.swing.JTextField();
         text_nivservico = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         text_pendentes = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(102, 102, 102));
@@ -103,12 +100,9 @@ public class JIndividual extends javax.swing.JInternalFrame {
         label_nivservico.setForeground(new java.awt.Color(255, 255, 255));
         label_nivservico.setText("Nível de Serviço:");
 
-        button_fechar.setText("Fechar");
-        button_fechar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_fecharMouseClicked(evt);
-            }
-        });
+        label_pendentes.setBackground(new java.awt.Color(51, 51, 51));
+        label_pendentes.setForeground(new java.awt.Color(255, 255, 255));
+        label_pendentes.setText("Pendentes");
 
         text_taxabandono.setEditable(false);
         text_taxabandono.setBackground(new java.awt.Color(255, 255, 255));
@@ -140,10 +134,6 @@ public class JIndividual extends javax.swing.JInternalFrame {
         text_nivservico.setForeground(new java.awt.Color(51, 51, 51));
         text_nivservico.setText("0");
 
-        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Pendentes");
-
         text_pendentes.setEditable(false);
         text_pendentes.setBackground(new java.awt.Color(255, 255, 255));
         text_pendentes.setForeground(new java.awt.Color(51, 51, 51));
@@ -156,9 +146,6 @@ public class JIndividual extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(button_fechar))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label_nivsatisacao)
@@ -176,7 +163,7 @@ public class JIndividual extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label_taxabandono)
-                            .addComponent(jLabel1))
+                            .addComponent(label_pendentes))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(text_taxabandono, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
@@ -212,11 +199,9 @@ public class JIndividual extends javax.swing.JInternalFrame {
                     .addComponent(text_taxabandono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
+                    .addComponent(label_pendentes)
                     .addComponent(text_pendentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(button_fechar)
-                .addContainerGap())
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -233,17 +218,12 @@ public class JIndividual extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void button_fecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_fecharMouseClicked
-        this.dispose();
-    }//GEN-LAST:event_button_fecharMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton button_fechar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel label_nivsatisacao;
     private javax.swing.JLabel label_nivservico;
+    private javax.swing.JLabel label_pendentes;
     private javax.swing.JLabel label_taxabandono;
     private javax.swing.JLabel label_taxamplificacao;
     private javax.swing.JLabel label_tempoatend;

@@ -28,21 +28,18 @@ import tecnico.JEditarTecnico;
  * @author alunos
  */
 public class JMain extends javax.swing.JFrame {
-    private static JIndividual jsi =  new JIndividual();
-    private static JEstatisticas je = new JEstatisticas();
-    private static JInstituicao ji = new JInstituicao();
-    private static JCliente jcl = new JCliente();
+    
     private static JAddTecnico jt = new JAddTecnico();
     private static jCadastroDef jcd = new jCadastroDef();
     private static JCadastro jc = new JCadastro();
-    private static JProcura jp = new JProcura();
-    private static JResultado jr = new JResultado();
     private static JConsultaChamado jcp = new JConsultaChamado();
     private static JDeletaTecnico jdt = new JDeletaTecnico();
     private static JEditarTecnico jet = new JEditarTecnico();
     private static JReportarBug jrb = new JReportarBug();
     private static JFeedback jf = new JFeedback();
     private static JAjuda ja = new JAjuda();
+    private static JIndividual ji =  new JIndividual();
+    private static JEstatisticas je = new JEstatisticas();
     
     public JMain() {
         initComponents();
@@ -319,12 +316,11 @@ public class JMain extends javax.swing.JFrame {
     }//GEN-LAST:event_mitem_estequipeActionPerformed
 
     private void mitem_estindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_estindActionPerformed
-        if(!jsi.isVisible()){
-            String matricula = mitem_matricula.getText();
-            jsi.matricula(matricula);
-            tela_principal.add(jsi);
-            jsi.setVisible(true);
-      }
+        if(!ji.isVisible()){
+            tela_principal.add(ji);
+            ji.popular(mitem_matricula.getText());
+            ji.setVisible(true);
+        }
     }//GEN-LAST:event_mitem_estindActionPerformed
 
     private void mitem_deltecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_deltecActionPerformed

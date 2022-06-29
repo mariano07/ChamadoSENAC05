@@ -359,37 +359,31 @@ public class conexao_bd{
         desconectar();
    }
    public int[] Estatisticas (String matricula){
-       int[] dados = new int [8];
+       int[] dados = new int [7];
        String InstrucaoSql="SELECT `TaxaDeAbandono` ,`NivelDeSatisfacao` ,`TempoDeAtendimento` , `TempoDeEspera` ,`TaxaDeAmplificacao`"
-               + " ,`TempoResolucao` ,`NivelDeServiço` ,`Pendencias`"
+               + " ,`NivelDeServico` ,`Pendencias`"
                + "FROM estatistica WHERE Matricula = '"+matricula+"'";
        conectar();
        try{
            st = conexao.createStatement();
            result = st.executeQuery(InstrucaoSql);
            while(result.next()){
-            dados[3] = result.getInt("TaxaDeAbandono");
-            dados[2] = result.getInt("TaxaDeAtendimento");
-            dados[1] = result.getInt("TempoDeEspera");
+            dados[0] = result.getInt("TaxaDeAbandono");
             dados[1] = result.getInt("NivelDeSatisfacao");
-            dados[2] = result.getInt("TaxaDeAmplicafacao");
-            dados[3] = result.getInt("TempoDeResolucao");
-            dados[4] = result.getInt("NivelDeServiço");
-            dados[5] = result.getInt("Pendencias");
-            dados[6] = result.getInt("Matricula");
-            dados[7] = result.getInt("9");
+            dados[2] = result.getInt("TempoDeAtendimento");
+            dados[3] = result.getInt("TempoDeEspera");
+            dados[4] = result.getInt("TaxaDeAmplificacao");
+            dados[5] = result.getInt("NivelDeServico");
+            dados[6] = result.getInt("Pendencias");
            }
                
        }catch(Exception e){
           e.printStackTrace();
           JOptionPane.showMessageDialog(null, "ERRO:C361", "ERRO", JOptionPane.ERROR_MESSAGE);
        }    
-          JOptionPane.showMessageDialog(null,dados[3]);
-          //JOptionPane.showMessageDialog(null,dados[2]);
-          //JOptionPane.showMessageDialog(null,dados[1]);
-          return dados;
+        return dados;
    }
-  /* public int [] EstatisticasGeral(String matricula){
+ /*public int [] EstatisticasGeral(String matricula){
        int size = 0;
        int [] dadosGerais = new int [size];
        

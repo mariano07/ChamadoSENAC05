@@ -4,11 +4,7 @@
  */
 package maquinas;
 
-import chamado.JMain;
 import conexao.conexao_bd;
-import javax.swing.JOptionPane;
-import defeito.jCadastroDef;
-import javax.swing.JDesktopPane;
 
 /**
  *
@@ -21,13 +17,42 @@ public class JEditar extends javax.swing.JInternalFrame {
     private String matricula;
     
     public JEditar() {
+        initComponents();
+        popular();
+    }
+    
+    public void popular(){
+        //vetor = cbd.
+        
+        //text_processador.setText();
+        
+        //text_pmae.setText();
+        
+        //text_ram.setText(); box_capram.setSelectedItem(); box_ram.setSelectedItem(); spinner_ram.setValue();
+        
+        //ftext_hd.setText(); box_caphd.setSelectedItem(); text_hd.setText(); spinner_hd.setValue();
+        
+        //ftext_ssd.setText(); box_capssd.setSelectedItem(); text_ssd.setText(); spinner_ssd.setValue();
+        
+        //text_coolercpu.setText();
+        
+        //text_cooler.setText(); spinner_cooler.setValue();
+        
+        //ftext_gpu.setText(); box_capgpu.setSelectedItem(); box_gpu.setSelectedItem();
+        
+        //text_fonte.setText(); ftext_fonte.setText();
+        
+        //text_gabinete.setText();
+        
+        //text_patrimonio.setText();
+        
+        //text_sala.setText();
     }
     
     public void matricula(String matricula){
         this.matricula = matricula;
     } 
     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -578,6 +603,7 @@ public class JEditar extends javax.swing.JInternalFrame {
         patrimonio = text_patrimonio.getText();
         sala = text_sala.getText();
         
+        //cbd.
     }//GEN-LAST:event_button_editarMouseClicked
 
 
