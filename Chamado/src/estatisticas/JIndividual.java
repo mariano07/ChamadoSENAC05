@@ -26,9 +26,6 @@ public class JIndividual extends javax.swing.JInternalFrame {
     public void popular(String matricula){
         int[] dados = new int [7];
         dados = cbd.Estatisticas(matricula);
-        for(int i=0; i<dados.length;i++){
-            JOptionPane.showMessageDialog(null, dados[i]);
-        }
         text_taxabandono.setText(String.valueOf(dados[0]));
         text_nivsatisfacao.setText(String.valueOf(dados[1]));
         text_tempoatend.setText(String.valueOf(dados[2]));
