@@ -311,6 +311,7 @@ public class JMain extends javax.swing.JFrame {
     private void mitem_estequipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_estequipeActionPerformed
          if(!je.isVisible()){
             tela_principal.add(je);
+            je.popular();
             je.setVisible(true);
       }
     }//GEN-LAST:event_mitem_estequipeActionPerformed

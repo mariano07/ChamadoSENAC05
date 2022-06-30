@@ -154,6 +154,11 @@ public class JIndividual extends javax.swing.JInternalFrame {
         text_pendentes.setForeground(new java.awt.Color(51, 51, 51));
         text_pendentes.setText("0");
 
+        box_matriculas.setBackground(new java.awt.Color(255, 255, 255));
+        box_matriculas.setForeground(new java.awt.Color(0, 0, 0));
+
+        button_atualizar.setBackground(new java.awt.Color(255, 255, 255));
+        button_atualizar.setForeground(new java.awt.Color(0, 0, 0));
         button_atualizar.setText("Atualizar");
         button_atualizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -359,7 +359,7 @@ public class conexao_bd{
         desconectar();
    }
    public int[] Estatisticas (String matricula){
-       int[] dados = new int [7];
+       int[] dados = new int[7];
        String InstrucaoSql="SELECT `TaxaDeAbandono` ,`NivelDeSatisfacao` ,`TempoDeAtendimento` , `TempoDeEspera` ,`TaxaDeAmplificacao`"
                + " ,`NivelDeServico` ,`Pendencias`"
                + "FROM estatistica WHERE Matricula = '"+matricula+"'";
@@ -380,41 +380,59 @@ public class conexao_bd{
        }catch(Exception e){
           e.printStackTrace();
           JOptionPane.showMessageDialog(null, "ERRO:C361", "ERRO", JOptionPane.ERROR_MESSAGE);
-       }    
-        return dados;
+       }
+       desconectar();
+       return dados;
    }
    public int QuantidadeEstatisticas(){
+       int size =0;
+       conectar();
        try{
-         //String InstrucaoSql = "SELECT COUNT(*) FROM `estatistica`";
+         String InstrucaoSql = "SELECT COUNT(*) FROM `estatistica`";
          st = conexao.createStatement();
-         result = st.executeQuery("SELECT COUNT(*) FROM `estatistica`");
-            while(result.next()){
-                return result.getInt(1);
-            }
+         result = st.executeQuery(InstrucaoSql);
+         while(result.next()){
+            size = result.getInt(1);
+         }
+            
        }catch(Exception e){
             e.printStackTrace();
            JOptionPane.showInternalMessageDialog(null,"ERRO:C386", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
-       return 0;
+       desconectar();
+       return size;
    }
-    public int [][] EstatisticasGeral(int size){
-       int [][] dadosGerais = new int [size][7];
-       String InstrucaoSql= "SELECT SUM(TaxaDeAbandono/3) FROM estatistica"; 
+    public int [] EstatisticasGeral(int size){
+       int[] dados = new int[7];
+       String InstrucaoSql= "SELECT SUM(TaxaDeAbandono/3) AS Taxa, "
+               + "SUM(NivelDeSatisfacao/"+size+") AS NivelSatisfa, SUM(TempoDeAtendimento/"+size+") AS TemporAtendi, "
+               + "SUM(TempoDeEspera/"+size+") AS TempoEspera, SUM(TaxaDeAmplificacao/"+size+") AS TaxaAmpli, "
+               + "SUM(NivelDeServico/"+size+") AS NivelServ, SUM(Pendencias) AS Penden "
+               + "FROM estatistica; "; 
        conectar();
        try{
            st = conexao.createStatement();
            result = st.executeQuery(InstrucaoSql);
-           while(result.next()){   
+           while(result.next()){
+               dados[0] = result.getInt("Taxa");
+               dados[1] = result.getInt("NivelSatisfa");
+               dados[2] = result.getInt("TemporAtendi");
+               dados[3] = result.getInt("TempoEspera");
+               dados[4] = result.getInt("TaxaAmpli");
+               dados[5] = result.getInt("NivelServ");
+               dados[6] = result.getInt("Penden"); 
            }
        }catch(Exception e){
            e.printStackTrace();
            JOptionPane.showInternalMessageDialog(null,"ERRO:C401", "ERRO", JOptionPane.ERROR_MESSAGE);
        }
-      return dadosGerais;
+       desconectar();
+      return dados;
    }
     public String[] MatriculaEstatisticas(int size){
        String[] matriculas = new String[size];
        int i=0;
+       conectar();
        try{
          String InstrucaoSql = "SELECT Matricula FROM estatistica";
          st = conexao.createStatement();
@@ -427,6 +445,7 @@ public class conexao_bd{
             e.printStackTrace();
            JOptionPane.showInternalMessageDialog(null,"ERRO:C416", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
+       desconectar();
        return matriculas;
     }
 }
