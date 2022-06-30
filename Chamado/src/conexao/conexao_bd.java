@@ -383,19 +383,21 @@ public class conexao_bd{
        }    
         return dados;
    }
-    public int [][] EstatisticasGeral(){
-       int size = 0;
+   public int QuantidadeEstatisticas(){
        try{
-         String InstrucaoSql = "SELECT COUNT(idEstatistica) FROM estatistica";
+         //String InstrucaoSql = "SELECT COUNT(*) FROM `estatistica`";
          st = conexao.createStatement();
-         result = st.executeQuery(InstrucaoSql);
-         while(result.next()){
-         size = result.getInt("COUNT(idEstatistica)");
-        }
-        }catch(Exception e){
+         result = st.executeQuery("SELECT COUNT(*) FROM `estatistica`");
+            while(result.next()){
+                return result.getInt(1);
+            }
+       }catch(Exception e){
             e.printStackTrace();
            JOptionPane.showInternalMessageDialog(null,"ERRO:C386", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
+       return 0;
+   }
+    public int [][] EstatisticasGeral(int size){
        int [][] dadosGerais = new int [size][7];
        String InstrucaoSql= "SELECT SUM(TaxaDeAbandono/3) FROM estatistica"; 
        conectar();
@@ -406,8 +408,25 @@ public class conexao_bd{
            }
        }catch(Exception e){
            e.printStackTrace();
-           JOptionPane.showInternalMessageDialog(null,"ERRO:C388", "ERRO", JOptionPane.ERROR_MESSAGE);
+           JOptionPane.showInternalMessageDialog(null,"ERRO:C401", "ERRO", JOptionPane.ERROR_MESSAGE);
        }
       return dadosGerais;
    }
+    public String[] MatriculaEstatisticas(int size){
+       String[] matriculas = new String[size];
+       int i=0;
+       try{
+         String InstrucaoSql = "SELECT Matricula FROM estatistica";
+         st = conexao.createStatement();
+         result = st.executeQuery(InstrucaoSql);
+         while(result.next()){
+          matriculas[i] = result.getString("Matricula");
+          i++;
+        }
+        }catch(Exception e){
+            e.printStackTrace();
+           JOptionPane.showInternalMessageDialog(null,"ERRO:C416", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+       return matriculas;
+    }
 }

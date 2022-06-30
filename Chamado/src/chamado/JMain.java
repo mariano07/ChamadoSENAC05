@@ -38,6 +38,7 @@ public class JMain extends javax.swing.JFrame {
     private static JAjuda ja = new JAjuda();
     private static JIndividual ji =  new JIndividual();
     private static JEstatisticas je = new JEstatisticas();
+    private String cargo="";
     
     public JMain() {
         initComponents();
@@ -46,6 +47,7 @@ public class JMain extends javax.swing.JFrame {
     }
     
     public String checa_cargo(String cargo,String matricula,String nome){
+        this.cargo = cargo;
         if(cargo.equals("ADM")){
             JOptionPane.showMessageDialog(null, "Bem vindo "+nome+" :D");
             return matricula;
@@ -315,9 +317,17 @@ public class JMain extends javax.swing.JFrame {
 
     private void mitem_estindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_estindActionPerformed
         if(!ji.isVisible()){
-            tela_principal.add(ji);
-            ji.popular(mitem_matricula.getText());
-            ji.setVisible(true);
+            if(cargo.equals("TEC")){
+             tela_principal.add(ji);
+             ji.cargo(cargo);
+             ji.PopularTec(mitem_matricula.getText());
+             ji.setVisible(true);   
+            }else{
+             tela_principal.add(ji);
+             ji.cargo(cargo);
+             ji.PopularAdm();
+             ji.setVisible(true); 
+            }
         }
     }//GEN-LAST:event_mitem_estindActionPerformed
 

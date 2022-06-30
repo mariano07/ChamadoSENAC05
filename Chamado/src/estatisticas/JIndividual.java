@@ -23,7 +23,14 @@ public class JIndividual extends javax.swing.JInternalFrame {
         initComponents();
     }
     
-    public void popular(String matricula){
+    public void cargo(String cargo){
+        if(cargo.equals("TEC")){
+            box_matriculas.setVisible(false);
+            button_atualizar.setVisible(false);
+        }
+    }
+    
+    public void PopularTec(String matricula){
         int[] dados = new int [7];
         dados = cbd.Estatisticas(matricula);
         text_taxabandono.setText(String.valueOf(dados[0]));
@@ -36,6 +43,15 @@ public class JIndividual extends javax.swing.JInternalFrame {
         invalidate();
         validate();
       }
+    public void PopularAdm(){
+        int size =0;
+        size = cbd.QuantidadeEstatisticas();
+        String[] matriculas = new String[size];
+        matriculas = cbd.MatriculaEstatisticas(size);
+        for(int i=0;i<size;i++){
+            box_matriculas.addItem(matriculas[i]);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,6 +76,8 @@ public class JIndividual extends javax.swing.JInternalFrame {
         text_taxampli = new javax.swing.JTextField();
         text_nivservico = new javax.swing.JTextField();
         text_pendentes = new javax.swing.JTextField();
+        box_matriculas = new javax.swing.JComboBox<>();
+        button_atualizar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
         setBorder(null);
@@ -136,6 +154,13 @@ public class JIndividual extends javax.swing.JInternalFrame {
         text_pendentes.setForeground(new java.awt.Color(51, 51, 51));
         text_pendentes.setText("0");
 
+        button_atualizar.setText("Atualizar");
+        button_atualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_atualizarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -143,9 +168,16 @@ public class JIndividual extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label_nivsatisacao)
+                            .addComponent(label_taxabandono)
+                            .addComponent(label_pendentes))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(text_taxabandono, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                            .addComponent(text_pendentes)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label_tempoatend)
                             .addComponent(label_tempoespera)
                             .addComponent(label_taxamplificacao)
@@ -157,20 +189,22 @@ public class JIndividual extends javax.swing.JInternalFrame {
                             .addComponent(text_tempoespera)
                             .addComponent(text_tempoatend)
                             .addComponent(text_nivsatisfacao)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label_taxabandono)
-                            .addComponent(label_pendentes))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(text_taxabandono, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                            .addComponent(text_pendentes))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(box_matriculas, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(label_nivsatisacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(button_atualizar)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(box_matriculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_atualizar))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_nivservico)
                     .addComponent(text_nivservico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -198,7 +232,7 @@ public class JIndividual extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(label_pendentes)
                     .addComponent(text_pendentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -215,8 +249,25 @@ public class JIndividual extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void button_atualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_atualizarMouseClicked
+        String matricula = box_matriculas.getSelectedItem().toString();
+        int[] dados = new int [7];
+        dados = cbd.Estatisticas(matricula);
+        text_taxabandono.setText(String.valueOf(dados[0]));
+        text_nivsatisfacao.setText(String.valueOf(dados[1]));
+        text_tempoatend.setText(String.valueOf(dados[2]));
+        text_tempoespera.setText(String.valueOf(dados[3]));
+        text_taxampli.setText(String.valueOf(dados[4]));
+        text_nivservico.setText(String.valueOf(dados[5]));
+        text_pendentes.setText(String.valueOf(dados[6]));
+        invalidate();
+        validate();
+    }//GEN-LAST:event_button_atualizarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> box_matriculas;
+    private javax.swing.JButton button_atualizar;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel label_nivsatisacao;
     private javax.swing.JLabel label_nivservico;
