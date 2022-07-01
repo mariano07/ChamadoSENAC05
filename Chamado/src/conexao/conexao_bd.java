@@ -164,7 +164,7 @@ public class conexao_bd{
             JOptionPane.showMessageDialog(null, "Informações Salvas Com Sucesso!");
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C155", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:C156", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
