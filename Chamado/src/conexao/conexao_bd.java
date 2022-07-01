@@ -21,8 +21,10 @@ public class conexao_bd{
     private final static String password ="root";
     Connection conexao = null;
     Connection con = conexao;
-    Statement st = null;
-    ResultSet result = null;
+    Statement st1 = null;
+    Statement st2 = null;
+    ResultSet result1 = null;
+    ResultSet result2 = null;
     
     private void conectar(){
          try{
@@ -34,7 +36,7 @@ public class conexao_bd{
     }
     private void desconectar(){
         try {
-            st.close();
+            st1.close();
             conexao.close();
         }catch(Exception e){
             e.printStackTrace();
@@ -56,10 +58,10 @@ public class conexao_bd{
         String cargo = "";
         conectar();
         try{
-            st = conexao.createStatement();
-            result = st.executeQuery(InstrucaoSQL);
-            while(result.next()){
-              cargo = result.getString("Cargo");
+            st1 = conexao.createStatement();
+            result1 = st1.executeQuery(InstrucaoSQL);
+            while(result1.next()){
+              cargo = result1.getString("Cargo");
             }
         }
         catch (Exception e){
@@ -77,10 +79,10 @@ public class conexao_bd{
         String matricula = "";
         conectar();
         try{
-            st = conexao.createStatement();
-            result = st.executeQuery(InstrucaoSQL);
-            while(result.next()){
-              matricula = result.getString("Matricula");  
+            st1 = conexao.createStatement();
+            result1 = st1.executeQuery(InstrucaoSQL);
+            while(result1.next()){
+              matricula = result1.getString("Matricula");  
             }
         }
         catch (Exception e){
@@ -97,10 +99,10 @@ public class conexao_bd{
         String Usuario = "";
         conectar();
         try{
-            st = conexao.createStatement();
-            result = st.executeQuery(InstrucaoSQL);
-            while(result.next()){
-              Usuario = result.getString("AES_DECRYPT(Usuario,'"+chave+"')");  
+            st1 = conexao.createStatement();
+            result1 = st1.executeQuery(InstrucaoSQL);
+            while(result1.next()){
+              Usuario = result1.getString("AES_DECRYPT(Usuario,'"+chave+"')");  
             }
         }
         catch (Exception e){
@@ -116,8 +118,8 @@ public class conexao_bd{
         
         conectar();
         try{
-            st = conexao.createStatement();
-            st.executeUpdate(InstrucaoSQL);
+            st1 = conexao.createStatement();
+            st1.executeUpdate(InstrucaoSQL);
         }catch (Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C117", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -130,8 +132,8 @@ public class conexao_bd{
         
         conectar();
         try{
-            st = conexao.createStatement();
-            st.executeUpdate(InstrucaoSQL);
+            st1 = conexao.createStatement();
+            st1.executeUpdate(InstrucaoSQL);
         }catch (Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C127", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -144,8 +146,8 @@ public class conexao_bd{
         
         conectar();
         try{
-            st = conexao.createStatement();
-            st.executeUpdate(InstrucaoSQL);
+            st1 = conexao.createStatement();
+            st1.executeUpdate(InstrucaoSQL);
             JOptionPane.showMessageDialog(null, "Informações Salvas Com Sucesso!");
         }catch(Exception e){
             e.printStackTrace();
@@ -154,13 +156,21 @@ public class conexao_bd{
         desconectar();
     }
     public void Defeito(String defeito){
-        String InstrucaoSQL="INSERT INTO problema (Problema,StatusDoProblema) "
-                + "VALUES ('"+defeito+"','PENDENTE')";
+        String idTicket="";
+        String InstrucaoSQL1="SELECT idTicket FROM chamado";
+        String InstrucaoSQL2="";
         
         conectar();
         try{
-            st = conexao.createStatement();
-            st.executeUpdate(InstrucaoSQL);
+            st1 = conexao.createStatement();
+            result1= st1.executeQuery(InstrucaoSQL1);
+            while(result1.next()){
+                idTicket = result1.getString("idTicket");
+            }
+            InstrucaoSQL2 = "INSERT INTO problema (idTicket,Problema,StatusDoProblema) "
+                + "VALUES ('"+idTicket+"','"+defeito+"','PENDENTE')";
+            st2 = conexao.createStatement();
+            st2.executeUpdate(InstrucaoSQL2);
             JOptionPane.showMessageDialog(null, "Informações Salvas Com Sucesso!");
         }catch(Exception e){
             e.printStackTrace();
@@ -169,13 +179,21 @@ public class conexao_bd{
         desconectar();
     }
     public void DefeitoSolucao(String defeito,String solucao){
-        String InstrucaoSQL="INSERT INTO problema (Problema,StatusDoProblema,Solucao) "
-                + "VALUES ('"+defeito+"','CONCLUIDO','"+solucao+"')";
+        String idTicket="";
+        String InstrucaoSQL1="SELECT idTicket FROM chamado";
+        String InstrucaoSQL2="";
         
         conectar();
         try{
-            st = conexao.createStatement();
-            st.executeUpdate(InstrucaoSQL);
+            st1 = conexao.createStatement();
+            result1= st1.executeQuery(InstrucaoSQL1);
+            while(result1.next()){
+                idTicket = result1.getString("idTicket");
+            }
+            InstrucaoSQL2="INSERT INTO problema (idTicket,Problema,StatusDoProblema,Solucao) "
+                + "VALUES ('"+idTicket+"','"+defeito+"','CONCLUIDO','"+solucao+"')";
+            st1 = conexao.createStatement();
+            st1.executeUpdate(InstrucaoSQL2);
             JOptionPane.showMessageDialog(null, "Informações Salvas Com Sucesso!");
         }catch(Exception e){
             e.printStackTrace();
@@ -189,8 +207,8 @@ public class conexao_bd{
         
         conectar();
         try{
-            st = conexao.createStatement();
-            st.executeUpdate(InstrucaoSQL);
+            st1 = conexao.createStatement();
+            st1.executeUpdate(InstrucaoSQL);
             JOptionPane.showMessageDialog(null, "Informações Salvas Com Sucesso!");
         }catch (Exception e){
             e.printStackTrace();
@@ -204,8 +222,8 @@ public class conexao_bd{
         
         conectar();
         try{
-            st = conexao.createStatement();
-            st.executeUpdate(InstrucaoSQL);
+            st1 = conexao.createStatement();
+            st1.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C197", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -218,8 +236,8 @@ public class conexao_bd{
         
         conectar();
         try{
-            st = conexao.createStatement();
-            st.executeUpdate(InstrucaoSQL);
+            st1 = conexao.createStatement();
+            st1.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C211", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -231,10 +249,10 @@ public class conexao_bd{
         boolean verifica = false;
         conectar();
         try{
-            st = conexao.createStatement();
-            result = st.executeQuery(InstrucaoSQL);
-            while(result.next()){
-                String CPF = result.getString("CPF");
+            st1 = conexao.createStatement();
+            result1 = st1.executeQuery(InstrucaoSQL);
+            while(result1.next()){
+                String CPF = result1.getString("CPF");
                 if(CPF.equals(cpf)){
                     verifica=true;
                 }
@@ -251,10 +269,10 @@ public class conexao_bd{
         boolean verifica = false;
         conectar();
         try{
-            st = conexao.createStatement();
-            result = st.executeQuery(InstrucaoSQL);
-            while(result.next()){
-                String CNPJ = result.getString("CNPJ");
+            st1 = conexao.createStatement();
+            result1 = st1.executeQuery(InstrucaoSQL);
+            while(result1.next()){
+                String CNPJ = result1.getString("CNPJ");
                 if(CNPJ.equals(cnpj)){
                     verifica=true;
                 }
@@ -271,10 +289,10 @@ public class conexao_bd{
         boolean verifica = false;
         conectar();
         try{
-            st = conexao.createStatement();
-            result = st.executeQuery(InstrucaoSQL);
-            while(result.next()){
-                String CPF = result.getString("CPF");
+            st1 = conexao.createStatement();
+            result1 = st1.executeQuery(InstrucaoSQL);
+            while(result1.next()){
+                String CPF = result1.getString("CPF");
                 if(CPF.equals(cpf)){
                     verifica=true;
                 }
@@ -292,11 +310,11 @@ public class conexao_bd{
 
         conectar();
         try{
-            st = conexao.createStatement();
-            result = st.executeQuery(InstrucaoSQL);
-            while(result.next()){
-                aluno[0]=result.getString("Nome");
-                aluno[1]=result.getString("Usuario");
+            st1 = conexao.createStatement();
+            result1 = st1.executeQuery(InstrucaoSQL);
+            while(result1.next()){
+                aluno[0]=result1.getString("Nome");
+                aluno[1]=result1.getString("Usuario");
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -309,8 +327,8 @@ public class conexao_bd{
         String InstrucaoSQL="DELETE FROM `usuario` WHERE `Matricula`= "+matricula;
         conectar();
         try{
-            st = conexao.createStatement();
-            st.executeUpdate(InstrucaoSQL);
+            st1 = conexao.createStatement();
+            st1.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C304", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -324,8 +342,8 @@ public class conexao_bd{
 
         conectar();
         try{
-            st = conexao.createStatement();
-            st.executeUpdate(InstrucaoSQL);
+            st1 = conexao.createStatement();
+            st1.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C316", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -339,8 +357,8 @@ public class conexao_bd{
                + "VALUES (NULL,'"+usuario+"','"+matricula+"','"+processoBug+"','"+bug+"')";
         conectar();
         try{
-            st = conexao.createStatement();
-            st.executeUpdate(InstrucaoSQL);
+            st1 = conexao.createStatement();
+            st1.executeUpdate(InstrucaoSQL);
             JOptionPane.showMessageDialog(null, "Bug reportado com sucesso!\nObrigado pela contribuição :D");
         }catch(Exception e){
             e.printStackTrace();
@@ -353,8 +371,8 @@ public class conexao_bd{
                + "VALUES (NULL,'"+usuario+"','"+matricula+"','"+feedback+"')";
         conectar();
         try{
-            st = conexao.createStatement();
-            st.executeUpdate(InstrucaoSQL);
+            st1 = conexao.createStatement();
+            st1.executeUpdate(InstrucaoSQL);
             JOptionPane.showMessageDialog(null, "Obrigado pelo feedback!");
         }catch(Exception e){
             e.printStackTrace();
@@ -369,16 +387,16 @@ public class conexao_bd{
                + "FROM estatistica WHERE Matricula = '"+matricula+"'";
        conectar();
        try{
-           st = conexao.createStatement();
-           result = st.executeQuery(InstrucaoSql);
-           while(result.next()){
-            dados[0] = result.getInt("TaxaDeAbandono");
-            dados[1] = result.getInt("NivelDeSatisfacao");
-            dados[2] = result.getInt("TempoDeAtendimento");
-            dados[3] = result.getInt("TempoDeEspera");
-            dados[4] = result.getInt("TaxaDeAmplificacao");
-            dados[5] = result.getInt("NivelDeServico");
-            dados[6] = result.getInt("Pendencias");
+           st1 = conexao.createStatement();
+           result1 = st1.executeQuery(InstrucaoSql);
+           while(result1.next()){
+            dados[0] = result1.getInt("TaxaDeAbandono");
+            dados[1] = result1.getInt("NivelDeSatisfacao");
+            dados[2] = result1.getInt("TempoDeAtendimento");
+            dados[3] = result1.getInt("TempoDeEspera");
+            dados[4] = result1.getInt("TaxaDeAmplificacao");
+            dados[5] = result1.getInt("NivelDeServico");
+            dados[6] = result1.getInt("Pendencias");
            }
                
        }catch(Exception e){
@@ -393,10 +411,10 @@ public class conexao_bd{
        conectar();
        try{
          String InstrucaoSql = "SELECT COUNT(*) FROM `estatistica`";
-         st = conexao.createStatement();
-         result = st.executeQuery(InstrucaoSql);
-         while(result.next()){
-            size = result.getInt(1);
+         st1 = conexao.createStatement();
+         result1 = st1.executeQuery(InstrucaoSql);
+         while(result1.next()){
+            size = result1.getInt(1);
          }
             
        }catch(Exception e){
@@ -415,16 +433,16 @@ public class conexao_bd{
                + "FROM estatistica; "; 
        conectar();
        try{
-           st = conexao.createStatement();
-           result = st.executeQuery(InstrucaoSql);
-           while(result.next()){
-               dados[0] = result.getInt("Taxa");
-               dados[1] = result.getInt("NivelSatisfa");
-               dados[2] = result.getInt("TemporAtendi");
-               dados[3] = result.getInt("TempoEspera");
-               dados[4] = result.getInt("TaxaAmpli");
-               dados[5] = result.getInt("NivelServ");
-               dados[6] = result.getInt("Penden"); 
+           st1 = conexao.createStatement();
+           result1 = st1.executeQuery(InstrucaoSql);
+           while(result1.next()){
+               dados[0] = result1.getInt("Taxa");
+               dados[1] = result1.getInt("NivelSatisfa");
+               dados[2] = result1.getInt("TemporAtendi");
+               dados[3] = result1.getInt("TempoEspera");
+               dados[4] = result1.getInt("TaxaAmpli");
+               dados[5] = result1.getInt("NivelServ");
+               dados[6] = result1.getInt("Penden"); 
            }
        }catch(Exception e){
            e.printStackTrace();
@@ -439,10 +457,10 @@ public class conexao_bd{
        conectar();
        try{
          String InstrucaoSql = "SELECT Matricula FROM estatistica";
-         st = conexao.createStatement();
-         result = st.executeQuery(InstrucaoSql);
-         while(result.next()){
-          matriculas[i] = result.getString("Matricula");
+         st1 = conexao.createStatement();
+         result1 = st1.executeQuery(InstrucaoSql);
+         while(result1.next()){
+          matriculas[i] = result1.getString("Matricula");
           i++;
         }
         }catch(Exception e){
@@ -457,10 +475,10 @@ public class conexao_bd{
          String InstrucaoSQL = "SELECT IdCliente  FROM clientes  WHERE  nome =  ' "   +nome+  " ' ";
          conectar();
         try{
-         st = conexao.createStatement();
-         result = st.executeQuery(InstrucaoSQL);
-         while(result.next()){
-          id = result.getString("IdCliente");
+         st1 = conexao.createStatement();
+         result1 = st1.executeQuery(InstrucaoSQL);
+         while(result1.next()){
+          id = result1.getString("IdCliente");
         }
         }catch(Exception e){
             e.printStackTrace();
@@ -473,9 +491,8 @@ public class conexao_bd{
         String InstrucaoSQL = "UPDATE  chamado SET IdCliente = ' " +id+ " '  where Patrimonio = ' " +patrimonio+ " ' ";
         try{
             
-        }catch(){
+        }catch(Exception e){
             
         }
     }
 }
-  
