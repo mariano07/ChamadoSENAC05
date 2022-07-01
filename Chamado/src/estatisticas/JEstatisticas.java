@@ -4,6 +4,8 @@
  */
 package estatisticas;
 
+import conexao.conexao_bd;
+
 /**
  *
  * @author Aluno
@@ -13,8 +15,23 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
     /**
      * Creates new form JEstatisticas
      */
+    conexao_bd cbd = new conexao_bd();
     public JEstatisticas() {
         initComponents();
+    }
+    public void popular(){
+       int size = cbd.QuantidadeEstatisticas();
+       int[] dados = new int[7];
+       dados = cbd.EstatisticasGeral(size);
+       text_taxabandono.setText(String.valueOf(dados[0]));
+       text_nivsatisfacao.setText(String.valueOf(dados[1]));
+       text_tempatendimento.setText(String.valueOf(dados[2]));
+       text_tempespera.setText(String.valueOf(dados[3]));
+       text_taxampli.setText(String.valueOf(dados[4]));
+       text_nivservico.setText(String.valueOf(dados[5]));
+       text_pendentes.setText(String.valueOf(dados[6]));
+       invalidate();
+       validate();
     }
 
     /**
@@ -39,9 +56,8 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
         text_taxampli = new javax.swing.JTextField();
         label_nivservico = new javax.swing.JLabel();
         text_nivservico = new javax.swing.JTextField();
-        button_fechar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        label_pendentes = new javax.swing.JLabel();
+        text_pendentes = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         setBorder(null);
@@ -109,23 +125,14 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
         text_nivservico.setForeground(new java.awt.Color(0, 0, 0));
         text_nivservico.setText("0");
 
-        button_fechar.setBackground(new java.awt.Color(255, 255, 255));
-        button_fechar.setForeground(new java.awt.Color(0, 0, 0));
-        button_fechar.setText("Fechar");
-        button_fechar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_fecharMouseClicked(evt);
-            }
-        });
+        label_pendentes.setBackground(new java.awt.Color(51, 51, 51));
+        label_pendentes.setForeground(new java.awt.Color(255, 255, 255));
+        label_pendentes.setText("Pendentes");
 
-        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Pendentes");
-
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setText("0");
+        text_pendentes.setEditable(false);
+        text_pendentes.setBackground(new java.awt.Color(255, 255, 255));
+        text_pendentes.setForeground(new java.awt.Color(0, 0, 0));
+        text_pendentes.setText("0");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -152,16 +159,13 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
                                 .addComponent(text_tempespera, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
                             .addComponent(text_nivservico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(button_fechar))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label_taxabandono)
-                            .addComponent(jLabel1))
+                            .addComponent(label_pendentes))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(text_taxabandono, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                            .addComponent(jTextField1))))
+                            .addComponent(text_pendentes))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -193,11 +197,9 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
                     .addComponent(text_taxabandono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(button_fechar)
-                .addContainerGap())
+                    .addComponent(label_pendentes)
+                    .addComponent(text_pendentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         setJMenuBar(jMenuBar1);
@@ -216,25 +218,20 @@ public class JEstatisticas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void button_fecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_fecharMouseClicked
-        this.dispose();
-    }//GEN-LAST:event_button_fecharMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton button_fechar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel label_nivsatisfacao;
     private javax.swing.JLabel label_nivservico;
+    private javax.swing.JLabel label_pendentes;
     private javax.swing.JLabel label_taxabandono;
     private javax.swing.JLabel label_taxampli;
     private javax.swing.JLabel label_tempoatendimeto;
     private javax.swing.JLabel label_tempoespera;
     private javax.swing.JTextField text_nivsatisfacao;
     private javax.swing.JTextField text_nivservico;
+    private javax.swing.JTextField text_pendentes;
     private javax.swing.JTextField text_taxabandono;
     private javax.swing.JTextField text_taxampli;
     private javax.swing.JTextField text_tempatendimento;

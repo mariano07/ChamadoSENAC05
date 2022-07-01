@@ -148,6 +148,68 @@ public class JCadastro extends javax.swing.JInternalFrame {
         }
         return verifica;
     }
+    
+    private void verifica2(){
+        boolean verifica;
+        verifica = verifica();
+        String processador, pmae, ram, hd, ssd, ccpu, cool, pvideo, fonte, gabinete, patrimonio, sala, matricula, defeito;
+        processador = text_processador.getText();
+        pmae = text_pmae.getText();
+        ram = text_ram.getText() + box_capram.getSelectedItem() +" "+ box_ram.getSelectedItem() +" Qtd "+spinner_ram.getValue()+"x";
+        hd = ftext_hd.getText() + box_caphd.getSelectedItem() +" "+ text_hd.getText() +" Qtd "+spinner_hd.getValue()+"x";
+        ssd = ftext_ssd.getText() + box_capssd.getSelectedItem() +" "+ text_ssd.getText() +" Qtd "+spinner_ssd.getValue()+"x";
+        ccpu = text_coolercpu.getText();
+        cool = text_cooler.getText() +" Qtd "+ spinner_cooler.getValue();
+        pvideo = ftext_gpu.getText() + box_capgpu.getSelectedItem() +" "+ box_gpu.getSelectedItem();
+        fonte = text_fonte.getText() +" "+ftext_fonte.getText() + "W";
+        gabinete = text_gabinete.getText();
+        matricula = this.matricula;
+        patrimonio = text_patrimonio.getText();
+        sala = text_sala.getText();
+        
+        if(!check_processador.isSelected()){
+            processador = "NULL";
+        }
+        else if(!check_pmae.isSelected()){
+           pmae = "NULL";
+        }
+        else if(!check_ram.isSelected()) {
+           ram = "NULL";
+        }
+        else if(!check_hd.isSelected()){
+           hd = "NULL";
+        }
+        else if(!check_ssd.isSelected()){
+           ssd = "NULL"; 
+        }
+        else if(!check_coolercpu.isSelected()){
+           ccpu = "NULL";
+        }
+        else if(!check_cooler.isSelected()){
+           cool = "NULL"; 
+        }
+        else if(!check_gpu.isSelected()){
+           pvideo = "NULL";
+        }
+        else if(!check_fonte.isSelected()){
+           fonte = "NULL";
+        }
+        else if(!check_gabinete.isSelected()){
+           gabinete = "NULL";
+        }
+      
+        if(verifica == true){
+            JOptionPane.showMessageDialog(null, "Dados Salvos com sucesso!");
+            cbd.CadastroMaquina(processador, pmae, ram, hd, ssd, ccpu, cool, pvideo, fonte, gabinete, matricula, patrimonio, sala);
+            
+            JDesktopPane desktop = getDesktopPane();
+            desktop.add(jcd);
+            jcd.defeitoInfo(texta_defeito.getText());
+            jcd.setVisible(true);
+            this.dispose();
+            reseta();
+        } 
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1154,35 +1216,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_text_gabineteFocusLost
 
     private void button_proxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_proxMouseClicked
-        boolean verifica;
-        verifica = verifica();
-        String processador, pmae, ram, hd, ssd, ccpu, cool, pvideo, fonte, gabinete, patrimonio, sala, matricula, defeito;
-        processador = text_processador.getText();
-        pmae = text_pmae.getText();
-        ram = text_ram.getText() + box_capram.getSelectedItem() +" "+ box_ram.getSelectedItem() +" Qtd "+spinner_ram.getValue()+"x";
-        hd = ftext_hd.getText() + box_caphd.getSelectedItem() +" "+ text_hd.getText() +" Qtd "+spinner_hd.getValue()+"x";
-        ssd = ftext_ssd.getText() + box_capssd.getSelectedItem() +" "+ text_ssd.getText() +" Qtd "+spinner_ssd.getValue()+"x";
-        ccpu = text_coolercpu.getText();
-        cool = text_cooler.getText() +" Qtd "+ spinner_cooler.getValue();
-        pvideo = ftext_gpu.getText() + box_capgpu.getSelectedItem() +" "+ box_gpu.getSelectedItem();
-        fonte = text_fonte.getText() +" "+ftext_fonte.getText() + "W";
-        gabinete = text_gabinete.getText();
-        matricula = this.matricula;
-        patrimonio = text_patrimonio.getText();
-        sala = text_sala.getText();
-        
-      
-        if(verifica == true){
-            JOptionPane.showMessageDialog(null, "Dados Salvos com sucesso!");
-            cbd.CadastroMaquina(processador, pmae, ram, hd, ssd, ccpu, cool, pvideo, fonte, gabinete, matricula, patrimonio, sala);
-            
-            JDesktopPane desktop = getDesktopPane();
-            desktop.add(jcd);
-            jcd.defeitoInfo(texta_defeito.getText());
-            jcd.setVisible(true);
-            this.dispose();
-            reseta();
-        }       
+        verifica2();      
     }//GEN-LAST:event_button_proxMouseClicked
 
     private void text_patrimonioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_patrimonioFocusGained

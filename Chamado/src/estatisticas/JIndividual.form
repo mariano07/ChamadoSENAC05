@@ -67,9 +67,19 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="label_nivsatisacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="label_taxabandono" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="label_pendentes" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="text_taxabandono" pref="99" max="32767" attributes="0"/>
+                              <Component id="text_pendentes" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="label_tempoatend" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="label_tempoespera" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="label_taxamplificacao" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -84,16 +94,14 @@
                               <Component id="text_nivsatisfacao" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="label_taxabandono" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="label_pendentes" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="box_matriculas" alignment="0" max="32767" attributes="0"/>
+                              <Component id="label_nivsatisacao" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="text_taxabandono" pref="99" max="32767" attributes="0"/>
-                              <Component id="text_pendentes" max="32767" attributes="0"/>
-                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="button_atualizar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -103,7 +111,11 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="box_matriculas" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="button_atualizar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="label_nivservico" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="text_nivservico" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -138,7 +150,7 @@
                       <Component id="label_pendentes" min="-2" max="-2" attributes="0"/>
                       <Component id="text_pendentes" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="63" max="32767" attributes="0"/>
+                  <EmptySpace pref="34" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -304,6 +316,36 @@
             </Property>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="box_matriculas">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="button_atualizar">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Atualizar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button_atualizarMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
