@@ -452,4 +452,30 @@ public class conexao_bd{
        desconectar();
        return matriculas;
     }
+    public void BuscaJCE (String nome, String patrimonio){
+        String id = " ";
+         String InstrucaoSQL = "SELECT IdCliente  FROM clientes  WHERE  nome =  ' "   +nome+  " ' ";
+         conectar();
+        try{
+         st = conexao.createStatement();
+         result = st.executeQuery(InstrucaoSQL);
+         while(result.next()){
+          id = result.getString("IdCliente");
+        }
+        }catch(Exception e){
+            e.printStackTrace();
+           JOptionPane.showInternalMessageDialog(null,"ERRO:C455", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        AddExistentePF(id, patrimonio);
+        desconectar();
+    }
+    public void AddExistentePF(String id, String patrimonio){
+        String InstrucaoSQL = "UPDATE  chamado SET IdCliente = ' " +id+ " '  where Patrimonio = ' " +patrimonio+ " ' ";
+        try{
+            
+        }catch(){
+            
+        }
+    }
 }
+  

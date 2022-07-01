@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class JInstituicaoExistente extends javax.swing.JInternalFrame {
     
+    conexao_bd cbd = new conexao_bd();
     static String url ="jdbc:mysql://172.20.126.128:3306/ChamadoSENAC";
     static String username ="chamado";
     static String password ="root";
@@ -25,9 +26,8 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
     Connection con = conexao;
     Statement st = null;
     ResultSet result = null;
-
-            DefaultListModel model;
-            int Enter = 0;
+    DefaultListModel model;
+    int Enter = 0;
 
     public JInstituicaoExistente() {
             initComponents();
@@ -91,8 +91,8 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
     private void ResultadoPesquisa() {
           try {
             result.first();
-            text_nomeresult.setText(result.getString("Nome"));
-            text_cnpjresult.setText(result.getString("CNPJ"));          
+            text_cnpjresult.setText(result.getString("CNPJ"));
+            text_nomeresult.setText(result.getString("Nome"));          
         } catch (SQLException erro) {
           // JOptionPane.showMessageDialog(null, "ERRO:C32 JCE", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
@@ -118,14 +118,15 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        text_cnpjresult = new javax.swing.JTextField();
-        label_nomeresult = new javax.swing.JLabel();
         text_nomeresult = new javax.swing.JTextField();
+        label_nomeresult = new javax.swing.JLabel();
+        text_cnpjresult = new javax.swing.JTextField();
         label_cnpjresult = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         text_nomepesquisa = new javax.swing.JTextField();
         list_pesquisa = new javax.swing.JList<>();
+        button_add = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -135,22 +136,28 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/building.png"))); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setForeground(new java.awt.Color(51, 51, 51));
 
-        text_cnpjresult.setBackground(new java.awt.Color(255, 255, 255));
-        text_cnpjresult.setForeground(new java.awt.Color(51, 51, 51));
+        text_nomeresult.setEditable(false);
+        text_nomeresult.setBackground(new java.awt.Color(255, 255, 255));
+        text_nomeresult.setForeground(new java.awt.Color(51, 51, 51));
 
         label_nomeresult.setBackground(new java.awt.Color(51, 51, 51));
         label_nomeresult.setForeground(new java.awt.Color(255, 255, 255));
         label_nomeresult.setText("Nome:");
 
-        text_nomeresult.setBackground(new java.awt.Color(255, 255, 255));
-        text_nomeresult.setForeground(new java.awt.Color(0, 0, 0));
+        text_cnpjresult.setEditable(false);
+        text_cnpjresult.setBackground(new java.awt.Color(255, 255, 255));
+        text_cnpjresult.setForeground(new java.awt.Color(0, 0, 0));
 
         label_cnpjresult.setBackground(new java.awt.Color(51, 51, 51));
         label_cnpjresult.setForeground(new java.awt.Color(255, 255, 255));
         label_cnpjresult.setText("CNPJ");
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setForeground(new java.awt.Color(51, 51, 51));
+
+        jLayeredPane1.setForeground(new java.awt.Color(51, 51, 51));
 
         text_nomepesquisa.setBackground(new java.awt.Color(255, 255, 255));
         text_nomepesquisa.setForeground(new java.awt.Color(51, 51, 51));
@@ -197,62 +204,83 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(text_nomepesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addGap(22, 22, 22)
                     .addComponent(list_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(23, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
         );
+
+        button_add.setBackground(new java.awt.Color(255, 255, 255));
+        button_add.setForeground(new java.awt.Color(0, 0, 0));
+        button_add.setText("Adicionar");
+        button_add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_addMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(button_add))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(label_cnpjresult, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(text_cnpjresult, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(label_nomeresult, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(text_nomeresult, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(label_cnpjresult, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(text_cnpjresult, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(label_nomeresult, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(text_nomeresult, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(8, 8, 8)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(text_nomeresult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_nomeresult))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_cnpjresult)
-                    .addComponent(text_cnpjresult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label_nomeresult)
-                    .addComponent(text_nomeresult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addComponent(text_cnpjresult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_cnpjresult))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button_add)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -287,8 +315,14 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
         list_pesquisa.setVisible(false);
     }//GEN-LAST:event_list_pesquisaMousePressed
 
+    private void button_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_addMouseClicked
+        cbd.AddExistentePJ(text_nomeresult.getText());
+        dispose();
+    }//GEN-LAST:event_button_addMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_add;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
