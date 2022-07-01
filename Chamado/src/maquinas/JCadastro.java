@@ -170,36 +170,35 @@ public class JCadastro extends javax.swing.JInternalFrame {
         if(!check_processador.isSelected()){
             processador = "NULL";
         }
-        else if(!check_pmae.isSelected()){
+        if(!check_pmae.isSelected()){
            pmae = "NULL";
         }
-        else if(!check_ram.isSelected()) {
+        if(!check_ram.isSelected()){
            ram = "NULL";
         }
-        else if(!check_hd.isSelected()){
+        if(!check_hd.isSelected()){
            hd = "NULL";
         }
-        else if(!check_ssd.isSelected()){
+        if(!check_ssd.isSelected()){
            ssd = "NULL"; 
         }
-        else if(!check_coolercpu.isSelected()){
+        if(!check_coolercpu.isSelected()){
            ccpu = "NULL";
         }
-        else if(!check_cooler.isSelected()){
+        if(!check_cooler.isSelected()){
            cool = "NULL"; 
         }
-        else if(!check_gpu.isSelected()){
+        if(!check_gpu.isSelected()){
            pvideo = "NULL";
         }
-        else if(!check_fonte.isSelected()){
+        if(!check_fonte.isSelected()){
            fonte = "NULL";
         }
-        else if(!check_gabinete.isSelected()){
+        if(!check_gabinete.isSelected()){
            gabinete = "NULL";
         }
       
         if(verifica == true){
-            JOptionPane.showMessageDialog(null, "Dados Salvos com sucesso!");
             cbd.CadastroMaquina(processador, pmae, ram, hd, ssd, ccpu, cool, pvideo, fonte, gabinete, matricula, patrimonio, sala);
             
             JDesktopPane desktop = getDesktopPane();

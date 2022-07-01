@@ -194,7 +194,6 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         }else{
             cbd.DefeitoSolucao(texta_defeito.getText(), texta_solucao.getText());
         }
-        JOptionPane.showMessageDialog(null, "Informações Salvas Com Sucesso!");
         JDesktopPane desktop = getDesktopPane();
         desktop.add(jcp);
         jcp.setVisible(true);
