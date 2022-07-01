@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import maquinas.JCadastro;
 
 /**
  *
@@ -28,6 +29,7 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
     ResultSet result = null;
     DefaultListModel model;
     int Enter = 0;
+    JCadastro jc = new JCadastro();
 
     public JClienteExistente() {
             initComponents();
@@ -107,6 +109,11 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
         }
 
     }
+   public void patri(String patrimonio){
+        String nome="";
+        nome = text_nomeresult.getText();
+        cbd.BuscaJCE(nome, patrimonio);
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -316,7 +323,7 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_list_pesquisaMousePressed
 
     private void button_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_addMouseClicked
-        cbd.AddExistentePF(text_nomeresult.getText());
+    
         dispose();
     }//GEN-LAST:event_button_addMouseClicked
 

@@ -5,6 +5,7 @@
 package maquinas;
 
 import chamado.JMain;
+import conexao.JClienteExistente;
 import conexao.conexao_bd;
 import javax.swing.JOptionPane;
 import defeito.jCadastroDef;
@@ -17,8 +18,9 @@ import javax.swing.JDesktopPane;
 public class JCadastro extends javax.swing.JInternalFrame {
     private String negar ="0123456789";
     private static jCadastroDef jcd = new jCadastroDef();
-    private static conexao_bd cbd = new conexao_bd();
+    public static conexao_bd cbd = new conexao_bd();
     private static JMain jm = new JMain();
+    private static JClienteExistente jce = new JClienteExistente();
     private String matricula, nome;
     public JCadastro() {
         initComponents();
@@ -35,7 +37,13 @@ public class JCadastro extends javax.swing.JInternalFrame {
     public void matricula(String matricula, String nome){
         this.matricula = matricula;
         this.nome = nome;
-    } 
+    }
+    
+    public void clientes(){
+        String patrimonio = text_patrimonio.getText();
+        jce.patri(patrimonio);
+    }
+    
     
     public void reseta(){
         text_processador.setText("Modelo");

@@ -471,11 +471,15 @@ public class conexao_bd{
     }
     public void AddExistentePF(String id, String patrimonio){
         String InstrucaoSQL = "UPDATE  chamado SET IdCliente = ' " +id+ " '  where Patrimonio = ' " +patrimonio+ " ' ";
+        conectar();
         try{
-            
-        }catch(){
-            
+         st = conexao.createStatement();
+         st.executeUpdate(InstrucaoSQL);         
+        }catch(Exception e){
+            e.printStackTrace();
+           JOptionPane.showInternalMessageDialog(null,"ERRO:C472", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
+        desconectar();
     }
 }
   
