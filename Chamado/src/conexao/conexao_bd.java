@@ -111,7 +111,7 @@ public class conexao_bd{
         return Usuario;
     }
     public void Instituicao(String nome,String endereco,String telefone,String responsavel,String cnpj,String cpf){
-        String InstrucaoSQL="INSERT INTO `instituicoes` (`idInstituições`, `NomeDaInstituicao`, `Localizacao`, `Telefone`, `Responsavel`, `CNPJ`, `CPF`) "
+        String InstrucaoSQL="INSERT INTO `instituicoes` (`idInstitucoes`, `NomeDaInstituicao`, `Localizacao`, `Telefone`, `Responsavel`, `CNPJ`, `CPF`) "
                 + "VALUES (NULL, '"+nome+"', '"+endereco+"', '"+telefone+"', '"+responsavel+"', '"+cnpj+"', '"+cpf+"');";
         
         conectar();

@@ -334,14 +334,20 @@ public class JInstituicao extends javax.swing.JInternalFrame {
         resp = text_resp.getText();
         cpf = text_cpf.getText();
         tel = text_telefone.getText();
-        retorno = cbd.InstituicaoCNPJ(cnpj);
         
-        if(retorno==false ){
+        retorno = cbd.InstituicaoCNPJ(cnpj);
+        retorno2 = cbd.InstituicaoCPF(cpf);
+        
+        if(retorno == false && retorno2 == false){
               cbd.Instituicao(nome, endereco, tel, resp, cnpj, cpf);
-              this.dispose();
               reseta();
-        }else{
+              dispose();
+        }else if(retorno == true){
             JOptionPane.showMessageDialog(null, "CNPJ Já Cadastrado");
+        }else if(retorno2 == true){
+            JOptionPane.showMessageDialog(null, "CPF Já Cadastrado");
+        }else{
+            JOptionPane.showMessageDialog(null, "CNPJ e CPF Já Cadastrado");
         }
     }//GEN-LAST:event_button_addMouseClicked
 
