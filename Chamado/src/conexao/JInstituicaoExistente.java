@@ -316,7 +316,7 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_list_pesquisaMousePressed
 
     private void button_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_addMouseClicked
-        cbd.AddExistentePJ(text_nomeresult.getText());
+        //cbd.AddExistentePJ(text_nomeresult.getText());
         dispose();
     }//GEN-LAST:event_button_addMouseClicked
 
