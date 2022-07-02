@@ -18,7 +18,8 @@ import maquinas.JCadastro;
  * @author Aluno
  */
 public class JClienteExistente extends javax.swing.JInternalFrame {
-    
+   
+    JCadastro jc = new JCadastro();
     conexao_bd cbd = new conexao_bd();
     static String url ="jdbc:mysql://172.20.126.128:3306/ChamadoSENAC";
     static String username ="chamado";
@@ -29,7 +30,7 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
     ResultSet result = null;
     DefaultListModel model;
     int Enter = 0;
-    JCadastro jc = new JCadastro();
+    private String patrimonio="";
 
     public JClienteExistente() {
             initComponents();
@@ -109,10 +110,8 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
         }
 
     }
-   public void patri(String patrimonio){
-        String nome="";
-        nome = text_nomeresult.getText();
-        cbd.BuscaJCE(nome, patrimonio);
+   public void patrimonio(String patrimonio){
+        this.patrimonio = patrimonio;
    }
 
     /**
@@ -323,7 +322,9 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_list_pesquisaMousePressed
 
     private void button_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_addMouseClicked
-    
+        String nome="";
+        nome = text_nomeresult.getText();
+        cbd.BuscaJCE(nome, patrimonio);
         dispose();
     }//GEN-LAST:event_button_addMouseClicked
 

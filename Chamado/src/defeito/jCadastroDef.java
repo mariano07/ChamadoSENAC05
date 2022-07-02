@@ -18,6 +18,7 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
     JCadastro jc = new JCadastro();
     JClientePerg jcp = new JClientePerg();
     conexao_bd cbd = new conexao_bd();
+    private String patrimonio;
    
     /**
      * Creates new form jCadastroDef
@@ -25,7 +26,10 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
     public jCadastroDef() {
         initComponents();
     }
-    
+    public void patrimonio(String patrimonio){
+        
+        this.patrimonio = patrimonio;
+    }
     public void reseta(){
         texta_defeito.setText("");
         texta_solucao.setText("");
@@ -196,6 +200,7 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         }
         JDesktopPane desktop = getDesktopPane();
         desktop.add(jcp);
+        jcp.patrimonio(this.patrimonio);
         jcp.setVisible(true);
         this.dispose();
         reseta();

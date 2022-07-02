@@ -17,11 +17,16 @@ public class JClientePerg extends javax.swing.JInternalFrame {
     private static JInstituicao ji = new JInstituicao();
     private static JClienteExistente jce = new JClienteExistente();
     private static JInstituicaoExistente jie = new JInstituicaoExistente();
+    private String patrimonio;
     /**
      * Creates new form JClientePerg
      */
     public JClientePerg() {
         initComponents();
+    }
+    
+    public void patrimonio(String patrimonio){
+        this.patrimonio = patrimonio;
     }
 
     /**
@@ -158,6 +163,7 @@ public class JClientePerg extends javax.swing.JInternalFrame {
         }else if(check_pfExis.isSelected()){
             JDesktopPane desktop = getDesktopPane();
             desktop.add(jce);
+            jce.patrimonio(this.patrimonio);
             jce.setVisible(true);
             this.dispose();
         }else if(check_pjexis.isSelected()){

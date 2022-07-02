@@ -105,8 +105,14 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
             executaSQL(InstrucaoSQL);
             ResultadoPesquisa();
         }
+        
 
     }
+      public void patrimonio(String patrimonio){
+        String nome="";
+        nome = text_nomeresult.getText();
+       //cbd.BuscaJI(nome, patrimonio);
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -316,7 +322,7 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_list_pesquisaMousePressed
 
     private void button_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_addMouseClicked
-        cbd.AddExistentePJ(text_nomeresult.getText());
+        //cbd.AddExistentePJ(text_nomeresult.getText());
         dispose();
     }//GEN-LAST:event_button_addMouseClicked
 

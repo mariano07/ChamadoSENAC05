@@ -5,6 +5,7 @@
 package maquinas;
 
 import chamado.JMain;
+import clientes.JInstituicao;
 import conexao.JClienteExistente;
 import conexao.conexao_bd;
 import javax.swing.JOptionPane;
@@ -21,6 +22,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
     public static conexao_bd cbd = new conexao_bd();
     private static JMain jm = new JMain();
     private static JClienteExistente jce = new JClienteExistente();
+    private static JInstituicao ji = new JInstituicao();
     private String matricula, nome;
     public JCadastro() {
         initComponents();
@@ -38,12 +40,6 @@ public class JCadastro extends javax.swing.JInternalFrame {
         this.matricula = matricula;
         this.nome = nome;
     }
-    
-    public void clientes(){
-        String patrimonio = text_patrimonio.getText();
-        jce.patri(patrimonio);
-    }
-    
     
     public void reseta(){
         text_processador.setText("Modelo");
@@ -212,6 +208,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
             JDesktopPane desktop = getDesktopPane();
             desktop.add(jcd);
             jcd.defeitoInfo(texta_defeito.getText());
+            jcd.patrimonio(patrimonio);
             jcd.setVisible(true);
             this.dispose();
             reseta();
@@ -1223,6 +1220,7 @@ public class JCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_text_gabineteFocusLost
 
     private void button_proxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_proxMouseClicked
+        
         verifica2();      
     }//GEN-LAST:event_button_proxMouseClicked
 

@@ -471,32 +471,32 @@ public class conexao_bd{
        return matriculas;
     }
     public void BuscaJCE (String nome, String patrimonio){
-        String id = " ";
-         String InstrucaoSQL = "SELECT IdCliente  FROM clientes  WHERE  nome =  ' "   +nome+  " ' ";
+         int id = 0;
+         String InstrucaoSQL = "SELECT idClientes  FROM clientes  WHERE  nome =  ' "   +nome+  " ' ";
          conectar();
         try{
          st1 = conexao.createStatement();
          result1 = st1.executeQuery(InstrucaoSQL);
          while(result1.next()){
-          id = result1.getString("IdCliente");
+          id = result1.getInt("idClientes");
         }
         }catch(Exception e){
             e.printStackTrace();
-           JOptionPane.showInternalMessageDialog(null,"ERRO:C455", "ERRO", JOptionPane.ERROR_MESSAGE);
-        }
-        AddExistentePF(id, patrimonio);
+           JOptionPane.showInternalMessageDialog(null,"ERRO:C473", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }        
         desconectar();
+        AddExistentePF(id, patrimonio);
     }
-    public void AddExistentePF(String id, String patrimonio){
-        String InstrucaoSQL = "UPDATE  chamado SET IdCliente = ' " +id+ " '  where Patrimonio = ' " +patrimonio+ " ' ";
+    public void AddExistentePF(int id, String patrimonio){
+        String InstrucaoSQL = "UPDATE  chamado SET idCliente =  "+id+ "   where Patrimonio = ' " +patrimonio+ " ' ";
         conectar();
         try{
          st1 = conexao.createStatement();
          st1.executeUpdate(InstrucaoSQL);         
         }catch(Exception e){
             e.printStackTrace();
-           JOptionPane.showMessageDialog(null,"ERRO:C472", "ERRO", JOptionPane.ERROR_MESSAGE);
+           JOptionPane.showMessageDialog(null,"ERRO:C490", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
         desconectar();
-    }
     }
 }
