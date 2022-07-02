@@ -367,6 +367,8 @@ public class JMain extends javax.swing.JFrame {
     private void mitem_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_consultarActionPerformed
         if(!jcp.isVisible()){
             tela_principal.add(jcp);
+            jcp.setCargoMatricula(cargo, mitem_matricula.getText());
+            jcp.Filtros();
             jcp.setVisible(true);
         }
     }//GEN-LAST:event_mitem_consultarActionPerformed

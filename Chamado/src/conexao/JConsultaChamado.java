@@ -33,6 +33,23 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         initComponents();
         Hidden();
     }
+    private void conectar(){
+         try{
+            conexao = DriverManager.getConnection(url,username,password);
+        }catch(Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "ERRO:C027","ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    private void desconectar(){
+        try {
+            st.close();
+            conexao.close();
+        }catch(Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "ERRO:C035","ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     private void Hidden(){
         box_Matricula.setVisible(false);
         box_Patrimonio.setVisible(false);
@@ -64,9 +81,38 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
           
         }
     }
-      
-      
-    
+    public void Filtros(){
+        if(getCargo().equals("ADM")){
+            String InstrucaoPatrimonio="SELECT DISTINCT Patrimonio FROM chamado";
+            String InstrucaoData="SELECT DISTINCT Data FROM chamado ORDER BY Data DESC";
+            String InstrucaoMatricula="SELECT DISTINCT Matricula FROM chamado ORDER BY Matricula ASC";
+            conectar();
+            try{
+                st = conexao.createStatement();
+                result = st.executeQuery(InstrucaoPatrimonio);
+                while(result.next()){
+                    box_Patrimonio.addItem(result.getString("Patrimonio"));
+                }
+                st.close();
+                st = conexao.createStatement();
+                result = st.executeQuery(InstrucaoData);
+                while(result.next()){
+                    box_Data.addItem(result.getString("Data"));
+                }
+                st.close();
+                st = conexao.createStatement();
+                result = st.executeQuery(InstrucaoMatricula);
+                while(result.next()){
+                    box_Matricula.addItem(result.getString("Matricula"));
+                }
+                st.close();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }else{
+            
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
