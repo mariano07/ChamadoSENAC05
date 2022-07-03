@@ -472,7 +472,7 @@ public class conexao_bd{
     }
     public void BuscaJCE (String nome, String patrimonio){
          int id = 0;
-         String InstrucaoSQL = "SELECT idClientes  FROM clientes  WHERE  nome =  ' "   +nome+  " ' ";
+         String InstrucaoSQL = "SELECT idClientes FROM clientes WHERE nome = '"+nome+"'";
          conectar();
         try{
          st1 = conexao.createStatement();
@@ -488,7 +488,7 @@ public class conexao_bd{
         AddExistentePF(id, patrimonio);
     }
     public void AddExistentePF(int id, String patrimonio){
-        String InstrucaoSQL = "UPDATE  chamado SET idCliente =  "+id+ "   where Patrimonio = ' " +patrimonio+ " ' ";
+        String InstrucaoSQL = "UPDATE chamado SET idCliente = "+id+" WHERE Patrimonio = '"+patrimonio+"'";
         conectar();
         try{
          st1 = conexao.createStatement();
