@@ -25,6 +25,10 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
      */
     public jCadastroDef() {
         initComponents();
+        
+    }
+    public void orcamento(){
+       cbd.Orcamento(text_orcamento.getText(),box_status.getSelectedItem().toString());
     }
     public void patrimonio(String patrimonio){
         
