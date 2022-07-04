@@ -537,12 +537,12 @@ public class conexao_bd{
         +"VALUES (NULL,'"+valor+"','"+status+"')";
         conectar();
         try{
-            st1 = conexao.createStatement();
-            st1.executeUpdate(InstrucaoSQL);
+           st1 = conexao.createStatement();
+           st1.executeUpdate(InstrucaoSQL);
         }catch(Exception e){
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"ERRO:C502" , "ERRO" , JOptionPane.ERROR_MESSAGE);
+           e.printStackTrace();
+           JOptionPane.showMessageDialog(null,"ERRO:C502" , "ERRO" , JOptionPane.ERROR_MESSAGE);
         }
-          desconectar();
+         desconectar();
     }
 }
