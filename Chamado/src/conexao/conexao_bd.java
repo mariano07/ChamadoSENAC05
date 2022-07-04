@@ -113,13 +113,14 @@ public class conexao_bd{
         return Usuario;
     }
     public void Instituicao(String nome,String endereco,String telefone,String responsavel,String cnpj,String cpf){
-        String InstrucaoSQL="INSERT INTO `instituicoes` (`idInstitucoes`, `NomeDaInstituicao`, `Localizacao`, `Telefone`, `Responsavel`, `CNPJ`, `CPF`) "
+        String InstrucaoSQL="INSERT INTO `instituicoes` (`idInstituicoes`, `Nome`, `Localizacao`, `Telefone`, `Responsavel`, `CNPJ`, `CPF`) "
                 + "VALUES (NULL, '"+nome+"', '"+endereco+"', '"+telefone+"', '"+responsavel+"', '"+cnpj+"', '"+cpf+"');";
         
         conectar();
         try{
             st1 = conexao.createStatement();
             st1.executeUpdate(InstrucaoSQL);
+            JOptionPane.showMessageDialog(null, "Cliente adicionado com sucesso");
         }catch (Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C117", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -134,6 +135,7 @@ public class conexao_bd{
         try{
             st1 = conexao.createStatement();
             st1.executeUpdate(InstrucaoSQL);
+            JOptionPane.showMessageDialog(null, "Cliente adicionado com sucesso");
         }catch (Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C127", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -470,7 +472,7 @@ public class conexao_bd{
        desconectar();
        return matriculas;
     }
-    public void BuscaJCE (String nome, String patrimonio){
+    public void BuscaJCE(String nome, String patrimonio){
          int id = 0;
          String InstrucaoSQL = "SELECT idClientes FROM clientes WHERE nome = '"+nome+"'";
          conectar();
@@ -492,14 +494,45 @@ public class conexao_bd{
         conectar();
         try{
          st1 = conexao.createStatement();
-         st1.executeUpdate(InstrucaoSQL);         
+         st1.executeUpdate(InstrucaoSQL);
+        JOptionPane.showMessageDialog(null, "Chamado registrado com sucesso!");         
         }catch(Exception e){
             e.printStackTrace();
            JOptionPane.showMessageDialog(null,"ERRO:C490", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
-    public void Orcamento(String valor,String status){
+    public void BuscaJIE(String nome, String patrimonio){
+         int id = 0;
+         String InstrucaoSQL = "SELECT idInstituicoes FROM instituicoes WHERE nome = '"+nome+"'";
+         conectar();
+        try{
+         st1 = conexao.createStatement();
+         result1 = st1.executeQuery(InstrucaoSQL);
+         while(result1.next()){
+          id = result1.getInt("idInstituicoes");
+        }
+        }catch(Exception e){
+            e.printStackTrace();
+           JOptionPane.showInternalMessageDialog(null,"ERRO:C505", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }        
+        desconectar();
+        AddExistentePJ(id, patrimonio);
+    }
+    public void AddExistentePJ(int id, String patrimonio){
+        String InstrucaoSQL = "UPDATE chamado SET idInstituicao = "+id+" WHERE Patrimonio = '"+patrimonio+"'";
+        conectar();
+        try{
+         st1 = conexao.createStatement();
+         st1.executeUpdate(InstrucaoSQL);
+         JOptionPane.showMessageDialog(null, "Chamado registrado com sucesso!");
+        }catch(Exception e){
+            e.printStackTrace();
+           JOptionPane.showMessageDialog(null,"ERRO:C504", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
+    }
+   public void Orcamento(String valor,String status){
         String InstrucaoSQL = "INSERT INTO orcamento (idTicket,Orcamento,StatusDoOrcamento)"
         +"VALUES (NULL,'"+valor+"','"+status+"')";
         conectar();

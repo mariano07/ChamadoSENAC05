@@ -48,6 +48,7 @@ public class JCliente extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         text_endereco = new javax.swing.JTextField();
         button_add = new javax.swing.JButton();
+        button_voltar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -149,6 +150,15 @@ public class JCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        button_voltar.setBackground(new java.awt.Color(255, 255, 255));
+        button_voltar.setForeground(new java.awt.Color(0, 0, 0));
+        button_voltar.setText("Voltar");
+        button_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_voltarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -167,7 +177,8 @@ public class JCliente extends javax.swing.JInternalFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(text_nome)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(button_voltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(button_add))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,7 +219,9 @@ public class JCliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(text_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(button_add)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_add)
+                    .addComponent(button_voltar))
                 .addContainerGap())
         );
 
@@ -301,9 +314,17 @@ public class JCliente extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_button_addMouseClicked
 
+    private void button_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_voltarMouseClicked
+        JClientePerg JCP = new JClientePerg();
+        getParent().add(JCP);
+        JCP.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_button_voltarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_add;
+    private javax.swing.JButton button_voltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
