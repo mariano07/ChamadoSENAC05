@@ -6,6 +6,7 @@ package chamado;
 
 import maquinas.JCadastro;
 import clientes.JCliente;
+import clientes.JClientePerg;
 import clientes.JInstituicao;
 import conexao.JConsultaChamado;
 import defeito.jCadastroDef;
@@ -38,6 +39,7 @@ public class JMain extends javax.swing.JFrame {
     private static JAjuda ja = new JAjuda();
     private static JIndividual ji =  new JIndividual();
     private static JEstatisticas je = new JEstatisticas();
+    private static JClientePerg JCP = new JClientePerg();
     private String cargo="";
     
     public JMain() {
@@ -70,6 +72,10 @@ public class JMain extends javax.swing.JFrame {
         JLogin jl = new JLogin();
         jl.setVisible(true);
         dispose();
+    }
+    public void voltar(){
+        tela_principal.add(JCP);
+        JCP.setVisible(true);
     }
 
     /**

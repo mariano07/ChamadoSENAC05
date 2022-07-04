@@ -189,7 +189,7 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
             .addComponent(panel_defeito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setBounds(800, 400, 313, 445);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_defeitoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_defeitoMouseClicked

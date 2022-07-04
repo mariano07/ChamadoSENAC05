@@ -169,6 +169,7 @@ public class JClientePerg extends javax.swing.JInternalFrame {
         }else if(check_pjexis.isSelected()){
             JDesktopPane desktop = getDesktopPane();
             desktop.add(jie);
+            jie.patrimonio(this.patrimonio);
             jie.setVisible(true);
             this.dispose();
         }

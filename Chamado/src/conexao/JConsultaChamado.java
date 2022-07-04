@@ -132,6 +132,8 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         setBorder(null);
         setClosable(true);
         setIconifiable(true);
+        setTitle("Pesquisa");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
 
         JPanelConsulaChamado.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisar chamados"));
 

@@ -4,13 +4,17 @@
  */
 package conexao;
 
+import chamado.JMain;
+import clientes.JClientePerg;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.DefaultListModel;
+import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.DesktopPaneUI;
 import maquinas.JCadastro;
 
 /**
@@ -133,13 +137,14 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
         text_nomepesquisa = new javax.swing.JTextField();
         list_pesquisa = new javax.swing.JList<>();
         button_add = new javax.swing.JButton();
+        button_voltar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Insituição Existente");
-        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/building.png"))); // NOI18N
+        setTitle("Cliente Existente");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/user_suit.png"))); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setForeground(new java.awt.Color(51, 51, 51));
@@ -244,6 +249,15 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
             }
         });
 
+        button_voltar.setBackground(new java.awt.Color(255, 255, 255));
+        button_voltar.setForeground(new java.awt.Color(0, 0, 0));
+        button_voltar.setText("Voltar");
+        button_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_voltarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -252,7 +266,8 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(button_voltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(button_add))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,7 +300,9 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
                     .addComponent(text_cpfresult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_cpfresult))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(button_add)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_add)
+                    .addComponent(button_voltar))
                 .addContainerGap())
         );
 
@@ -328,9 +345,17 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_button_addMouseClicked
 
+    private void button_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_voltarMouseClicked
+        JClientePerg JCP = new JClientePerg();
+        getParent().add(JCP);
+        JCP.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_button_voltarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_add;
+    private javax.swing.JButton button_voltar;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

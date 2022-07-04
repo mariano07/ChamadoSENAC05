@@ -4,6 +4,8 @@
  */
 package conexao;
 
+import chamado.JMain;
+import clientes.JClientePerg;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -28,6 +30,7 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
     ResultSet result = null;
     DefaultListModel model;
     int Enter = 0;
+    private String patrimonio="";
 
     public JInstituicaoExistente() {
             initComponents();
@@ -35,8 +38,7 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
             MostraPesquisa();
             list_pesquisa.setVisible(true);
             model = new DefaultListModel();
-            list_pesquisa.setModel(model);
-        
+            list_pesquisa.setModel(model);  
     }  
      private void conectar(){
          try{
@@ -55,8 +57,6 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Erro C033","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    
     private void  Busca () {    
            try {
             String InstrucaoSQL= "SELECT * FROM instituicoes where Nome like '" + text_nomepesquisa.getText() + "%'";
@@ -76,8 +76,7 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao listar dados" + e);
         }
-   }
-     
+   }   
    private void executaSQL(String sql) {
         try {
             st = conexao.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -87,7 +86,6 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Nao foi possível executar o comando sql");
         }
     }
-   
     private void ResultadoPesquisa() {
           try {
             result.first();
@@ -96,7 +94,6 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
         } catch (SQLException erro) {
           // JOptionPane.showMessageDialog(null, "ERRO:C32 JCE", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
-   
     }
    private void MostraPesquisa() {
         int Linha = list_pesquisa.getSelectedIndex();
@@ -105,13 +102,9 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
             executaSQL(InstrucaoSQL);
             ResultadoPesquisa();
         }
-        
-
     }
-      public void patrimonio(String patrimonio){
-        String nome="";
-        nome = text_nomeresult.getText();
-       //cbd.BuscaJI(nome, patrimonio);
+   public void patrimonio(String patrimonio){
+        this.patrimonio = patrimonio;
    }
 
     /**
@@ -133,6 +126,7 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
         text_nomepesquisa = new javax.swing.JTextField();
         list_pesquisa = new javax.swing.JList<>();
         button_add = new javax.swing.JButton();
+        button_voltar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -244,6 +238,15 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
             }
         });
 
+        button_voltar.setBackground(new java.awt.Color(255, 255, 255));
+        button_voltar.setForeground(new java.awt.Color(0, 0, 0));
+        button_voltar.setText("Voltar");
+        button_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_voltarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -252,7 +255,8 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(button_voltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(button_add))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,7 +289,9 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
                     .addComponent(text_cnpjresult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_cnpjresult))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(button_add)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_add)
+                    .addComponent(button_voltar))
                 .addContainerGap())
         );
 
@@ -322,13 +328,23 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_list_pesquisaMousePressed
 
     private void button_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_addMouseClicked
-        //cbd.AddExistentePJ(text_nomeresult.getText());
+        String nome="";
+        nome = text_nomeresult.getText();
+        cbd.BuscaJIE(nome,this.patrimonio);
         dispose();
     }//GEN-LAST:event_button_addMouseClicked
+
+    private void button_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_voltarMouseClicked
+        JClientePerg JCP = new JClientePerg();
+        getParent().add(JCP);
+        JCP.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_button_voltarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_add;
+    private javax.swing.JButton button_voltar;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
