@@ -533,9 +533,12 @@ public class conexao_bd{
         desconectar();
     }
    public void Orcamento(String valor,String status){
-        String InstrucaoSQL = "INSERT INTO orcamento (idTicket,Orcamento,StatusDoOrcamento)"
-        +"VALUES (NULL,'"+valor+"','"+status+"')";
+        String InstrucaoSQL = "INSERT INTO orcamento (Orcamento,StatusDoOrcamento)"
+        +"VALUES ('"+valor+"','"+status+"')";
         conectar();
+        
+        JOptionPane.showMessageDialog(null,InstrucaoSQL);
+        
         try{
            st1 = conexao.createStatement();
            st1.executeUpdate(InstrucaoSQL);
