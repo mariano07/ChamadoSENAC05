@@ -199,8 +199,10 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
     private void button_defeitoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_defeitoMouseClicked
         if(texta_solucao.getText().equals("")){
             cbd.Defeito(texta_defeito.getText());
+            orcamento();
         }else{
             cbd.DefeitoSolucao(texta_defeito.getText(), texta_solucao.getText());
+            orcamento();
         }
         JDesktopPane desktop = getDesktopPane();
         desktop.add(jcp);
