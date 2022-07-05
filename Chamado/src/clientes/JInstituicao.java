@@ -60,7 +60,7 @@ public class JInstituicao extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Cliente");
+        setTitle("Instituição");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/building.png"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));

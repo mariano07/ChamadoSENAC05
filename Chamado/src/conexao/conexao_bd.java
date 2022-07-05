@@ -308,7 +308,7 @@ public class conexao_bd{
     }
     public String[] getAluno(String matricula){
         String[] aluno = new String[2];
-        String InstrucaoSQL="SELECT Nome,AES_DECRYPT(Usuario,'"+chave+"') FROM usuario WHERE Matricula = "+matricula;
+        String InstrucaoSQL="SELECT Nome,AES_DECRYPT(Usuario,'"+chave+"') FROM usuario WHERE Matricula = '"+matricula+"'";
 
         conectar();
         try{
@@ -316,7 +316,7 @@ public class conexao_bd{
             result1 = st1.executeQuery(InstrucaoSQL);
             while(result1.next()){
                 aluno[0]=result1.getString("Nome");
-                aluno[1]=result1.getString("Usuario");
+                aluno[1]=result1.getString("AES_DECRYPT(Usuario,'"+chave+"')");
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -326,7 +326,7 @@ public class conexao_bd{
         return aluno;
     }
     public void DeletaAluno(String matricula){
-        String InstrucaoSQL="DELETE FROM `usuario` WHERE `Matricula`= "+matricula;
+        String InstrucaoSQL="DELETE FROM `usuario` WHERE `Matricula`= '"+matricula+"'";
         conectar();
         try{
             st1 = conexao.createStatement();
@@ -535,10 +535,7 @@ public class conexao_bd{
    public void Orcamento(String valor,String status){
         String InstrucaoSQL = "INSERT INTO orcamento (Orcamento,StatusDoOrcamento)"
         +"VALUES ('"+valor+"','"+status+"')";
-        conectar();
-        
-        JOptionPane.showMessageDialog(null,InstrucaoSQL);
-        
+        conectar();      
         try{
            st1 = conexao.createStatement();
            st1.executeUpdate(InstrucaoSQL);

@@ -4,6 +4,7 @@
  */
 package maquinas;
 
+import conexao.JConsultaChamado;
 import conexao.conexao_bd;
 
 /**
@@ -14,6 +15,7 @@ public class JEditar extends javax.swing.JInternalFrame {
     
     private String negar ="0123456789";
     private static conexao_bd cbd = new conexao_bd();
+    private static JConsultaChamado jcc = new JConsultaChamado();
     private int id = 0;
     
     public JEditar() {
@@ -36,6 +38,26 @@ public class JEditar extends javax.swing.JInternalFrame {
         text_gabinete.setText(dados[11]);
         texta_defeito.setText(dados[12]);
         texta_solucao.setText(dados[13]);
+    }
+    private void reseta(){
+        this.id = 0;
+        text_patrimonio.setText("");
+        text_sala.setText("");
+        text_pmae.setText("");
+        text_processador.setText("");
+        text_memoria.setText("");
+        text_gpu.setText("");
+        text_fonte.setText("");
+        text_ssd.setText("");
+        text_hd.setText("");
+        text_cooler.setText("");
+        text_coolercpu.setText("");
+        text_gabinete.setText("");
+        texta_defeito.setText("");
+        texta_solucao.setText("");
+        getParent().add(jcc);
+        jcc.setVisible(true);
+        dispose();
     }
     
     /**
@@ -421,6 +443,7 @@ public class JEditar extends javax.swing.JInternalFrame {
         }else{
             cbd.AtualizaDefSolu(id, defeito, solucao);
         }
+        reseta();
     }//GEN-LAST:event_button_editarMouseClicked
 
 

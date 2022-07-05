@@ -28,6 +28,11 @@ public class JEditarTecnico extends javax.swing.JInternalFrame {
         this.matricula = matricula;
     }
 
+      public void reseta(){
+        text_usuario.setText("Usuário");
+        pfield_senha.setText("");
+        pfield_confsenha.setText("");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,8 +58,14 @@ public class JEditarTecnico extends javax.swing.JInternalFrame {
         setTitle("Editar Usuário");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/vcard_edit.png"))); // NOI18N
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+
+        label_usuario.setBackground(new java.awt.Color(51, 51, 51));
+        label_usuario.setForeground(new java.awt.Color(255, 255, 255));
         label_usuario.setText("Novo Usuário:");
 
+        text_usuario.setBackground(new java.awt.Color(255, 255, 255));
+        text_usuario.setForeground(new java.awt.Color(0, 0, 0));
         text_usuario.setText("Usuário");
         text_usuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -65,8 +76,12 @@ public class JEditarTecnico extends javax.swing.JInternalFrame {
             }
         });
 
+        label_senha.setBackground(new java.awt.Color(51, 51, 51));
+        label_senha.setForeground(new java.awt.Color(255, 255, 255));
         label_senha.setText("Nova senha:");
 
+        button_salvar.setBackground(new java.awt.Color(255, 255, 255));
+        button_salvar.setForeground(new java.awt.Color(0, 0, 0));
         button_salvar.setText("Salvar");
         button_salvar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -74,7 +89,15 @@ public class JEditarTecnico extends javax.swing.JInternalFrame {
             }
         });
 
+        label_confsenha.setBackground(new java.awt.Color(51, 51, 51));
+        label_confsenha.setForeground(new java.awt.Color(255, 255, 255));
         label_confsenha.setText("Confirme a senha:");
+
+        pfield_senha.setBackground(new java.awt.Color(255, 255, 255));
+        pfield_senha.setForeground(new java.awt.Color(0, 0, 0));
+
+        pfield_confsenha.setBackground(new java.awt.Color(255, 255, 255));
+        pfield_confsenha.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -141,6 +164,7 @@ public class JEditarTecnico extends javax.swing.JInternalFrame {
             if(tf == false){
                 JOptionPane.showMessageDialog(null, "Usuário e Senha alterado com sucesso!\nPor favor faça o login novamente.");
                 dispose();
+                reseta();
             }else{
                 JOptionPane.showMessageDialog(null, "Usuário não presente no banco de dados!");
             }

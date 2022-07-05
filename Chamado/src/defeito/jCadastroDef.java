@@ -85,10 +85,8 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
 
         label_solucao.setBackground(new java.awt.Color(51, 51, 51));
         label_solucao.setForeground(new java.awt.Color(255, 255, 255));
-        label_solucao.setText("Solução:");
+        label_solucao.setText("Solução (Informe somente se já souber a solução):");
 
-        button_defeito.setBackground(new java.awt.Color(255, 255, 255));
-        button_defeito.setForeground(new java.awt.Color(0, 0, 0));
         button_defeito.setText("Proximo");
         button_defeito.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -101,7 +99,6 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
 
         texta_solucao.setBackground(new java.awt.Color(255, 255, 255));
         texta_solucao.setColumns(20);
-        texta_solucao.setForeground(new java.awt.Color(0, 0, 0));
         texta_solucao.setRows(5);
         jScrollPane1.setViewportView(texta_solucao);
 
@@ -111,7 +108,6 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         texta_defeito.setEditable(false);
         texta_defeito.setBackground(new java.awt.Color(255, 255, 255));
         texta_defeito.setColumns(20);
-        texta_defeito.setForeground(new java.awt.Color(0, 0, 0));
         texta_defeito.setRows(5);
         jScrollPane3.setViewportView(texta_defeito);
 
@@ -119,12 +115,8 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         label_orcprevisto.setForeground(new java.awt.Color(255, 255, 255));
         label_orcprevisto.setText("Orçamento Previsto:");
 
-        text_orcamento.setBackground(new java.awt.Color(255, 255, 255));
-        text_orcamento.setForeground(new java.awt.Color(0, 0, 0));
         text_orcamento.setText("0");
 
-        box_status.setBackground(new java.awt.Color(255, 255, 255));
-        box_status.setForeground(new java.awt.Color(0, 0, 0));
         box_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim", "Não" }));
 
         label_orcstatus.setBackground(new java.awt.Color(51, 51, 51));
