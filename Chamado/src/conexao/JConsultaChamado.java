@@ -12,13 +12,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import maquinas.JEditar;
 
 /**
  *
  * @author alunos
  */
 public class JConsultaChamado extends javax.swing.JInternalFrame {
-
+    
+    private static JEditar je = new JEditar();
     private String cargo="";
     private String matricula="";
     private final static String chave="@#ch4m@d0$3n4cr3$tr1t0#@";
@@ -159,6 +161,49 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+    private String[] BuscaChamado(int id){
+        String[] dados = new String[14];
+        String InstrucaoSQL = "SELECT `Patrimonio`, `Sala`, `Placa mae`, `Processador`, "
+                + "`Memorias Ram`, `Placa de video`, `Fonte`, `Ssd`, `Hd`, `Cooler`, `CoolerCpu`, `Gabinete`, "
+                + "FROM `chamado` WHERE idTicket = '"+id+"'";
+        conectar();
+        try{
+            st = conexao.createStatement();
+            result = st.executeQuery(InstrucaoSQL);
+            while(result.next()){
+                dados[0]=result.getString("`Patrimonio`");
+                dados[1]=result.getString("`Sala`");
+                dados[2]=result.getString("`Placa mae`");
+                dados[3]=result.getString("`Processador`");
+                dados[4]=result.getString("`Memorias Ram`");
+                dados[5]=result.getString("`Placa de video`");
+                dados[6]=result.getString("`Fonte`");
+                dados[7]=result.getString("`Ssd`");
+                dados[8]=result.getString("`Hd`");
+                dados[9]=result.getString("`Cooler`");
+                dados[10]=result.getString("`CoolerCpu`");
+                dados[11]=result.getString("`Gabinete`");
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        desconectar();
+        
+        String InstrucaoSQL2 = "SELECT `Problema`, `Solucao` FROM `problema` WHERE idTicket = "+id;
+        conectar();
+        try{
+            st = conexao.createStatement();
+            result = st.executeQuery(InstrucaoSQL2);
+            while(result.next()){
+                dados[12]=result.getString("`Problema`");
+                dados[13]=result.getString("`Solucao`");
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        desconectar();
+        return dados;
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -338,10 +383,14 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_check_FIltrosStateChanged
 
     private void Button_AlterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_AlterarMouseClicked
-        if(Button_Alterar.isSelected()){
-            
-            validate();
-        }
+        String[] dados = new String[15];
+        int id = 0;
+        //id = ?
+        dados = BuscaChamado(id);
+        getParent().add(je);
+        je.popular(id,dados);
+        je.setVisible(true);
+        dispose();
     }//GEN-LAST:event_Button_AlterarMouseClicked
 
     private void text_ConsultaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_ConsultaFocusGained

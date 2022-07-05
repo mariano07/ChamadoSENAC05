@@ -548,4 +548,43 @@ public class conexao_bd{
         }
          desconectar();
     }
+   public void AtualizaChamado(int id,String patrimonio,String sala,String pmae,String processador,String ram,String gpu,String fonte,String ssd,String hd,String cool,String ccpu,String gabinete){
+       String InstrucaoSQL = "UPDATE `chamado` SET `Patrimonio`='"+patrimonio+"',`Sala`='"+sala+"',`Placa mae`='"+pmae+"',`Processador`='"+processador+"',"
+               + "`Memorias Ram`='"+ram+"',`Placa de video`='"+gpu+"',`Fonte`='"+fonte+"',`Ssd`='"+ssd+"',`Hd`='"+hd+"',`Cooler`='"+cool+"',"
+               + "`CoolerCpu`='"+ccpu+"',`Gabinete`='"+gabinete+"',`Data`='"+getDate()+"',`Hora`='"+getTime()+"' WHERE idTicket = "+id;
+       conectar();
+       try{
+           st1 = conexao.createStatement();
+           st1.executeUpdate(InstrucaoSQL);
+       }catch(Exception e){
+           e.printStackTrace();
+           JOptionPane.showMessageDialog(null,"ERRO:C551" , "ERRO" , JOptionPane.ERROR_MESSAGE);
+       }
+       desconectar();
+   }
+   public void AtualizaDef(int id,String defeito){
+       String InstrucaoSQL = "UPDATE `problema` SET `Problema`='"+defeito+"' WHERE idTicket = "+id;
+       conectar();
+       try{
+           st1 = conexao.createStatement();
+           st1.executeUpdate(InstrucaoSQL);
+       }catch(Exception e){
+           e.printStackTrace();
+           JOptionPane.showMessageDialog(null,"ERRO:C563" , "ERRO" , JOptionPane.ERROR_MESSAGE);
+       }
+       desconectar();
+   }
+   public void AtualizaDefSolu(int id,String defeito,String solucao){
+       String InstrucaoSQL = "UPDATE `problema` SET `Problema`='"+defeito+"',`StatusDoProblema`='CONCLUIDO',`Solucao`='"+solucao+"'"
+               + "WHERE idTicket = "+id;
+       conectar();
+       try{
+           st1 = conexao.createStatement();
+           st1.executeUpdate(InstrucaoSQL);
+       }catch(Exception e){
+           e.printStackTrace();
+           JOptionPane.showMessageDialog(null,"ERRO:C573" , "ERRO" , JOptionPane.ERROR_MESSAGE);
+       }
+       desconectar();
+   }
 }

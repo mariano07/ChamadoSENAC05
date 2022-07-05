@@ -14,44 +14,29 @@ public class JEditar extends javax.swing.JInternalFrame {
     
     private String negar ="0123456789";
     private static conexao_bd cbd = new conexao_bd();
-    private String matricula;
+    private int id = 0;
     
     public JEditar() {
         initComponents();
-        popular();
     }
     
-    public void popular(){
-        //vetor = cbd.
-        
-        //text_processador.setText();
-        
-        //text_pmae.setText();
-        
-        //text_ram.setText(); box_capram.setSelectedItem(); box_ram.setSelectedItem(); spinner_ram.setValue();
-        
-        //ftext_hd.setText(); box_caphd.setSelectedItem(); text_hd.setText(); spinner_hd.setValue();
-        
-        //ftext_ssd.setText(); box_capssd.setSelectedItem(); text_ssd.setText(); spinner_ssd.setValue();
-        
-        //text_coolercpu.setText();
-        
-        //text_cooler.setText(); spinner_cooler.setValue();
-        
-        //ftext_gpu.setText(); box_capgpu.setSelectedItem(); box_gpu.setSelectedItem();
-        
-        //text_fonte.setText(); ftext_fonte.setText();
-        
-        //text_gabinete.setText();
-        
-        //text_patrimonio.setText();
-        
-        //text_sala.setText();
+    public void popular(int id,String[] dados){
+        this.id = id;
+        text_patrimonio.setText(dados[0]);
+        text_sala.setText(dados[1]);
+        text_pmae.setText(dados[2]);
+        text_processador.setText(dados[3]);
+        text_memoria.setText(dados[4]);
+        text_gpu.setText(dados[5]);
+        text_fonte.setText(dados[6]);
+        text_ssd.setText(dados[7]);
+        text_hd.setText(dados[8]);
+        text_cooler.setText(dados[9]);
+        text_coolercpu.setText(dados[10]);
+        text_gabinete.setText(dados[11]);
+        texta_defeito.setText(dados[12]);
+        texta_solucao.setText(dados[13]);
     }
-    
-    public void matricula(String matricula){
-        this.matricula = matricula;
-    } 
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,63 +48,47 @@ public class JEditar extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        check_processador = new javax.swing.JCheckBox();
-        check_pmae = new javax.swing.JCheckBox();
-        check_ram = new javax.swing.JCheckBox();
-        check_hd = new javax.swing.JCheckBox();
-        check_coolercpu = new javax.swing.JCheckBox();
-        check_gabinete = new javax.swing.JCheckBox();
-        check_gpu = new javax.swing.JCheckBox();
-        check_fonte = new javax.swing.JCheckBox();
-        button_editar = new javax.swing.JButton();
+        label_processador = new javax.swing.JLabel();
         text_processador = new javax.swing.JTextField();
+        label_pmae = new javax.swing.JLabel();
         text_pmae = new javax.swing.JTextField();
-        qtd_ram = new javax.swing.JLabel();
-        spinner_ram = new javax.swing.JSpinner();
-        check_ssd = new javax.swing.JCheckBox();
-        text_ram = new javax.swing.JFormattedTextField();
-        ftext_hd = new javax.swing.JFormattedTextField();
-        ftext_ssd = new javax.swing.JFormattedTextField();
-        qtd_hd = new javax.swing.JLabel();
-        spinner_hd = new javax.swing.JSpinner();
-        qtd_ssd = new javax.swing.JLabel();
-        spinner_ssd = new javax.swing.JSpinner();
+        label_hd = new javax.swing.JLabel();
         text_hd = new javax.swing.JTextField();
-        text_ssd = new javax.swing.JTextField();
-        check_cooler = new javax.swing.JCheckBox();
-        text_coolercpu = new javax.swing.JTextField();
-        text_cooler = new javax.swing.JTextField();
-        box_ram = new javax.swing.JComboBox<>();
-        spinner_cooler = new javax.swing.JSpinner();
-        qtd_cooler = new javax.swing.JLabel();
-        ftext_gpu = new javax.swing.JFormattedTextField();
-        box_gpu = new javax.swing.JComboBox<>();
-        ftext_fonte = new javax.swing.JFormattedTextField();
+        label_memoria = new javax.swing.JLabel();
+        text_memoria = new javax.swing.JTextField();
+        label_fonte = new javax.swing.JLabel();
         text_fonte = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        label_ccpu = new javax.swing.JLabel();
+        text_coolercpu = new javax.swing.JTextField();
+        label_cooler = new javax.swing.JLabel();
+        text_cooler = new javax.swing.JTextField();
+        label_ssd = new javax.swing.JLabel();
+        text_ssd = new javax.swing.JTextField();
+        label_gpu = new javax.swing.JLabel();
+        text_gpu = new javax.swing.JTextField();
+        label_gabinete = new javax.swing.JLabel();
         text_gabinete = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        label_patrimonio = new javax.swing.JLabel();
+        text_patrimonio = new javax.swing.JTextField();
+        label_sala = new javax.swing.JLabel();
+        text_sala = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        label_defeito = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         texta_defeito = new javax.swing.JTextArea();
-        jSeparator2 = new javax.swing.JSeparator();
-        box_capram = new javax.swing.JComboBox<>();
-        box_caphd = new javax.swing.JComboBox<>();
-        box_capssd = new javax.swing.JComboBox<>();
-        box_capgpu = new javax.swing.JComboBox<>();
-        label_fonte = new javax.swing.JLabel();
-        text_patrimonio = new javax.swing.JTextField();
-        text_sala = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         label_solucao = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        texta_solucao = new javax.swing.JTextArea();
+        button_editar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(51, 51, 51));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Cadastro de máquinas");
+        setTitle("Edição de chamado");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/computer_edit.png"))); // NOI18N
         setMaximumSize(new java.awt.Dimension(1920, 1080));
 
@@ -128,38 +97,147 @@ public class JEditar extends javax.swing.JInternalFrame {
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(1920, 1080));
 
-        check_processador.setBackground(new java.awt.Color(51, 51, 51));
-        check_processador.setForeground(new java.awt.Color(255, 255, 255));
-        check_processador.setText("Processador");
+        label_processador.setBackground(new java.awt.Color(51, 51, 51));
+        label_processador.setForeground(new java.awt.Color(255, 255, 255));
+        label_processador.setText("Processador:");
 
-        check_pmae.setBackground(new java.awt.Color(51, 51, 51));
-        check_pmae.setForeground(new java.awt.Color(255, 255, 255));
-        check_pmae.setText("Placa-mãe");
+        text_processador.setBackground(new java.awt.Color(255, 255, 255));
+        text_processador.setForeground(new java.awt.Color(0, 0, 0));
+        text_processador.setText("Modelo");
+        text_processador.setMinimumSize(new java.awt.Dimension(200, 22));
+        text_processador.setPreferredSize(new java.awt.Dimension(200, 22));
 
-        check_ram.setBackground(new java.awt.Color(51, 51, 51));
-        check_ram.setForeground(new java.awt.Color(255, 255, 255));
-        check_ram.setText("Memória");
+        label_pmae.setBackground(new java.awt.Color(51, 51, 51));
+        label_pmae.setForeground(new java.awt.Color(255, 255, 255));
+        label_pmae.setText("Placa Mãe:");
 
-        check_hd.setBackground(new java.awt.Color(51, 51, 51));
-        check_hd.setForeground(new java.awt.Color(255, 255, 255));
-        check_hd.setText("HD");
+        text_pmae.setBackground(new java.awt.Color(255, 255, 255));
+        text_pmae.setForeground(new java.awt.Color(0, 0, 0));
+        text_pmae.setText("Modelo");
+        text_pmae.setMinimumSize(new java.awt.Dimension(200, 22));
+        text_pmae.setPreferredSize(new java.awt.Dimension(200, 22));
 
-        check_coolercpu.setBackground(new java.awt.Color(51, 51, 51));
-        check_coolercpu.setForeground(new java.awt.Color(255, 255, 255));
-        check_coolercpu.setText("Cooler CPU");
-        check_coolercpu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        label_hd.setBackground(new java.awt.Color(51, 51, 51));
+        label_hd.setForeground(new java.awt.Color(255, 255, 255));
+        label_hd.setText("HD:");
 
-        check_gabinete.setBackground(new java.awt.Color(51, 51, 51));
-        check_gabinete.setForeground(new java.awt.Color(255, 255, 255));
-        check_gabinete.setText("Gabinete");
+        text_hd.setBackground(new java.awt.Color(255, 255, 255));
+        text_hd.setForeground(new java.awt.Color(0, 0, 0));
+        text_hd.setText("Modelo");
+        text_hd.setMinimumSize(new java.awt.Dimension(200, 22));
+        text_hd.setPreferredSize(new java.awt.Dimension(200, 22));
 
-        check_gpu.setBackground(new java.awt.Color(51, 51, 51));
-        check_gpu.setForeground(new java.awt.Color(255, 255, 255));
-        check_gpu.setText("Placa de vídeo");
+        label_memoria.setBackground(new java.awt.Color(51, 51, 51));
+        label_memoria.setForeground(new java.awt.Color(255, 255, 255));
+        label_memoria.setText("Memória:");
 
-        check_fonte.setBackground(new java.awt.Color(51, 51, 51));
-        check_fonte.setForeground(new java.awt.Color(255, 255, 255));
-        check_fonte.setText("Fonte");
+        text_memoria.setBackground(new java.awt.Color(255, 255, 255));
+        text_memoria.setForeground(new java.awt.Color(0, 0, 0));
+        text_memoria.setText("Modelo");
+        text_memoria.setMinimumSize(new java.awt.Dimension(200, 22));
+        text_memoria.setPreferredSize(new java.awt.Dimension(200, 22));
+
+        label_fonte.setBackground(new java.awt.Color(51, 51, 51));
+        label_fonte.setForeground(new java.awt.Color(255, 255, 255));
+        label_fonte.setText("Fonte:");
+
+        text_fonte.setBackground(new java.awt.Color(255, 255, 255));
+        text_fonte.setForeground(new java.awt.Color(51, 51, 51));
+        text_fonte.setText("Modelo");
+        text_fonte.setMinimumSize(new java.awt.Dimension(200, 22));
+        text_fonte.setPreferredSize(new java.awt.Dimension(200, 22));
+
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        label_ccpu.setBackground(new java.awt.Color(51, 51, 51));
+        label_ccpu.setForeground(new java.awt.Color(255, 255, 255));
+        label_ccpu.setText("Cooler CPU:");
+
+        text_coolercpu.setBackground(new java.awt.Color(255, 255, 255));
+        text_coolercpu.setForeground(new java.awt.Color(0, 0, 0));
+        text_coolercpu.setText("Modelo");
+        text_coolercpu.setMinimumSize(new java.awt.Dimension(200, 22));
+        text_coolercpu.setPreferredSize(new java.awt.Dimension(200, 22));
+
+        label_cooler.setBackground(new java.awt.Color(51, 51, 51));
+        label_cooler.setForeground(new java.awt.Color(255, 255, 255));
+        label_cooler.setText("Cooler:");
+
+        text_cooler.setBackground(new java.awt.Color(255, 255, 255));
+        text_cooler.setForeground(new java.awt.Color(51, 51, 51));
+        text_cooler.setText("Modelo");
+        text_cooler.setMinimumSize(new java.awt.Dimension(200, 22));
+        text_cooler.setPreferredSize(new java.awt.Dimension(200, 22));
+
+        label_ssd.setBackground(new java.awt.Color(51, 51, 51));
+        label_ssd.setForeground(new java.awt.Color(255, 255, 255));
+        label_ssd.setText("SSD:");
+
+        text_ssd.setBackground(new java.awt.Color(255, 255, 255));
+        text_ssd.setForeground(new java.awt.Color(0, 0, 0));
+        text_ssd.setText("Modelo");
+        text_ssd.setMinimumSize(new java.awt.Dimension(200, 22));
+        text_ssd.setPreferredSize(new java.awt.Dimension(200, 22));
+
+        label_gpu.setBackground(new java.awt.Color(51, 51, 51));
+        label_gpu.setForeground(new java.awt.Color(255, 255, 255));
+        label_gpu.setText("Placa de Vídeo:");
+
+        text_gpu.setBackground(new java.awt.Color(255, 255, 255));
+        text_gpu.setForeground(new java.awt.Color(0, 0, 0));
+        text_gpu.setText("Modelo");
+        text_gpu.setMinimumSize(new java.awt.Dimension(200, 22));
+        text_gpu.setPreferredSize(new java.awt.Dimension(200, 22));
+
+        label_gabinete.setBackground(new java.awt.Color(51, 51, 51));
+        label_gabinete.setForeground(new java.awt.Color(255, 255, 255));
+        label_gabinete.setText("Gabinete:");
+
+        text_gabinete.setBackground(new java.awt.Color(255, 255, 255));
+        text_gabinete.setForeground(new java.awt.Color(51, 51, 51));
+        text_gabinete.setText("Modelo");
+        text_gabinete.setMinimumSize(new java.awt.Dimension(200, 22));
+        text_gabinete.setPreferredSize(new java.awt.Dimension(200, 22));
+
+        label_patrimonio.setBackground(new java.awt.Color(51, 51, 51));
+        label_patrimonio.setForeground(new java.awt.Color(255, 255, 255));
+        label_patrimonio.setText("Patrimônio");
+
+        text_patrimonio.setBackground(new java.awt.Color(255, 255, 255));
+        text_patrimonio.setForeground(new java.awt.Color(0, 0, 0));
+        text_patrimonio.setText("0");
+        text_patrimonio.setMinimumSize(new java.awt.Dimension(208, 22));
+        text_patrimonio.setPreferredSize(new java.awt.Dimension(208, 22));
+
+        label_sala.setBackground(new java.awt.Color(51, 51, 51));
+        label_sala.setForeground(new java.awt.Color(255, 255, 255));
+        label_sala.setText("Sala");
+
+        text_sala.setBackground(new java.awt.Color(255, 255, 255));
+        text_sala.setForeground(new java.awt.Color(0, 0, 0));
+        text_sala.setText("Sala");
+        text_sala.setMinimumSize(new java.awt.Dimension(208, 22));
+        text_sala.setPreferredSize(new java.awt.Dimension(208, 22));
+
+        label_defeito.setBackground(new java.awt.Color(51, 51, 51));
+        label_defeito.setForeground(new java.awt.Color(255, 255, 255));
+        label_defeito.setText("Defeito");
+
+        texta_defeito.setBackground(new java.awt.Color(255, 255, 255));
+        texta_defeito.setColumns(20);
+        texta_defeito.setForeground(new java.awt.Color(0, 0, 0));
+        texta_defeito.setRows(5);
+        jScrollPane1.setViewportView(texta_defeito);
+
+        label_solucao.setBackground(new java.awt.Color(51, 51, 51));
+        label_solucao.setForeground(new java.awt.Color(255, 255, 255));
+        label_solucao.setText("Solução");
+
+        texta_solucao.setBackground(new java.awt.Color(255, 255, 255));
+        texta_solucao.setColumns(20);
+        texta_solucao.setForeground(new java.awt.Color(0, 0, 0));
+        texta_solucao.setRows(5);
+        jScrollPane2.setViewportView(texta_solucao);
 
         button_editar.setBackground(new java.awt.Color(255, 255, 255));
         button_editar.setForeground(new java.awt.Color(51, 51, 51));
@@ -170,189 +248,6 @@ public class JEditar extends javax.swing.JInternalFrame {
             }
         });
 
-        text_processador.setBackground(new java.awt.Color(255, 255, 255));
-        text_processador.setForeground(new java.awt.Color(0, 0, 0));
-        text_processador.setText("Modelo");
-
-        text_pmae.setBackground(new java.awt.Color(255, 255, 255));
-        text_pmae.setForeground(new java.awt.Color(0, 0, 0));
-        text_pmae.setText("Modelo");
-
-        qtd_ram.setBackground(new java.awt.Color(51, 51, 51));
-        qtd_ram.setForeground(new java.awt.Color(255, 255, 255));
-        qtd_ram.setText("Qtd.");
-
-        spinner_ram.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
-        spinner_ram.setToolTipText("");
-        spinner_ram.setBorder(null);
-
-        check_ssd.setBackground(new java.awt.Color(51, 51, 51));
-        check_ssd.setForeground(new java.awt.Color(255, 255, 255));
-        check_ssd.setText("SSD");
-
-        text_ram.setBackground(new java.awt.Color(255, 255, 255));
-        text_ram.setForeground(new java.awt.Color(51, 51, 51));
-        text_ram.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        text_ram.setText("0");
-        text_ram.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                text_ramKeyTyped(evt);
-            }
-        });
-
-        ftext_hd.setBackground(new java.awt.Color(255, 255, 255));
-        ftext_hd.setForeground(new java.awt.Color(51, 51, 51));
-        ftext_hd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        ftext_hd.setText("0");
-        ftext_hd.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                ftext_hdKeyTyped(evt);
-            }
-        });
-
-        ftext_ssd.setBackground(new java.awt.Color(255, 255, 255));
-        ftext_ssd.setForeground(new java.awt.Color(51, 51, 51));
-        ftext_ssd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        ftext_ssd.setText("0");
-        ftext_ssd.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                ftext_ssdKeyTyped(evt);
-            }
-        });
-
-        qtd_hd.setBackground(new java.awt.Color(51, 51, 51));
-        qtd_hd.setForeground(new java.awt.Color(255, 255, 255));
-        qtd_hd.setText("Qtd.");
-
-        spinner_hd.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
-        spinner_hd.setBorder(null);
-
-        qtd_ssd.setBackground(new java.awt.Color(51, 51, 51));
-        qtd_ssd.setForeground(new java.awt.Color(255, 255, 255));
-        qtd_ssd.setText("Qtd.");
-
-        spinner_ssd.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
-        spinner_ssd.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-
-        text_hd.setBackground(new java.awt.Color(255, 255, 255));
-        text_hd.setForeground(new java.awt.Color(0, 0, 0));
-        text_hd.setText("Modelo");
-
-        text_ssd.setBackground(new java.awt.Color(255, 255, 255));
-        text_ssd.setForeground(new java.awt.Color(0, 0, 0));
-        text_ssd.setText("Modelo");
-
-        check_cooler.setBackground(new java.awt.Color(51, 51, 51));
-        check_cooler.setForeground(new java.awt.Color(255, 255, 255));
-        check_cooler.setText("Cooler ");
-        check_cooler.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        text_coolercpu.setBackground(new java.awt.Color(255, 255, 255));
-        text_coolercpu.setForeground(new java.awt.Color(0, 0, 0));
-        text_coolercpu.setText("Modelo");
-
-        text_cooler.setBackground(new java.awt.Color(255, 255, 255));
-        text_cooler.setForeground(new java.awt.Color(51, 51, 51));
-        text_cooler.setText("Modelo");
-
-        box_ram.setBackground(new java.awt.Color(255, 255, 255));
-        box_ram.setForeground(new java.awt.Color(0, 0, 0));
-        box_ram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIMM", "DIMM", "DDR", "DDR2", "DDR3", "DDR4", "DDR5" }));
-
-        spinner_cooler.setModel(new javax.swing.SpinnerNumberModel(1, 1, 20, 1));
-
-        qtd_cooler.setBackground(new java.awt.Color(51, 51, 51));
-        qtd_cooler.setForeground(new java.awt.Color(255, 255, 255));
-        qtd_cooler.setText("Qtd.");
-
-        ftext_gpu.setBackground(new java.awt.Color(255, 255, 255));
-        ftext_gpu.setForeground(new java.awt.Color(0, 0, 0));
-        ftext_gpu.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        ftext_gpu.setText("0");
-        ftext_gpu.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                ftext_gpuKeyTyped(evt);
-            }
-        });
-
-        box_gpu.setBackground(new java.awt.Color(255, 255, 255));
-        box_gpu.setForeground(new java.awt.Color(0, 0, 0));
-        box_gpu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PCI Express x1", "AGP", "PCI", "PCI Express x16", " " }));
-
-        ftext_fonte.setBackground(new java.awt.Color(255, 255, 255));
-        ftext_fonte.setForeground(new java.awt.Color(0, 0, 0));
-        ftext_fonte.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        ftext_fonte.setText("0");
-        ftext_fonte.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                ftext_fonteKeyTyped(evt);
-            }
-        });
-
-        text_fonte.setBackground(new java.awt.Color(255, 255, 255));
-        text_fonte.setForeground(new java.awt.Color(51, 51, 51));
-        text_fonte.setText("Modelo");
-
-        text_gabinete.setBackground(new java.awt.Color(255, 255, 255));
-        text_gabinete.setForeground(new java.awt.Color(51, 51, 51));
-        text_gabinete.setText("Modelo");
-
-        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Defeito");
-
-        texta_defeito.setBackground(new java.awt.Color(255, 255, 255));
-        texta_defeito.setColumns(20);
-        texta_defeito.setForeground(new java.awt.Color(0, 0, 0));
-        texta_defeito.setRows(5);
-        jScrollPane1.setViewportView(texta_defeito);
-
-        box_capram.setBackground(new java.awt.Color(255, 255, 255));
-        box_capram.setForeground(new java.awt.Color(0, 0, 0));
-        box_capram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MB", "GB", "TB" }));
-
-        box_caphd.setBackground(new java.awt.Color(255, 255, 255));
-        box_caphd.setForeground(new java.awt.Color(0, 0, 0));
-        box_caphd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MB", "GB", "TB" }));
-
-        box_capssd.setBackground(new java.awt.Color(255, 255, 255));
-        box_capssd.setForeground(new java.awt.Color(0, 0, 0));
-        box_capssd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MB", "GB", "TB" }));
-
-        box_capgpu.setBackground(new java.awt.Color(255, 255, 255));
-        box_capgpu.setForeground(new java.awt.Color(0, 0, 0));
-        box_capgpu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MB", "GB", "TB" }));
-
-        label_fonte.setBackground(new java.awt.Color(51, 51, 51));
-        label_fonte.setForeground(new java.awt.Color(255, 255, 255));
-        label_fonte.setText("W");
-
-        text_patrimonio.setBackground(new java.awt.Color(255, 255, 255));
-        text_patrimonio.setForeground(new java.awt.Color(0, 0, 0));
-        text_patrimonio.setText("0");
-
-        text_sala.setBackground(new java.awt.Color(255, 255, 255));
-        text_sala.setForeground(new java.awt.Color(0, 0, 0));
-        text_sala.setText("Sala");
-
-        jLabel2.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Patrimônio");
-
-        jLabel3.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Sala");
-
-        label_solucao.setBackground(new java.awt.Color(51, 51, 51));
-        label_solucao.setForeground(new java.awt.Color(255, 255, 255));
-        label_solucao.setText("Solução");
-
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -360,186 +255,131 @@ public class JEditar extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(text_patrimonio)
-                            .addComponent(text_sala))
-                        .addGap(219, 219, 219))
-                    .addComponent(jSeparator2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(check_gabinete)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(text_gabinete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(check_processador)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(text_processador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(check_pmae)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(text_pmae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(check_ram)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(text_ram, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(box_capram, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(box_ram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(qtd_ram)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(spinner_ram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(check_fonte)
-                                .addGap(18, 18, 18)
-                                .addComponent(text_fonte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ftext_fonte, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(label_fonte))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(check_hd)
-                                .addGap(21, 21, 21)
-                                .addComponent(ftext_hd, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(box_caphd, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(text_hd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(qtd_hd)
-                                .addGap(18, 18, 18)
-                                .addComponent(spinner_hd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(check_ssd)
-                                .addGap(18, 18, 18)
-                                .addComponent(ftext_ssd, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(box_capssd, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(text_ssd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(qtd_ssd)
-                                .addGap(18, 18, 18)
-                                .addComponent(spinner_ssd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(check_gpu)
-                                .addGap(18, 18, 18)
-                                .addComponent(ftext_gpu, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(box_capgpu, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(box_gpu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(check_coolercpu)
-                                .addGap(18, 18, 18)
-                                .addComponent(text_coolercpu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(check_cooler)
-                                .addGap(18, 18, 18)
-                                .addComponent(text_cooler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(qtd_cooler)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spinner_cooler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1))
-                        .addContainerGap(48, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(button_editar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(label_solucao)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jScrollPane1))
-                        .addContainerGap())))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(label_processador)
+                                            .addComponent(label_memoria)
+                                            .addComponent(label_pmae)
+                                            .addComponent(label_hd)
+                                            .addComponent(label_fonte))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(text_fonte, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(text_pmae, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(text_processador, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(text_hd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(text_memoria, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(label_ccpu)
+                                                    .addComponent(label_gpu)
+                                                    .addComponent(label_gabinete)
+                                                    .addComponent(label_ssd))
+                                                .addGap(12, 12, 12)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(text_coolercpu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(text_cooler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(text_ssd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(text_gpu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(text_gabinete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addComponent(label_cooler)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(label_solucao)
+                                            .addComponent(label_sala))
+                                        .addGap(35, 35, 35)
+                                        .addComponent(text_sala, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(319, 319, 319))
+                                    .addComponent(label_defeito))
+                                .addGap(0, 82, Short.MAX_VALUE))
+                            .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addContainerGap())
+                    .addComponent(jSeparator2)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(label_patrimonio)
+                        .addGap(18, 18, 18)
+                        .addComponent(text_patrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(check_processador)
-                        .addComponent(text_processador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(check_pmae)
-                        .addComponent(text_pmae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(check_ram)
-                        .addComponent(text_ram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(box_capram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(box_ram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(qtd_ram)
-                        .addComponent(spinner_ram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_processador)
+                            .addComponent(text_processador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_pmae)
+                            .addComponent(text_pmae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_hd)
+                            .addComponent(text_hd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(text_memoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label_memoria))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_fonte)
+                            .addComponent(text_fonte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(text_coolercpu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label_cooler))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(text_cooler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label_ccpu))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(text_ssd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label_ssd))
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_gpu)
+                            .addComponent(text_gpu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(text_gabinete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label_gabinete))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_patrimonio)
+                    .addComponent(text_patrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(text_hd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(qtd_hd)
-                        .addComponent(spinner_hd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(check_hd)
-                        .addComponent(ftext_hd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(box_caphd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(text_ssd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(qtd_ssd)
-                        .addComponent(spinner_ssd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(check_ssd)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ftext_ssd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(box_capssd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(check_coolercpu)
-                    .addComponent(text_coolercpu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(check_cooler)
-                    .addComponent(text_cooler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(qtd_cooler)
-                    .addComponent(spinner_cooler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(check_gpu)
-                    .addComponent(ftext_gpu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(box_gpu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(box_capgpu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(check_fonte)
-                    .addComponent(ftext_fonte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(text_fonte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_fonte))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(check_gabinete)
-                    .addComponent(text_gabinete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_patrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_sala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(text_sala, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_sala, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addGap(2, 2, 2)
+                .addComponent(label_defeito)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label_solucao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(button_editar))
         );
 
@@ -557,107 +397,67 @@ public class JEditar extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void text_ramKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_ramKeyTyped
-    if(!negar.contains(evt.getKeyChar()+"")){
-            evt.consume();
-        }
-    }//GEN-LAST:event_text_ramKeyTyped
-
-    private void ftext_hdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_hdKeyTyped
-        if(!negar.contains(evt.getKeyChar()+"")){
-            evt.consume();
-        }
-    }//GEN-LAST:event_ftext_hdKeyTyped
-
-    private void ftext_ssdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_ssdKeyTyped
-        if(!negar.contains(evt.getKeyChar()+"")){
-            evt.consume();
-        }
-    }//GEN-LAST:event_ftext_ssdKeyTyped
-
-    private void ftext_gpuKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_gpuKeyTyped
-        if(!negar.contains(evt.getKeyChar()+"")){
-            evt.consume();
-        }
-    }//GEN-LAST:event_ftext_gpuKeyTyped
-
-    private void ftext_fonteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ftext_fonteKeyTyped
-        if(!negar.contains(evt.getKeyChar()+"")){
-            evt.consume();
-        }
-    }//GEN-LAST:event_ftext_fonteKeyTyped
-
     private void button_editarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_editarMouseClicked
-        String processador, pmae, ram, hd, ssd, ccpu, cool, pvideo, fonte, gabinete, patrimonio, sala, matricula, defeito;
-        processador = text_processador.getText();
-        pmae = text_pmae.getText();
-        ram = text_ram.getText() + box_capram.getSelectedItem() +" "+ box_ram.getSelectedItem() +" Qtd "+spinner_ram.getValue()+"x";
-        hd = ftext_hd.getText() + box_caphd.getSelectedItem() +" "+ text_hd.getText() +" Qtd "+spinner_hd.getValue()+"x";
-        ssd = ftext_ssd.getText() + box_capssd.getSelectedItem() +" "+ text_ssd.getText() +" Qtd "+spinner_ssd.getValue()+"x";
-        ccpu = text_coolercpu.getText();
-        cool = text_cooler.getText() +" Qtd "+ spinner_cooler.getValue();
-        pvideo = ftext_gpu.getText() + box_capgpu.getSelectedItem() +" "+ box_gpu.getSelectedItem();
-        fonte = text_fonte.getText() +" "+ftext_fonte.getText() + "W";
-        gabinete = text_gabinete.getText();
-        matricula = this.matricula;
+        String processador, pmae, ram, hd, ssd, ccpu, cool, gpu, fonte, gabinete, patrimonio, sala, defeito, solucao;
         patrimonio = text_patrimonio.getText();
         sala = text_sala.getText();
+        pmae = text_pmae.getText();
+        processador = text_processador.getText();
+        ram = text_memoria.getText();
+        gpu = text_gpu.getText();
+        fonte = text_fonte.getText();
+        ssd = text_ssd.getText();
+        hd = text_hd.getText();
+        cool = text_cooler.getText();
+        ccpu = text_coolercpu.getText();
+        gabinete = text_gabinete.getText();
+        defeito = texta_defeito.getText();
+        solucao = texta_solucao.getText();
         
-        //cbd.
+        cbd.AtualizaChamado(id,patrimonio,sala,pmae,processador,ram,gpu,fonte,ssd,hd,cool,ccpu,gabinete);
+        if(solucao.equals("")){
+            cbd.AtualizaDef(id, defeito);
+        }else{
+            cbd.AtualizaDefSolu(id, defeito, solucao);
+        }
     }//GEN-LAST:event_button_editarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> box_capgpu;
-    private javax.swing.JComboBox<String> box_caphd;
-    private javax.swing.JComboBox<String> box_capram;
-    private javax.swing.JComboBox<String> box_capssd;
-    private javax.swing.JComboBox<String> box_gpu;
-    private javax.swing.JComboBox<String> box_ram;
     private javax.swing.JButton button_editar;
-    private javax.swing.JCheckBox check_cooler;
-    private javax.swing.JCheckBox check_coolercpu;
-    private javax.swing.JCheckBox check_fonte;
-    private javax.swing.JCheckBox check_gabinete;
-    private javax.swing.JCheckBox check_gpu;
-    private javax.swing.JCheckBox check_hd;
-    private javax.swing.JCheckBox check_pmae;
-    private javax.swing.JCheckBox check_processador;
-    private javax.swing.JCheckBox check_ram;
-    private javax.swing.JCheckBox check_ssd;
-    private javax.swing.JFormattedTextField ftext_fonte;
-    private javax.swing.JFormattedTextField ftext_gpu;
-    private javax.swing.JFormattedTextField ftext_hd;
-    private javax.swing.JFormattedTextField ftext_ssd;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JLabel label_ccpu;
+    private javax.swing.JLabel label_cooler;
+    private javax.swing.JLabel label_defeito;
     private javax.swing.JLabel label_fonte;
+    private javax.swing.JLabel label_gabinete;
+    private javax.swing.JLabel label_gpu;
+    private javax.swing.JLabel label_hd;
+    private javax.swing.JLabel label_memoria;
+    private javax.swing.JLabel label_patrimonio;
+    private javax.swing.JLabel label_pmae;
+    private javax.swing.JLabel label_processador;
+    private javax.swing.JLabel label_sala;
     private javax.swing.JLabel label_solucao;
-    private javax.swing.JLabel qtd_cooler;
-    private javax.swing.JLabel qtd_hd;
-    private javax.swing.JLabel qtd_ram;
-    private javax.swing.JLabel qtd_ssd;
-    private javax.swing.JSpinner spinner_cooler;
-    private javax.swing.JSpinner spinner_hd;
-    private javax.swing.JSpinner spinner_ram;
-    private javax.swing.JSpinner spinner_ssd;
+    private javax.swing.JLabel label_ssd;
     private javax.swing.JTextField text_cooler;
     private javax.swing.JTextField text_coolercpu;
     private javax.swing.JTextField text_fonte;
     private javax.swing.JTextField text_gabinete;
+    private javax.swing.JTextField text_gpu;
     private javax.swing.JTextField text_hd;
+    private javax.swing.JTextField text_memoria;
     private javax.swing.JTextField text_patrimonio;
     private javax.swing.JTextField text_pmae;
     private javax.swing.JTextField text_processador;
-    private javax.swing.JFormattedTextField text_ram;
     private javax.swing.JTextField text_sala;
     private javax.swing.JTextField text_ssd;
     private javax.swing.JTextArea texta_defeito;
+    private javax.swing.JTextArea texta_solucao;
     // End of variables declaration//GEN-END:variables
 }
