@@ -177,6 +177,8 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         setBorder(null);
         setClosable(true);
         setIconifiable(true);
+        setTitle("Pesquisa");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens_icones/magnifier.png"))); // NOI18N
 
         JPanelConsulaChamado.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisar chamados"));
 
@@ -326,7 +328,10 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_check_FIltrosStateChanged
 
     private void Button_AlterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_AlterarMouseClicked
-        
+        if(Button_Alterar.isSelected()){
+            
+            validate();
+        }
     }//GEN-LAST:event_Button_AlterarMouseClicked
 
     private void text_ConsultaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_ConsultaFocusGained
