@@ -326,7 +326,7 @@ public class conexao_bd{
         return aluno;
     }
     public void DeletaAluno(String matricula){
-        String InstrucaoSQL="DELETE FROM `usuario` WHERE `Matricula`= "+matricula;
+        String InstrucaoSQL="DELETE FROM `usuario` WHERE `Matricula`= '"+matricula+"'";
         conectar();
         try{
             st1 = conexao.createStatement();
