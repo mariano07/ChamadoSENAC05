@@ -28,6 +28,11 @@ public class JEditarTecnico extends javax.swing.JInternalFrame {
         this.matricula = matricula;
     }
 
+      public void reseta(){
+        text_usuario.setText("Usuário");
+        pfield_senha.setText("");
+        pfield_confsenha.setText("");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -159,6 +164,7 @@ public class JEditarTecnico extends javax.swing.JInternalFrame {
             if(tf == false){
                 JOptionPane.showMessageDialog(null, "Usuário e Senha alterado com sucesso!\nPor favor faça o login novamente.");
                 dispose();
+                reseta();
             }else{
                 JOptionPane.showMessageDialog(null, "Usuário não presente no banco de dados!");
             }
