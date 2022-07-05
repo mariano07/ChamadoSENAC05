@@ -308,7 +308,7 @@ public class conexao_bd{
     }
     public String[] getAluno(String matricula){
         String[] aluno = new String[2];
-        String InstrucaoSQL="SELECT Nome,AES_DECRYPT(Usuario,'"+chave+"') FROM usuario WHERE Matricula = "+matricula;
+        String InstrucaoSQL="SELECT Nome,AES_DECRYPT(Usuario,'"+chave+"') FROM usuario WHERE Matricula = '"+matricula+"'";
 
         conectar();
         try{
