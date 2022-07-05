@@ -316,7 +316,7 @@ public class conexao_bd{
             result1 = st1.executeQuery(InstrucaoSQL);
             while(result1.next()){
                 aluno[0]=result1.getString("Nome");
-                aluno[1]=result1.getString("Usuario");
+                aluno[1]=result1.getString("AES_DECRYPT(Usuario,'"+chave+"')");
             }
         }catch(Exception e){
             e.printStackTrace();

@@ -220,8 +220,7 @@ public class JDeletaTecnico extends javax.swing.JInternalFrame {
 
     private void button_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_buscarMouseClicked
         String[] nomeUsu = new String[2];
-        String matricula = text_matricula.getText();
-        nomeUsu = cbd.getAluno(matricula);
+        nomeUsu = cbd.getAluno(text_matricula.getText());
         text_nome.setText(nomeUsu[0]);
         text_user.setText(nomeUsu[1]);
         
