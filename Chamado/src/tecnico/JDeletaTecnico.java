@@ -23,6 +23,11 @@ public class JDeletaTecnico extends javax.swing.JInternalFrame {
         text_nome.setText("Nome");
         text_user.setText("Usuário");
     }
+     private void reseta(){
+        text_matricula.setText("Matrícula");
+        text_nome.setText("Nome");
+        text_user.setText("Usuário");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -234,6 +239,7 @@ public class JDeletaTecnico extends javax.swing.JInternalFrame {
         if(op1 == 0){
             cbd.DeletaAluno(matricula);
             JOptionPane.showMessageDialog(null, "Usuário deletado.");
+            reseta();         
         }
     }//GEN-LAST:event_button_deletarMouseClicked
 

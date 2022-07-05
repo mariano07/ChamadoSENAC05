@@ -535,10 +535,7 @@ public class conexao_bd{
    public void Orcamento(String valor,String status){
         String InstrucaoSQL = "INSERT INTO orcamento (Orcamento,StatusDoOrcamento)"
         +"VALUES ('"+valor+"','"+status+"')";
-        conectar();
-        
-        JOptionPane.showMessageDialog(null,InstrucaoSQL);
-        
+        conectar();      
         try{
            st1 = conexao.createStatement();
            st1.executeUpdate(InstrucaoSQL);

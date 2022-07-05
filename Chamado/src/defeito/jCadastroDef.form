@@ -140,7 +140,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Solu&#xe7;&#xe3;o:"/>
+            <Property name="text" type="java.lang.String" value="Solu&#xe7;&#xe3;o (Informe somente se j&#xe1; souber a solu&#xe7;&#xe3;o):"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="button_defeito">
