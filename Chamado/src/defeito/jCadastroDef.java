@@ -97,6 +97,7 @@ public class jCadastroDef extends javax.swing.JInternalFrame {
         jScrollPane1.setBackground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
+        texta_solucao.setBackground(new java.awt.Color(255, 255, 255));
         texta_solucao.setColumns(20);
         texta_solucao.setRows(5);
         jScrollPane1.setViewportView(texta_solucao);
