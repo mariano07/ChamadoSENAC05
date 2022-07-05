@@ -105,8 +105,8 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
     }
     private void Buscar(){
         DefaultTableModel model = (DefaultTableModel)table_lista.getModel();
-        String[] dados = new String[9];
-        String InstrucaoSQL="SELECT chamado.Patrimonio,chamado.Matricula,chamado.idCliente,chamado.idInstituicao,"
+        String[] dados = new String[10];
+        String InstrucaoSQL="SELECT chamado.idTicket,chamado.Patrimonio,chamado.Matricula,chamado.idCliente,chamado.idInstituicao,"
                 + "problema.Problema,problema.StatusDoProblema,problema.Solucao,chamado.Data,chamado.Hora "
                 + "FROM chamado JOIN problema ON chamado.idTicket = problema.idTicket";
         model.setNumRows(0);
@@ -146,27 +146,29 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             st = conexao.createStatement();
             result = st.executeQuery(InstrucaoSQL);
             while(result.next()){
-                dados[0]=result.getString("Matricula");
-                dados[1]=result.getString("Patrimonio");
-                dados[2]=result.getString("idCliente");
-                dados[3]=result.getString("idInstituicao");
-                dados[4]=result.getString("Problema");
-                dados[5]=result.getString("StatusDoProblema");
-                dados[6]=result.getString("Solucao");
-                dados[7]=result.getString("Data");
-                dados[8]=result.getString("Hora");
+                dados[0]=result.getString("idTicket");
+                dados[1]=result.getString("Matricula");
+                dados[2]=result.getString("Patrimonio");
+                dados[3]=result.getString("idCliente");
+                dados[4]=result.getString("idInstituicao");
+                dados[5]=result.getString("Problema");
+                dados[6]=result.getString("StatusDoProblema");
+                dados[7]=result.getString("Solucao");
+                dados[8]=result.getString("Data");
+                dados[9]=result.getString("Hora");
                 model.addRow(dados);
             }
             table_lista.setModel(model);
         }catch(Exception e){
             e.printStackTrace();
         }
+        desconectar();
     }
     private String[] BuscaChamado(int id){
         String[] dados = new String[14];
         String InstrucaoSQL = "SELECT `Patrimonio`, `Sala`, `Placa mae`, `Processador`, "
                 + "`Memorias Ram`, `Placa de video`, `Fonte`, `Ssd`, `Hd`, `Cooler`, `CoolerCpu`, `Gabinete`, "
-                + "FROM `chamado` WHERE idTicket = '"+id+"'";
+                + "FROM `chamado` WHERE idTicket = "+id;
         conectar();
         try{
             st = conexao.createStatement();
@@ -278,15 +280,22 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
 
         table_lista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Matricula", "Patrimonio", "Cliente", "Instituição", "Problema", "Status", "Solução", "Data", "Hora"
+                "idTicket", "Matricula", "Patrimonio", "Cliente", "Instituição", "Problema", "Status", "Solução", "Data", "Hora"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -384,8 +393,9 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
 
     private void Button_AlterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_AlterarMouseClicked
         String[] dados = new String[15];
-        int id = 0;
-        //id = ?
+        int id = 0,linha = table_lista.getSelectedRow();
+        id = Integer.parseInt(table_lista.getValueAt(linha, 0).toString());
+        JOptionPane.showMessageDialog(null, id);
         dados = BuscaChamado(id);
         getParent().add(je);
         je.popular(id,dados);
