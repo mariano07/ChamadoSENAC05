@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -68,19 +69,6 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
     private String getMatricula(){
         return this.matricula;
     }
-    private void Lista(String patrimonio,String matricula,String data,String Status){
-        String InstrucaoSQL="SELECT";
-        try{
-            conexao = DriverManager.getConnection(url,username,password);
-            st = conexao.createStatement();
-            result = st.executeQuery(InstrucaoSQL);
-            while(result.next()){
-                //List_Pendencias.add("Patrimonio: ");
-            }
-        }catch(Exception e){
-          
-        }
-    }
     public void Filtros(){
         if(getCargo().equals("ADM")){
             String InstrucaoPatrimonio="SELECT DISTINCT Patrimonio FROM chamado";
@@ -113,6 +101,63 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             
         }
     }
+    private void Buscar(){
+        DefaultTableModel model = (DefaultTableModel)table_lista.getModel();
+        String[] dados = new String[9];
+        String InstrucaoSQL="SELECT chamado.Patrimonio,chamado.Matricula,chamado.idCliente,chamado.idInstituicao,"
+                + "problema.Problema,problema.StatusDoProblema,problema.Solucao,chamado.Data,chamado.Hora "
+                + "FROM chamado JOIN problema ON chamado.idTicket = problema.idTicket";
+        model.setNumRows(0);
+        table_lista.setModel(model);
+        if(!InstrucaoSQL.contains("WHERE")){
+            if(check_FIltros.isSelected() && box_Patrimonio.getSelectedItem().toString()!= "Patrimonio"){
+                InstrucaoSQL+=" WHERE Patrimonio = '"+box_Patrimonio.getSelectedItem().toString()+"'";
+            }
+            if(check_FIltros.isSelected() && box_Data.getSelectedItem().toString()!= "Data"){
+                InstrucaoSQL+=" WHERE Data = '"+box_Data.getSelectedItem()+"'";
+            }
+            if(check_FIltros.isSelected() && box_Status.getSelectedItem().toString()!= "Status"){
+                InstrucaoSQL+=" WHERE StatusDoProblema = '"+box_Status.getSelectedItem()+"'";
+            }
+            if(check_FIltros.isSelected() && box_Matricula.getSelectedItem().toString()!= "Matricula"){
+                InstrucaoSQL+=" WHERE Matricula = '"+box_Matricula.getSelectedItem()+"'";
+            }
+        }
+        if (InstrucaoSQL.contains("WHERE")){
+            if(check_FIltros.isSelected() && box_Patrimonio.getSelectedItem().toString()!= "Patrimonio" && !InstrucaoSQL.contains("Patrmonio")){
+                InstrucaoSQL+=" AND Patrimonio = '"+box_Patrimonio.getSelectedItem()+"'";
+            }
+            if(check_FIltros.isSelected() && box_Data.getSelectedItem().toString()!= "Data" && !InstrucaoSQL.contains("Data")){
+                InstrucaoSQL+=" AND Data = '"+box_Data.getSelectedItem()+"'";
+            }
+            if(check_FIltros.isSelected() && box_Status.getSelectedItem().toString()!= "Status" && !InstrucaoSQL.contains("Status")){
+                InstrucaoSQL+=" AND StatusDoProblema = '"+box_Status.getSelectedItem()+"'";
+            }
+            if(check_FIltros.isSelected() && box_Matricula.getSelectedItem().toString()!= "Matricula" && !InstrucaoSQL.contains("Matricula")){
+                InstrucaoSQL+=" AND Matricula = '"+box_Matricula.getSelectedItem()+"'";
+            }
+        }
+        conectar();
+        try{
+            st = conexao.createStatement();
+            result = st.executeQuery(InstrucaoSQL);
+            while(result.next()){
+                dados[0]=result.getString("Matricula");
+                dados[1]=result.getString("Patrimonio");
+                dados[2]=result.getString("idCliente");
+                dados[3]=result.getString("idInstituicao");
+                dados[4]=result.getString("Problema");
+                dados[5]=result.getString("StatusDoProblema");
+                dados[6]=result.getString("Solucao");
+                dados[7]=result.getString("Data");
+                dados[8]=result.getString("Hora");
+                model.addRow(dados);
+            }
+            table_lista.setModel(model);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -120,14 +165,14 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         JPanelConsulaChamado = new javax.swing.JPanel();
         Button_Alterar = new javax.swing.JButton();
         text_Consulta = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        List_Pendencias = new javax.swing.JList<>();
         check_FIltros = new javax.swing.JCheckBox();
         box_Patrimonio = new javax.swing.JComboBox<>();
         box_Matricula = new javax.swing.JComboBox<>();
         box_Data = new javax.swing.JComboBox<>();
         box_Status = new javax.swing.JComboBox<>();
         Button_Procurar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        table_lista = new javax.swing.JTable();
 
         setBorder(null);
         setClosable(true);
@@ -158,9 +203,6 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             }
         });
 
-        List_Pendencias.setBorder(javax.swing.BorderFactory.createTitledBorder("Selecione um chamado para editar"));
-        jScrollPane1.setViewportView(List_Pendencias);
-
         check_FIltros.setText("Filtros");
         check_FIltros.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -176,7 +218,7 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
 
         box_Data.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data" }));
 
-        box_Status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Status", "Todos", "Concluido", "Pendente" }));
+        box_Status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Status", "CONCLUIDO", "PENDENTE" }));
 
         Button_Procurar.setText("Procurar");
         Button_Procurar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -185,6 +227,16 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             }
         });
 
+        table_lista.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Matricula", "Patrimonio", "Cliente", "Instituição", "Problema", "Status", "Solução", "Data", "Hora"
+            }
+        ));
+        jScrollPane2.setViewportView(table_lista);
+
         javax.swing.GroupLayout JPanelConsulaChamadoLayout = new javax.swing.GroupLayout(JPanelConsulaChamado);
         JPanelConsulaChamado.setLayout(JPanelConsulaChamadoLayout);
         JPanelConsulaChamadoLayout.setHorizontalGroup(
@@ -192,10 +244,10 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1432, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelConsulaChamadoLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(Button_Alterar))
-                    .addComponent(jScrollPane1)
                     .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
                         .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
@@ -212,7 +264,7 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
                                 .addComponent(box_Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(box_Matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 164, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         JPanelConsulaChamadoLayout.setVerticalGroup(
@@ -230,8 +282,8 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
                     .addComponent(box_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(box_Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(Button_Alterar)
                 .addContainerGap())
         );
@@ -240,7 +292,9 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JPanelConsulaChamado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(JPanelConsulaChamado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,14 +343,12 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
 
     private void text_ConsultaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_ConsultaKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(text_Consulta.getText() != "Pesquisar..." && text_Consulta.getText() != ""){
-                
-            }
+            Buscar();
         }
     }//GEN-LAST:event_text_ConsultaKeyPressed
 
     private void Button_ProcurarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ProcurarMouseClicked
-        // TODO add your handling code here:
+        Buscar();
     }//GEN-LAST:event_Button_ProcurarMouseClicked
 
 
@@ -304,13 +356,13 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
     private javax.swing.JButton Button_Alterar;
     private javax.swing.JButton Button_Procurar;
     private javax.swing.JPanel JPanelConsulaChamado;
-    private javax.swing.JList<String> List_Pendencias;
     private javax.swing.JComboBox<String> box_Data;
     private javax.swing.JComboBox<String> box_Matricula;
     private javax.swing.JComboBox<String> box_Patrimonio;
     private javax.swing.JComboBox<String> box_Status;
     private javax.swing.JCheckBox check_FIltros;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable table_lista;
     private javax.swing.JTextField text_Consulta;
     // End of variables declaration//GEN-END:variables
 }
