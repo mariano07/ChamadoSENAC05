@@ -109,6 +109,20 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
                 + "FROM chamado JOIN problema ON chamado.idTicket = problema.idTicket";
         model.setNumRows(0);
         table_lista.setModel(model);
+        if(InstrucaoSQL.contains("WHERE")){
+            if(check_FIltros.isSelected() && box_Patrimonio.getSelectedItem().toString()!= "Patrimonio" && !InstrucaoSQL.contains("Patrmonio")){
+                InstrucaoSQL+=" AND Patrimonio = '"+box_Patrimonio.getSelectedItem()+"'";
+            }
+            if(check_FIltros.isSelected() && box_Data.getSelectedItem().toString()!= "Data" && !InstrucaoSQL.contains("Data")){
+                InstrucaoSQL+=" AND Data = '"+box_Data.getSelectedItem()+"'";
+            }
+            if(check_FIltros.isSelected() && box_Status.getSelectedItem().toString()!= "Status" && !InstrucaoSQL.contains("Status")){
+                InstrucaoSQL+=" AND StatusDoProblema = '"+box_Status.getSelectedItem()+"'";
+            }
+            if(check_FIltros.isSelected() && box_Matricula.getSelectedItem().toString()!= "Matricula" && !InstrucaoSQL.contains("Matricula")){
+                InstrucaoSQL+=" AND Matricula = '"+box_Matricula.getSelectedItem()+"'";
+            }
+        }
         if(!InstrucaoSQL.contains("WHERE")){
             if(check_FIltros.isSelected() && box_Patrimonio.getSelectedItem().toString()!= "Patrimonio"){
                 InstrucaoSQL+=" WHERE Patrimonio = '"+box_Patrimonio.getSelectedItem().toString()+"'";
@@ -123,21 +137,9 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
                 InstrucaoSQL+=" WHERE Matricula = '"+box_Matricula.getSelectedItem()+"'";
             }
         }
-        if (InstrucaoSQL.contains("WHERE")){
-            if(check_FIltros.isSelected() && box_Patrimonio.getSelectedItem().toString()!= "Patrimonio" && !InstrucaoSQL.contains("Patrmonio")){
-                InstrucaoSQL+=" AND Patrimonio = '"+box_Patrimonio.getSelectedItem()+"'";
-            }
-            if(check_FIltros.isSelected() && box_Data.getSelectedItem().toString()!= "Data" && !InstrucaoSQL.contains("Data")){
-                InstrucaoSQL+=" AND Data = '"+box_Data.getSelectedItem()+"'";
-            }
-            if(check_FIltros.isSelected() && box_Status.getSelectedItem().toString()!= "Status" && !InstrucaoSQL.contains("Status")){
-                InstrucaoSQL+=" AND StatusDoProblema = '"+box_Status.getSelectedItem()+"'";
-            }
-            if(check_FIltros.isSelected() && box_Matricula.getSelectedItem().toString()!= "Matricula" && !InstrucaoSQL.contains("Matricula")){
-                InstrucaoSQL+=" AND Matricula = '"+box_Matricula.getSelectedItem()+"'";
-            }
-        }
+        InstrucaoSQL+=" ORDER BY chamado.Data DESC, chamado.Hora DESC";
         conectar();
+        JOptionPane.showMessageDialog(null, InstrucaoSQL);
         try{
             st = conexao.createStatement();
             result = st.executeQuery(InstrucaoSQL);
@@ -236,7 +238,15 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             new String [] {
                 "Matricula", "Patrimonio", "Cliente", "Instituição", "Problema", "Status", "Solução", "Data", "Hora"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(table_lista);
 
         javax.swing.GroupLayout JPanelConsulaChamadoLayout = new javax.swing.GroupLayout(JPanelConsulaChamado);

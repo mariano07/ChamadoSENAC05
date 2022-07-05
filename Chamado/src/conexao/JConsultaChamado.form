@@ -11,7 +11,6 @@
     <Property name="frameIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
       <Image iconType="3" name="/imagens_icones/magnifier.png"/>
     </Property>
-    <Property name="icon" type="boolean" value="true"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -216,15 +215,15 @@
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="9" rowCount="1">
-                    <Column editable="true" title="Matricula" type="java.lang.Object"/>
-                    <Column editable="true" title="Patrimonio" type="java.lang.Object"/>
-                    <Column editable="true" title="Cliente" type="java.lang.Object"/>
-                    <Column editable="true" title="Institui&#xe7;&#xe3;o" type="java.lang.Object"/>
-                    <Column editable="true" title="Problema" type="java.lang.Object"/>
-                    <Column editable="true" title="Status" type="java.lang.Object"/>
-                    <Column editable="true" title="Solu&#xe7;&#xe3;o" type="java.lang.Object"/>
-                    <Column editable="true" title="Data" type="java.lang.Object"/>
-                    <Column editable="true" title="Hora" type="java.lang.Object"/>
+                    <Column editable="false" title="Matricula" type="java.lang.Object"/>
+                    <Column editable="false" title="Patrimonio" type="java.lang.Object"/>
+                    <Column editable="false" title="Cliente" type="java.lang.Object"/>
+                    <Column editable="false" title="Institui&#xe7;&#xe3;o" type="java.lang.Object"/>
+                    <Column editable="false" title="Problema" type="java.lang.Object"/>
+                    <Column editable="false" title="Status" type="java.lang.Object"/>
+                    <Column editable="false" title="Solu&#xe7;&#xe3;o" type="java.lang.Object"/>
+                    <Column editable="false" title="Data" type="java.lang.Object"/>
+                    <Column editable="false" title="Hora" type="java.lang.Object"/>
                   </Table>
                 </Property>
               </Properties>
