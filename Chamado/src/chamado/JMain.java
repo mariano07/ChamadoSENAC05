@@ -374,7 +374,7 @@ public class JMain extends javax.swing.JFrame {
         if(!jcp.isVisible()){
             tela_principal.add(jcp);
             jcp.setCargoMatricula(cargo, mitem_matricula.getText());
-            jcp.Filtros();
+            jcp.Buscar();
             jcp.setVisible(true);
         }
     }//GEN-LAST:event_mitem_consultarActionPerformed

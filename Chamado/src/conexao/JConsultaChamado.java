@@ -54,10 +54,13 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         }
     }
     private void Hidden(){
-        box_Matricula.setVisible(false);
-        box_Patrimonio.setVisible(false);
-        box_Data.setVisible(false);
-        box_Status.setVisible(false);
+        Rbutton_DataHora.setSelected(true);
+        if(getCargo().equals("TEC")){
+            Rbutton_Matricula.setVisible(false);
+        }
+        else{
+            Rbutton_Matricula.setVisible(true);
+        }
         invalidate();
         validate();
     }
@@ -71,77 +74,84 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
     private String getMatricula(){
         return this.matricula;
     }
-    public void Filtros(){
-        if(getCargo().equals("ADM")){
-            String InstrucaoPatrimonio="SELECT DISTINCT Patrimonio FROM chamado";
-            String InstrucaoData="SELECT DISTINCT Data FROM chamado ORDER BY Data DESC";
-            String InstrucaoMatricula="SELECT DISTINCT Matricula FROM chamado ORDER BY Matricula ASC";
-            conectar();
-            try{
-                st = conexao.createStatement();
-                result = st.executeQuery(InstrucaoPatrimonio);
-                while(result.next()){
-                    box_Patrimonio.addItem(result.getString("Patrimonio"));
-                }
-                st.close();
-                st = conexao.createStatement();
-                result = st.executeQuery(InstrucaoData);
-                while(result.next()){
-                    box_Data.addItem(result.getString("Data"));
-                }
-                st.close();
-                st = conexao.createStatement();
-                result = st.executeQuery(InstrucaoMatricula);
-                while(result.next()){
-                    box_Matricula.addItem(result.getString("Matricula"));
-                }
-                st.close();
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-        }else{
-            
-        }
-    }
-    private void Buscar(){
+    public void Buscar(){
         DefaultTableModel model = (DefaultTableModel)table_lista.getModel();
         String[] dados = new String[10];
-        String InstrucaoSQL="SELECT chamado.idTicket,chamado.Patrimonio,chamado.Matricula,chamado.idCliente,chamado.idInstituicao,"
+        String InstrucaoSQL;
+        if(getMatricula().equals("TEC")){
+            InstrucaoSQL ="SELECT chamado.idTicket,chamado.Patrimonio,chamado.Matricula,chamado.idCliente,chamado.idInstituicao,"
+                + "problema.Problema,problema.StatusDoProblema,problema.Solucao,chamado.Data,chamado.Hora "
+                + "FROM chamado JOIN problema ON chamado.idTicket = problema.idTicket AND chamado.Matricula = "+getMatricula(); 
+        }
+        else{
+            InstrucaoSQL="SELECT chamado.idTicket,chamado.Patrimonio,chamado.Matricula,chamado.idCliente,chamado.idInstituicao,"
                 + "problema.Problema,problema.StatusDoProblema,problema.Solucao,chamado.Data,chamado.Hora "
                 + "FROM chamado JOIN problema ON chamado.idTicket = problema.idTicket";
+        }
         model.setNumRows(0);
         table_lista.setModel(model);
-        if(InstrucaoSQL.contains("WHERE")){
-            if(check_FIltros.isSelected() && box_Patrimonio.getSelectedItem().toString()!= "Patrimonio" && !InstrucaoSQL.contains("Patrmonio")){
-                InstrucaoSQL+=" AND Patrimonio = '"+box_Patrimonio.getSelectedItem()+"'";
-            }
-            if(check_FIltros.isSelected() && box_Data.getSelectedItem().toString()!= "Data" && !InstrucaoSQL.contains("Data")){
-                InstrucaoSQL+=" AND Data = '"+box_Data.getSelectedItem()+"'";
-            }
-            if(check_FIltros.isSelected() && box_Status.getSelectedItem().toString()!= "Status" && !InstrucaoSQL.contains("Status")){
-                InstrucaoSQL+=" AND StatusDoProblema = '"+box_Status.getSelectedItem()+"'";
-            }
-            if(check_FIltros.isSelected() && box_Matricula.getSelectedItem().toString()!= "Matricula" && !InstrucaoSQL.contains("Matricula")){
-                InstrucaoSQL+=" AND Matricula = '"+box_Matricula.getSelectedItem()+"'";
+        if(!text_Consulta.getText().equals("Pesquisar") && !text_Consulta.getText().equals("") && getMatricula().equals("TEC")){
+            InstrucaoSQL+=" WHERE chamado.idTicket LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " chamado.Patrimonio LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " chamado.idCliente LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " chamado.idInstituicao LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " problema.Problema LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " problema.StatusDoProblema LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " problema.Solucao LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " chamado.Data LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " chamado.Hora LIKE '"+text_Consulta.getText()+"%'";
+        }
+        else if(!text_Consulta.getText().equals("Pesquisar") && !text_Consulta.getText().equals("") && getMatricula().equals("ADM")){
+            InstrucaoSQL+=" WHERE chamado.idTicket LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " chamado.Patrimonio LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " chamado.Matricula LIKE '"+text_Consulta.getText()+"%'"
+                    + " chamado.idCliente LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " chamado.idInstituicao LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " problema.Problema LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " problema.StatusDoProblema LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " problema.Solucao LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " chamado.Data LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " chamado.Hora LIKE '"+text_Consulta.getText()+"%'";
+        }
+        if(Rbutton_Cliente.isSelected()){
+            if(box_ordem.getSelectedItem().equals("Menor -> Maior")){
+                InstrucaoSQL+=" ORDER BY chamado.idCliente ASC";
+            }else{
+                InstrucaoSQL+=" ORDER BY chamado.idCliente DESC";
             }
         }
-        if(!InstrucaoSQL.contains("WHERE")){
-            if(check_FIltros.isSelected() && box_Patrimonio.getSelectedItem().toString()!= "Patrimonio"){
-                InstrucaoSQL+=" WHERE Patrimonio = '"+box_Patrimonio.getSelectedItem().toString()+"'";
-            }
-            if(check_FIltros.isSelected() && box_Data.getSelectedItem().toString()!= "Data"){
-                InstrucaoSQL+=" WHERE Data = '"+box_Data.getSelectedItem()+"'";
-            }
-            if(check_FIltros.isSelected() && box_Status.getSelectedItem().toString()!= "Status"){
-                InstrucaoSQL+=" WHERE StatusDoProblema = '"+box_Status.getSelectedItem()+"'";
-            }
-            if(check_FIltros.isSelected() && box_Matricula.getSelectedItem().toString()!= "Matricula"){
-                InstrucaoSQL+=" WHERE Matricula = '"+box_Matricula.getSelectedItem()+"'";
+        else if(Rbutton_DataHora.isSelected()){
+            if(box_ordem.getSelectedItem().equals("Menor -> Maior")){
+                InstrucaoSQL+=" ORDER BY chamado.Data ASC, chamado.Hora ASC";
+            }else{
+                InstrucaoSQL+=" ORDER BY chamado.Data DESC, chamado.Hora DESC";
             }
         }
-        InstrucaoSQL+=" ORDER BY chamado.Data DESC, chamado.Hora DESC";
+        else if(Rbutton_Instituicao.isSelected()){
+            if(box_ordem.getSelectedItem().equals("Menor -> Maior")){
+                InstrucaoSQL+=" ORDER BY chamado.idInstituicao ASC";
+            }else{
+                InstrucaoSQL+=" ORDER BY chamado.idInstituicao DESC";
+            }
+        }
+        else if(Rbutton_Matricula.isSelected()){
+            if(box_ordem.getSelectedItem().equals("Menor -> Maior")){
+                InstrucaoSQL+=" ORDER BY chamado.Matricula ASC";
+            }else{
+                InstrucaoSQL+=" ORDER BY chamado.Matricula DESC";
+            }
+        }
+        else if(Rbutton_idTicket.isSelected()){
+            if(box_ordem.getSelectedItem().equals("Menor -> Maior")){
+                InstrucaoSQL+=" ORDER BY chamado.idTicket ASC";
+            }else{
+                InstrucaoSQL+=" ORDER BY chamado.idTicket DESC";
+            }
+        }
+        else{
+            InstrucaoSQL+=" ORDER BY chamado.Data ASC, chamado.Hora ASC";
+        }
         conectar();
-        JOptionPane.showMessageDialog(null, InstrucaoSQL);
         try{
             st = conexao.createStatement();
             result = st.executeQuery(InstrucaoSQL);
@@ -214,14 +224,15 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         JPanelConsulaChamado = new javax.swing.JPanel();
         Button_Alterar = new javax.swing.JButton();
         text_Consulta = new javax.swing.JTextField();
-        check_FIltros = new javax.swing.JCheckBox();
-        box_Patrimonio = new javax.swing.JComboBox<>();
-        box_Matricula = new javax.swing.JComboBox<>();
-        box_Data = new javax.swing.JComboBox<>();
-        box_Status = new javax.swing.JComboBox<>();
-        Button_Procurar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         table_lista = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        Rbutton_idTicket = new javax.swing.JRadioButton();
+        Rbutton_Matricula = new javax.swing.JRadioButton();
+        Rbutton_Cliente = new javax.swing.JRadioButton();
+        Rbutton_Instituicao = new javax.swing.JRadioButton();
+        Rbutton_DataHora = new javax.swing.JRadioButton();
+        box_ordem = new javax.swing.JComboBox<>();
 
         setBorder(null);
         setClosable(true);
@@ -249,32 +260,8 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             }
         });
         text_Consulta.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                text_ConsultaKeyPressed(evt);
-            }
-        });
-
-        check_FIltros.setText("Filtros");
-        check_FIltros.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                check_FIltrosStateChanged(evt);
-            }
-        });
-
-        box_Patrimonio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patrimonio" }));
-        box_Patrimonio.setToolTipText("");
-        box_Patrimonio.setName(""); // NOI18N
-
-        box_Matricula.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matricula" }));
-
-        box_Data.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data" }));
-
-        box_Status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Status", "CONCLUIDO", "PENDENTE" }));
-
-        Button_Procurar.setText("Procurar");
-        Button_Procurar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Button_ProcurarMouseClicked(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                text_ConsultaKeyReleased(evt);
             }
         });
 
@@ -287,7 +274,7 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, false, false
@@ -303,6 +290,45 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(table_lista);
 
+        jLabel1.setText("Ordenar por");
+
+        Rbutton_idTicket.setText("idTicket");
+        Rbutton_idTicket.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                Rbutton_idTicketStateChanged(evt);
+            }
+        });
+
+        Rbutton_Matricula.setText("Matricula");
+        Rbutton_Matricula.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                Rbutton_MatriculaStateChanged(evt);
+            }
+        });
+
+        Rbutton_Cliente.setText("Ciente");
+        Rbutton_Cliente.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                Rbutton_ClienteStateChanged(evt);
+            }
+        });
+
+        Rbutton_Instituicao.setText("Instituição");
+        Rbutton_Instituicao.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                Rbutton_InstituicaoStateChanged(evt);
+            }
+        });
+
+        Rbutton_DataHora.setText("Data e Hora");
+        Rbutton_DataHora.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                Rbutton_DataHoraStateChanged(evt);
+            }
+        });
+
+        box_ordem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maior -> Menor", "Menor -> Marior" }));
+
         javax.swing.GroupLayout JPanelConsulaChamadoLayout = new javax.swing.GroupLayout(JPanelConsulaChamado);
         JPanelConsulaChamado.setLayout(JPanelConsulaChamadoLayout);
         JPanelConsulaChamadoLayout.setHorizontalGroup(
@@ -310,46 +336,50 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1432, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1437, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelConsulaChamadoLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(Button_Alterar))
-                    .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
-                        .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
-                                .addComponent(text_Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Button_Procurar)
-                                .addGap(18, 18, 18)
-                                .addComponent(check_FIltros))
-                            .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
-                                .addComponent(box_Patrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(box_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(box_Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(box_Matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(text_Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Rbutton_Matricula)
+                                .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
+                                    .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Rbutton_idTicket)
+                                        .addComponent(Rbutton_Cliente))
+                                    .addGap(34, 34, 34)
+                                    .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Rbutton_DataHora)
+                                        .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
+                                            .addComponent(Rbutton_Instituicao)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(box_ordem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
                 .addContainerGap())
         );
         JPanelConsulaChamadoLayout.setVerticalGroup(
             JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(text_Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Button_Procurar)
-                    .addComponent(check_FIltros))
+                    .addComponent(jLabel1)
+                    .addComponent(Rbutton_Instituicao)
+                    .addComponent(Rbutton_idTicket)
+                    .addComponent(box_ordem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(box_Patrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(box_Matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(box_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(box_Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Rbutton_Cliente)
+                    .addComponent(Rbutton_DataHora))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(Rbutton_Matricula)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(Button_Alterar)
                 .addContainerGap())
         );
@@ -369,27 +399,6 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void check_FIltrosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_FIltrosStateChanged
-        if(check_FIltros.isSelected() && getCargo().equals("ADM")){
-            box_Patrimonio.setVisible(true);
-            box_Data.setVisible(true);
-            box_Status.setVisible(true);
-            box_Matricula.setVisible(true);
-            validate();
-        }else if(check_FIltros.isSelected() && getCargo().equals("TEC")){
-            box_Patrimonio.setVisible(true);
-            box_Data.setVisible(true);
-            box_Status.setVisible(true);
-            validate();
-        }else{
-            box_Patrimonio.setVisible(false);
-            box_Data.setVisible(false);
-            box_Status.setVisible(false);
-            box_Matricula.setVisible(false);
-            validate();
-        }
-    }//GEN-LAST:event_check_FIltrosStateChanged
 
     private void Button_AlterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_AlterarMouseClicked
         String[] dados = new String[15];
@@ -415,26 +424,68 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_text_ConsultaFocusLost
 
-    private void text_ConsultaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_ConsultaKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+    private void text_ConsultaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_ConsultaKeyReleased
+        if(evt.getKeyCode()!=KeyEvent.VK_ENTER){
             Buscar();
         }
-    }//GEN-LAST:event_text_ConsultaKeyPressed
+    }//GEN-LAST:event_text_ConsultaKeyReleased
 
-    private void Button_ProcurarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ProcurarMouseClicked
-        Buscar();
-    }//GEN-LAST:event_Button_ProcurarMouseClicked
+    private void Rbutton_idTicketStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_Rbutton_idTicketStateChanged
+        if(Rbutton_idTicket.isSelected()){
+            Rbutton_Cliente.setSelected(false);
+            Rbutton_DataHora.setSelected(false);
+            Rbutton_Instituicao.setSelected(false);
+            Rbutton_Matricula.setSelected(false);
+        }
+    }//GEN-LAST:event_Rbutton_idTicketStateChanged
+
+    private void Rbutton_ClienteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_Rbutton_ClienteStateChanged
+        if(Rbutton_Cliente.isSelected()){
+            Rbutton_idTicket.setSelected(false);
+            Rbutton_DataHora.setSelected(false);
+            Rbutton_Instituicao.setSelected(false);
+            Rbutton_Matricula.setSelected(false);
+        }
+    }//GEN-LAST:event_Rbutton_ClienteStateChanged
+
+    private void Rbutton_MatriculaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_Rbutton_MatriculaStateChanged
+        if(Rbutton_Matricula.isSelected()){
+            Rbutton_Cliente.setSelected(false);
+            Rbutton_DataHora.setSelected(false);
+            Rbutton_Instituicao.setSelected(false);
+            Rbutton_idTicket.setSelected(false);
+        }
+    }//GEN-LAST:event_Rbutton_MatriculaStateChanged
+
+    private void Rbutton_InstituicaoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_Rbutton_InstituicaoStateChanged
+        if(Rbutton_Instituicao.isSelected()){
+            Rbutton_Cliente.setSelected(false);
+            Rbutton_DataHora.setSelected(false);
+            Rbutton_idTicket.setSelected(false);
+            Rbutton_Matricula.setSelected(false);
+        }
+    }//GEN-LAST:event_Rbutton_InstituicaoStateChanged
+
+    private void Rbutton_DataHoraStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_Rbutton_DataHoraStateChanged
+        if(Rbutton_DataHora.isSelected()){
+            Rbutton_Cliente.setSelected(false);
+            Rbutton_idTicket.setSelected(false);
+            Rbutton_Instituicao.setSelected(false);
+            Rbutton_Matricula.setSelected(false);
+        }
+    }//GEN-LAST:event_Rbutton_DataHoraStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_Alterar;
-    private javax.swing.JButton Button_Procurar;
     private javax.swing.JPanel JPanelConsulaChamado;
-    private javax.swing.JComboBox<String> box_Data;
-    private javax.swing.JComboBox<String> box_Matricula;
-    private javax.swing.JComboBox<String> box_Patrimonio;
-    private javax.swing.JComboBox<String> box_Status;
-    private javax.swing.JCheckBox check_FIltros;
+    private javax.swing.JRadioButton Rbutton_Cliente;
+    private javax.swing.JRadioButton Rbutton_DataHora;
+    private javax.swing.JRadioButton Rbutton_Instituicao;
+    private javax.swing.JRadioButton Rbutton_Matricula;
+    private javax.swing.JRadioButton Rbutton_idTicket;
+    private javax.swing.JComboBox<String> box_ordem;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable table_lista;
     private javax.swing.JTextField text_Consulta;
