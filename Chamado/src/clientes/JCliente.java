@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class JCliente extends javax.swing.JInternalFrame {
     private static conexao_bd cbd = new conexao_bd();
+    private String patrimonio;
     /**
      * Creates new form JCliente
      */
@@ -26,6 +27,9 @@ public class JCliente extends javax.swing.JInternalFrame {
         text_cpf.setText("CPF");
         text_endereco.setText("Endereço");
         text_telefone.setText("Telefone");
+    }
+    public void patrimonio(String patrimonio){
+        this.patrimonio = patrimonio;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -296,6 +300,7 @@ public class JCliente extends javax.swing.JInternalFrame {
     private void button_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_addMouseClicked
         String nome, endereco, cpf, tel, email;
         boolean retorno = false;
+        int id=0;
         
         nome = text_nome.getText();
         endereco = text_endereco.getText();
@@ -305,8 +310,9 @@ public class JCliente extends javax.swing.JInternalFrame {
         retorno = cbd.ClienteCPF(cpf);
         
          if(retorno==false ){
-              cbd.Cliente(nome,cpf, tel,email, endereco);
-              JOptionPane.showMessageDialog(null, "Cliente Adicionado Com Sucesso!");
+              cbd.Cliente(nome,cpf,tel,email,endereco);
+              id = cbd.idCliente(nome,cpf);
+              cbd.AddExistentePF(id, patrimonio);
               dispose();
               reseta();
         }else {

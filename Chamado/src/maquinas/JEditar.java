@@ -57,6 +57,7 @@ public class JEditar extends javax.swing.JInternalFrame {
         texta_solucao.setText("");
         getParent().add(jcc);
         jcc.setVisible(true);
+        jcc.Buscar();
         dispose();
     }
     

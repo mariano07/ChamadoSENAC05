@@ -408,7 +408,6 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         String[] dados = new String[15];
         int id = 0,linha = table_lista.getSelectedRow();
         id = Integer.parseInt(table_lista.getValueAt(linha, 0).toString());
-        JOptionPane.showMessageDialog(null, id);
         dados = BuscaChamado(id);
         getParent().add(je);
         je.popular(id,dados);

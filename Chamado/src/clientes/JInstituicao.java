@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class JInstituicao extends javax.swing.JInternalFrame {
     private static conexao_bd cbd = new conexao_bd();
-
+    private String patrimonio;
     /**
      * Creates new form JInstituicao
      */
@@ -29,7 +29,9 @@ public class JInstituicao extends javax.swing.JInternalFrame {
         text_endereco.setText("Endereço");
         text_telefone.setText("Telefone");
     }
-    
+    public void patrimonio(String patrimonio){
+        this.patrimonio = patrimonio;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -353,6 +355,8 @@ public class JInstituicao extends javax.swing.JInternalFrame {
         
         if(retorno == false && retorno2 == false){
               cbd.Instituicao(nome, endereco, tel, resp, cnpj, cpf);
+              int id = cbd.idInstituicao(nome, cnpj);
+              cbd.AddExistentePJ(id, patrimonio);
               reseta();
               dispose();
         }else if(retorno == true){

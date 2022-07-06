@@ -120,7 +120,6 @@ public class conexao_bd{
         try{
             st1 = conexao.createStatement();
             st1.executeUpdate(InstrucaoSQL);
-            JOptionPane.showMessageDialog(null, "Cliente adicionado com sucesso");
         }catch (Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C117", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -135,7 +134,6 @@ public class conexao_bd{
         try{
             st1 = conexao.createStatement();
             st1.executeUpdate(InstrucaoSQL);
-            JOptionPane.showMessageDialog(null, "Cliente adicionado com sucesso");
         }catch (Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO:C127", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -584,4 +582,40 @@ public class conexao_bd{
        }
        desconectar();
    }
+   public int idCliente(String nome,String cpf){
+        String InstrucaoSQL="SELECT idClientes FROM `clientes` "
+                + "WHERE `Nome` ='"+nome+"' AND `CPF` ='"+cpf+"'";
+        int id =0;
+        conectar();
+        try{
+            st1 = conexao.createStatement();
+            result1 = st1.executeQuery(InstrucaoSQL);
+            while(result1.next()){
+                id = result1.getInt("idClientes");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "ERRO:C587", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
+        return id;
+    }
+   public int idInstituicao(String nome,String cnpj){
+        String InstrucaoSQL="SELECT idInstituicoes FROM `instituicoes` "
+                + "WHERE `Nome` ='"+nome+"' AND `CNPJ` ='"+cnpj+"'";
+        int id =0;
+        conectar();
+        try{
+            st1 = conexao.createStatement();
+            result1 = st1.executeQuery(InstrucaoSQL);
+            while(result1.next()){
+                id = result1.getInt("idInstituicoes");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "ERRO:C604", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        desconectar();
+        return id;
+    }
 }

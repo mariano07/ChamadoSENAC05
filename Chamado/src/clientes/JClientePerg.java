@@ -153,11 +153,13 @@ public class JClientePerg extends javax.swing.JInternalFrame {
         if(check_pf.isSelected()){
             JDesktopPane desktop = getDesktopPane();
             desktop.add(jc);
+            jc.patrimonio(patrimonio);
             jc.setVisible(true);
             this.dispose();
         }else if(check_pj.isSelected()){
             JDesktopPane desktop = getDesktopPane();
             desktop.add(ji);
+            ji.patrimonio(patrimonio);
             ji.setVisible(true);
             this.dispose();
         }else if(check_pfExis.isSelected()){
