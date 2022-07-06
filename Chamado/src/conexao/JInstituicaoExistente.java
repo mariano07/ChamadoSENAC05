@@ -45,7 +45,7 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
             conexao = DriverManager.getConnection(url,username,password);
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Erro C025","ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro JIE43","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     private void desconectar(){
@@ -54,7 +54,7 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
             conexao.close();
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Erro C033","ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro JIE51","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     private void  Busca () {    
@@ -74,7 +74,7 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
              
             ResultadoPesquisa();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao listar dados" + e);
+            JOptionPane.showInternalMessageDialog(null,"ERRO:JIE60", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
    }   
    private void executaSQL(String sql) {
@@ -83,7 +83,7 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
             result = st.executeQuery(sql);  
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Nao foi possível executar o comando sql");
+            JOptionPane.showInternalMessageDialog(null,"ERRO:JIE80", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     private void ResultadoPesquisa() {
@@ -91,8 +91,9 @@ public class JInstituicaoExistente extends javax.swing.JInternalFrame {
             result.first();
             text_cnpjresult.setText(result.getString("CNPJ"));
             text_nomeresult.setText(result.getString("Nome"));          
-        } catch (SQLException erro) {
-          // JOptionPane.showMessageDialog(null, "ERRO:C32 JCE", "ERRO", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showInternalMessageDialog(null,"ERRO:JIE89", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
    private void MostraPesquisa() {

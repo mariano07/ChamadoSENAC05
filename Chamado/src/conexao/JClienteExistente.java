@@ -50,7 +50,7 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
             conexao = DriverManager.getConnection(url,username,password);
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Erro C025","ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro JCE48","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     private void desconectar(){
@@ -59,7 +59,7 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
             conexao.close();
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Erro C033","ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro JCE56","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -81,7 +81,8 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
              
             ResultadoPesquisa();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao listar dados" + e);
+            e.printStackTrace();
+            JOptionPane.showInternalMessageDialog(null,"ERRO:JCE67", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
    }
      
@@ -91,7 +92,7 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
             result = st.executeQuery(sql);  
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Nao foi possível executar o comando sql");
+            JOptionPane.showInternalMessageDialog(null,"ERRO:JCE89", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
    
@@ -101,7 +102,7 @@ public class JClienteExistente extends javax.swing.JInternalFrame {
             text_cpfresult.setText(result.getString("CPF"));
             text_nomeresult.setText(result.getString("Nome"));          
         } catch (SQLException erro) {
-          // JOptionPane.showMessageDialog(null, "ERRO:C32 JCE", "ERRO", JOptionPane.ERROR_MESSAGE);
+          JOptionPane.showInternalMessageDialog(null,"ERRO:JCE99", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
    
     }

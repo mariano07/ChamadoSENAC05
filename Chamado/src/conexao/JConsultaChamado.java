@@ -41,7 +41,7 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             conexao = DriverManager.getConnection(url,username,password);
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C027","ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:JCC39","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     private void desconectar(){
@@ -50,7 +50,7 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             conexao.close();
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERRO:C035","ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERRO:JCC47","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     private void Hidden(){
@@ -173,6 +173,7 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             table_lista.setModel(model);
         }catch(Exception e){
             e.printStackTrace();
+            JOptionPane.showInternalMessageDialog(null,"ERRO:JCC77", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -201,6 +202,7 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             }
         }catch(Exception e){
             e.printStackTrace();
+            JOptionPane.showInternalMessageDialog(null,"ERRO:JCC180", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
         
@@ -215,6 +217,7 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             }
         }catch(Exception e){
             e.printStackTrace();
+            JOptionPane.showInternalMessageDialog(null,"ERRO:JCC180.2", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
         return dados;

@@ -52,11 +52,13 @@ public class JMain extends javax.swing.JFrame {
         this.cargo = cargo;
         if(cargo.equals("ADM")){
             JOptionPane.showMessageDialog(null, "Bem vindo "+nome+" :D");
+            menu_estatisticas.setVisible(false);
             return matricula;
         }else if (cargo.equals("TEC")){
             JOptionPane.showMessageDialog(null, "Bem vindo "+nome+" :D");
             menu_tecnicos.setVisible(false);
             mitem_estequipe.setVisible(false);
+            menu_estatisticas.setVisible(false);
             return matricula;
         }else{
             return matricula;
