@@ -92,28 +92,28 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         table_lista.setModel(model);
         if(text_Consulta.getText().equals("Pesquisar...") && !text_Consulta.getText().equals("") && getCargo().equals("TEC")){
             InstrucaoSQL+=" WHERE chamado.idTicket LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " chamado.idTicket LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " chamado.Patrimonio LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " chamado.idCliente LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " chamado.idInstituicao LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " problema.Problema LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " problema.StatusDoProblema LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " problema.Solucao LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " chamado.Data LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " chamado.Hora LIKE '"+text_Consulta.getText()+"%'";
+                    + " chamado.idTicket LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " chamado.Patrimonio LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " chamado.idCliente LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " chamado.idInstituicao LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " problema.Problema LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " problema.StatusDoProblema LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " problema.Solucao LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " chamado.Data LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " chamado.Hora LIKE '%"+text_Consulta.getText()+"%'";
         }
         else if(!text_Consulta.getText().equals("Pesquisar...") && !text_Consulta.getText().equals("") && getCargo().equals("ADM")){
-            InstrucaoSQL+=" WHERE chamado.idTicket LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " chamado.idTicket LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " chamado.Patrimonio LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " chamado.Matricula LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " chamado.idCliente LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " chamado.idInstituicao LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " problema.Problema LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " problema.StatusDoProblema LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " problema.Solucao LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " chamado.Data LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " chamado.Hora LIKE '"+text_Consulta.getText()+"%'";
+            InstrucaoSQL+=" WHERE chamado.idTicket LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " chamado.idTicket LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " chamado.Patrimonio LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " chamado.Matricula LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " chamado.idCliente LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " chamado.idInstituicao LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " problema.Problema LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " problema.StatusDoProblema LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " problema.Solucao LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " chamado.Data LIKE '%"+text_Consulta.getText()+"%' OR"
+                    + " chamado.Hora LIKE '%"+text_Consulta.getText()+"%'";
         }
         if(Rbutton_Cliente.isSelected()){
             if(box_ordem.getSelectedItem().equals("Menor -> Maior")){
