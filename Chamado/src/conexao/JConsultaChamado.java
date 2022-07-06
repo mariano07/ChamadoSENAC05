@@ -179,25 +179,25 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
     private String[] BuscaChamado(int id){
         String[] dados = new String[14];
         String InstrucaoSQL = "SELECT `Patrimonio`, `Sala`, `Placa mae`, `Processador`, "
-                + "`Memorias Ram`, `Placa de video`, `Fonte`, `Ssd`, `Hd`, `Cooler`, `CoolerCpu`, `Gabinete`, "
+                + "`Memorias Ram`, `Placa de video`, `Fonte`, `Ssd`, `Hd`, `Cooler`, `CoolerCpu`, `Gabinete`"
                 + "FROM `chamado` WHERE idTicket = "+id;
         conectar();
         try{
             st = conexao.createStatement();
             result = st.executeQuery(InstrucaoSQL);
             while(result.next()){
-                dados[0]=result.getString("`Patrimonio`");
-                dados[1]=result.getString("`Sala`");
-                dados[2]=result.getString("`Placa mae`");
-                dados[3]=result.getString("`Processador`");
-                dados[4]=result.getString("`Memorias Ram`");
-                dados[5]=result.getString("`Placa de video`");
-                dados[6]=result.getString("`Fonte`");
-                dados[7]=result.getString("`Ssd`");
-                dados[8]=result.getString("`Hd`");
-                dados[9]=result.getString("`Cooler`");
-                dados[10]=result.getString("`CoolerCpu`");
-                dados[11]=result.getString("`Gabinete`");
+                dados[0]=result.getString("Patrimonio");
+                dados[1]=result.getString("Sala");
+                dados[2]=result.getString("Placa mae");
+                dados[3]=result.getString("Processador");
+                dados[4]=result.getString("Memorias Ram");
+                dados[5]=result.getString("Placa de video");
+                dados[6]=result.getString("Fonte");
+                dados[7]=result.getString("Ssd");
+                dados[8]=result.getString("Hd");
+                dados[9]=result.getString("Cooler");
+                dados[10]=result.getString("CoolerCPU");
+                dados[11]=result.getString("Gabinete");
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -210,8 +210,8 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             st = conexao.createStatement();
             result = st.executeQuery(InstrucaoSQL2);
             while(result.next()){
-                dados[12]=result.getString("`Problema`");
-                dados[13]=result.getString("`Solucao`");
+                dados[12]=result.getString("Problema");
+                dados[13]=result.getString("Solucao");
             }
         }catch(Exception e){
             e.printStackTrace();
