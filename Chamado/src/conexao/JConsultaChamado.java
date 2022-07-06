@@ -90,8 +90,9 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         }
         model.setNumRows(0);
         table_lista.setModel(model);
-        if(!text_Consulta.getText().equals("Pesquisar") && !text_Consulta.getText().equals("") && getMatricula().equals("TEC")){
+        if(text_Consulta.getText().equals("Pesquisar...") && !text_Consulta.getText().equals("") && getCargo().equals("TEC")){
             InstrucaoSQL+=" WHERE chamado.idTicket LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " chamado.idTicket LIKE '"+text_Consulta.getText()+"%' OR"
                     + " chamado.Patrimonio LIKE '"+text_Consulta.getText()+"%' OR"
                     + " chamado.idCliente LIKE '"+text_Consulta.getText()+"%' OR"
                     + " chamado.idInstituicao LIKE '"+text_Consulta.getText()+"%' OR"
@@ -101,10 +102,11 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
                     + " chamado.Data LIKE '"+text_Consulta.getText()+"%' OR"
                     + " chamado.Hora LIKE '"+text_Consulta.getText()+"%'";
         }
-        else if(!text_Consulta.getText().equals("Pesquisar") && !text_Consulta.getText().equals("") && getMatricula().equals("ADM")){
+        else if(!text_Consulta.getText().equals("Pesquisar...") && !text_Consulta.getText().equals("") && getCargo().equals("ADM")){
             InstrucaoSQL+=" WHERE chamado.idTicket LIKE '"+text_Consulta.getText()+"%' OR"
+                    + " chamado.idTicket LIKE '"+text_Consulta.getText()+"%' OR"
                     + " chamado.Patrimonio LIKE '"+text_Consulta.getText()+"%' OR"
-                    + " chamado.Matricula LIKE '"+text_Consulta.getText()+"%'"
+                    + " chamado.Matricula LIKE '"+text_Consulta.getText()+"%' OR"
                     + " chamado.idCliente LIKE '"+text_Consulta.getText()+"%' OR"
                     + " chamado.idInstituicao LIKE '"+text_Consulta.getText()+"%' OR"
                     + " problema.Problema LIKE '"+text_Consulta.getText()+"%' OR"
@@ -306,7 +308,7 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             }
         });
 
-        Rbutton_Cliente.setText("Ciente");
+        Rbutton_Cliente.setText("Cliente");
         Rbutton_Cliente.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 Rbutton_ClienteStateChanged(evt);
@@ -340,24 +342,26 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelConsulaChamadoLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(Button_Alterar))
-                    .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(text_Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Rbutton_Matricula)
-                                .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
-                                    .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Rbutton_idTicket)
-                                        .addComponent(Rbutton_Cliente))
-                                    .addGap(34, 34, 34)
-                                    .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Rbutton_DataHora)
-                                        .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
-                                            .addComponent(Rbutton_Instituicao)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(box_ordem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                    .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
+                        .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Rbutton_Matricula)
+                                    .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
+                                        .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Rbutton_idTicket)
+                                            .addComponent(Rbutton_Cliente))
+                                        .addGap(34, 34, 34)
+                                        .addGroup(JPanelConsulaChamadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Rbutton_DataHora)
+                                            .addGroup(JPanelConsulaChamadoLayout.createSequentialGroup()
+                                                .addComponent(Rbutton_Instituicao)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(box_ordem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addComponent(text_Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         JPanelConsulaChamadoLayout.setVerticalGroup(
@@ -424,12 +428,6 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_text_ConsultaFocusLost
 
-    private void text_ConsultaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_ConsultaKeyReleased
-        if(evt.getKeyCode()!=KeyEvent.VK_ENTER){
-            Buscar();
-        }
-    }//GEN-LAST:event_text_ConsultaKeyReleased
-
     private void Rbutton_idTicketStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_Rbutton_idTicketStateChanged
         if(Rbutton_idTicket.isSelected()){
             Rbutton_Cliente.setSelected(false);
@@ -474,6 +472,12 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
             Rbutton_Matricula.setSelected(false);
         }
     }//GEN-LAST:event_Rbutton_DataHoraStateChanged
+
+    private void text_ConsultaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_ConsultaKeyReleased
+        if(evt.getKeyCode()!=KeyEvent.VK_ENTER){
+            Buscar();
+        }
+    }//GEN-LAST:event_text_ConsultaKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
