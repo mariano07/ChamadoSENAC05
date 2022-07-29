@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 public class JInstituicaoExistente extends javax.swing.JInternalFrame {
     
     conexao_bd cbd = new conexao_bd();
-    static String url ="jdbc:mysql://172.20.126.128:3306/ChamadoSENAC";
+    static String url ="jdbc:mysql://172.20.126.217:3306/ChamadoSENAC";
     static String username ="chamado";
     static String password ="root";
     Connection conexao = null;

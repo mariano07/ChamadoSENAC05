@@ -24,7 +24,7 @@ public class JConsultaChamado extends javax.swing.JInternalFrame {
     private String cargo="";
     private String matricula="";
     private final static String chave="@#ch4m@d0$3n4cr3$tr1t0#@";
-    private final static String url ="jdbc:mysql://172.20.126.128:3306/ChamadoSENAC";
+    private final static String url ="jdbc:mysql://172.20.126.217:3306/ChamadoSENAC";
     private final static String username ="chamado";
     private final static String password ="root";
     Connection conexao = null;
